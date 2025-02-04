@@ -14,7 +14,7 @@ description:
 
 *This essay was originally written for a first-year seminar course in scientific writing at the University of British Columbia.*
 
---
+***
 
 Malaria, although eliminated in many countries today, remains a notable public health concern. In the 2010s, malaria led to over 500,000 deaths and was a leading cause of child mortality. While death tolls have decreased substantially, progress in the last decade has slowed due to the obsolescence of traditional vector control methods like insecticides. 
 
@@ -26,21 +26,6 @@ Although uncertainties still exist regarding transmission dynamics in wild popul
 
 # Anti-malarial effector molecules
 One approach, creating transgenic mosquitoes that resist the parasite responsible for malaria, directly interrupts the transmission cycle.
-Pascini et al. (2022)[^2] show that transgenic mosquitoes can effectively reduce malaria transmission by expressing anti-malarial effector molecules, which inhibit the development of the Plasmodium parasite within the mosquito. By preventing the Plasmodium parasite from being activated within its gut, an infected but modified mosquito cannot infect humans, eliminating it as a malaria vector.
-
-The researchers modified Anopheles mosquitoes to secrete huPAI-1 (human plasminogen activator inhibitor 1), a compound that inhibits specific enzymes (tPA and uPA) that the Plasmodium parasite uses to move through human tissue. The study reported that induced expression of huPAI-1 within the mosquito's midgut and salivary glands resulted in fewer parasitic oocysts forming and decreased infection rates within the test population of mice. 
-
-These results demonstrate that transgenes targeting the parasite's interaction with the host tissue can effectively prevent malaria transmission, supporting the viability of genetic modification for malaria control.
-
-# Self-limiting mutations
-Another promising approach involves self-limiting mutations, which control malaria by targeting mosquitos' reproductive cycle and population.
-
-Pollegioni et al. (2020)[^3] demonstrate that transgenic "sex-ratio distorter" mutations in Anopheles gambiae mosquitoes result in ~95% male offspring, which reduces the population of biting females.
-
-Mosquito offspring can also be targeted agnostic of sex, such as in cases where health officials must control invasive species. Patil et al. (2022)[^4] demonstrate that the release of _Oxitec OX5034_ transgenic mosquitoes into a controlled environment of Aedes aegypti or _yellow fever_ mosquitoes led to offspring lethality rates over 95%, causing a rapid decline in their population.
-
-Provided modified mosquitoes are released consistently enough to eliminate populations, both forms of this transgenic technique show promise where invasive species or excessive mosquito populations are significant factors in malaria transmission.
-
 Pascini et al. (2022)[^2] show that transgenic mosquitoes can effectively reduce malaria transmission by expressing anti-malarial effector molecules, which inhibit the development of the Plasmodium parasite within the mosquito. By preventing the Plasmodium parasite from being activated within its gut, an infected but modified mosquito cannot infect humans, eliminating it as a malaria vector.
 
 The researchers modified Anopheles mosquitoes to secrete huPAI-1 (human plasminogen activator inhibitor 1), a compound that inhibits specific enzymes (tPA and uPA) that the Plasmodium parasite uses to move through human tissue. The study reported that induced expression of huPAI-1 within the mosquito's midgut and salivary glands resulted in fewer parasitic oocysts forming and decreased infection rates within the test population of mice. 
@@ -90,8 +75,6 @@ While transmission dynamics initially challenged their effectiveness, advances i
 
 As traditional methods become less effective due to resistance, new approaches will have to step up to offer a promising path to eradicating malaria—and transgenesis appears a favourable candidate. 
 For now, more research into temporary and reversible modifications must be done to balance the goal of controlling malaria with the potential for unintended consequences down the line.
-
-## References
 
 [^1]: The artificial introduction of external genes into the genome of an organism
 

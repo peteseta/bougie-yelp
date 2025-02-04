@@ -1,0 +1,69 @@
+---
+import type { MarkdownHeading } from 'astro';
+import TableOfContentsHeading from "./TableOfContentsHeading.astro";
+
+interface Heading extends MarkdownHeading {
+  subheadings: Heading[];
+}
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+
+function buildToc(headings: MarkdownHeading[]): Heading[] {
+  const toc: Heading[] = [];
+  const parentHeadings = new Map<number, Heading>();
+  
+  headings.forEach((h) => {
+    // dont want "Footnotes"
+    if (h.text === "Footnotes") return;
+
+    const heading = { ...h, subheadings: [] } as Heading;
+    parentHeadings.set(heading.depth, heading);
+    if (heading.depth === 1) {
+      toc.push(heading);
+    } else {
+      parentHeadings.get(heading.depth - 1)?.subheadings.push(heading);
+    }
+  });
+  
+  return toc;
+}
+
+const toc = buildToc(headings);
+
+// Return early if there are no headings
+if (toc.length === 0) return null;
+---
+
+<nav class="toc">
+  <div class="toc-title">
+    <em>Contents</em>
+  </div>
+  <ul>
+    {toc.map((heading) => <TableOfContentsHeading heading={heading} />)}
+  </ul>
+</nav>
+
+<style>
+  .toc {
+    @apply mb-2 mt-4 rounded-md border border-skin-line px-6 py-4;
+  }
+  .toc-title {
+    @apply mb-2 text-lg font-semibold text-skin-base;
+  }
+  .toc ul ul {
+    margin-left: 1rem;
+  }
+
+  @media (min-width: 1024px) {
+    .toc {
+      position: sticky;
+      top: 20px;
+      float: right;
+      width: 250px;
+    }
+  }
+</style>
