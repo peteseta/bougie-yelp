@@ -1,0 +1,28 @@
+---
+author: Pete Setabandhu
+# wednesday, february 5, 2025 at 4:17:54 pm
+pubDatetime: 2025-02-05T24:02:20.284Z
+title: o1 for $6
+slug: o1-for-$6
+featured: false
+tags:
+  - ai
+description:
+  via arxiv.org and timkellogg.me
+---
+
+import LinkCard from '../../../../components/LinkCard.astro';
+
+<LinkCard url="https://timkellogg.me/blog/2025/02/03/s1" />
+<LinkCard url="https://arxiv.org/abs/2501.19393" />
+
+### I found the bit about "budget forcing" interesing:
+> In s1, when the LLM tries to stop thinking with "\</think>", they force it to keep going by replacing it with "Wait". It'll then begin to second guess and double check it's answer. They do this to trim or extend thinking time (trimming is just abruptly inserting "\</think>").
+
+It's so dumb but plausibly how "resoning effort" was trained into o3-mini-low $\rightarrow$ o3-mini-high.
+
+### and what about the $6 figure?
+
+> They used a small model and hardly any data.
+> After sifting their dataset of 56K examples down to just the best 1K, they found that the core 1K is all that's needed to achieve o1-preview performance on a 32B model. Adding data didn't raise performance at all.
+> 32B is a small model, I can run that on my laptop. They used 16 NVIDIA H100s for 26 minutes per training run, that equates to around $6.
