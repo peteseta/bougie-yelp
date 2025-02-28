@@ -1,0 +1,29 @@
+---
+author: Pete Setabandhu
+pubDatetime: 2025-02-27T23:54:00-08:00
+title: "nroottag - Turning any Bluetooth device into an Airtag"
+slug: nroottag
+featured: false
+draft: false
+tags:
+  - security
+description:
+  via nroottag.github.io
+---
+
+import LinkCard from '../../../../components/LinkCard.astro';
+
+<LinkCard url="https://nroottag.github.io/" />
+
+From u/hackernudes on the [YC forum thread](https://news.ycombinator.com/item?id=43196207):
+> Apple devices listen for BLE advertisements of a certain form to indicate a "Find My" network lost device.
+
+> The lost device advertisements mainly contain the public key part of a key pair.
+
+> The public key does not fit in the in payload of the advertisements, so it is stuffed into the address field. Edit: Only 46 bits of the full 224 bit public key is stored in the address field.
+
+> In general anyone can make a "lost device" advertisement as demonstrated by OpenHayStack. The requirement is the address field needs to be fully controllable.
+
+> BLE advertisements have a header that indicates what kind of address is present (specified by 3 bits: Public, NRPA, RPA, Random Static). The lost device advertisements are supposed to be "Random Static", but the researchers found that Apple "Find My" listeners ("finders") will accept advertisements for any address type.
+
+> They use this fact to generate the private key part of a public key that matches an existing host adapter BLE address. The host adapter BLE address cannot generally be changed unless user has root/superuser privileges. This step is computationally expensive. However, private keys can be precomputed (rainbow tables) because a large chunk of the address is a manufacturer code (OUI).
