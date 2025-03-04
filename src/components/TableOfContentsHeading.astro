@@ -13,12 +13,14 @@ interface Props {
 const { heading } = Astro.props;
 ---
 
-<li class="mb-1">
-  <a href={'#' + heading.slug} class="text-skin-base hover:text-skin-accent">
-    {heading.text}
-  </a>
+<li class="">
+  <div class="mb-2">
+    <a href={'#' + heading.slug} class="text-skin-base hover:text-skin-accent">
+      {heading.text}
+    </a>
+  </div>
   {heading.subheadings.length > 0 && (
-    <ul class="ml-4 pl-4 border-l border-skin-line">
+    <ul class="ml-2 pl-3 border-l border-dashed border-skin-line">
       {heading.subheadings.map((subheading) => (
         <Astro.self heading={subheading} />
       ))}

@@ -42,7 +42,7 @@ if (toc.length === 0) return null;
   <div class="toc-title">
     <em>Contents</em>
   </div>
-  <ul>
+  <ul class="space-y-8 text-sm">
     {toc.map((heading) => <TableOfContentsHeading heading={heading} />)}
   </ul>
 </nav>
