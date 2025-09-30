@@ -1,5 +1,5 @@
 ---
-author: Pete Setabandhu
+author: Author
 pubDatetime: 2022-09-23T15:22:00Z
 title: Adding new posts in AstroPaper theme
 slug: adding-new-posts-in-astropaper-theme

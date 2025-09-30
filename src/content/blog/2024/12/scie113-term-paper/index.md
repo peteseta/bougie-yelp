@@ -1,5 +1,5 @@
 ---
-author: Pete Setabandhu
+author: Author
 pubDatetime: 2024-11-19T15:30:00-08:00
 modDatetime: 2024-11-19T15:30:00-08:00
 title: Transgenic mosquitoes for malaria control — a review
