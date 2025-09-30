@@ -1,0 +1,28 @@
+---
+author: Author
+pubDatetime: 2025-07-29T17:24:06.000Z
+title: My new one-shot test for coding models
+slug: coding-model-one-shot-test
+featured: false
+draft: false
+tags:
+  - coding
+---
+
+The prompt:
+
+```
+My favourite mode of transportation in Bangkok is to take the BTS/MRT/Airport Rail Link as far as it will go, and then order a GrabBike that will take me the rest of the way there. Sometimes, if the starting train station is far, I need to GrabBike from where I am to the station, take the train, then take GrabBike again for the “last mile.”
+
+Design the backend logic and frontend interface of a web app similar to Google Maps that will compute the optimal route (by time and by cost) using this method, and includes an estimate time. It should be mobile optimized.
+
+Estimated times should be informed by Google Maps, as they do have bike traffic data. Google Maps also shows the estimated cost of a certain train route, but this may not be a public API.
+
+Train costs should be derived as follows:
+- The app should have a toggle for whether the 20B flat fare policy is in effect. This would give a flat fare pricing of 20 THB per trip across the BTS, MRT, and ARL.
+- Otherwise, use published fares.
+
+GrabBike has a starting fare of 25 THB for the first 2 kilometers, with a subsequent fare of 5 THB per kilometer for trips up to 5 kilometers. For trips longer than 5 kilometers, the starting fare is 50 THB.
+```
+
+Help me plan how this webapp will work.
