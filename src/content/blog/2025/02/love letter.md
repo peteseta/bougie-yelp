@@ -4,8 +4,8 @@ pubDatetime: 2025-02-01T17:47:00-08:00
 modDatetime: 2025-02-01T17:47:00-08:00
 title: A February love letter
 slug: a-february-love-letter
-featured: true
-draft: false
+featured: false
+draft: true
 tags:
   - love-letters
 description:
