@@ -6,6 +6,7 @@ import Tag from "@components/Tag.astro";
 import Datetime from "@components/Datetime";
 import TableOfContents from "@components/TableOfContents.astro";
 import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 import ShareLinks from "@components/ShareLinks.astro";
 import { SITE } from "@config";
@@ -29,12 +30,12 @@ const {
   editPost,
 } = post.data;
 
-const { Content, headings } = await post.render();
+const { Content, headings } = await render(post);
 
 const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
 const ogUrl = new URL(
   ogImageUrl ?? `/posts/${slugifyStr(title)}.png`,
-  Astro.url.origin
+  Astro.url.origin,
 ).href;
 
 const layoutProps = {
@@ -50,12 +51,12 @@ const layoutProps = {
 
 /* ========== Prev/Next Posts ========== */
 
-const allPosts = posts.map(({ data: { title }, slug }) => ({
-  slug,
+const allPosts = posts.map(({ data: { title }, id }) => ({
+  slug: id,
   title,
 }));
 
-const currentPostIndex = allPosts.findIndex(a => a.slug === post.slug);
+const currentPostIndex = allPosts.findIndex((a) => a.slug === post.id);
 
 const prevPost = currentPostIndex !== 0 ? allPosts[currentPostIndex - 1] : null;
 const nextPost =
@@ -79,7 +80,6 @@ const nextPost =
   </div>
 
   <main id="main-content" class="max-w-6xl">
-
     <!-- post title and date -->
     <div class="mb-8">
       <h1 transition:name={slugifyStr(title)} class="post-title inline-block">
@@ -97,7 +97,7 @@ const nextPost =
 
     <!-- main container -->
     <div class="mx-auto flex w-full gap-8">
-      <article id="article" class="prose max-w-none flex-grow">
+      <article id="article" class="prose max-w-none flex-grow min-w-0">
         <Content />
       </article>
 
@@ -255,7 +255,7 @@ const nextPost =
    *  allowing sharing of sections easily */
   function addHeadingLinks() {
     const headings = Array.from(
-      document.querySelectorAll("h1, h2, h3, h4, h5, h6")
+      document.querySelectorAll("h1, h2, h3, h4, h5, h6"),
     );
     for (const heading of headings) {
       heading.classList.add("group");
@@ -277,6 +277,8 @@ const nextPost =
    * allowing users to copy code easily. */
   function attachCopyButtons() {
     const copyButtonLabel = "Copy";
+    const wrapButtonLabel = "Wrap";
+    const unwrapButtonLabel = "Unwrap";
     const codeBlocks = Array.from(document.querySelectorAll("pre"));
 
     for (const codeBlock of codeBlocks) {
@@ -287,8 +289,15 @@ const nextPost =
       copyButton.className =
         "copy-code absolute right-3 -top-3 rounded bg-skin-card px-2 py-1 text-xs leading-4 text-skin-base font-medium";
       copyButton.innerHTML = copyButtonLabel;
+
+      const wrapButton = document.createElement("button");
+      wrapButton.className =
+        "wrap-code absolute right-16 -top-3 rounded bg-skin-card px-2 py-1 text-xs leading-4 text-skin-base font-medium";
+      wrapButton.innerHTML = wrapButtonLabel;
+
       codeBlock.setAttribute("tabindex", "0");
       codeBlock.appendChild(copyButton);
+      codeBlock.appendChild(wrapButton);
 
       // wrap codebock with relative parent element
       codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
@@ -296,6 +305,10 @@ const nextPost =
 
       copyButton.addEventListener("click", async () => {
         await copyCode(codeBlock, copyButton);
+      });
+
+      wrapButton.addEventListener("click", () => {
+        toggleWrap(codeBlock, wrapButton, wrapButtonLabel, unwrapButtonLabel);
       });
     }
 
@@ -312,6 +325,25 @@ const nextPost =
         button.innerText = copyButtonLabel;
       }, 700);
     }
+
+    function toggleWrap(block, button, wrapLabel, unwrapLabel) {
+      const code = block.querySelector("code");
+      if (!code) return;
+
+      const isWrapped = code.style.whiteSpace === "pre-wrap";
+
+      if (isWrapped) {
+        code.style.whiteSpace = "pre";
+        code.style.overflowWrap = "normal";
+        code.style.wordBreak = "normal";
+        button.innerText = wrapLabel;
+      } else {
+        code.style.whiteSpace = "pre-wrap";
+        code.style.overflowWrap = "break-word";
+        code.style.wordBreak = "break-all";
+        button.innerText = unwrapLabel;
+      }
+    }
   }
   attachCopyButtons();
 
@@ -327,6 +359,6 @@ const nextPost =
 
   /* Go to page start after page swap */
   document.addEventListener("astro:after-swap", () =>
-    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" }),
   );
 </script>
