@@ -45,17 +45,17 @@ While MediaPipe gave us landmark detection out of the box, it wasn’t optimized
 
 Before writing any code, we defined every gesture mathematically—how it should be detected, and what data we’d need. Then, each teammate implemented one gesture at a time, writing separate Python detectors. Once they all worked individually, we merged everything and resolved conflicts between simultaneous actions.
 
-# Challenges we ran into
+## Challenges we ran into
 The hardest challenge was managing state—keeping track of what the player is doing at any moment without false triggers. Normalizing motion data for different users was also complex; all our calculations were based on unitless, relative measurements.
 
 We also ran into motion jitter. Our initial plan used one vertical motion for both attacking and mining, but it caused double-triggers due to noise. We pivoted—attacking became a horizontal “slash,” while mining used a vertical oscillation. It felt more natural and fixed the problem.
 
-# Accomplishments that we're proud of
+## Accomplishments that we're proud of
 Our biggest milestone was when everything finally worked together—walking up to a tree in Minecraft and breaking a block just by moving our hands. It was the first time we saw the math, tracking, and input control all click into one seamless loop.
 
 We’re also proud of how accurate and responsive our finger mouse turned out, even at a distance, and that our prototype ran at a stable framerate despite running complex real-time vision processing.
 
-# What we learned
+## What we learned
 We learned a ton about computer vision, gesture recognition, and how to make interfaces that feel natural without instructions. It’s a completely different type of UX—designing for the human body instead of a screen.
 
 We also learned a lot about team collaboration, Git, and turning a raw concept into a product that feels polished and intuitive.
