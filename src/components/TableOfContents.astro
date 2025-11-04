@@ -1,5 +1,5 @@
 ---
-import type { MarkdownHeading } from 'astro';
+import type { MarkdownHeading } from "astro";
 import TableOfContentsHeading from "./TableOfContentsHeading.astro";
 
 interface Heading extends MarkdownHeading {
@@ -15,7 +15,7 @@ const { headings } = Astro.props;
 function buildToc(headings: MarkdownHeading[]): Heading[] {
   const toc: Heading[] = [];
   const parentHeadings = new Map<number, Heading>();
-  
+
   headings.forEach((h) => {
     // dont want "Footnotes"
     if (h.text === "Footnotes") return;
@@ -28,7 +28,7 @@ function buildToc(headings: MarkdownHeading[]): Heading[] {
       parentHeadings.get(heading.depth - 1)?.subheadings.push(heading);
     }
   });
-  
+
   return toc;
 }
 
@@ -39,10 +39,10 @@ if (toc.length === 0) return null;
 ---
 
 <nav class="toc">
-  <div class="toc-title">
+  <div class="toc-title underline-offset-2 underline decoration-wavy pb-2">
     <em>Contents</em>
   </div>
-  <ul class="space-y-8 text-sm">
+  <ul class="space-y-4 text-sm">
     {toc.map((heading) => <TableOfContentsHeading heading={heading} />)}
   </ul>
 </nav>
