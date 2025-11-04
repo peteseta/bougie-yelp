@@ -5,6 +5,7 @@ import Footer from "@components/Footer.astro";
 import Tag from "@components/Tag.astro";
 import Datetime from "@components/Datetime";
 import TableOfContents from "@components/TableOfContents.astro";
+import SidebarFootnotes from "@components/SidebarFootnotes.astro";
 import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
@@ -96,7 +97,7 @@ const nextPost =
     </div>
 
     <!-- main container -->
-    <div class="mx-auto flex w-full gap-8">
+    <div class="mx-auto flex w-full gap-8 relative">
       <article id="article" class="prose max-w-none flex-grow min-w-0">
         <Content />
       </article>
@@ -106,6 +107,9 @@ const nextPost =
           <TableOfContents headings={headings} />
         </div>
       </div>
+
+      <!-- Footnotes overlay positioned relative to the entire content area -->
+      <SidebarFootnotes />
     </div>
 
     <!-- tags at bottom of article -->

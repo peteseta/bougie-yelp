@@ -66,6 +66,13 @@
     @apply focus-outline;
   }
 
+  /* Hide default footnotes section on large screens (shown in sidebar instead) */
+  @media (min-width: 1024px) {
+    .prose section[data-footnotes] {
+      @apply hidden;
+    }
+  }
+
   /* ===== scrollbar ===== */
   html {
     overflow-y: scroll;

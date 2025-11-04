@@ -1,0 +1,414 @@
+---
+// Component for displaying footnotes in the sidebar overlay
+// Footnotes will be positioned individually next to their references
+---
+
+<aside id="sidebar-footnotes" class="footnotes-overlay">
+  <!-- Individual footnotes will be positioned here -->
+</aside>
+
+<style>
+  .footnotes-overlay {
+    /* Overlay that covers the entire content area */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none; /* Allow clicks to pass through to content */
+    z-index: 10;
+
+    /* Customizable footnote text opacity - change this value to adjust footnote visibility
+       Values: 0.0 (transparent) to 1.0 (fully opaque) */
+    --footnote-text-opacity: 0.35;
+  }
+
+  /* Only show footnotes on large screens */
+  @media (max-width: 1023px) {
+    .footnotes-overlay {
+      display: none;
+    }
+  }
+
+  :global(.footnote-item) {
+    /* Individual footnotes positioned absolutely as floating text */
+    position: absolute;
+    right: 0; /* Position in the sidebar space */
+    width: 240px; /* Slightly smaller than sidebar width (256px - 16px) */
+    max-width: 240px;
+    @apply px-2 py-1; /* Minimal padding for text flow */
+    pointer-events: auto;
+
+    /* Initially hidden */
+    opacity: 0;
+    transition:
+      opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      filter 0.4s ease;
+
+    /* Typography */
+    @apply text-sm;
+    color: var(--color-text-base);
+    line-height: 1.4;
+  }
+
+  :global(.footnote-item.visible) {
+    opacity: 0.85;
+  }
+
+  /* Fade effects for window of visibility */
+  :global(.footnote-item.fading-below-toc) {
+    opacity: 0 !important;
+    filter: blur(4px);
+    pointer-events: none;
+  }
+
+  :global(.footnote-item.fading-top) {
+    filter: blur(3px);
+    opacity: 0.15;
+  }
+
+  :global(.footnote-item.fading-bottom) {
+    filter: blur(2px);
+    opacity: 0.3;
+  }
+
+  :global(.footnote-number) {
+    @apply font-bold mr-2 inline-block;
+    color: var(--color-accent);
+    opacity: var(--footnote-text-opacity);
+    font-size: 0.875rem;
+  }
+
+  :global(.footnote-content) {
+    @apply inline;
+    opacity: var(--footnote-text-opacity);
+  }
+
+  :global(.footnote-content p) {
+    @apply inline;
+    margin: 0;
+  }
+
+  :global(.footnote-content a) {
+    @apply text-skin-accent hover:underline;
+  }
+
+  /* Hide backref arrow in sidebar footnotes */
+  :global(.footnote-content [data-footnote-backref]) {
+    display: none;
+  }
+
+  /* Active state when hovering over footnote reference in main content */
+  :global(.footnote-item.active) {
+    opacity: 1 !important;
+    filter: blur(0px) !important;
+    z-index: 20;
+  }
+
+  :global(.footnote-item.active .footnote-number) {
+    color: var(--color-accent);
+    text-shadow: 0 0 4px rgba(var(--color-accent), 0.3);
+  }
+
+  :global(.footnote-item.active .footnote-content) {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  // Client-side script to create positioned footnotes overlay
+  let footnoteElements = [];
+  let overlayElement = null;
+  let articleElement = null;
+  let contentContainer = null;
+  let tocElement = null;
+
+  function initializeSidebarFootnotes() {
+    overlayElement = document.getElementById("sidebar-footnotes");
+    articleElement = document.getElementById("article");
+    contentContainer = overlayElement?.parentElement;
+
+    if (!overlayElement || !articleElement || !contentContainer) return;
+
+    // Find all footnotes in the main content
+    const footnotesSection = document.querySelector("section[data-footnotes]");
+    if (!footnotesSection) return;
+
+    // Get all footnote items
+    const footnoteItems = footnotesSection.querySelectorAll(
+      'li[id^="user-content-fn-"]',
+    );
+    if (footnoteItems.length === 0) return;
+
+    // Clear existing footnotes
+    overlayElement.innerHTML = "";
+    footnoteElements = [];
+
+    // Get TOC position for collision detection - be more specific
+    tocElement =
+      document.querySelector(".toc") ||
+      document.querySelector('[class*="toc"]') ||
+      document.querySelector(".sticky");
+
+    // Create sidebar version of each footnote
+    footnoteItems.forEach((footnote, index) => {
+      const footnoteId = footnote.id;
+      const footnoteNumber = index + 1;
+      const footnoteContent = footnote.cloneNode(true) as HTMLElement;
+
+      // Find the corresponding reference in the main content
+      const refId = footnoteId.replace(
+        "user-content-fn-",
+        "user-content-fnref-",
+      );
+      const refElement = document.getElementById(refId);
+
+      if (!refElement) return;
+
+      // Create the sidebar footnote element
+      const sidebarFootnote = document.createElement("div");
+      sidebarFootnote.className = "footnote-item";
+      sidebarFootnote.dataset.footnoteId = footnoteId;
+      sidebarFootnote.dataset.refId = refId;
+
+      // Add number and content
+      sidebarFootnote.innerHTML = `
+        <span class="footnote-number">${footnoteNumber}.</span>
+        <div class="footnote-content">${footnoteContent.innerHTML}</div>
+      `;
+
+      // Add to overlay
+      overlayElement.appendChild(sidebarFootnote);
+      footnoteElements.push({
+        element: sidebarFootnote,
+        refElement: refElement,
+        refId: refId,
+        footnoteId: footnoteId,
+        footnoteNumber: footnoteNumber,
+      });
+    });
+
+    // Initial positioning and visibility
+    updateFootnotePositions();
+    updateFootnoteVisibility();
+
+    // Add hover interaction between main content and sidebar
+    setupFootnoteInteractions();
+
+    // Update on scroll and resize
+    let ticking = false;
+
+    function updateOnScroll() {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateFootnoteVisibility();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    function updateOnResize() {
+      updateFootnotePositions();
+      updateFootnoteVisibility();
+    }
+
+    window.addEventListener("scroll", updateOnScroll, { passive: true });
+    window.addEventListener("resize", updateOnResize);
+  }
+
+  function updateFootnotePositions() {
+    if (!contentContainer || !articleElement) return;
+
+    const containerRect = contentContainer.getBoundingClientRect();
+    const containerTop = containerRect.top + window.scrollY;
+
+    footnoteElements.forEach(({ element, refElement }, index) => {
+      const refRect = refElement.getBoundingClientRect();
+      const refTop = refRect.top + window.scrollY;
+
+      // Position relative to the content container
+      let topPosition = refTop - containerTop;
+
+      // Avoid overlap with previous footnotes
+      if (index > 0) {
+        const prevFootnote = footnoteElements[index - 1];
+        const prevRect = prevFootnote.element.getBoundingClientRect();
+        const prevBottom = prevRect.bottom + window.scrollY - containerTop;
+
+        if (topPosition < prevBottom + 16) {
+          // 16px margin
+          topPosition = prevBottom + 16;
+        }
+      }
+
+      // Check for TOC collision - ensure footnotes respect the visibility window
+      if (tocElement) {
+        const tocRect = tocElement.getBoundingClientRect();
+        const tocBottom = tocRect.bottom + window.scrollY - containerTop;
+        const visibilityBufferZone = 100; // Buffer below TOC where footnotes can start appearing
+
+        // If footnote would appear in or too close to TOC area, push it down
+        if (topPosition < tocBottom + visibilityBufferZone) {
+          topPosition = tocBottom + visibilityBufferZone;
+        }
+      }
+
+      element.style.top = `${topPosition}px`;
+    });
+  }
+
+  function updateFootnoteVisibility() {
+    if (!tocElement) {
+      console.log("No TOC element found for footnote visibility");
+      return;
+    }
+
+    // Get TOC position in viewport
+    const tocRect = tocElement.getBoundingClientRect();
+
+    // Debug: Log TOC position
+    // console.log('TOC position:', { top: tocRect.top, bottom: tocRect.bottom, left: tocRect.left, right: tocRect.right });
+
+    // Define TOC protection zone (expanded area around TOC)
+    const fadeBuffer = 150; // Start fading ??px before TOC
+    const hideBuffer = 50; // Complete hiding ??px before TOC
+
+    const tocProtectedArea = {
+      top: tocRect.top - fadeBuffer,
+      bottom: tocRect.bottom + 40, // Larger buffer below TOC
+      left: tocRect.left - 40,
+      right: tocRect.right + 40,
+    };
+
+    const tocHiddenArea = {
+      top: tocRect.top - hideBuffer,
+      bottom: tocRect.bottom + hideBuffer,
+      left: tocRect.left - hideBuffer,
+      right: tocRect.right + hideBuffer,
+    };
+
+    const viewportBottom = window.innerHeight;
+
+    footnoteElements.forEach(({ element, footnoteNumber }) => {
+      const rect = element.getBoundingClientRect();
+
+      // Remove all classes first
+      element.classList.remove(
+        "visible",
+        "fading-top",
+        "fading-bottom",
+        "fading-below-toc",
+      );
+
+      // Debug: Log footnote positions
+      // console.log(`Footnote ${footnoteNumber}:`, { top: rect.top, bottom: rect.bottom, left: rect.left, right: rect.right });
+
+      // Check for direct overlap with TOC hidden area
+      const overlapsHiddenArea =
+        rect.right > tocHiddenArea.left &&
+        rect.left < tocHiddenArea.right &&
+        rect.bottom > tocHiddenArea.top &&
+        rect.top < tocHiddenArea.bottom;
+
+      if (overlapsHiddenArea) {
+        element.classList.add("fading-below-toc");
+        // console.log(`Footnote ${footnoteNumber}: Hidden due to overlap with TOC`);
+        return;
+      }
+
+      // Check for overlap with TOC protected area (fade zone)
+      const overlapsProtectedArea =
+        rect.right > tocProtectedArea.left &&
+        rect.left < tocProtectedArea.right &&
+        rect.bottom > tocProtectedArea.top &&
+        rect.top < tocProtectedArea.bottom;
+
+      if (overlapsProtectedArea) {
+        element.classList.add("fading-top");
+        // console.log(`Footnote ${footnoteNumber}: Fading due to proximity to TOC`);
+        return;
+      }
+
+      // If in viewport and not conflicting with TOC, show it
+      const isInViewport = rect.bottom > 0 && rect.top < viewportBottom;
+
+      if (isInViewport) {
+        element.classList.add("visible");
+        // console.log(`Footnote ${footnoteNumber}: Visible`);
+
+        // Fade at bottom of viewport
+        const distanceFromBottom = viewportBottom - rect.top;
+        if (distanceFromBottom < 100) {
+          element.classList.add("fading-bottom");
+        }
+      }
+    });
+  }
+
+  function setupFootnoteInteractions() {
+    footnoteElements.forEach(({ element, refElement, refId }) => {
+      const ref = document.querySelector(
+        `a[href="#${refId.replace("user-content-fnref-", "user-content-fn-")}"]`,
+      );
+
+      if (ref) {
+        // Highlight sidebar footnote when hovering over reference
+        ref.addEventListener("mouseenter", () => {
+          element.classList.add("active");
+        });
+
+        ref.addEventListener("mouseleave", () => {
+          element.classList.remove("active");
+        });
+
+        // Handle clicking reference
+        ref.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          // Remove active from all
+          document.querySelectorAll(".footnote-item").forEach((item) => {
+            item.classList.remove("active");
+          });
+
+          // Add active to clicked one
+          element.classList.add("active");
+
+          // Scroll the reference into view
+          refElement.scrollIntoView({ behavior: "smooth", block: "center" });
+
+          // Remove after a delay
+          setTimeout(() => {
+            element.classList.remove("active");
+          }, 3000);
+        });
+      }
+
+      // Handle clicks on the sidebar footnote
+      element.addEventListener("click", () => {
+        refElement.scrollIntoView({ behavior: "smooth", block: "center" });
+        element.classList.add("active");
+        setTimeout(() => {
+          element.classList.remove("active");
+        }, 3000);
+      });
+    });
+  }
+
+  // Initialize when DOM is ready
+  function init() {
+    // Wait a frame to ensure layout is complete
+    requestAnimationFrame(() => {
+      initializeSidebarFootnotes();
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+
+  // Reinitialize on page navigation (for Astro view transitions)
+  document.addEventListener("astro:page-load", init);
+</script>
