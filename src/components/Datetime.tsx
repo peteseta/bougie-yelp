@@ -1,5 +1,6 @@
 import { LOCALE, SITE } from "@config";
 import type { CollectionEntry } from "astro:content";
+import getEffectiveDate from "@utils/getEffectiveDate";
 
 interface DatetimesProps {
   pubDatetime: string | Date;
@@ -57,9 +58,7 @@ export default function Datetime({
 }
 
 const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
-  const myDatetime = new Date(
-    modDatetime && modDatetime > pubDatetime ? modDatetime : pubDatetime
-  );
+  const myDatetime = getEffectiveDate(pubDatetime, modDatetime);
 
   const date = myDatetime.toLocaleDateString(LOCALE.langTag, {
     year: "numeric",

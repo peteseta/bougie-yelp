@@ -13,7 +13,8 @@ if (!SITE.showArchives) {
   return Astro.redirect("/404");
 }
 
-const posts = await getCollection("blog", ({ data }) => !data.draft);
+const posts = await getCollection("blog");
+const filteredPosts = posts.filter(({ data }) => !data.draft);
 
 const MonthMap: Record<string, string> = {
   "1": "January",
@@ -36,7 +37,7 @@ const MonthMap: Record<string, string> = {
   <Main pageTitle="Archives" pageDesc="The complete collection.">
     {
       Object.entries(
-        getPostsByGroupCondition(posts, post =>
+        getPostsByGroupCondition(filteredPosts, post =>
           post.data.pubDatetime.getFullYear()
         )
       )

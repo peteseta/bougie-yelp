@@ -1,5 +1,6 @@
 import type { CollectionEntry } from "astro:content";
 import postFilter from "./postFilter";
+import getEffectiveDate from "./getEffectiveDate";
 
 const getSortedPosts = (posts: CollectionEntry<"blog">[]) => {
   return posts
@@ -7,10 +8,12 @@ const getSortedPosts = (posts: CollectionEntry<"blog">[]) => {
     .sort(
       (a, b) =>
         Math.floor(
-          new Date(b.data.modDatetime ?? b.data.pubDatetime).getTime() / 1000
+          getEffectiveDate(b.data.pubDatetime, b.data.modDatetime).getTime() /
+            1000
         ) -
         Math.floor(
-          new Date(a.data.modDatetime ?? a.data.pubDatetime).getTime() / 1000
+          getEffectiveDate(a.data.pubDatetime, a.data.modDatetime).getTime() /
+            1000
         )
     );
 };
