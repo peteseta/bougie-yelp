@@ -1,6 +1,7 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import getSortedPosts from "@utils/getSortedPosts";
+import getEffectiveDate from "@utils/getEffectiveDate";
 import { SITE } from "@config";
 
 export async function GET() {
@@ -14,7 +15,7 @@ export async function GET() {
       link: `posts/${id}/`,
       title: data.title,
       description: data.description,
-      pubDate: new Date(data.modDatetime ?? data.pubDatetime),
+      pubDate: getEffectiveDate(data.pubDatetime, data.modDatetime),
     })),
   });
 }

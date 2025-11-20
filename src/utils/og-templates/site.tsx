@@ -1,58 +1,14 @@
 import satori from "satori";
 import { SITE } from "@config";
 import loadGoogleFonts, { type FontOptions } from "../loadGoogleFont";
+import { OG_STYLES, OG_CONFIG } from "./styles";
 
 export default async () => {
   return satori(
-    <div
-      style={{
-        background: "#fefbfb",
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <div
-        style={{
-          position: "absolute",
-          top: "-1px",
-          right: "-1px",
-          border: "4px solid #000",
-          background: "#ecebeb",
-          opacity: "0.9",
-          borderRadius: "4px",
-          display: "flex",
-          justifyContent: "center",
-          margin: "2.5rem",
-          width: "88%",
-          height: "80%",
-        }}
-      />
-
-      <div
-        style={{
-          border: "4px solid #000",
-          background: "#fefbfb",
-          borderRadius: "4px",
-          display: "flex",
-          justifyContent: "center",
-          margin: "2rem",
-          width: "88%",
-          height: "80%",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            margin: "20px",
-            width: "90%",
-            height: "90%",
-          }}
-        >
+    <div style={OG_STYLES.container}>
+      <div style={OG_STYLES.shadow} />
+      <div style={OG_STYLES.card}>
+        <div style={OG_STYLES.content}>
           <div
             style={{
               display: "flex",
@@ -86,9 +42,7 @@ export default async () => {
       </div>
     </div>,
     {
-      width: 1200,
-      height: 630,
-      embedFont: true,
+      ...OG_CONFIG,
       fonts: (await loadGoogleFonts(
         SITE.title + SITE.desc + SITE.website
       )) as FontOptions[],

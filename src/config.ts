@@ -6,17 +6,12 @@ export const SITE: Site = {
   profile: "https://github.com/peteseta/",
   desc: "My little corner of the internet",
   title: "BougieYelp",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "og.png",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 10,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
   showArchives: true,
-  // editPost: {
-  //   url: "https://github.com/satnaing/astro-paper/edit/main/src/content/blog",
-  //   text: "Suggest Changes",
-  //   appendFilePath: true,
-  // },
 };
 
 export const LOCALE = {

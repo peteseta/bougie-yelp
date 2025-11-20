@@ -1,0 +1,51 @@
+/**
+ * Shared styles for OG image templates
+ */
+export const OG_STYLES = {
+  container: {
+    background: "#fefbfb",
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  shadow: {
+    position: "absolute" as const,
+    top: "-1px",
+    right: "-1px",
+    border: "4px solid #000",
+    background: "#ecebeb",
+    opacity: "0.9",
+    borderRadius: "4px",
+    display: "flex",
+    justifyContent: "center",
+    margin: "2.5rem",
+    width: "88%",
+    height: "80%",
+  },
+  card: {
+    border: "4px solid #000",
+    background: "#fefbfb",
+    borderRadius: "4px",
+    display: "flex",
+    justifyContent: "center",
+    margin: "2rem",
+    width: "88%",
+    height: "80%",
+  },
+  content: {
+    display: "flex",
+    flexDirection: "column" as const,
+    justifyContent: "space-between",
+    margin: "20px",
+    width: "90%",
+    height: "90%",
+  },
+} as const;
+
+export const OG_CONFIG = {
+  width: 1200,
+  height: 630,
+  embedFont: true,
+} as const;
