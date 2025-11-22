@@ -15,12 +15,16 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+.env.local
 
 # macOS-specific files
 .DS_Store
 
 # ignore .astro directory
 .astro
+
+# Tina CMS
+.tina/__generated__
 
 # yarn
 .yarn/*
