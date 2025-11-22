@@ -24,7 +24,7 @@ pnpm-debug.log*
 .astro
 
 # Tina CMS
-.tina/__generated__
+tina/__generated__
 
 # yarn
 .yarn/*
