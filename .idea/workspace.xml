@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="02573567-ed12-4f00-8837-dbea95c33ef9" name="Changes" comment="hide feb 25 post" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="peteseta &lt;petesetabandhu@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;peteseta&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/peteseta/bougie-yelp.git&quot;,
+    &quot;accountId&quot;: &quot;7e78bc69-3117-4216-87f1-725741d4fa75&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2svng8TxB51puPe9VuvVTVIFKMz" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "JavaScript Debug.localhost:4321.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/peteseta/Documents/aaa_Development/bougie-yelp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.run dev.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/peteseta/Documents/aaa_Development/bougie-yelp/node_modules/prettier",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Users/peteseta/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/content/blog/2025/07" />
+      <recent name="$PROJECT_DIR$/src/content/blog/2025/03" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="run dev" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-WS-252.26830.93" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="02573567-ed12-4f00-8837-dbea95c33ef9" name="Changes" comment="" />
+      <created>1739345025776</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1739345025776</updated>
+      <workItem from="1739345027878" duration="2371000" />
+      <workItem from="1740729194099" duration="399000" />
+      <workItem from="1741031535840" duration="11527000" />
+      <workItem from="1741061033415" duration="48000" />
+      <workItem from="1741744979497" duration="399000" />
+      <workItem from="1742889000738" duration="227000" />
+      <workItem from="1759206240891" duration="981000" />
+      <workItem from="1761173016012" duration="836000" />
+      <workItem from="1763674741955" duration="16000" />
+      <workItem from="1764044640700" duration="6417000" />
+    </task>
+    <task id="LOCAL-00001" summary="add airtag weblog">
+      <option name="closed" value="true" />
+      <created>1740729565248</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1740729565248</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add uncertainty map, march 2025">
+      <option name="closed" value="true" />
+      <created>1741060933423</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1741060933423</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update ToC to be easier to read">
+      <option name="closed" value="true" />
+      <created>1741060944749</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1741060944749</updated>
+    </task>
+    <task id="LOCAL-00004" summary="remove my name from website - not for security, just vibes">
+      <option name="closed" value="true" />
+      <created>1759206311484</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1759206311484</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added july writings">
+      <option name="closed" value="true" />
+      <created>1759206705981</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1759206705981</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added july writings (fix broken slug)">
+      <option name="closed" value="true" />
+      <created>1759206782960</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1759206782960</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix broken slugs">
+      <option name="closed" value="true" />
+      <created>1759206896990</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1759206896990</updated>
+    </task>
+    <task id="LOCAL-00008" summary="hide feb 25 post">
+      <option name="closed" value="true" />
+      <created>1761173231802</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1761173231802</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add airtag weblog" />
+    <MESSAGE value="add uncertainty map, march 2025" />
+    <MESSAGE value="update ToC to be easier to read" />
+    <MESSAGE value="remove my name from website - not for security, just vibes" />
+    <MESSAGE value="added july writings" />
+    <MESSAGE value="added july writings (fix broken slug)" />
+    <MESSAGE value="fix broken slugs" />
+    <MESSAGE value="hide feb 25 post" />
+    <option name="LAST_COMMIT_MESSAGE" value="hide feb 25 post" />
+  </component>
+</project>
