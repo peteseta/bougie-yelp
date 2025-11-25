@@ -1,0 +1,4 @@
+# Cloudflare Pages redirects for Tina CMS admin
+
+# Redirect /admin to /admin/index.html (with trailing slash support)
+/admin    /admin/index.html    200
