@@ -68,6 +68,9 @@
       <recent name="$PROJECT_DIR$/src/content/blog/2025/07" />
       <recent name="$PROJECT_DIR$/src/content/blog/2025/03" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/content/blog/2025/11" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="run dev" type="js.build_tools.npm">
@@ -105,7 +108,7 @@
       <workItem from="1759206240891" duration="981000" />
       <workItem from="1761173016012" duration="836000" />
       <workItem from="1763674741955" duration="16000" />
-      <workItem from="1764044640700" duration="6417000" />
+      <workItem from="1764044640700" duration="8070000" />
     </task>
     <task id="LOCAL-00001" summary="add airtag weblog">
       <option name="closed" value="true" />

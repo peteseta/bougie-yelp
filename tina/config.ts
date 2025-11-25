@@ -1,10 +1,12 @@
 import { defineConfig } from "tinacms";
 
-// Your hosting provider
+// Your hosting provider - detects git branch from environment
 const branch =
-  process.env.GITHUB_BRANCH ||
-  process.env.VERCEL_GIT_COMMIT_REF ||
-  process.env.HEAD ||
+  process.env.TINA_BRANCH || // Explicit override
+  process.env.CF_PAGES_BRANCH || // Cloudflare Pages
+  process.env.GITHUB_BRANCH || // GitHub Actions
+  process.env.VERCEL_GIT_COMMIT_REF || // Vercel
+  process.env.HEAD || // Generic git
   "main";
 
 export default defineConfig({
@@ -13,7 +15,7 @@ export default defineConfig({
   // Your GitHub details - get these from Tina Cloud
   // For local development without cloud, these can be undefined
   clientId: process.env.TINA_CLIENT_ID,
-  token: process.env.TINA_TOKEN,
+  token: process.env.TINA_READONLY_TOKEN,
 
   build: {
     outputFolder: "admin",
@@ -25,6 +27,16 @@ export default defineConfig({
       mediaRoot: "uploads",
       publicFolder: "public",
     },
+  },
+
+  // Enable Tina Cloud Search
+  search: {
+    tina: {
+      indexerToken: process.env.TINA_SEARCH_TOKEN,
+      stopwordLanguages: ["eng"],
+    },
+    indexBatchSize: 100,
+    maxSearchIndexFieldLength: 100,
   },
 
   // Content schema matching your existing structure
@@ -39,22 +51,17 @@ export default defineConfig({
         // Match your existing folder structure: YYYY/MM/slug
         match: {
           include: "**/*",
+          exclude: "**/node_modules/**",
         },
 
         // Default values for new posts
-        defaultItem: () => {
-          const now = new Date();
-          const year = now.getFullYear();
-          const month = String(now.getMonth() + 1).padStart(2, "0");
-
-          return {
-            author: "Author",
-            pubDatetime: now.toISOString(),
-            draft: true,
-            featured: false,
-            tags: ["others"],
-          };
-        },
+        defaultItem: () => ({
+          author: "Author",
+          pubDatetime: new Date().toISOString(),
+          draft: true,
+          featured: false,
+          tags: ["others"],
+        }),
 
         // Define fields matching your Astro schema
         fields: [
@@ -69,16 +76,20 @@ export default defineConfig({
             name: "pubDatetime",
             label: "Publish Date",
             required: true,
+            description: "Publication date and time for this post",
             ui: {
-              dateFormat: "YYYY-MM-DDTHH:mm:ssZ",
+              dateFormat: "YYYY-MM-DDTHH:mm:ssZ", // ISO format for Astro
+              timeFormat: "HH:mm:ss", // 24-hour time picker
             },
           },
           {
             type: "datetime",
             name: "modDatetime",
             label: "Modified Date",
+            description: "Last modified date and time",
             ui: {
-              dateFormat: "YYYY-MM-DDTHH:mm:ssZ",
+              dateFormat: "YYYY-MM-DDTHH:mm:ssZ", // ISO format for Astro
+              timeFormat: "HH:mm:ss", // 24-hour time picker
             },
           },
           {
@@ -205,8 +216,9 @@ export default defineConfig({
         ui: {
           // Removed router to use default form editor
           // Router is for visual editing which requires React components
+
           filename: {
-            // Generate filename from title and date
+            // Generate filename from title and date: YYYY/MM/slug
             slugify: (values) => {
               const date = new Date(values.pubDatetime || new Date());
               const year = date.getFullYear();
