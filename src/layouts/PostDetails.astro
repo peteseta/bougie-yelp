@@ -11,6 +11,7 @@ import { render } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 import ShareLinks from "@components/ShareLinks.astro";
 import { SITE } from "@config";
+import LinkCard from "@components/LinkCard.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -99,7 +100,7 @@ const nextPost =
     <!-- main container -->
     <div class="mx-auto flex w-full gap-8 relative">
       <article id="article" class="prose max-w-none flex-grow min-w-0">
-        <Content />
+        <Content components={{ LinkCard }} />
       </article>
 
       <div class="hidden lg:block w-64 flex-shrink-0">

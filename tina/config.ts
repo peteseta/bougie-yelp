@@ -203,9 +203,8 @@ export default defineConfig({
 
         // UI customization
         ui: {
-          router: ({ document }) => {
-            return `/posts/${document.slug || document._sys.filename}`;
-          },
+          // Removed router to use default form editor
+          // Router is for visual editing which requires React components
           filename: {
             // Generate filename from title and date
             slugify: (values) => {
