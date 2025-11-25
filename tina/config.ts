@@ -220,9 +220,6 @@ export default defineConfig({
           filename: {
             // Generate filename from title and date: YYYY/MM/slug
             slugify: (values) => {
-              const date = new Date(values.pubDatetime || new Date());
-              const year = date.getFullYear();
-              const month = String(date.getMonth() + 1).padStart(2, "0");
               const slug =
                 values.slug ||
                 values.title
@@ -230,7 +227,7 @@ export default defineConfig({
                   .replace(/[^a-z0-9]+/g, "-")
                   .replace(/^-+|-+$/g, "");
 
-              return `${year}/${month}/${slug}`;
+              return `${slug}`;
             },
           },
         },
