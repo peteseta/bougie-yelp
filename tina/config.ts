@@ -9,6 +9,14 @@ const branch =
   process.env.HEAD || // Generic git
   "main";
 
+// Shared slug generation function
+const slugify = (text: string) => {
+  return text
+    ?.toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "";
+};
+
 export default defineConfig({
   branch,
 
@@ -58,9 +66,9 @@ export default defineConfig({
         defaultItem: () => ({
           author: "Author",
           pubDatetime: new Date().toISOString(),
-          draft: true,
+          draft: false,
           featured: false,
-          tags: ["others"],
+          tags: [],
         }),
 
         // Define fields matching your Astro schema
@@ -104,12 +112,14 @@ export default defineConfig({
             name: "slug",
             label: "Slug",
             description: "URL-friendly version of the title",
+            required: true,
           },
           {
             type: "boolean",
             name: "featured",
             label: "Featured Post",
             description: "Show on homepage",
+            required: true,
           },
           {
             type: "boolean",
@@ -126,19 +136,19 @@ export default defineConfig({
             ui: {
               component: "tags",
             },
-            options: [
-              "security",
-              "technology",
-              "hardware",
-              "software",
-              "science",
-              "personal",
-              "tutorial",
-              "review",
-              "analysis",
-              "news",
-              "others",
-            ],
+            // options: [
+            //   "security",
+            //   "technology",
+            //   "hardware",
+            //   "software",
+            //   "science",
+            //   "personal",
+            //   "tutorial",
+            //   "review",
+            //   "analysis",
+            //   "news",
+            //   "others",
+            // ],
           },
           {
             type: "string",
@@ -214,20 +224,11 @@ export default defineConfig({
 
         // UI customization
         ui: {
-          // Removed router to use default form editor
-          // Router is for visual editing which requires React components
 
           filename: {
-            // Generate filename from title and date: YYYY/MM/slug
+            // Generate filename from slug or title
             slugify: (values) => {
-              const slug =
-                values.slug ||
-                values.title
-                  ?.toLowerCase()
-                  .replace(/[^a-z0-9]+/g, "-")
-                  .replace(/^-+|-+$/g, "");
-
-              return `${slug}`;
+              return values.slug || slugify(values.title || "");
             },
           },
         },
