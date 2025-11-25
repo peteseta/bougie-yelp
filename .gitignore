@@ -11,16 +11,19 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-
 # environment variables
 .env
 .env.production
+.env.local
 
 # macOS-specific files
 .DS_Store
 
 # ignore .astro directory
 .astro
+
+# Tina CMS
+tina/__generated__
 
 # yarn
 .yarn/*
@@ -30,3 +33,9 @@ pnpm-debug.log*
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+# ide and vibe coding tools
+!/.claude/
+!/.idea/
+!/.qodo/
+!/.vscode/

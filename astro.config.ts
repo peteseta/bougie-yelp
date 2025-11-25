@@ -9,6 +9,7 @@ import { SITE } from "./src/config";
 
 // https://astro.build/config
 export default defineConfig({
+  output: "static", // Static by default, admin page opts into SSR with prerender: false
   site: SITE.website,
   integrations: [
     tailwind({
