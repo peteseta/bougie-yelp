@@ -39,3 +39,6 @@ tina/__generated__
 !/.idea/
 !/.qodo/
 !/.vscode/
+
+# qodo
+.qodo/
