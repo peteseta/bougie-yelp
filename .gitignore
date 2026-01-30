@@ -35,10 +35,10 @@ tina/__generated__
 .pnp.*
 
 # ide and vibe coding tools
-!/.claude/
-!/.idea/
-!/.qodo/
-!/.vscode/
+/.claude/
+/.idea/
+/.qodo/
+/.vscode/
 
 # qodo
 .qodo/
