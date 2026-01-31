@@ -1,0 +1,111 @@
+---
+import { getCollection } from "astro:content";
+import postFilter from "@utils/postFilter";
+import { getPlaylistTracks } from "@utils/spotify";
+
+interface Book {
+  title: string;
+  author: string;
+}
+
+interface CurrentlyData {
+  reading: Book[];
+  listening: { spotifyPlaylistId: string };
+}
+
+const currentlyModule = await import("../data/currently.json");
+const currentlyData = currentlyModule.default as CurrentlyData;
+
+// Currently Reading
+const reading: Book[] = currentlyData.reading;
+
+// Currently Listening (Spotify)
+let tracks: { title: string; artist: string }[] = [];
+const playlistId = currentlyData.listening?.spotifyPlaylistId;
+if (playlistId && playlistId !== "REPLACE_WITH_PLAYLIST_ID") {
+  tracks = await getPlaylistTracks(playlistId);
+}
+
+// Tags with post counts
+const posts = await getCollection("blog");
+const filteredPosts = posts.filter(postFilter);
+
+const tagCounts = new Map<string, { tagName: string; count: number }>();
+for (const post of filteredPosts) {
+  for (const tag of post.data.tags) {
+    const existing = tagCounts.get(tag);
+    if (existing) {
+      existing.count++;
+    } else {
+      tagCounts.set(tag, { tagName: tag, count: 1 });
+    }
+  }
+}
+
+const sortedTags = [...tagCounts.entries()]
+  .sort((a, b) => b[1].count - a[1].count)
+  .map(([tag, { tagName, count }]) => ({ tag, tagName, count }));
+---
+
+<aside class="sidebar">
+  {/* Currently Reading */}
+  {reading.length > 0 && (
+    <section class="mb-8">
+      <h3 class="mb-3 text-sm font-semibold uppercase tracking-wider text-skin-base opacity-60">
+        Reading
+      </h3>
+      <ul class="space-y-2">
+        {reading.map(book => (
+          <li class="text-sm">
+            <span class="text-skin-base">{book.title}</span>
+            <span class="text-skin-base opacity-50"> — {book.author}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {/* Currently Listening */}
+  {tracks.length > 0 && (
+    <section class="mb-8">
+      <h3 class="mb-3 text-sm font-semibold uppercase tracking-wider text-skin-base opacity-60">
+        Listening
+      </h3>
+      <ul class="space-y-2">
+        {tracks.map(track => (
+          <li class="text-sm">
+            <span class="text-skin-base">{track.title}</span>
+            <span class="text-skin-base opacity-50"> — {track.artist}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {/* Topics */}
+  <section>
+    <h3 class="mb-3 text-sm font-semibold uppercase tracking-wider text-skin-base opacity-60">
+      Topics
+    </h3>
+    <div class="flex flex-wrap gap-1.5">
+      {sortedTags.map(({ tag, count }) => (
+        <a
+          href={`/tags/${tag}/`}
+          class="inline-block rounded border border-skin-line px-2 py-1 text-xs text-skin-base transition-colors hover:border-skin-accent hover:text-skin-accent"
+        >
+          {tag}
+          <span class="ml-0.5 opacity-50">{count}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</aside>
+
+<style>
+  .sidebar {
+    position: sticky;
+    top: 4rem;
+    max-height: calc(100vh - 5rem);
+    overflow-y: auto;
+  }
+</style>
