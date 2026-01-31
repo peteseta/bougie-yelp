@@ -226,9 +226,8 @@ export default defineConfig({
         ui: {
 
           filename: {
-            // Generate filename from slug or title
             slugify: (values) => {
-              return values.slug || slugify(values.title || "");
+              return values.slug || slugify(values.title || "") || "untitled";
             },
           },
         },
