@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
+import Hr from "@components/Hr.astro";
 import Socials from "@components/Socials.astro";
 import FeedCard from "@components/FeedCard.astro";
 import FeedFilter from "@components/FeedFilter.astro";
@@ -21,7 +22,6 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <main id="main-content">
     <section id="hero">
       <h1>Everything I (never) posted to Beli.</h1>
-      <p>Figure out my headspace?</p>
       <a
         target="_blank"
         href="/rss.xml"
@@ -36,12 +36,15 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </svg>
         <span class="sr-only">RSS Feed</span>
       </a>
+      <p>Figure out my headspace?</p>
       {socialCount > 0 && (
         <div class="social-wrapper">
           <Socials />
         </div>
       )}
     </section>
+
+    <Hr />
 
     <div class="two-col">
       <div class="feed-col">
@@ -74,14 +77,14 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   #hero h1 {
     @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
   }
-  #hero p {
-    @apply my-2;
-  }
   #hero .rss-link {
-    @apply mt-4 mb-6 inline-block;
+    @apply mb-6;
   }
   #hero .rss-icon {
     @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
+  }
+  #hero p {
+    @apply my-2;
   }
   .social-wrapper {
     @apply mt-4 flex flex-col sm:flex-row sm:items-center;
