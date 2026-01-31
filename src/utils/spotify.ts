@@ -16,6 +16,20 @@ interface SpotifyPlaylistResponse {
       artists: Array<{ name: string }>;
     } | null;
   }>;
+  total: number;
+  next: string | null;
+}
+
+/**
+ * Fisher-Yates shuffle to get random elements from an array
+ */
+function getRandomSubset<T>(array: T[], count: number): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled.slice(0, count);
 }
 
 async function getAccessToken(): Promise<string> {
@@ -41,24 +55,35 @@ async function getAccessToken(): Promise<string> {
 
 export async function getPlaylistTracks(
   playlistId: string,
-  limit = 5,
+  count = 5,
 ): Promise<SpotifyTrack[]> {
   try {
     const token = await getAccessToken();
-    const response = await fetch(
-      `https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=${limit}&fields=items(track(name,artists(name)))`,
-      {
-        headers: { Authorization: `Bearer ${token}` },
-      },
-    );
+    const allTracks: SpotifyTrack[] = [];
+    let nextUrl: string | null =
+      `https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=100&fields=items(track(name,artists(name))),total,next`;
 
-    const data: SpotifyPlaylistResponse = await response.json();
-    return data.items
-      .filter((item) => item.track !== null)
-      .map((item) => ({
-        title: item.track!.name,
-        artist: item.track!.artists.map((a) => a.name).join(", "),
-      }));
+    // Fetch all tracks from the playlist (paginated)
+    while (nextUrl) {
+      const response = await fetch(nextUrl, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      const data: SpotifyPlaylistResponse = await response.json();
+
+      const tracks = data.items
+        .filter((item) => item.track !== null)
+        .map((item) => ({
+          title: item.track!.name,
+          artist: item.track!.artists.map((a) => a.name).join(", "),
+        }));
+
+      allTracks.push(...tracks);
+      nextUrl = data.next;
+    }
+
+    // Return a random subset
+    return getRandomSubset(allTracks, Math.min(count, allTracks.length));
   } catch (error) {
     console.error("Error fetching Spotify playlist:", error);
     return [];
