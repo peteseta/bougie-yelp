@@ -1,0 +1,464 @@
+{
+  "https://www.blankenship.io/essays/2020-07-13/": {
+    "title": "William Blankenship",
+    "description": "",
+    "image": "",
+    "favicon": "https://www.blankenship.io/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:36.337Z"
+  },
+  "https://nroottag.github.io/": {
+    "title": "Tracking You from a Thousand Miles Away!",
+    "description": "A security vulnerability that allows tracking of Bluetooth devices using Apple's Find My network",
+    "image": "",
+    "favicon": "https://nroottag.github.io/static/images/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:36.737Z"
+  },
+  "https://www.inkandswitch.com/ambsheets/": {
+    "title": "",
+    "description": "",
+    "image": "",
+    "favicon": "https://www.inkandswitch.com/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:37.045Z"
+  },
+  "https://hearsum.ca/posts/history-of-code-signing-at-mozilla/": {
+    "title": "A Brief History of Code Signing at Mozilla | Ben Hearsum",
+    "description": "Shipping large software to end-user devices is a complicated process. Shipping large software securely to end-user devices is even more complicated. Signing the things that ship to end-user devices is",
+    "image": "",
+    "favicon": "https://hearsum.ca/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:37.442Z"
+  },
+  "https://cerebras.ai/blog/100x-defect-tolerance-how-cerebras-solved-the-yield-problem": {
+    "title": "100x Defect Tolerance: How Cerebras Solved the Yield Problem - Cerebras",
+    "description": "Cerebras is the go-to platform for fast and effortless AI training. Learn more at cerebras.ai.",
+    "image": "https://cdn.sanity.io/images/e4qjo92p/production/0aa1f017d6130b0f0c9a2b95d085dbbc0c8407dd-2146x1144.png?rect=0,9,2146,1127&amp;w=1200&amp;h=630&amp;fit=max&amp;auto=format",
+    "favicon": "https://cdn.sanity.io/images/e4qjo92p/production/4176e884cf8c14f8c6bcb59fb9f3e332ac90497d-1000x1000.svg?w=512&amp;h=512&amp;fit=max&amp;auto=format",
+    "fetchedAt": "2026-01-31T04:07:38.477Z"
+  },
+  "https://cerebras.ai/blog/mistral-le-chat": {
+    "title": "Cerebras brings instant inference to Mistral Le Chat - Cerebras",
+    "description": "Cerebras January update: Fastest DeepSeek R1-70B, Mayo Clinic genomic model, Davos appearance, and more! Learn how we&#x27;re accelerating AI with real-time inference, machine learning, and case studies.",
+    "image": "https://cdn.sanity.io/images/e4qjo92p/production/7c4cad7bed76ad1c754236ec1be87a0f62c4c50f-1280x960.jpg?rect=0,144,1280,672&amp;w=1200&amp;h=630&amp;fit=max&amp;auto=format",
+    "favicon": "https://cdn.sanity.io/images/e4qjo92p/production/4176e884cf8c14f8c6bcb59fb9f3e332ac90497d-1000x1000.svg?w=512&amp;h=512&amp;fit=max&amp;auto=format",
+    "fetchedAt": "2026-01-31T04:07:38.793Z"
+  },
+  "https://www.science.org/content/blog-post/what-s-happening-inside-nih": {
+    "title": "Just a moment...",
+    "description": "",
+    "image": "",
+    "favicon": "https://www.science.org/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:38.912Z"
+  },
+  "https://press.uchicago.edu/Misc/Chicago/511928.htm": {
+    "title": "They Thought They Were Free: The Germans, 1933-45 by Milton Mayer, an excerpt, 2017 edition",
+    "description": "An excerpt from They Thought They Were Free: The Germans, 1933-45 by Milton Mayer. Also available on web site: online catalogs, secure online ordering, excerpts from new books. Sign up for email notification of new releases in your field.",
+    "image": "",
+    "favicon": "https://press.uchicago.edu/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:39.055Z"
+  },
+  "https://arxiv.org/abs/2501.19393": {
+    "title": "[2501.19393] s1: Simple test-time scaling",
+    "description": "Abstract page for arXiv paper 2501.19393: s1: Simple test-time scaling",
+    "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
+    "favicon": "https://arxiv.org/static/browse/0.3.4/images/icons/favicon-32x32.png",
+    "fetchedAt": "2026-01-31T04:07:39.382Z"
+  },
+  "https://timkellogg.me/blog/2025/02/03/s1": {
+    "title": "S1: The $6 R1 Competitor? - Tim Kellogg",
+    "description": "",
+    "image": "",
+    "favicon": "https://timkellogg.me/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:39.493Z"
+  },
+  "https://www.abortretry.fail/p/so-powerful-its-kind-of-ridiculous": {
+    "title": "So powerful, it&#x27;s kind of ridiculous",
+    "description": "the history of 3dfx Interactive",
+    "image": "https://substackcdn.com/image/fetch/$s_!SjiU!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F86d7a7dc-38ee-4829-b1e5-911fb426d03d_1024x839.png",
+    "favicon": "https://substackcdn.com/image/fetch/$s_!nnZp!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1b6b5b0a-6c3e-42d5-9a22-2a031f028725%2Ffavicon-16x16.png",
+    "fetchedAt": "2026-01-31T04:07:39.936Z"
+  },
+  "https://randomaugustine.medium.com/on-apple-exclaves-d683a2c37194": {
+    "title": "Just a moment...",
+    "description": "",
+    "image": "",
+    "favicon": "https://randomaugustine.medium.com/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:40.089Z"
+  },
+  "https://exclusivearchitecture.com/03-technical-articles-CLT-12-autofocus-systems.html": {
+    "title": "ƎXCLUSIVE ARCHITECTURE",
+    "description": "",
+    "image": "",
+    "favicon": "https://exclusivearchitecture.com/images/favicon.png",
+    "fetchedAt": "2026-01-31T04:07:40.909Z"
+  },
+  "https://www.bbc.com/news/articles/cq6yg204pvmo": {
+    "title": "Plane GPS systems are under sustained attack - is the solution a new atomic clock?",
+    "description": "How a new atomic clock might be the way to tackle attacks on plane GPS systems",
+    "image": "https://ichef.bbci.co.uk/news/1024/branded_news/ed7c/live/705a2b40-f524-11ef-9e61-71ee71f26eb1.png",
+    "favicon": "https://static.files.bbci.co.uk/bbcdotcom/web/20260126-113039-ddae8f6031-web-2.38.1-3/favicon-32x32.png",
+    "fetchedAt": "2026-01-31T04:07:41.803Z"
+  },
+  "https://herbertlui.net/dont-think-to-write-write-to-think/": {
+    "title": "Don’t think to write, write to think &#8211; Herbert Lui",
+    "description": "This is one of the lessons that every writer comes to appreciate: writing is thinking. Writing is not the artifact of thinking, it&#8217;s the actual thinking process. There’s no shortage of great quotes on this topic, the implications are less clear: Writing is the planning process and the final product: You don’t design a final [&hellip;]",
+    "image": "",
+    "favicon": "https://herbertlui.net/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:42.416Z"
+  },
+  "https://80000hours.org/problem-profiles/artificial-intelligence/": {
+    "title": "Problem profiles: Risks from power-seeking AI systems | 80,000 Hours",
+    "description": "The future of AI is difficult to predict. But while AI systems could have substantial positive effects, there&#039;s a growing consensus about the dangers of AI.",
+    "image": "https://80000hours.org/wp-content/uploads/2022/08/panels-photo.jpg",
+    "favicon": "https://80000hours.org/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:42.508Z"
+  },
+  "https://www.lesswrong.com/posts/jb4bBdeEEeypNkqzj/orienting-to-3-year-agi-timelines": {
+    "title": "Orienting to 3 year AGI timelines — LessWrong",
+    "description": "My median expectation is that AGI will be created 3 years from now. I share some thoughts on how to orient to and plan for short AGI timelines.",
+    "image": "https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/jb4bBdeEEeypNkqzj/vflah1ap1sx5wgrkzsfb",
+    "favicon": "https://res.cloudinary.com/lesswrong-2-0/image/upload/v1497915096/favicon_lncumn.ico",
+    "fetchedAt": "2026-01-31T04:07:42.859Z"
+  },
+  "https://www.rand.org/pubs/external_publications/EP70704.html#:~:text=Capture%20of%20AI%20policy%20by,from%20the%20social%20science%20literature.": {
+    "title": "How Do AI Companies Fine-Tune Policy? Examining Regulatory Capture in AI Governance | RAND",
+    "description": "Regulatory capture of AI policy could allow industry actors to co-opt regulatory regimes to prioritize private over public welfare. We present results from interviews with 17 AI policy experts on potential outcomes and mechanisms of capture.",
+    "image": "",
+    "favicon": "https://www.rand.org/etc/rand/designs/common/images/favicon.png",
+    "fetchedAt": "2026-01-31T04:07:43.196Z"
+  },
+  "https://typefully.com/DanHollick/why-do-we-need-dithering-Ut7oD4k": {
+    "title": "Why do we need dithering? | Dan Hollick",
+    "description": "Before we all mute the word &#x27;dithering&#x27; I thought I&#x27;d explain a little bit about why we needed to dither digital images in the first place. \n\nAlthough it&#x27;s an aesthetic now, we used to need dithering to trick our eyes into seeing more colors than were actually there. 👇",
+    "image": "https://screenshots.typefully.com/screenshot?size=1200x640&amp;url=https://typefully.com/DanHollick/Ut7oD4k/card",
+    "favicon": "https://typefully-user-avatars.s3.amazonaws.com/_generic/account/10679/typefully_profile.jpeg",
+    "fetchedAt": "2026-01-31T04:07:43.908Z"
+  },
+  "https://seed.line.me/index_en.html": {
+    "title": "LINE Seed",
+    "description": "Meet LINE Seed. LINE'S very first typeface is born.",
+    "image": "https://seed.line.me/src/images/favicon/ogTag.jpg",
+    "favicon": "https://seed.line.me/src/images/favicon/favicon192.png",
+    "fetchedAt": "2026-01-31T04:07:45.679Z"
+  },
+  "https://www.tfeb.org/fragments/2025/11/18/the-lost-cause-of-the-lisp-machines/": {
+    "title": "The lost cause of the Lisp machines",
+    "description": "I am just really bored by Lisp Machine romantics at this point: they should go away. I expect they never will....",
+    "image": "",
+    "favicon": "https://www.tfeb.org/images/tfb-icon.gif",
+    "fetchedAt": "2026-01-31T04:07:46.178Z"
+  },
+  "https://devpost.com/software/mango-full-body-gesture-control-for-any-game": {
+    "title": "Mango - Full-Body Gesture Control for Any Game | Devpost",
+    "description": "Mango - Full-Body Gesture Control for Any Game - Mango turns your webcam into a full-body motion controller, letting anyone play PC games using ges...",
+    "image": "https://d112y698adiu2z.cloudfront.net/photos/production/software_thumbnail_photos/003/817/257/datas/medium.png",
+    "favicon": "https://devpost.com/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:46.982Z"
+  },
+  "https://github.com/minjunminji/minecraftCVcontroller": {
+    "title": "GitHub - minjunminji/minecraftCVcontroller: gesture-controlled Minecraft using your webcam and OpenCV",
+    "description": "gesture-controlled Minecraft using your webcam and OpenCV - minjunminji/minecraftCVcontroller",
+    "image": "https://opengraph.githubassets.com/a4de8db44fb1e3aff8f0d1ed9c715373435d29ac0476bdf812add8da5897604d/minjunminji/minecraftCVcontroller",
+    "favicon": "https://github.githubassets.com/favicons/favicon",
+    "fetchedAt": "2026-01-31T04:07:47.194Z"
+  },
+  "https://www.jenn.site/after-my-dad-died-we-found-the-love-letters/": {
+    "title": "after my dad died, we found the love letters | Jenneral HQ",
+    "description": "a few days after , we found the love letters, hidden away among his things. one of them said, \r\n\r\nmy parents were not a love match. at 27 and 26, they were e...",
+    "image": "https://bear-images.sfo2.cdn.digitaloceanspaces.com/herman-1683556668-0.png",
+    "favicon": "https://www.jenn.site/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:47.492Z"
+  },
+  "https://www.medscape.com/viewarticle/many-popular-beliefs-about-allergies-arent-supported-2025a1000uem": {
+    "title": "Many Beliefs About Allergies Unsupported by Evidence",
+    "description": "Extreme elimination diets and similar drastic measures can cause unnecessary stress when many allergy issues could benefit from more thoughtful management.",
+    "image": "https://img.medscapestatic.com/vim/live/professional_assets/medscape/images/thumbnail_library/dt-251104-asian-child-drinking-milk-800x450.jpg",
+    "favicon": "https://www.medscape.com/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:49.200Z"
+  },
+  "https://computer.rip/2025-11-22-RuBee.html": {
+    "title": "RuBee",
+    "description": "",
+    "image": "https://computer.rip/static/social-icon.png",
+    "favicon": "https://computer.rip/static/cubes.svg",
+    "fetchedAt": "2026-01-31T04:07:49.667Z"
+  },
+  "https://ai.meta.com/sam3/": {
+    "title": "SAM 3",
+    "description": "With SAM 3 you can use text and visual prompts to precisely identify, segment, and follow any object in images or videos&#x2014;coming soon to Instagram Edits and Vibes on the Meta AI app.",
+    "image": "",
+    "favicon": "https://ai.meta.com/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:51.075Z"
+  },
+  "https://blog.trailofbits.com/2025/09/24/supply-chain-attacks-are-exploiting-our-assumptions/": {
+    "title": "Supply chain attacks are exploiting our assumptions - The Trail of Bits Blog",
+    "description": "Supply chain attacks exploit fundamental trust assumptions in modern software development, from typosquatting to compromised build pipelines, while new defensive tools are emerging to make these trust relationships explicit and verifiable.",
+    "image": "https://blog.trailofbits.com/img/tob.png",
+    "favicon": "https://blog.trailofbits.com/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:51.606Z"
+  },
+  "https://www.oneusefulthing.org/p/three-years-from-gpt-3-to-gemini": {
+    "title": "Three Years from GPT-3 to Gemini 3 - by Ethan Mollick",
+    "description": "From chatbots to agents",
+    "image": "https://substackcdn.com/image/fetch/$s_!f-5x!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe20744fc-7146-409d-8eff-519e9a2d13d7_2181x1296.png",
+    "favicon": "https://substackcdn.com/image/fetch/$s_!UFMP!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F233e9990-95ea-44ab-afc4-5abfe44f24d4%2Ffavicon-16x16.png",
+    "fetchedAt": "2026-01-31T04:07:52.233Z"
+  },
+  "https://robrobinette.com/How_Amps_Work.htm": {
+    "title": "How Amps Work",
+    "description": "How Tube Guitar Amplifiers Work",
+    "image": "",
+    "favicon": "https://robrobinette.com/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:52.821Z"
+  },
+  "https://asteriskmag.com/issues/12-books/you-arent-in-the-dsm": {
+    "title": "You Aren’t In The DSM—Asterisk",
+    "description": "Five editions on, the DSM shoulders more responsibilities than it was ever intended for. How did we get here?",
+    "image": "",
+    "favicon": "https://asteriskmag.com/assets/favicon/asterisk_mark_0.png",
+    "fetchedAt": "2026-01-31T04:07:53.081Z"
+  },
+  "https://www.dissonances.blog/p/the-ear-does-not-do-a-fourier-transform": {
+    "title": "The ear does not do a Fourier transform - by galen",
+    "description": "Sensory coding 2: electric boogaloo",
+    "image": "https://substackcdn.com/image/fetch/$s_!KT9h!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd0ee9e15-988a-44d6-a1c2-22b14fd0a53c_1836x325.png",
+    "favicon": "https://substackcdn.com/image/fetch/$s_!-jFf!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd21ddfa1-1e25-4a32-a111-3654c226b90c%2Ffavicon-16x16.png",
+    "fetchedAt": "2026-01-31T04:07:53.356Z"
+  },
+  "https://www.asimov.press/p/nigeria-crops": {
+    "title": "Why Nigeria Accepted GMOs - Asimov Press",
+    "description": "Genetically modified crops are finding a foothold in the Global South, producing some unlikely leaders in agritech.",
+    "image": "https://substackcdn.com/image/fetch/$s_!Cyb2!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F023e6f06-8b09-4d6a-8bbb-d31bbf80b371_2000x1260.jpeg",
+    "favicon": "https://substackcdn.com/image/fetch/$s_!SLt_!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feaf04790-7be8-4dd4-8559-1e8b686243b9%2Ffavicon-16x16.png",
+    "fetchedAt": "2026-01-31T04:07:54.057Z"
+  },
+  "https://wyounas.github.io/aws/concurrency/2025/10/30/reproducing-the-aws-outage-race-condition-with-model-checker/": {
+    "title": "Reproducing the AWS Outage Race Condition with a Model Checker | Waqas Younas' blog",
+    "description": "Welcome to Waqas' blog",
+    "image": "",
+    "favicon": "https://wyounas.github.io/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:54.298Z"
+  },
+  "https://github.com/cellwebb/gac": {
+    "title": "GitHub - cellwebb/gac: Intelligent LLM-powered git commit message generator that understands your code!",
+    "description": "Intelligent LLM-powered git commit message generator that understands your code! - cellwebb/gac",
+    "image": "https://opengraph.githubassets.com/531a463ce7fbb284783a236b90ff82dd89644ebe58df32a0c57c57b7b15182e8/cellwebb/gac",
+    "favicon": "https://github.githubassets.com/favicons/favicon",
+    "fetchedAt": "2026-01-31T04:07:55.218Z"
+  },
+  "https://www.lr.org/en/knowledge/press-room/press-listing/press-release/2026/alarm-overload-is-undermining-safety-at-sea-as-new-research-shows-crews-face-tens-of-thousands-of-daily-alerts/": {
+    "title": "Alarm overload is undermining safety at sea shows new LR research | LR",
+    "description": "Analysis of more than 40 million alarm-related events shows most alarms offer little operational value, disrupt rest and push crews toward risky workarounds.",
+    "image": "https://www.lr.org/globalassets/alarm-management-social-2026.png",
+    "favicon": "https://www.lr.org/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:55.801Z"
+  },
+  "https://www.asimov.press/p/clinic-loop": {
+    "title": "Clinic-in-the-Loop - by Ruxandra Teslo and Asimov Press",
+    "description": "Clinical trials are engines for scientific discovery. Better drugs require not just more trials, but also improved data collection, to create therapeutic feedback loops.",
+    "image": "https://substackcdn.com/image/fetch/$s_!IRsW!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F88e224af-d240-43ca-b5ef-8433777e19bc_2000x1260.jpeg",
+    "favicon": "https://substackcdn.com/image/fetch/$s_!SLt_!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feaf04790-7be8-4dd4-8559-1e8b686243b9%2Ffavicon-16x16.png",
+    "fetchedAt": "2026-01-31T04:07:56.137Z"
+  },
+  "https://oldvcr.blogspot.com/2026/01/hands-on-with-two-apple-network-server.html": {
+    "title": "Old Vintage Computing Research: Hands-on with two Apple Network Server prototype ROMs",
+    "description": "",
+    "image": "",
+    "favicon": "https://oldvcr.blogspot.com/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:56.759Z"
+  },
+  "https://dlt.github.io/blog/posts/introduction-to-postgresql-indexes/#btree": {
+    "title": "Introduction to PostgreSQL Indexes :: explain, analyze\n",
+    "description": "",
+    "image": "",
+    "favicon": "https://dlt.github.io/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:56.986Z"
+  },
+  "https://restofworld.org/2026/iran-blackout-tiered-internet/": {
+    "title": "Iran is building a two-tier internet that locks 85 million citizens out of the global web - Rest of World",
+    "description": "The 15-day blackout is a test run for Barracks Internet, a system where only regime insiders get full connectivity.",
+    "image": "https://restofworld.org/wp-content/uploads/2026/01/GettyImages-2256840554-scaled-e1769150202393-1600x900.jpg",
+    "favicon": "https://restofworld.org/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:57.113Z"
+  },
+  "https://github.com/tldev/posturr": {
+    "title": "GitHub - tldev/posturr: A macOS app that blurs your screen when you slouch. Uses Vision framework for real-time posture detection.",
+    "description": "A macOS app that blurs your screen when you slouch. Uses Vision framework for real-time posture detection. - tldev/posturr",
+    "image": "https://opengraph.githubassets.com/1a08f9efa5807b742928560f0c341344cac6a847c5e4224b67dd5a4cd677b222/tldev/posturr",
+    "favicon": "https://github.githubassets.com/favicons/favicon",
+    "fetchedAt": "2026-01-31T04:07:57.673Z"
+  },
+  "https://www.eff.org/deeplinks/2026/01/report-ice-using-palantir-tool-feeds-medicaid-data": {
+    "title": "Report: ICE Using Palantir Tool That Feeds On Medicaid Data | Electronic Frontier Foundation",
+    "description": "ICE is using a Palantir tool that uses Medicaid and other government data to stalk people for arrest. This is exactly the kind of data privacy abuse that EFF has been warning about.",
+    "image": "https://www.eff.org/files/banner_library/surveillance-og-2.png",
+    "favicon": "https://www.eff.org/favicon.ico",
+    "fetchedAt": "2026-01-31T04:07:57.927Z"
+  },
+  "https://digitalseams.com/blog/the-behavioral-cost-of-personalized-pricing": {
+    "title": "The behavioral cost of personalized pricing &mdash; Digital Seams",
+    "description": "",
+    "image": "http://static1.squarespace.com/static/598a2436f7e0ab837d08f4c6/t/69757739d15d6939dd7530f6/1769306007716/price-discrimination.png?format=1500w",
+    "favicon": "https://images.squarespace-cdn.com/content/v1/598a2436f7e0ab837d08f4c6/5ba8778d-1fd1-45e3-a8cb-346b861097fe/favicon.ico?format=100w",
+    "fetchedAt": "2026-01-31T04:07:58.578Z"
+  },
+  "https://stratechery.com/2026/tsmc-risk/": {
+    "title": "TSMC Risk &#8211; Stratechery by Ben Thompson",
+    "description": "If hyperscalers and chip companies don&#8217;t build up a TSMC competitor they are set to forego billions of dollars in revenue and stunt the AI revolution.",
+    "image": "https://stratechery.com/wp-content/uploads/2026/01/tsmc-risk-2.png",
+    "favicon": "https://i0.wp.com/stratechery.com/wp-content/uploads/2018/03/cropped-android-chrome-512x512-1.png?fit=32%2C32&#038;ssl=1",
+    "fetchedAt": "2026-01-31T04:07:59.038Z"
+  },
+  "https://www.theguardian.com/global-development/2025/dec/02/chile-salmon-farms-fish-industry": {
+    "title": "‘Those who eat Chilean salmon cannot imagine how much human blood it carries with it’ | Chile | The Guardian",
+    "description": "The country is the world&#x2019;s second-largest producer of the popular fish, and the biggest supplier to the US, but its farms are beset by accusations of dangerous labour conditions, antibiotic overuse and ecological harm",
+    "image": "https://i.guim.co.uk/img/media/3dca7aef4085ef09f019e4a618429c0b639ebb71/739_0_5840_4672/master/5840.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=810ed2ca137fbd484aaf5632692ff6ee",
+    "favicon": "https://static.guim.co.uk/images/favicon-32x32.ico",
+    "fetchedAt": "2026-01-31T04:07:59.726Z"
+  },
+  "https://mainstreetautonomy.com/blog/2025-08-29-all-about-automotive-lidar/": {
+    "title": "Main Street Autonomy",
+    "description": "",
+    "image": "",
+    "favicon": "https://mainstreetautonomy.com/favicon.ico",
+    "fetchedAt": "2026-01-31T04:08:00.305Z"
+  },
+  "https://www.lopaciuk.eu/2021/03/26/apple-adb-protocol.html": {
+    "title": "Apple Desktop Bus Protocol",
+    "description": "Backstory",
+    "image": "",
+    "favicon": "https://www.lopaciuk.eu/favicon.ico",
+    "fetchedAt": "2026-01-31T04:08:00.544Z"
+  },
+  "https://www.lesswrong.com/posts/vpNG99GhbBoLov9og/claude-4-5-opus-soul-document#comments": {
+    "title": "Claude 4.5 Opus&#x27; Soul Document — LessWrong",
+    "description": "Update 2025-12-02: Amanda Askell has kindly confirmed that the document was used in supervised learning and will share the full version and more deta…",
+    "image": "https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/vpNG99GhbBoLov9og/mfacs5fofsh6bbd1cmxb",
+    "favicon": "https://res.cloudinary.com/lesswrong-2-0/image/upload/v1497915096/favicon_lncumn.ico",
+    "fetchedAt": "2026-01-31T04:08:02.027Z"
+  },
+  "https://www.willienotwilly.com/contact-sheet-prompting": {
+    "title": "Contact Sheet Prompting | Willie Falloon",
+    "description": "Generating cohesive multi-frame narratives with Nano Banana Pro&#x27;s reasoning capabilities.",
+    "image": "https://willienotwilly.com/contact-sheet-og.jpg",
+    "favicon": "https://www.willienotwilly.com/favicon.ico?favicon.0b3bf435.ico",
+    "fetchedAt": "2026-01-31T04:08:02.703Z"
+  },
+  "https://reverbmachine.com/blog/deconstructing-brian-eno-music-for-airports/": {
+    "title": "How Brian Eno Created &quot;Ambient 1: Music For Airports&quot;",
+    "description": "In 1978, Brian Eno released Ambient 1: Music for Airports, a landmark album in ambient and electronic music. Although it wasn&#039;t the first ambient",
+    "image": "https://media.reverbmachine.com/2019/07/brian-eno-music-for-airports-1024x341.jpg",
+    "favicon": "https://reverbmachine.com/wp-content/uploads/fbrfg/favicon-32x32.png",
+    "fetchedAt": "2026-01-31T04:08:04.889Z"
+  },
+  "https://react.dev/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components": {
+    "title": "Denial of Service and Source Code Exposure in React Server Components – React",
+    "description": "The library for web and native user interfaces",
+    "image": "https://react.dev/images/og-blog.png",
+    "favicon": "https://react.dev/favicon-32x32.png",
+    "fetchedAt": "2026-01-31T04:08:05.094Z"
+  },
+  "https://www.404media.co/flock-exposed-its-ai-powered-cameras-to-the-internet-we-tracked-ourselves/": {
+    "title": "Flock Exposed Its AI-Powered Cameras to the Internet. We Tracked Ourselves",
+    "description": "Flock left at least 60 of its people-tracking Condor PTZ cameras live streaming and exposed to the open internet.",
+    "image": "https://www.404media.co/content/images/size/w1200/2025/12/1222.gif",
+    "favicon": "https://www.404media.co/content/images/size/w256h256/format/png/2023/08/favicon-3.svg",
+    "fetchedAt": "2026-01-31T04:08:05.806Z"
+  },
+  "https://www.allaboutcircuits.com/industry-articles/fpgas-need-a-new-future/": {
+    "title": "Just a moment...",
+    "description": "",
+    "image": "",
+    "favicon": "https://www.allaboutcircuits.com/favicon.ico",
+    "fetchedAt": "2026-01-31T04:08:05.960Z"
+  },
+  "https://laurenleek.substack.com/p/how-google-maps-quietly-allocates": {
+    "title": "How Google Maps quietly allocates survival across London’s restaurants - and how I built a dashboard to see through it",
+    "description": "I wanted a dinner recommendation and got a research agenda instead. Using 13000+ restaurants, I rebuild its ratings with machine learning and map how algorithmic visibility actually distributes power.",
+    "image": "https://substackcdn.com/image/fetch/$s_!sPnJ!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F65709628-04f8-4288-b0c0-7f933fab17c3_1893x753.png",
+    "favicon": "https://substackcdn.com/image/fetch/$s_!OvAt!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8681b9f0-71da-4202-88e7-ddcc0df589e8%2Ffavicon-16x16.png",
+    "fetchedAt": "2026-01-31T04:08:06.397Z"
+  },
+  "https://harpers.org/archive/2025/12/kicking-robots-james-vincent-humanoids/": {
+    "title": "Kicking Robots, by James Vincent",
+    "description": "Humanoids and the tech-­industry hype machine",
+    "image": "https://wp.harpers.org/wp-content/uploads/2025/11/CUT-7-scaled.jpg",
+    "favicon": "https://wp.harpers.org/wp-content/themes/timber/assets/img/favicon-192x192.png",
+    "fetchedAt": "2026-01-31T04:08:06.823Z"
+  },
+  "https://www.jeffgeerling.com/blog/2025/nist-was-5-%CE%BCs-utc-after-last-weeks-power-cut": {
+    "title": "NIST was 5 μs off UTC after last week's power cut - Jeff Geerling",
+    "description": "If you were 5 microseconds late today, blame it on NIST.\nTheir facility in Boulder Colorado just had its power cut for multiple days. After a backup generator failed, their main ensemble clock lost track of UTC, or Universal Time Coordinated.\nBut even if you used the NTP timing servers they run, they were never off by more than 5 microseconds.\n5 μs might seem insignificant. But it is significant for scientists and universities who rely on NIST's more specialized timing signals.",
+    "image": "",
+    "favicon": "https://www.jeffgeerling.com/favicon.ico",
+    "fetchedAt": "2026-01-31T04:08:07.141Z"
+  },
+  "https://github.com/shrimbly/node-banana": {
+    "title": "GitHub - shrimbly/node-banana: Free and open node based generative workflows.",
+    "description": "Free and open node based generative workflows. . Contribute to shrimbly/node-banana development by creating an account on GitHub.",
+    "image": "https://opengraph.githubassets.com/021e7ca24a2d1cfd0e2aa69196b2487bdbf9233e77fe1aac90c2691e8e71f4ed/shrimbly/node-banana",
+    "favicon": "https://github.githubassets.com/favicons/favicon",
+    "fetchedAt": "2026-01-31T04:08:07.948Z"
+  },
+  "https://poniesandlight.co.uk/reflect/gamma/": {
+    "title": "Notes on Gamma",
+    "description": "The nuance between seeing and perceiving, linearity and non-linearity, what EOTFs are &ndash; and how to draw nice smooth gradients against the odds",
+    "image": "https://poniesandlight.co.uk//img/reflect/gamma/gradient_2_2_gamma_srgb_swapchain.png",
+    "favicon": "https://poniesandlight.co.uk//img/favicon.svg",
+    "fetchedAt": "2026-01-31T04:08:09.781Z"
+  },
+  "https://about.fb.com/news/2025/12/our-new-sam-audio-model-transforms-audio-editing/": {
+    "title": "Our New SAM Audio Model Transforms Audio Editing",
+    "description": "We&#039;re introducing SAM Audio, a state-of-the-art AI model that enables you to segment sound.",
+    "image": "https://about.fb.com/wp-content/uploads/2025/12/SAM-Audio_Social-Share.jpg?w=1200",
+    "favicon": "https://about.fb.com/wp-content/uploads/2021/10/meta-favicon.png?fit=16%2C16",
+    "fetchedAt": "2026-01-31T04:08:09.929Z"
+  },
+  "https://xania.org/202512/11-pop-goes-the-weasel-er-count": {
+    "title": "Pop goes the...population count? &#8212; Matt Godbolt&#8217;s blog",
+    "description": "Compilers can take advantage of some very specific instructions",
+    "image": "",
+    "favicon": "https://xania.org/favicon.ico",
+    "fetchedAt": "2026-01-31T04:08:10.265Z"
+  },
+  "https://1517.substack.com/p/powder-and-stone-or-why-medieval": {
+    "title": "Powder &amp; Stone. Or, Why Medieval Rulers Loved Castles.",
+    "description": "And how gunpowder and castles led to modern states and centralized taxation. Part I.",
+    "image": "https://substackcdn.com/image/fetch/$s_!XQXi!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc17d52a4-212e-4567-b65f-3b17dcce7bb4_3840x2160.png",
+    "favicon": "https://substackcdn.com/image/fetch/$s_!rfiq!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F18958721-770c-4045-bc07-2a4399c46f38%2Ffavicon-16x16.png",
+    "fetchedAt": "2026-01-31T04:08:10.529Z"
+  },
+  "https://larr.net/p/namings.html": {
+    "title": "Programmers and software developers lost the plot on naming their tools",
+    "description": "",
+    "image": "",
+    "favicon": "https://larr.net/favicon.ico",
+    "fetchedAt": "2026-01-31T04:08:10.759Z"
+  },
+  "https://www.reuters.com/world/us/rubio-stages-font-coup-times-new-roman-ousts-calibri-2025-12-09/": {
+    "title": "reuters.com",
+    "description": "",
+    "image": "",
+    "favicon": "https://www.reuters.com/favicon.ico",
+    "fetchedAt": "2026-01-31T04:08:10.917Z"
+  },
+  "https://www.theguardian.com/news/ng-interactive/2025/dec/04/the-long-read-snail-farm-tax-avoidance-scheme-terry-ball": {
+    "title": "The snail farm don: is this the most brazen tax avoidance scheme of all time? | Tax avoidance | The Guardian",
+    "description": "&#x3C;strong&#x3E;The long read:&#x3C;/strong&#x3E; Terry Ball &#x2013; renowned shoe salesman, friend to former mafiosi &#x2013; has resolved to spend his last years finding ways to cheat authorities he feels have cheated him. His greatest ruse? A tax-dodging snail empire",
+    "image": "https://i.guim.co.uk/img/media/21bc904715552ae411751866161f4b0dec511559/1_0_4998_4000/master/4998.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=307d2f48b5addf6b83ba7aabe74f1096",
+    "favicon": "https://static.guim.co.uk/images/favicon-32x32.ico",
+    "fetchedAt": "2026-01-31T04:08:11.529Z"
+  },
+  "https://www.wallpaper.com/design-interiors/corporate-design-branding/volvo-new-font-volvo-centum": {
+    "title": "Volvo Centum is Dalton Maag's new typeface for Volvo | Wallpaper*",
+    "description": "Designed for the information age, Volvo Centum is an ultra-legible typeface for Volvo's interfaces",
+    "image": "https://cdn.mos.cms.futurecdn.net/Bbk6idpyNNyVN9L889eenE-2560-80.jpg",
+    "favicon": "https://cdn.mos.cms.futurecdn.net/flexiimages/iiwmrp3wre1656622788.png",
+    "fetchedAt": "2026-01-31T04:08:11.875Z"
+  },
+  "https://alexene.dev/2025/12/03/Why-do-my-headphones-buzz-when-I-run-my-game.html": {
+    "title": "Alexandru Ene blog",
+    "description": "",
+    "image": "",
+    "favicon": "https://alexene.dev/favicon.ico",
+    "fetchedAt": "2026-01-31T04:08:12.254Z"
+  }
+}
