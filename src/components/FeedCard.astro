@@ -7,9 +7,10 @@ import type { CollectionEntry } from "astro:content";
 
 interface Props {
   post: CollectionEntry<"blog">;
+  featured?: boolean;
 }
 
-const { post } = Astro.props;
+const { post, featured = false } = Astro.props;
 const type = getPostType(post);
 
 // For weblogs, extract the LinkCard URL from the post body
@@ -20,7 +21,7 @@ if (type === "weblog") {
 ---
 
 {type === "weblog" ? (
-  <WeblogCard post={post} linkUrl={linkUrl} />
+  <WeblogCard post={post} linkUrl={linkUrl} featured={featured} />
 ) : (
-  <PostCard post={post} type={type} />
+  <PostCard post={post} type={type} featured={featured} />
 )}

@@ -15,6 +15,7 @@ import { SITE, SOCIALS } from "@config";
 const posts = await getCollection("blog");
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+const nonFeaturedPosts = sortedPosts.filter(({ data }) => !data.featured);
 const socialCount = SOCIALS.filter(social => social.active).length;
 ---
 
@@ -31,29 +32,25 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       )}
     </section>
 
-    {featuredPosts.length > 0 && (
-      <section id="featured">
-        <h2>featured posts</h2>
-        <div class="featured-list">
-          {featuredPosts.map(post => (
-              <div data-post-type={getPostType(post)}
-                   class="border-0.5 border-skin-line last:border-b-0">
-                <FeedCard post={post} />
-              </div>
-          ))}
-        </div>
-      </section>
-    )}
-
     <div class="two-col">
       <div class="feed-col">
-        <h2 class="feed-heading">everything else</h2>
         <FeedFilter />
         <div class="feed-list">
-          {sortedPosts.map(post => (
+          {/* Featured posts are sticky at top when filter matches */}
+          {featuredPosts.map(post => (
             <div
               data-post-type={getPostType(post)}
-              class="border-b border-skin-line last:border-b-0"
+              data-featured="true"
+              class="feed-item border-b border-skin-line"
+            >
+              <FeedCard post={post} featured={true} />
+            </div>
+          ))}
+          {/* Non-featured posts follow in chronological order */}
+          {nonFeaturedPosts.map(post => (
+            <div
+              data-post-type={getPostType(post)}
+              class="feed-item border-b border-skin-line last:border-b-0"
             >
               <FeedCard post={post} />
             </div>
@@ -84,21 +81,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     @apply mt-4 flex flex-col sm:flex-row sm:items-center;
   }
 
-  /* ===== Featured Section ===== */
-  #featured {
-    @apply mx-auto max-w-5xl px-4 pb-6 pt-8;
-  }
-  #featured h2 {
-    @apply text-xl font-semibold tracking-wide;
-  }
-  .featured-list {
-    @apply divide-y divide-skin-line;
-  }
-
   /* ===== Two-Column Layout ===== */
-  .feed-heading {
-    @apply mb-4 text-xl font-semibold tracking-wide;
-  }
   .two-col {
     @apply mx-auto flex max-w-5xl flex-col gap-8 px-4 pb-12 lg:flex-row;
   }

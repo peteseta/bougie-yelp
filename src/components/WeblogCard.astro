@@ -1,14 +1,16 @@
 ---
 import TypeBadge from "./TypeBadge.astro";
+import FeaturedBadge from "./FeaturedBadge.astro";
 import FeedLinkCard from "./FeedLinkCard.astro";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
   post: CollectionEntry<"blog">;
   linkUrl: string | null;
+  featured?: boolean;
 }
 
-const { post, linkUrl } = Astro.props;
+const { post, linkUrl, featured = false } = Astro.props;
 const { title, pubDatetime } = post.data;
 
 const displayDate = new Date(pubDatetime).toLocaleDateString("en-US", {
@@ -20,6 +22,7 @@ const displayDate = new Date(pubDatetime).toLocaleDateString("en-US", {
 
 <article class="py-4">
   <div class="mb-2 flex items-center gap-2 text-sm">
+    {featured && <FeaturedBadge />}
     <TypeBadge type="weblog" />
     <time datetime={pubDatetime.toISOString()} class="text-skin-base opacity-60">
       {displayDate}
