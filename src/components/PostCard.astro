@@ -1,0 +1,46 @@
+---
+import TypeBadge from "./TypeBadge.astro";
+import Tag from "./Tag.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+  type: "devlog" | "writing";
+}
+
+const { post, type } = Astro.props;
+const { title, pubDatetime, description, tags } = post.data;
+
+const displayDate = new Date(pubDatetime).toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
+---
+
+<article class="py-4">
+  <div class="mb-2 flex items-center gap-2 text-sm">
+    <TypeBadge type={type} />
+    <time datetime={pubDatetime.toISOString()} class="text-skin-base opacity-60">
+      {displayDate}
+    </time>
+  </div>
+  <h3 class="mb-1">
+    <a
+      href={`/posts/${post.id}/`}
+      class="text-lg font-semibold text-skin-base decoration-dashed underline-offset-4 hover:text-skin-accent hover:underline"
+    >
+      {title}
+    </a>
+  </h3>
+  <p class="mb-2 text-sm text-skin-base opacity-80 line-clamp-3">
+    {description}
+  </p>
+  {tags.length > 0 && (
+    <ul class="flex flex-wrap gap-1">
+      {tags.map(tag => (
+        <Tag tag={tag} size="sm" />
+      ))}
+    </ul>
+  )}
+</article>
