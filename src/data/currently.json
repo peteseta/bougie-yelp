@@ -9,26 +9,7 @@
       "author": "Matthew Walker"
     }
   ],
-  "listening": [
-    {
-      "title": "Outbound",
-      "artist": "After",
-      "album": "After EP 2"
-    },
-    {
-      "title": "Sway - triple j Like A Version",
-      "artist": "beabadoobee",
-      "album": "Sway (triple j Like A Version)"
-    },
-    {
-      "title": "Serpentine",
-      "artist": "Wisp",
-      "album": "If Not Winter"
-    },
-    {
-      "title": "Sugar Talking",
-      "artist": "Sabrina Carpenter",
-      "album": "Man's Best Friend"
-    }
-  ]
+  "listening": {
+    "spotifyPlaylistId": "REPLACE_WITH_PLAYLIST_ID"
+  }
 }
