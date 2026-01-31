@@ -1,0 +1,51 @@
+---
+// No props needed — purely client-side filtering
+---
+
+<div class="feed-filter mb-6 flex flex-wrap gap-2">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="weblog">Weblogs</button>
+  <button class="filter-btn" data-filter="devlog">Devlogs</button>
+  <button class="filter-btn" data-filter="writing">Writings</button>
+</div>
+
+<style>
+  .filter-btn {
+    @apply rounded border border-skin-line px-3 py-1 text-sm text-skin-base transition-colors;
+  }
+  .filter-btn:hover {
+    @apply border-skin-accent text-skin-accent;
+  }
+  .filter-btn.active {
+    @apply border-skin-accent bg-skin-accent/10 text-skin-accent;
+  }
+</style>
+
+<script>
+  function initFilter() {
+    const buttons = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
+    const feedItems =
+      document.querySelectorAll<HTMLElement>("[data-post-type]");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const filter = btn.dataset.filter!;
+
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        feedItems.forEach(item => {
+          if (filter === "all" || item.dataset.postType === filter) {
+            item.style.display = "";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      });
+    });
+  }
+
+  // Run on initial load and after Astro view transitions
+  initFilter();
+  document.addEventListener("astro:after-swap", initFilter);
+</script>
