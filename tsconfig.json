@@ -3,11 +3,13 @@
   "compilerOptions": {
     "baseUrl": "src",
     "jsx": "react-jsx",
+    "resolveJsonModule": true,
     "paths": {
       "@assets/*": ["assets/*"],
       "@config": ["config.ts"],
       "@components/*": ["components/*"],
       "@content/*": ["content/*"],
+      "@data/*": ["data/*"],
       "@layouts/*": ["layouts/*"],
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"],
