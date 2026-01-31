@@ -6,6 +6,7 @@
   :root,
   html[data-theme="light"] {
     --color-fill: 251, 254, 251;
+    --color-bg: rgb(var(--color-fill));
     --color-text-base: 40, 39, 40;
     --color-accent: 0, 108, 172;
     --color-card: 230, 230, 230;
@@ -13,12 +14,14 @@
     --color-border: 236, 233, 233;
   }
   html[data-theme="dark"] {
-    --color-fill: 33, 39, 55;
-    --color-text-base: 234, 237, 243;
-    --color-accent: 255, 107, 1;
-    --color-card: 52, 63, 96;
-    --color-card-muted: 138, 51, 2;
-    --color-border: 171, 75, 8;
+    /* Min dark scheme (ported from min-theme) */
+    --color-fill: 33, 33, 33; /* #212121 */
+    --color-bg: rgb(var(--color-fill));
+    --color-text-base: 193, 193, 193; /* #c1c1c1 */
+    --color-accent: 121, 184, 255; /* #79b8ff */
+    --color-card: 41, 41, 41; /* #292929 */
+    --color-card-muted: 56, 56, 56; /* #383838 */
+    --color-border: 54, 54, 54; /* #363636 */
   }
   #sun-svg,
   html[data-theme="dark"] #moon-svg {
