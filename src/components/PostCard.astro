@@ -5,7 +5,7 @@ import type { CollectionEntry } from "astro:content";
 
 interface Props {
   post: CollectionEntry<"blog">;
-  type: "devlog" | "writing";
+  type: "weblog" | "devlog" | "writing";
 }
 
 const { post, type } = Astro.props;
