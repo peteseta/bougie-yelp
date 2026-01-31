@@ -69,6 +69,25 @@
     @apply focus-outline;
   }
 
+  /* Responsive embeds inside prose content */
+  .prose iframe,
+  .prose video,
+  .prose embed,
+  .prose object {
+    max-width: 100%;
+  }
+
+  .prose iframe,
+  .prose video {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .prose video {
+    height: auto;
+  }
+
   /* Hide default footnotes section on large screens (shown in sidebar instead) */
   @media (min-width: 1024px) {
     .prose section[data-footnotes] {

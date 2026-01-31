@@ -76,9 +76,9 @@ const metadata = await fetchMetadata(url);
   rel="noopener noreferrer"
   class="group block rounded border border-skin-line bg-skin-card/50 px-5 py-5 mb-8 transition-[border-color] hover:border-skin-accent !underline-offset-[3px]"
 >
-  <div class="flex gap-6">
+  <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
     {metadata.image && (
-      <div class="flex-shrink-0">
+      <div class="flex-shrink-0 self-start">
         <img
           src={metadata.image}
           alt=""
@@ -86,20 +86,20 @@ const metadata = await fetchMetadata(url);
         />
       </div>
     )}
-    <div class="flex-grow">
+    <div class="min-w-0 flex-grow">
       <div class="flex flex-col">
         <span class="text-xs font-light text-skin-base opacity-50 -mb-7">via:</span>
-        <h3 class="font-medium text-skin-accent decoration-dashed !underline-offset-[3px] group-hover:underline">
+        <h3 class="break-words font-medium text-skin-accent decoration-dashed !underline-offset-[3px] group-hover:underline">
           {metadata.title || new URL(url).hostname}
         </h3>
       </div>
       {metadata.description && (
-        <p class="mt-2 text-sm text-skin-base opacity-90 line-clamp-2">
+        <p class="mt-2 break-words text-sm text-skin-base opacity-90 line-clamp-2">
           {metadata.description}
         </p>
       )}
-      <div class="mt-2.5 flex items-center gap-2 text-sm text-skin-base opacity-75">
-        <span class="flex items-center gap-1.5">
+      <div class="mt-2.5 flex min-w-0 items-center gap-2 text-sm text-skin-base opacity-75">
+        <span class="flex min-w-0 items-center gap-1.5">
           {metadata.favicon && (
             <img
               src={metadata.favicon}
@@ -108,7 +108,7 @@ const metadata = await fetchMetadata(url);
               onerror="this.style.display='none'"
             />
           )}
-          <span>{new URL(url).hostname}</span>
+          <span class="min-w-0 truncate">{new URL(url).hostname}</span>
         </span>
         <span>↗</span>
       </div>
