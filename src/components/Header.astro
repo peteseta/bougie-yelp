@@ -67,7 +67,7 @@ const { activeNav } = Astro.props;
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class:list={[
-                      "icon icon-tabler icons-tabler-outline !hidden sm:!inline-block",
+                      "icon icon-tabler icons-tabler-outline scale-125 sm:scale-100",
                       activeNav === "archives" && "!stroke-skin-accent",
                     ]}
                   >
@@ -78,14 +78,7 @@ const { activeNav } = Astro.props;
                       <path d="M10 12l4 0" />
                     </Fragment>
                   </svg>
-                  <span
-                    class:list={[
-                      "sm:sr-only",
-                      activeNav === "archives" && "active",
-                    ]}
-                  >
-                    Archives
-                  </span>
+                  <span class="sr-only">Archives</span>
                 </LinkButton>
               </li>
             )
@@ -137,7 +130,7 @@ const { activeNav } = Astro.props;
               title="RSS Feed"
               target="_blank"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon scale-125 sm:scale-100">
                 <path d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z" />
                 <path d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z" />
                 <circle cx="6" cy="18" r="2" />
@@ -160,36 +153,32 @@ const { activeNav } = Astro.props;
     @apply mx-auto flex max-w-5xl flex-col items-center justify-between sm:flex-row;
   }
   .top-nav-wrap {
-    @apply relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8;
+    @apply relative flex w-full flex-wrap items-center justify-between p-4 sm:py-8;
   }
   .logo {
-    @apply absolute py-1 text-xl font-semibold sm:static sm:text-2xl;
+    @apply py-1 text-xl font-semibold sm:text-2xl;
   }
   .hamburger-menu {
-    @apply self-end p-2 sm:hidden;
+    @apply p-2 sm:hidden;
   }
   .hamburger-menu svg {
     @apply h-6 w-6 scale-125 fill-skin-base;
   }
 
   nav {
-    @apply flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
+    @apply flex items-center sm:ml-2 sm:flex-1 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
   }
   nav ul {
-    @apply mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
+    @apply absolute left-0 right-0 top-full flex flex-row items-center justify-end gap-2 border-b border-skin-line bg-skin-fill px-4 pb-3 shadow-sm sm:static sm:w-auto sm:gap-5 sm:border-b-0 sm:bg-transparent sm:px-0 sm:pb-0 sm:shadow-none;
   }
   nav ul li {
-    @apply col-span-2 flex items-center justify-center;
+    @apply flex items-center justify-center;
   }
   nav ul li a {
-    @apply w-full px-4 py-3 text-center font-medium hover:text-skin-accent sm:my-0 sm:px-2 sm:py-1;
+    @apply px-2 py-2 text-center font-medium hover:text-skin-accent sm:my-0 sm:px-2 sm:py-1;
   }
   nav ul li:nth-last-child(2) a {
     @apply w-auto;
-  }
-  nav ul li:nth-last-child(1),
-  nav ul li:nth-last-child(2) {
-    @apply col-span-1;
   }
   nav .active {
     @apply underline decoration-wavy decoration-2 underline-offset-4;
