@@ -1,0 +1,55 @@
+---
+import { getCachedMetadata } from "@utils/linkcardCache";
+
+interface Props {
+  url: string;
+}
+
+const { url } = Astro.props;
+const metadata = getCachedMetadata(url);
+const displayTitle = metadata?.title || new URL(url).hostname;
+const displayDescription = metadata?.description || "";
+const displayFavicon = metadata?.favicon || "/favicon.ico";
+const displayImage = metadata?.image || "";
+---
+
+<a
+  href={url}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="group block rounded border border-skin-line bg-skin-card/50 px-4 py-3 transition-[border-color] hover:border-skin-accent"
+>
+  <div class="flex gap-4">
+    {displayImage && (
+      <div class="hidden flex-shrink-0 self-start sm:block">
+        <img
+          src={displayImage}
+          alt=""
+          class="h-20 w-20 rounded border border-skin-line object-cover"
+        />
+      </div>
+    )}
+    <div class="min-w-0 flex-grow">
+      <h4 class="break-words text-sm font-medium text-skin-accent decoration-dashed group-hover:underline">
+        {displayTitle}
+      </h4>
+      {displayDescription && (
+        <p class="mt-1 break-words text-xs text-skin-base opacity-75 line-clamp-2">
+          {displayDescription}
+        </p>
+      )}
+      <div class="mt-1.5 flex items-center gap-1.5 text-xs text-skin-base opacity-60">
+        {displayFavicon && (
+          <img
+            src={displayFavicon}
+            alt=""
+            class="h-3 w-3"
+            onerror="this.style.display='none'"
+          />
+        )}
+        <span class="truncate">{new URL(url).hostname}</span>
+        <span>↗</span>
+      </div>
+    </div>
+  </div>
+</a>
