@@ -2,8 +2,8 @@
   "name": "bougie-yelp",
   "private": true,
   "scripts": {
-    "dev": "tinacms dev -c \"astro dev\"",
-    "dev:astro": "astro dev",
+    "dev": "tinacms dev -c \"astro dev --host 0.0.0.0\"",
+    "dev:astro": "astro dev --host 0.0.0.0",
     "start": "astro dev",
     "build": "tinacms build && astro build",
     "preview": "astro preview",
