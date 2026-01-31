@@ -1,5 +1,6 @@
 ---
 import { getCachedMetadata } from "@utils/linkcardCache";
+import { decodeHtmlEntities } from "@utils/decodeHtmlEntities";
 
 interface Props {
   url: string;
@@ -7,8 +8,8 @@ interface Props {
 
 const { url } = Astro.props;
 const metadata = getCachedMetadata(url);
-const displayTitle = metadata?.title || new URL(url).hostname;
-const displayDescription = metadata?.description || "";
+const displayTitle = decodeHtmlEntities(metadata?.title || "") || new URL(url).hostname;
+const displayDescription = decodeHtmlEntities(metadata?.description || "");
 const displayFavicon = metadata?.favicon || "/favicon.ico";
 const displayImage = metadata?.image || "";
 ---

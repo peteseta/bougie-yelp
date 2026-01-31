@@ -4,6 +4,7 @@ import {
   setCachedMetadata,
   type LinkCardMetadata,
 } from "@utils/linkcardCache";
+import { decodeHtmlEntities } from "@utils/decodeHtmlEntities";
 
 interface Props {
   url: string;
@@ -71,8 +72,8 @@ async function fetchAndCacheMetadata(
     const hasValidImage = imageUrl ? await isValidImageUrl(imageUrl) : false;
 
     const metadata: LinkCardMetadata = {
-      title: titleMatch?.[1] || "",
-      description: descriptionMatch?.[1] || "",
+      title: decodeHtmlEntities(titleMatch?.[1] || ""),
+      description: decodeHtmlEntities(descriptionMatch?.[1] || ""),
       image: hasValidImage ? imageUrl : "",
       favicon: getAbsoluteUrl(faviconMatch?.[1] || "/favicon.ico"),
       fetchedAt: new Date().toISOString(),
