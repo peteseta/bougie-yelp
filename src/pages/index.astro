@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import Hr from "@components/Hr.astro";
 import Socials from "@components/Socials.astro";
 import FeedCard from "@components/FeedCard.astro";
 import FeedFilter from "@components/FeedFilter.astro";
@@ -21,21 +20,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
-      <h1>Everything I (never) posted to Beli.</h1>
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="rss-link"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon">
-          <path d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z" />
-          <path d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z" />
-          <circle cx="6" cy="18" r="2" />
-        </svg>
-        <span class="sr-only">RSS Feed</span>
-      </a>
+      <h1>Everything I (never)<br />posted to Beli.</h1>
       <p>Figure out my headspace?</p>
       {socialCount > 0 && (
         <div class="social-wrapper">
@@ -43,8 +28,6 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </div>
       )}
     </section>
-
-    <Hr />
 
     <div class="two-col">
       <div class="feed-col">
@@ -72,19 +55,13 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 <style>
   /* ===== Hero Section ===== */
   #hero {
-    @apply mx-auto max-w-5xl px-4 pb-6 pt-8;
+    @apply mx-auto max-w-5xl px-4 pb-8 pt-8;
   }
   #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
-  }
-  #hero .rss-link {
-    @apply mb-6;
-  }
-  #hero .rss-icon {
-    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
+    @apply my-4 text-3xl font-bold sm:my-8 sm:text-5xl;
   }
   #hero p {
-    @apply my-2;
+    @apply my-2 text-skin-base opacity-80;
   }
   .social-wrapper {
     @apply mt-4 flex flex-col sm:flex-row sm:items-center;
