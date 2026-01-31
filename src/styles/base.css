@@ -12,6 +12,9 @@
     --color-card: 230, 230, 230;
     --color-card-muted: 205, 205, 205;
     --color-border: 236, 233, 233;
+    --color-badge-weblog: 140, 140, 140;
+    --color-badge-devlog: 0, 108, 172;
+    --color-badge-writing: 139, 92, 246;
   }
   html[data-theme="dark"] {
     /* Min dark scheme (ported from min-theme) */
@@ -22,6 +25,9 @@
     --color-card: 41, 41, 41; /* #292929 */
     --color-card-muted: 56, 56, 56; /* #383838 */
     --color-border: 54, 54, 54; /* #363636 */
+    --color-badge-weblog: 120, 120, 120;
+    --color-badge-devlog: 121, 184, 255;
+    --color-badge-writing: 167, 139, 250;
   }
   #sun-svg,
   html[data-theme="dark"] #moon-svg {
@@ -36,7 +42,7 @@
   }
   section,
   footer {
-    @apply mx-auto max-w-3xl px-4;
+    @apply mx-auto max-w-5xl px-4;
   }
   a {
     @apply outline-2 outline-offset-1 outline-skin-fill focus-visible:no-underline focus-visible:outline-dashed;

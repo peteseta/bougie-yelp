@@ -1,0 +1,40 @@
+---
+interface Props {
+  type: "weblog" | "devlog" | "writing";
+}
+
+const { type } = Astro.props;
+
+const colorMap = {
+  weblog: "badge-weblog",
+  devlog: "badge-devlog",
+  writing: "badge-writing",
+};
+---
+
+<span
+  class:list={[
+    "inline-block rounded border px-1.5 py-0.5 text-xs font-medium leading-tight",
+    colorMap[type],
+  ]}
+>
+  {type}
+</span>
+
+<style>
+  .badge-weblog {
+    color: rgb(var(--color-badge-weblog));
+    border-color: rgb(var(--color-badge-weblog) / 0.4);
+    background-color: rgb(var(--color-badge-weblog) / 0.08);
+  }
+  .badge-devlog {
+    color: rgb(var(--color-badge-devlog));
+    border-color: rgb(var(--color-badge-devlog) / 0.4);
+    background-color: rgb(var(--color-badge-devlog) / 0.08);
+  }
+  .badge-writing {
+    color: rgb(var(--color-badge-writing));
+    border-color: rgb(var(--color-badge-writing) / 0.4);
+    background-color: rgb(var(--color-badge-writing) / 0.08);
+  }
+</style>
