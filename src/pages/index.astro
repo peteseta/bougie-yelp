@@ -33,10 +33,13 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 
     {featuredPosts.length > 0 && (
       <section id="featured">
-        <h2>featured</h2>
+        <h2>featured posts</h2>
         <div class="featured-list">
           {featuredPosts.map(post => (
-            <PostCard post={post} type={getPostType(post)} />
+              <div data-post-type={getPostType(post)}
+                   class="border-0.5 border-skin-line last:border-b-0">
+                <FeedCard post={post} />
+              </div>
           ))}
         </div>
       </section>
