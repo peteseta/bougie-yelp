@@ -460,5 +460,12 @@
     "image": "",
     "favicon": "https://alexene.dev/favicon.ico",
     "fetchedAt": "2026-01-31T04:08:12.254Z"
+  },
+  "https://an.dywa.ng/carrier-gnss.html": {
+    "title": "Mobile carriers can get your GPS location",
+    "description": "In iOS 26.3, Apple introduced a new privacy feature which limits “precise location” data made available to cellular networks via cell towers. The feature is only available to devices with Apple’s in-house modem introduced in 2025. The announcement1 says https://support.apple.com/en-us/126101 ↩",
+    "image": "",
+    "favicon": "https://an.dywa.ng/favicon.ico",
+    "fetchedAt": "2026-02-01T22:13:37.237Z"
   }
 }
