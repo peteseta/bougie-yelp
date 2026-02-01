@@ -10,7 +10,6 @@ export type Site = {
   lightAndDarkMode: boolean;
   postPerIndex: number;
   postPerPage: number;
-  scheduledPostMargin: number;
   showArchives?: boolean;
   editPost?: {
     url?: URL["href"];
