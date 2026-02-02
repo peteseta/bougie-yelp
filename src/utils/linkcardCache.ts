@@ -11,9 +11,9 @@ export interface LinkCardMetadata {
   fetchedAt: string;
 }
 
-type CacheData = Record<string, LinkCardMetadata>;
+export type CacheData = Record<string, LinkCardMetadata>;
 
-function readCache(): CacheData {
+export function readCache(): CacheData {
   try {
     const raw = fs.readFileSync(CACHE_PATH, "utf-8");
     return JSON.parse(raw);
@@ -22,7 +22,7 @@ function readCache(): CacheData {
   }
 }
 
-function writeCache(data: CacheData): void {
+export function writeCache(data: CacheData): void {
   fs.writeFileSync(CACHE_PATH, JSON.stringify(data, null, 2) + "\n", "utf-8");
 }
 
