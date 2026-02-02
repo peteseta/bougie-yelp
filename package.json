@@ -6,7 +6,7 @@
     "dev:astro": "astro dev --host 0.0.0.0",
     "start": "astro dev",
     "prebuild": "npx tsx scripts/prebuild-linkcard-cache.ts",
-    "build": "pnpm prebuild && tinacms build && astro build",
+    "build": "pnpm prebuild && tinacms build && rm -rf .astro && astro build",
     "preview": "astro preview",
     "sync": "astro sync",
     "astro": "astro",
