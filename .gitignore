@@ -34,6 +34,9 @@ tina/__generated__
 !.yarn/versions
 .pnp.*
 
+# worktrees
+.worktrees/
+
 # ide and vibe coding tools
 /.claude/
 /.idea/
