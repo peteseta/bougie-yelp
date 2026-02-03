@@ -57,7 +57,7 @@ const { activeNav } = Astro.props;
         <ul id="menu-items" class="display-none sm:flex">
           {
             SITE.showArchives && (
-              <li>
+              <li data-tooltip="Archives">
                 <LinkButton
                   href="/archives/"
                   className={`focus-outline flex justify-center p-3 sm:p-1`}
@@ -83,7 +83,7 @@ const { activeNav } = Astro.props;
               </li>
             )
           }
-          <li>
+          <li data-tooltip="Search">
             <LinkButton
               href="/search/"
               className={`focus-outline p-3 sm:p-1 ${
@@ -104,11 +104,11 @@ const { activeNav } = Astro.props;
           </li>
           {
             SITE.lightAndDarkMode && (
-              <li>
+              <li data-tooltip="Theme">
                 <button
                   id="theme-btn"
                   class="focus-outline"
-                  title="Toggles light & dark"
+                  title="Toggle theme"
                   aria-label="auto"
                   aria-live="polite"
                 >
@@ -122,23 +122,26 @@ const { activeNav } = Astro.props;
               </li>
             )
           }
-          <li>
-            <LinkButton
-              href="/rss.xml"
-              className="focus-outline p-3 sm:p-1 flex"
-              ariaLabel="rss feed"
+          <li data-tooltip="RSS Feed">
+            <button
+              id="rss-btn"
+              class="focus-outline p-3 sm:p-1 flex"
+              aria-label="Copy RSS feed link"
               title="RSS Feed"
-              target="_blank"
+              type="button"
             >
               <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon scale-125 sm:scale-100">
                 <path d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z" />
                 <path d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z" />
                 <circle cx="6" cy="18" r="2" />
               </svg>
-              <span class="sr-only">RSS Feed</span>
-            </LinkButton>
+              <span class="sr-only">Copy RSS Feed Link</span>
+            </button>
           </li>
         </ul>
+        <div id="nav-tooltip" class="nav-tooltip" aria-hidden="true">
+          <span id="nav-tooltip-text"></span>
+        </div>
       </nav>
     </div>
   </div>
@@ -212,6 +215,41 @@ const { activeNav } = Astro.props;
   .menu-icon.is-active .close {
     @apply opacity-100;
   }
+
+  /* Sliding hover tooltip — desktop only */
+  .nav-tooltip {
+    display: none;
+  }
+  @media (min-width: 640px) {
+    .nav-tooltip {
+      display: block;
+      position: absolute;
+      height: 1.5rem;
+      padding: 0 0.5rem;
+      border-radius: 0.25rem;
+      background: rgb(var(--color-accent));
+      color: rgb(var(--color-fill));
+      font-size: 0.65rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateX(-50%);
+      transition:
+        left 0.18s ease-out,
+        opacity 0.15s ease-out;
+      will-change: left, opacity;
+      z-index: 40;
+    }
+    .nav-tooltip span {
+      display: block;
+      text-align: center;
+      transition: opacity 0.15s ease;
+    }
+
+  }
 </style>
 
 <script>
@@ -230,6 +268,97 @@ const { activeNav } = Astro.props;
         menuExpanded ? "Open Menu" : "Close Menu"
       );
       menuItems?.classList.toggle("display-none");
+    });
+
+    // Sliding hover tooltip (desktop only)
+    const tooltip = document.querySelector<HTMLDivElement>("#nav-tooltip");
+    const tooltipText = document.querySelector<HTMLSpanElement>("#nav-tooltip-text");
+    const navItems = document.querySelectorAll<HTMLLIElement>("#menu-items li[data-tooltip]");
+    let tooltipVisible = false;
+    let copiedTimeout: ReturnType<typeof setTimeout> | null = null;
+
+    function showTooltip(li: HTMLLIElement, text?: string) {
+      if (!tooltip || !tooltipText) return;
+      tooltipText.textContent = text || li.dataset.tooltip || "";
+
+      const liRect = li.getBoundingClientRect();
+      const parentRect = li.closest(".top-nav-wrap")!.getBoundingClientRect();
+      const liCenter = liRect.left + liRect.width / 2 - parentRect.left;
+      const y = liRect.bottom - parentRect.top + 4;
+
+      tooltip.style.left = liCenter + "px";
+      tooltip.style.top = y + "px";
+
+      if (!tooltipVisible) {
+        tooltip.style.transition = "opacity 0.15s ease-out";
+        requestAnimationFrame(() => {
+          tooltip.style.opacity = "1";
+          requestAnimationFrame(() => {
+            tooltip.style.transition =
+              "left 0.18s ease-out, opacity 0.15s ease-out";
+          });
+        });
+      } else {
+        tooltip.style.opacity = "1";
+      }
+      tooltipVisible = true;
+    }
+
+    function hideTooltip() {
+      if (!tooltip) return;
+      tooltip.style.opacity = "0";
+      tooltipVisible = false;
+    }
+
+    navItems.forEach(li => {
+      li.addEventListener("mouseenter", () => {
+        // Clear any pending "Copied" reset when re-entering
+        if (copiedTimeout) {
+          clearTimeout(copiedTimeout);
+          copiedTimeout = null;
+        }
+        showTooltip(li);
+      });
+    });
+
+    // Hide when mouse leaves the entire nav list
+    document.querySelector("#menu-items")?.addEventListener("mouseleave", hideTooltip);
+
+    window.addEventListener("resize", hideTooltip);
+
+    // RSS copy-to-clipboard
+    const rssBtn = document.querySelector<HTMLButtonElement>("#rss-btn");
+    const rssLi = rssBtn?.closest<HTMLLIElement>("li[data-tooltip]");
+
+    rssBtn?.addEventListener("click", async () => {
+      const rssUrl = `${window.location.origin}/rss.xml`;
+      try {
+        await navigator.clipboard.writeText(rssUrl);
+      } catch {
+        // Fallback for older browsers
+        const ta = document.createElement("textarea");
+        ta.value = rssUrl;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+      }
+
+      // Show "Copied!" in the unified tooltip
+      if (rssLi && tooltip && tooltipText) {
+        showTooltip(rssLi, "Copied!");
+
+        // Reset after 2 seconds
+        if (copiedTimeout) clearTimeout(copiedTimeout);
+        copiedTimeout = setTimeout(() => {
+          if (tooltipVisible && rssLi.matches(":hover")) {
+            tooltipText.textContent = rssLi.dataset.tooltip || "";
+          }
+          copiedTimeout = null;
+        }, 2000);
+      }
     });
   }
 
