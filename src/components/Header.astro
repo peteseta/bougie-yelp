@@ -139,10 +139,10 @@ const { activeNav } = Astro.props;
             </button>
           </li>
         </ul>
-        <div id="nav-tooltip" class="nav-tooltip" aria-hidden="true">
-          <span id="nav-tooltip-text"></span>
-        </div>
       </nav>
+      <div id="nav-tooltip" class="nav-tooltip" aria-hidden="true">
+        <span id="nav-tooltip-text"></span>
+      </div>
     </div>
   </div>
   <Hr />
@@ -224,12 +224,12 @@ const { activeNav } = Astro.props;
     .nav-tooltip {
       display: block;
       position: absolute;
-      height: 1.5rem;
-      padding: 0 0.5rem;
-      border-radius: 0.25rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.375rem;
       background: rgb(var(--color-accent));
       color: rgb(var(--color-fill));
-      font-size: 0.65rem;
+      font-size: 0.75rem;
+      font-weight: 500;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -242,6 +242,17 @@ const { activeNav } = Astro.props;
         opacity 0.15s ease-out;
       will-change: left, opacity;
       z-index: 40;
+
+    }
+    .nav-tooltip::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 0 5px 5px 5px;
+      border-style: solid;
+      border-color: transparent transparent rgb(var(--color-accent)) transparent;
     }
     .nav-tooltip span {
       display: block;
@@ -281,10 +292,8 @@ const { activeNav } = Astro.props;
       if (!tooltip || !tooltipText) return;
       tooltipText.textContent = text || li.dataset.tooltip || "";
 
-      const liRect = li.getBoundingClientRect();
-      const parentRect = li.closest(".top-nav-wrap")!.getBoundingClientRect();
-      const liCenter = liRect.left + liRect.width / 2 - parentRect.left;
-      const y = liRect.bottom - parentRect.top + 4;
+      const liCenter = li.offsetLeft + li.offsetWidth / 2;
+      const y = li.offsetTop + li.offsetHeight + 6;
 
       tooltip.style.left = liCenter + "px";
       tooltip.style.top = y + "px";
