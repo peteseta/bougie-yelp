@@ -467,5 +467,12 @@
     "image": "",
     "favicon": "https://an.dywa.ng/favicon.ico",
     "fetchedAt": "2026-02-01T22:13:37.237Z"
+  },
+  "https://phys.org/news/2026-01-coffee-agent-substitute-electron-microscopy.html": {
+    "title": "Coffee as a staining agent substitute in electron microscopy",
+    "description": "To ensure that the tissue structures of biological samples are easily recognizable under the electron microscope, they are treated with a staining agent. The standard staining agent for this is uranyl acetate. However, some laboratories are not allowed to use this highly toxic and radioactive substance for safety reasons.",
+    "image": "https://scx2.b-cdn.net/gfx/news/2026/coffee-as-a-staining-a.jpg",
+    "favicon": "https://phys.org/favicon.ico",
+    "fetchedAt": "2026-02-03T00:39:36.976Z"
   }
 }
