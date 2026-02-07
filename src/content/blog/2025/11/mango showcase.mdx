@@ -3,41 +3,44 @@ author: Author
 pubDatetime: 2025-11-03T16:27:49-08:00
 title: "Mango: full-body gesture control for any game"
 slug: mango-showcase
-featured: true
+featured: false
 draft: false
+type: devlog
 tags:
   - projects
   - cool-stuff
 description: Our winning project from HelloHacks 2025
 ---
 
-
 **Mango turns your webcam into a full-body motion controller, letting anyone play PC games using gestures—no expensive VR headset, sensors, or setup required. Just move, and your game moves with you.**
 
 <div style="pt-4 pb-16">
-    <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/pdja2_o8bpY?si=_aIe2va2Gj4W08Mp"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-    </iframe>
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/pdja2_o8bpY?si=_aIe2va2Gj4W08Mp"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
 </div>
 
-
 # Inspiration
+
 I used to have a VR headset, but I could never use it in my room—it needed too much space. Moving around with joysticks made me sick, and the cost didn’t feel worth it. I eventually sold it, but the idea stuck with me: why can’t we have immersive, full-body gaming without all the barriers?
 
 As lifelong gamers, we realized there’s also a health side to this. We spend hours sitting still, getting zero activity. Mango was born out of the idea that gaming should be both immersive and active—and accessible to everyone, not just those with expensive VR setups.
 
 # What it does
+
 Mango turns your webcam into a full-body controller for PC games. You can walk, jump, mine, and attack just by moving naturally—like you are the character.
 
 Our Minecraft prototype covers all the essentials: walking, jumping, attacking, mining, placing blocks, and interacting. We also built a “finger mouse,” where your index finger acts as the cursor and a pinch gesture clicks—so you can even navigate menus without touching your keyboard or mouse.
 
 # How we built it
+
 We built Mango in Python using MediaPipe Holistic and OpenCV for body and hand tracking, PyAutoGUI for sending keyboard/mouse inputs, and NumPy for gesture math.
 
 While MediaPipe gave us landmark detection out of the box, it wasn’t optimized for our use case. We implemented heavy data smoothing, frame-by-frame state tracking, and normalization so that gestures work regardless of body size or camera distance.
@@ -45,25 +48,30 @@ While MediaPipe gave us landmark detection out of the box, it wasn’t optimized
 Before writing any code, we defined every gesture mathematically—how it should be detected, and what data we’d need. Then, each teammate implemented one gesture at a time, writing separate Python detectors. Once they all worked individually, we merged everything and resolved conflicts between simultaneous actions.
 
 ## Challenges we ran into
+
 The hardest challenge was managing state—keeping track of what the player is doing at any moment without false triggers. Normalizing motion data for different users was also complex; all our calculations were based on unitless, relative measurements.
 
 We also ran into motion jitter. Our initial plan used one vertical motion for both attacking and mining, but it caused double-triggers due to noise. We pivoted—attacking became a horizontal “slash,” while mining used a vertical oscillation. It felt more natural and fixed the problem.
 
 ## Accomplishments that we're proud of
+
 Our biggest milestone was when everything finally worked together—walking up to a tree in Minecraft and breaking a block just by moving our hands. It was the first time we saw the math, tracking, and input control all click into one seamless loop.
 
 We’re also proud of how accurate and responsive our finger mouse turned out, even at a distance, and that our prototype ran at a stable framerate despite running complex real-time vision processing.
 
 ## What we learned
+
 We learned a ton about computer vision, gesture recognition, and how to make interfaces that feel natural without instructions. It’s a completely different type of UX—designing for the human body instead of a screen.
 
 We also learned a lot about team collaboration, Git, and turning a raw concept into a product that feels polished and intuitive.
 
 # What's next for Mango?
+
 Next, we want to expand support to more games and implement a working Discover page where creators can share their own gesture mappings. We plan to build a visual interface that lets users design and upload new configurations easily.
 
 In the long term, we see Mango becoming a community-driven platform that brings motion-based gaming to everyone—no expensive VR, no barriers, just a camera and your body.
 
 # Futher reading
+
 <LinkCard url="https://devpost.com/software/mango-full-body-gesture-control-for-any-game" />
 <LinkCard url="https://github.com/minjunminji/minecraftCVcontroller" />
