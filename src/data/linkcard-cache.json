@@ -474,5 +474,40 @@
     "image": "https://scx2.b-cdn.net/gfx/news/2026/coffee-as-a-staining-a.jpg",
     "favicon": "https://phys.org/favicon.ico",
     "fetchedAt": "2026-02-03T00:39:36.976Z"
+  },
+  "https://www.youtube.com/watch?v=l-kZGrDz7PU": {
+    "title": "Flock CEO calls Deflock a \"terrorist organization\" - YouTube",
+    "description": "In an interview with Forbes, the CEO of Flock labels Deflock as a so-called \"terrorist organization\".The interview: https://youtu.be/fVCVQcd9PLc?si=qVLkcKMDD...",
+    "image": "https://i.ytimg.com/vi/l-kZGrDz7PU/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgZShlMA8=&amp;rs=AOn4CLCwI6ZwuDrFxjCu2qvjkQnobIvWbA",
+    "favicon": "https://www.youtube.com/s/desktop/9eacfcec/img/favicon_32x32.png",
+    "fetchedAt": "2026-02-07T23:29:08.839Z"
+  },
+  "https://www.youtube.com/watch?v=uB0gr7Fh6lY": {
+    "title": "We Hacked Flock Safety Cameras in under 30 Seconds. 🫥 - YouTube",
+    "description": "Go to https://ground.news/benn for a better way to stay informed. Subscribe for 40% off unlimited access to world-wide coverage through my link. ⬇️ Epic amou...",
+    "image": "https://i.ytimg.com/vi/uB0gr7Fh6lY/maxresdefault.jpg",
+    "favicon": "https://www.youtube.com/s/desktop/9eacfcec/img/favicon_32x32.png",
+    "fetchedAt": "2026-02-07T23:29:08.844Z"
+  },
+  "https://mistral.ai/news/voxtral-transcribe-2": {
+    "title": "Voxtral transcribes at the speed of sound. | Mistral AI",
+    "description": "Precision diarization, real-time transcription, and a new audio playground.",
+    "image": "https://mistral.ai/img/mistral-cover.png",
+    "favicon": "https://mistral.ai/favicon.ico?favicon.75796e92.ico",
+    "fetchedAt": "2026-02-07T23:30:09.877Z"
+  },
+  "https://waymo.com/blog/2026/02/the-waymo-world-model-a-new-frontier-for-autonomous-driving-simulation": {
+    "title": "The Waymo World Model: A New Frontier For Autonomous Driving Simulation",
+    "description": "We are excited to introduce the Waymo World Model, a frontier generative model that sets a new bar for large-scale, hyper-realistic autonomous driving simulation. ",
+    "image": "https://images.ctfassets.net/7ijaobx36mtm/2S3Bfbzy16Vo5uHU5kQkFC/05bc9c945a8908eae6d69cb7ead4093e/preview.png",
+    "favicon": "https://waymo.com/favicon.png",
+    "fetchedAt": "2026-02-07T23:30:12.600Z"
+  },
+  "https://1password.com/blog/from-magic-to-malware-how-openclaws-agent-skills-become-an-attack-surface": {
+    "title": "From magic to malware: How OpenClaw's agent skills become an attack surface | 1Password",
+    "description": "The same capabilities that make OpenClaw a groundbreaking tool also make it an urgent security risk. This blog contains confirmed examples of agent skills being used as malware vectors, and advice on how to protect yourself if you're experimenting with them.",
+    "image": "https://images.ctfassets.net/3091ajzcmzlr/1LlGltd9bh09UR5RWaZqlf/92337af2b90765ea33d038e538797394/Hero_The_Risk_of_Agent_Skill_Registries_1920x1080.webp",
+    "favicon": "https://1password.com/favicon.ico",
+    "fetchedAt": "2026-02-07T23:30:15.690Z"
   }
 }
