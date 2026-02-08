@@ -3,6 +3,7 @@ import TypeBadge from "./TypeBadge.astro";
 import FeaturedBadge from "./FeaturedBadge.astro";
 import FeedLinkCard from "./FeedLinkCard.astro";
 import type { CollectionEntry } from "astro:content";
+import { slugifyStr } from "@utils/slugify";
 
 interface Props {
   post: CollectionEntry<"blog">;
@@ -28,7 +29,7 @@ const displayDate = new Date(pubDatetime).toLocaleDateString("en-US", {
       {displayDate}
     </time>
   </div>
-  <h3 class="mb-2">
+  <h3 class="mb-2" style={{ viewTransitionName: slugifyStr(title) }}>
     <a
       href={`/posts/${post.id}/`}
       class="text-base font-medium text-skin-base decoration-dashed underline-offset-4 hover:text-skin-accent hover:underline"

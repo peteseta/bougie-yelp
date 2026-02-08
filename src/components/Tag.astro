@@ -2,9 +2,10 @@
 export interface Props {
   tag: string;
   size?: "sm" | "lg";
+  transition?: boolean;
 }
 
-const { tag, size = "sm" } = Astro.props;
+const { tag, size = "sm", transition = true } = Astro.props;
 ---
 
 <li
@@ -14,8 +15,8 @@ const { tag, size = "sm" } = Astro.props;
 >
   <a
     href={`/tags/${tag}/`}
-    transition:name={tag}
     class={`${size === "sm" ? "text-sm" : "text-lg"} pr-2 group`}
+    style={transition ? `view-transition-name: ${tag}` : ""}
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"

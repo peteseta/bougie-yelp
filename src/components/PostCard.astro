@@ -3,6 +3,7 @@ import TypeBadge from "./TypeBadge.astro";
 import FeaturedBadge from "./FeaturedBadge.astro";
 import Tag from "./Tag.astro";
 import type { CollectionEntry } from "astro:content";
+import { slugifyStr } from "@utils/slugify";
 
 interface Props {
   post: CollectionEntry<"blog">;
@@ -28,7 +29,7 @@ const displayDate = new Date(pubDatetime).toLocaleDateString("en-US", {
       {displayDate}
     </time>
   </div>
-  <h3 class="mb-1">
+  <h3 class="mb-1" style={{ viewTransitionName: slugifyStr(title) }}>
     <a
       href={`/posts/${post.id}/`}
       class="text-lg font-semibold text-skin-base decoration-dashed underline-offset-4 hover:text-skin-accent hover:underline"
@@ -42,7 +43,7 @@ const displayDate = new Date(pubDatetime).toLocaleDateString("en-US", {
   {tags.length > 0 && (
     <ul class="flex flex-wrap gap-1">
       {tags.map(tag => (
-        <Tag tag={tag} size="sm" />
+        <Tag tag={tag} size="sm" transition={false} />
       ))}
     </ul>
   )}
