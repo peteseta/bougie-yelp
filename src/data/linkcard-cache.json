@@ -509,5 +509,12 @@
     "image": "https://images.ctfassets.net/3091ajzcmzlr/1LlGltd9bh09UR5RWaZqlf/92337af2b90765ea33d038e538797394/Hero_The_Risk_of_Agent_Skill_Registries_1920x1080.webp",
     "favicon": "https://1password.com/favicon.ico",
     "fetchedAt": "2026-02-07T23:30:15.690Z"
+  },
+  "https://wikiedu.org/blog/2026/01/29/generative-ai-and-wikipedia-editing-what-we-learned-in-2025/": {
+    "title": "Generative AI and Wikipedia editing: What we learned in 2025 – Wiki Education",
+    "description": "Like many organizations, Wiki Education has grappled with generative AI, its impacts, opportunities, and threats, for several years. As an organization that runs large-scale programs to bring new e…",
+    "image": "https://wikiedu.org/wp-content/uploads/2026/01/GenAI-blog-post-2026-feature-image.png",
+    "favicon": "https://wikiedu.org/favicon.ico",
+    "fetchedAt": "2026-02-07T23:32:44.896Z"
   }
 }
