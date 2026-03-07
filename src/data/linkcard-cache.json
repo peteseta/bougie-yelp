@@ -544,5 +544,103 @@
     "image": "https://wp.harpers.org/wp-content/uploads/2026/02/CUT-12-scaled.jpg",
     "favicon": "https://wp.harpers.org/wp-content/themes/timber/assets/img/favicon-192x192.png",
     "fetchedAt": "2026-03-07T00:50:31.026Z"
+  },
+  "https://www.governance.fyi/p/america-vs-singapore-you-cant-save": {
+    "title": "America vs. Singapore: You Can’t Save Your Way out of Economic Shocks",
+    "description": "Saving regret has less to do with procrastination than we thought, and more to do with whether your country absorbs economic shocks or lets them hit your savings",
+    "image": "https://substackcdn.com/image/fetch/$s_!mrn8!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb306c317-e1de-4420-95f5-9d3f1bc7b28f_800x430.jpeg",
+    "favicon": "https://substackcdn.com/image/fetch/$s_!y0nB!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fabecfdef-c82b-469f-9e7d-ec00faae6278%2Ffavicon-16x16.png",
+    "fetchedAt": "2026-03-07T01:18:12.242Z"
+  },
+  "https://www.amplifypartners.com/blog-posts/arming-the-rebels-with-gpus-gradium-kyutai-and-audio-ai": {
+    "title": "Arming the rebels with GPUs: Gradium, Kyutai, and Audio AI | Amplify Partners",
+    "description": "The story of Gradium, the anatomy of audio AI models, and why smaller labs continue to edge out larger ones when it comes to voice.",
+    "image": "https://cdn.prod.website-files.com/67ebc022dbceaf64bee0f5c6/698dee7b45fa7300a1234d80_Microphone.webp",
+    "favicon": "https://www.amplifypartners.com/favicon.ico",
+    "fetchedAt": "2026-03-07T01:18:12.363Z"
+  },
+  "https://jasonfantl.com/posts/Universal-Unique-IDs/": {
+    "title": "Cosmologically Unique IDs | Jason Fantl",
+    "description": "We are an exploratory species, just past the solar system now, but perhaps one day we will look back and call our galaxy merely the first. There are many problems to solve along the way, and today we will look at one very small one. How do we assign IDs to devices (or any object) so the IDs are guaranteed to always be unique?",
+    "image": "",
+    "favicon": "https://jasonfantl.com/assets/img/favicons/favicon-32x32.png",
+    "fetchedAt": "2026-03-07T01:18:12.764Z"
+  },
+  "https://spencer.wtf/2026/02/20/cleaning-up-merged-git-branches-a-one-liner-from-the-cias-leaked-dev-docs.html": {
+    "title": "Cleaning up merged git branches: a one-liner from the CIA's leaked dev docs | spencer.wtf",
+    "description": "How to delete all merged git branches locally with a single command. This one-liner has been in my zshrc since 2017 — I found it buried in the CIA's Vault7 l...",
+    "image": "https://spencer.wtf/assets/images/ogimage.png",
+    "favicon": "https://spencer.wtf/assets/favicon/favicon-96x96.png",
+    "fetchedAt": "2026-03-07T01:18:13.035Z"
+  },
+  "https://www.anthropic.com/news/mozilla-firefox-security": {
+    "title": "Partnering with Mozilla to improve Firefox’s security \\ Anthropic",
+    "description": "Anthropic is an AI safety and research company that's working to build reliable, interpretable, and steerable AI systems.",
+    "image": "https://www.anthropic.com/api/opengraph-illustration?name=Object%20Desktop&amp;backgroundColor=coral",
+    "favicon": "https://www.anthropic.com/images/icons/favicon-32x32.png",
+    "fetchedAt": "2026-03-07T01:18:14.077Z"
+  },
+  "https://www.404media.co/cbp-tapped-into-the-online-advertising-ecosystem-to-track-peoples-movements/": {
+    "title": "CBP Tapped Into the Online Advertising Ecosystem To Track Peoples’ Movements",
+    "description": "An internal DHS document obtained by 404 Media shows for the first time CBP used location data sourced from the online advertising industry to track phone locations. ICE has bought access to similar tools.",
+    "image": "https://www.404media.co/content/images/size/w1200/2026/02/54723348049_72eefb5739.jpg",
+    "favicon": "https://www.404media.co/content/images/size/w256h256/format/png/2023/08/favicon-3.svg",
+    "fetchedAt": "2026-03-07T01:18:14.143Z"
+  },
+  "https://ogirardot.writizzy.com/p/good-software-knows-when-to-stop": {
+    "title": "Good software knows when to stop | Olivier Girardot's Ramblings",
+    "description": "Good software knows what problem it solves and what needs to be tackled by another tool",
+    "image": "https://ogirardot.writizzy.com/__og-image__/image/p/good-software-knows-when-to-stop/og.png",
+    "favicon": "https://ogirardot.writizzy.com/default-favicon-96x96.png",
+    "fetchedAt": "2026-03-07T01:18:15.548Z"
+  },
+  "https://www.lumafield.com/scan-of-the-month/health-wearables": {
+    "title": "Inside Health Wearables: CT Scans of Oura, Dexcom, Omnipod & Jabra",
+    "description": "Experience the engineering behind today’s leading health wearables including Oura Ring, Dexcom G7, Omnipod, and Jabra Hearing Aids. Industrial CT scans reveal how these devices merge medical precision with consumer design.",
+    "image": "https://cdn.prod.website-files.com/63e15418201b6e2a5cabb911/6993be41b53672d6f35bedc7_og-image-sotm-health-wearables.jpg",
+    "favicon": "https://www.lumafield.com/favicon.ico",
+    "fetchedAt": "2026-03-07T01:18:15.653Z"
+  },
+  "https://openai.com/index/introducing-gpt-5-4/": {
+    "title": "",
+    "description": "",
+    "image": "",
+    "favicon": "https://openai.com/favicon.ico",
+    "fetchedAt": "2026-03-07T01:18:15.705Z"
+  },
+  "https://news.ycombinator.com/item?id=47268391": {
+    "title": "Labor market impacts of AI: A new measure and early evidence | Hacker News",
+    "description": "",
+    "image": "",
+    "favicon": "https://news.ycombinator.com/y18.svg",
+    "fetchedAt": "2026-03-07T01:18:16.090Z"
+  },
+  "https://www.anthropic.com/research/labor-market-impacts": {
+    "title": "Labor market impacts of AI: A new measure and early evidence \\ Anthropic",
+    "description": "Anthropic is an AI safety and research company that's working to build reliable, interpretable, and steerable AI systems.",
+    "image": "https://www.anthropic.com/api/opengraph-illustration?name=Hand%20NodeLine&amp;backgroundColor=cactus",
+    "favicon": "https://www.anthropic.com/images/icons/favicon-32x32.png",
+    "fetchedAt": "2026-03-07T01:18:18.070Z"
+  },
+  "https://www.osnews.com/story/144527/never-bet-against-x86/": {
+    "title": "Never bet against x86  –  OSnews",
+    "description": "",
+    "image": "",
+    "favicon": "https://www.osnews.com/icons/favicon-32x32.png",
+    "fetchedAt": "2026-03-07T01:18:18.688Z"
+  },
+  "https://hatchet.run/blog/supertoast-tables": {
+    "title": "Hatchet · Supertoast tables",
+    "description": "Deploy More Resilient Apps. Hatchet is a platform for building distributed web apps that solves scaling problems like concurrency, fairness, and rate limiting. Instead of managing your own task queue or pub/sub system, you can use Hatchet to distribute your functions between a set of workers with minimal configuration or infrastructure.",
+    "image": "https://hatchet.run/assets/og-PqKfvZWg.png",
+    "favicon": "data:image/x-icon;base64,AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAACMuAAAjLgAAAAAAAAAAAAAaBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8ZBgL/GQYD/xoHA/8YBQH/FgMA/xYDAP8WAwD/FgMA/xcEAP8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GAUC/y8aE/8iDwr/GQYC/0YvJv9sUkT/alBC/2pQ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uP//2bj//9m4///auf/10bH/gGVU/x0JBf8ZBgL/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8XBQH/OyUd/8ali///27r//9m4///ZuP//27r/u5uD/zAbFP8YBQH/GAUB/0ErIv/nw6X//9q5///ZuP//2rn/9dGx/4BlVP8dCQX/GQYC/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8XBQH/OyUd/8ali///27r//9m4///ZuP//2rn/sZF6/yoWEP8YBQH/GwgE/6KEb///3Lr//9q5//XRsf+AZVT/HAkF/xkGAv8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8XBAH/OiUd/8ali///27r//9m4///ZuP/+2rn/pohy/yYSDP8WAwD/Tzgu//HNrv/10rL/gGVU/x0JBf8ZBgL/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8XBQH/OyUd/8Wkiv/817b/+9a1//zWtf/61bT/l3pm/yEOCf8gDQj/qot1/4NoVv8dCQX/GQYC/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8YBQH/NB8Y/2BHOv9hSDv/YUg7/2JJPP9cRDf/JxMN/xkGAv8tGBL/HwwH/xkGAv8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8YBgL/FgMA/xYDAP8WAwD/FgMA/xYEAP8ZBgP/GgcD/xkGAv8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+    "fetchedAt": "2026-03-07T01:18:18.948Z"
+  },
+  "https://hbr.org/2026/03/when-using-ai-leads-to-brain-fry": {
+    "title": "When Using AI Leads to “Brain Fry”",
+    "description": "As firms increasingly incentivize employees to build and oversee complex teams of agents—for example, by measuring and rewarding token consumption as a proxy for performance—people are finding themselves pushed to their cognitive limits. Participants in a recent study described a “buzzing” feeling or a mental fog with difficulty focusing, slower decision-making, and headaches. The authors call this phenomenon “AI brain fry,” defined as mental fatigue from excessive use or oversight of AI tools beyond one’s cognitive capacity. This AI-associated mental strain carries significant costs in the form of increased employee errors, decision fatigue, and intention to quit. The findings also show how AI-driven workflows can be designed to diminish burnout and point toward specific manager, team, and organizational practices to avoid mental fatigue even as AI work intensifies.",
+    "image": "https://hbr.org/resources/images/article_assets/2026/03/Mar26_06_1053577584.jpg",
+    "favicon": "https://hbr.org/resources/images/android-chrome-192x192.png",
+    "fetchedAt": "2026-03-07T01:18:19.325Z"
   }
 }
