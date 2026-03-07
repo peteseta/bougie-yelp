@@ -516,5 +516,33 @@
     "image": "https://wikiedu.org/wp-content/uploads/2026/01/GenAI-blog-post-2026-feature-image.png",
     "favicon": "https://wikiedu.org/favicon.ico",
     "fetchedAt": "2026-02-07T23:32:44.896Z"
+  },
+  "https://adnanthekhan.com/posts/clinejection/": {
+    "title": "Clinejection — Compromising Cline's Production Releases just by Prompting an Issue Triager | Adnan Khan - Security Research",
+    "description": "Clinejection — Compromising Cline's Production Releases just by Prompting an Issue Triager - Security research by adnanthekhan",
+    "image": "https://adnanthekhan.com/_astro/images/clinejection.BWC24kLc.png",
+    "favicon": "https://adnanthekhan.com/favicon.ico",
+    "fetchedAt": "2026-03-07T00:50:00.879Z"
+  },
+  "https://spectrum.ieee.org/3d-scanning-particle-accelerator-antscan": {
+    "title": "Antscan's 3D Scanning Reveals Ant Anatomy - IEEE Spectrum",
+    "description": "Antscan's 3d scanning efforts capture ants' anatomy in stunning detail, providing invaluable insights for science, education, and creative industries.",
+    "image": "https://spectrum.ieee.org/media-library/image.jpg?id=65150276&width=1200&height=600&coordinates=0%2C214%2C0%2C36",
+    "favicon": "https://assets.rebelmouse.io/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8yNjU5NjY0OS9vcmlnaW4ucG5nIiwiZXhwaXJlc19hdCI6MTc4NTc0NjUwNn0.pFbPADvK9fyfasig9FMci3xf6UeB_WJaER5Yea_eRpI/img.png?width=48&height=48",
+    "fetchedAt": "2026-03-07T00:50:18.690Z"
+  },
+  "https://rygoldstein.com/posts/perils-of-isbn": {
+    "title": "The Perils of ISBN",
+    "description": "Last year I got into using Letterboxd, to complement my goal of watching more (good) movies. It’s got a really clean interface, the social features are useful but unobtrusive, and it makes remembering what I’ve watched and when I watched it easy. So why isn’t there a Letterboxd for books?",
+    "image": "",
+    "favicon": "https://rygoldstein.com/favicon.ico",
+    "fetchedAt": "2026-03-07T00:50:19.568Z"
+  },
+  "https://harpers.org/archive/2026/03/childs-play-sam-kriss-ai-startup-roy-lee/": {
+    "title": "Child’s Play, by Sam Kriss",
+    "description": "Tech’s new generation and the end of thinking",
+    "image": "https://wp.harpers.org/wp-content/uploads/2026/02/CUT-12-scaled.jpg",
+    "favicon": "https://wp.harpers.org/wp-content/themes/timber/assets/img/favicon-192x192.png",
+    "fetchedAt": "2026-03-07T00:50:31.026Z"
   }
 }
