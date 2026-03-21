@@ -247,3 +247,9 @@ Colors defined in `src/components/TypeBadge.astro`:
 - `--color-badge-weblog`: Orange theme
 - `--color-badge-devlog`: Green theme
 - `--color-badge-writing`: Blue theme
+
+---
+
+## Git Conventions
+
+- **No Co-Authored-By trailers** — Do not add `Co-Authored-By` lines to commit messages.
