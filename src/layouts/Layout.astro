@@ -135,10 +135,19 @@ const structuredData = {
     <ViewTransitions />
 
     <script is:inline src="/toggle-theme.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
-    />
+    <script is:inline>
+      function loadKatexIfNeeded() {
+        if (document.querySelector(".katex") && !document.querySelector("link[data-katex]")) {
+          const link = document.createElement("link");
+          link.rel = "stylesheet";
+          link.href = "https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css";
+          link.setAttribute("data-katex", "");
+          document.head.appendChild(link);
+        }
+      }
+      document.addEventListener("DOMContentLoaded", loadKatexIfNeeded);
+      document.addEventListener("astro:after-swap", loadKatexIfNeeded);
+    </script>
   </head>
 
   <body>
