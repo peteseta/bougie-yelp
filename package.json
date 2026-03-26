@@ -17,12 +17,12 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.5",
-    "@astrojs/mdx": "^4.3.9",
-    "@astrojs/rss": "^4.0.13",
+    "@astrojs/check": "^0.9.8",
+    "@astrojs/mdx": "^4.3.14",
+    "@astrojs/rss": "^4.0.18",
     "@resvg/resvg-js": "^2.6.2",
-    "@tinacms/cli": "2.1.2",
-    "astro": "^5.15.3",
+    "@tinacms/cli": "2.2.0",
+    "astro": "^5.18.1",
     "better-sqlite3": "^12.6.2",
     "fuse.js": "^7.0.0",
     "katex": "^0.16.21",
@@ -37,8 +37,8 @@
     "typescript": "^5.5.3"
   },
   "devDependencies": {
-    "@astrojs/react": "^4.4.1",
-    "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/sitemap": "^3.7.2",
     "@astrojs/tailwind": "^6.0.2",
     "@tailwindcss/typography": "^0.5.15",
     "@tinacms/datalayer": "^1.4.1",
@@ -61,7 +61,10 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "better-sqlite3"
-    ]
+    ],
+    "overrides": {
+      "rollup": ">=4.59.0"
+    }
   },
   "trustedDependencies": [
     "better-sqlite3"
