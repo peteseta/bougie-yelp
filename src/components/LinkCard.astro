@@ -35,6 +35,8 @@ const metadata = await fetchAndCacheMetadata(url);
         <img
           src={metadata.image}
           alt=""
+          loading="lazy"
+          decoding="async"
           class="h-24 w-24 rounded border border-skin-line object-cover"
         />
       </div>
@@ -57,6 +59,8 @@ const metadata = await fetchAndCacheMetadata(url);
             <img
               src={metadata.favicon}
               alt=""
+              loading="lazy"
+              decoding="async"
               class="h-3.5 w-3.5"
               onerror="this.style.display='none'"
             />
