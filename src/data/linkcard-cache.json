@@ -803,5 +803,68 @@
     "image": "",
     "favicon": "https://avatars.githubusercontent.com/u/59031302?v=4",
     "fetchedAt": "2026-03-26T06:43:14.101Z"
+  },
+  "https://www.instantdb.com/essays/architecture": {
+    "title": "A backend for AI-coded apps",
+    "description": "Instant 1.0 is out! This essay shows a bunch of demos, to explain why we think Instant is the best backend for AI-coded apps. We also cover the architecture that makes all of it work.",
+    "image": "https://www.instantdb.com/img/essays/architecture.jpg",
+    "favicon": "https://www.instantdb.com/img/icon/favicon-196x196.png",
+    "fetchedAt": "2026-04-10T04:15:59.729Z"
+  },
+  "https://davidoks.blog/p/how-funerals-keep-africa-poor": {
+    "title": "How funerals keep Africa poor - David Oks",
+    "description": "Why the poorest people in the world spend fortunes burying their dead",
+    "image": "https://substackcdn.com/image/fetch/$s_!m4zD!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0417c22b-4a4f-40c2-8baa-118fb9ffb2f6_2362x1575.png",
+    "favicon": "https://substackcdn.com/icons/substack/icon.svg",
+    "fetchedAt": "2026-04-10T04:15:59.805Z"
+  },
+  "https://lzon.ca/posts/other/microsoft-user-abuse/": {
+    "title": "How Microsoft abuses its users",
+    "description": "",
+    "image": "",
+    "favicon": "https://lzon.ca/favicon.ico",
+    "fetchedAt": "2026-04-10T04:15:59.909Z"
+  },
+  "https://cacm.acm.org/news/how-nasa-built-artemis-iis-fault-tolerant-computer/": {
+    "title": "Attention Required! | Cloudflare",
+    "description": "",
+    "image": "",
+    "favicon": "https://cacm.acm.org/favicon.ico",
+    "fetchedAt": "2026-04-10T04:15:59.934Z"
+  },
+  "https://astral.sh/blog/open-source-security-at-astral": {
+    "title": "Open source security at Astral",
+    "description": "Insights and guidance from our engineering team on how Astral secures its tools.",
+    "image": "https://astral.sh/static/OpenGraph/Astral.jpg",
+    "favicon": "https://astral.sh/static/favicon-32x32.png",
+    "fetchedAt": "2026-04-10T04:16:00.128Z"
+  },
+  "https://bryankeller.github.io/2026/04/08/porting-mac-os-x-nintendo-wii.html": {
+    "title": "Porting Mac OS X to the Nintendo Wii | Bryan Keller’s Dev Blog",
+    "description": "Mac OS X 10.0 (Cheetah) running natively on the Nintendo Wii",
+    "image": "",
+    "favicon": "https://bryankeller.github.io/assets/icons/favicon-32x32.png?v=2",
+    "fetchedAt": "2026-04-10T04:16:00.210Z"
+  },
+  "https://github.com/aloshdenny/reverse-SynthID": {
+    "title": "GitHub - aloshdenny/reverse-SynthID: reverse engineering Gemini's SynthID detection · GitHub",
+    "description": "reverse engineering Gemini's SynthID detection. Contribute to aloshdenny/reverse-SynthID development by creating an account on GitHub.",
+    "image": "https://opengraph.githubassets.com/e80f7feca3058f9c3468252f0f9fb6e5b6becb56ad1dfdd0f4c531ae18791f97/aloshdenny/reverse-SynthID",
+    "favicon": "https://github.githubassets.com/favicons/favicon",
+    "fetchedAt": "2026-04-10T04:16:01.073Z"
+  },
+  "https://www.newyorker.com/magazine/2026/04/13/sam-altman-may-control-our-future-can-he-be-trusted": {
+    "title": "Sam Altman May Control Our Future—Can He Be Trusted? | The New Yorker",
+    "description": "New interviews and closely guarded documents shed light on the persistent doubts about the head of OpenAI, Ronan Farrow and Andrew Marantz write.",
+    "image": "https://media.newyorker.com/photos/69cd326ac6ea0f4558d6e181/16:9/w_1280,c_limit/r47927.jpg",
+    "favicon": "https://www.newyorker.com/verso/static/thenewyorker-us/assets/favicon.ico",
+    "fetchedAt": "2026-04-10T04:16:01.433Z"
+  },
+  "https://aphyr.com/posts/413-the-future-of-everything-is-lies-i-guess-culture": {
+    "title": "The Future of Everything is Lies, I Guess: Culture",
+    "description": "",
+    "image": "",
+    "favicon": "https://aphyr.com/favicon.ico",
+    "fetchedAt": "2026-04-10T04:16:01.688Z"
   }
 }
