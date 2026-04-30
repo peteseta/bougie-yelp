@@ -1,0 +1,332 @@
+---
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+  headings: MarkdownHeading[];
+  title: string;
+}
+
+const { headings, title } = Astro.props;
+
+const items = headings.filter(
+  (h) => h.text !== "Footnotes" && h.depth >= 1 && h.depth <= 3,
+);
+---
+
+{
+  items.length >= 2 && (
+    <aside
+      id="progress-toc"
+      class="progress-toc"
+      aria-label="Table of contents"
+    >
+      <div class="ptoc-meta">
+        <div class="ptoc-title">{title}</div>
+        <div class="ptoc-readtime" data-readtime />
+      </div>
+      <div class="ptoc-rail">
+        <div class="ptoc-track" />
+        <div class="ptoc-pill" />
+        <ul class="ptoc-dots">
+          {items.map((h) => (
+            <li class="ptoc-item" data-depth={h.depth} data-slug={h.slug}>
+              <span class="ptoc-dot" />
+              <a href={`#${h.slug}`} class="ptoc-label" title={h.text}>
+                {h.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </aside>
+  )
+}
+
+<style>
+  .progress-toc {
+    position: fixed;
+    left: 0.75rem;
+    top: 1rem;
+    bottom: 1rem;
+    width: 240px;
+    font-size: 0.78rem;
+    line-height: 1.3;
+    user-select: none;
+    z-index: 30;
+  }
+
+  @media (max-width: 1023px) {
+    .progress-toc {
+      display: none;
+    }
+  }
+
+  /* Meta block — overlays the top of the rail, visible on hover */
+  .ptoc-meta {
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    width: 220px;
+    padding: 0.6rem 0.8rem;
+    background-color: rgb(var(--color-fill));
+    border-radius: 4px;
+    opacity: 0;
+    transform: translateY(-2px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+    z-index: 10;
+  }
+  .progress-toc:hover .ptoc-meta {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .ptoc-title {
+    @apply font-semibold;
+    color: rgb(var(--color-text-base));
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+    margin: 0;
+    padding: 0;
+  }
+  .ptoc-readtime {
+    color: rgb(var(--color-text-base));
+    opacity: 0.55;
+    font-size: 0.72rem;
+    margin: 0.25rem 0 0 0;
+    padding: 0;
+  }
+
+  /* Vertical rail — fills the entire fixed container */
+  .ptoc-rail {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+  }
+  .ptoc-track {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: rgb(var(--color-text-base));
+    opacity: 0.22;
+  }
+
+  /* Sliding pill — same width as track, darker shade. Indicates current
+     viewport position. Sits below dots in z-order so dots punch through. */
+  .ptoc-pill {
+    position: absolute;
+    left: 0;
+    width: 2px;
+    top: var(--pill-top, 0);
+    height: var(--pill-height, 40px);
+    background-color: rgb(var(--color-text-base));
+    opacity: 0.75;
+    z-index: 1;
+    transition: top 0.05s linear;
+  }
+
+  .ptoc-dots {
+    position: absolute;
+    inset: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 2; /* above pill so dots punch through */
+  }
+
+  .ptoc-item {
+    position: absolute;
+    left: 0;
+    top: var(--ptoc-y, 0);
+    transform: translateY(-50%);
+    height: 0;
+    /* Allow clicks on dot/label */
+    pointer-events: none;
+  }
+  .ptoc-item .ptoc-dot,
+  .ptoc-item .ptoc-label {
+    pointer-events: auto;
+  }
+
+  .ptoc-dot {
+    position: absolute;
+    left: -1px;
+    top: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: rgb(var(--color-text-base));
+    opacity: 0.85;
+    transform: translateY(-50%);
+  }
+  .ptoc-item[data-depth="3"] .ptoc-dot {
+    width: 3px;
+    height: 3px;
+    left: -0.5px;
+    opacity: 0.7;
+  }
+
+  /* Labels — hidden by default, fade in on hover */
+  .ptoc-label {
+    position: absolute;
+    left: 14px;
+    top: 0;
+    transform: translateY(-50%);
+    width: 220px;
+    color: rgb(var(--color-text-base));
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.25s ease, color 0.2s ease;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-word;
+  }
+  .progress-toc:hover .ptoc-label {
+    opacity: 0.55;
+  }
+  .progress-toc:hover .ptoc-item.active .ptoc-label {
+    opacity: 1;
+    font-weight: 600;
+  }
+  .ptoc-label:hover {
+    opacity: 1 !important;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>
+
+<script>
+  function initProgressTOC() {
+    const toc = document.getElementById("progress-toc");
+    const article = document.getElementById("article");
+    if (!toc || !article) return;
+
+    const items = Array.from(toc.querySelectorAll<HTMLElement>(".ptoc-item"));
+    if (items.length === 0) return;
+
+    const railEl = toc.querySelector<HTMLElement>(".ptoc-rail");
+    const pillEl = toc.querySelector<HTMLElement>(".ptoc-pill");
+    const readtimeEl = toc.querySelector<HTMLElement>("[data-readtime]");
+    if (!railEl || !pillEl) return;
+
+    const headingEls = items
+      .map((li) => {
+        const slug = li.dataset.slug;
+        if (!slug) return null;
+        const el = document.getElementById(slug);
+        return el ? { li, el, slug } : null;
+      })
+      .filter(
+        (x): x is { li: HTMLElement; el: HTMLElement; slug: string } => !!x,
+      );
+
+    if (headingEls.length === 0) return;
+
+    if (readtimeEl) {
+      const text = article.innerText || "";
+      const words = text.trim().split(/\s+/).length;
+      const minutes = Math.max(1, Math.round(words / 220));
+      readtimeEl.textContent = `${minutes} min read`;
+    }
+
+    let railHeight = 0;
+    let articleTop = 0;
+    let articleHeight = 0;
+
+    function recomputeLayout() {
+      railHeight = railEl!.clientHeight;
+      const articleRect = article!.getBoundingClientRect();
+      articleTop = articleRect.top + window.scrollY;
+      articleHeight = article!.scrollHeight;
+
+      // Place each dot proportionally along the bar based on heading
+      // offset within the article.
+      headingEls.forEach(({ li, el }) => {
+        const offset =
+          el.getBoundingClientRect().top + window.scrollY - articleTop;
+        const ratio =
+          articleHeight > 0
+            ? Math.max(0, Math.min(1, offset / articleHeight))
+            : 0;
+        li.style.setProperty("--ptoc-y", `${ratio * railHeight}px`);
+      });
+    }
+
+    function updateProgress() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight;
+      const viewportH = window.innerHeight;
+      const scrollable = docHeight - viewportH;
+      const ratio = scrollable > 0 ? scrollTop / scrollable : 0;
+
+      // Pill height represents the viewport's slice of the document, but
+      // capped to a small visual size (it's a marker, not a fill).
+      const pillHeight = Math.max(
+        20,
+        Math.min(60, (viewportH / docHeight) * railHeight),
+      );
+      const pillTop = ratio * (railHeight - pillHeight);
+
+      pillEl!.style.setProperty("--pill-top", `${pillTop}px`);
+      pillEl!.style.setProperty("--pill-height", `${pillHeight}px`);
+
+      // Active section: last heading whose top has crossed an anchor line
+      // ~30% down the viewport.
+      const anchorY = window.innerHeight * 0.3;
+      let activeIdx = -1;
+      for (let i = 0; i < headingEls.length; i++) {
+        const top = headingEls[i].el.getBoundingClientRect().top;
+        if (top - anchorY <= 0) {
+          activeIdx = i;
+        } else {
+          break;
+        }
+      }
+
+      headingEls.forEach(({ li }, idx) => {
+        li.classList.toggle("active", idx === activeIdx);
+        li.classList.toggle("passed", activeIdx >= 0 && idx < activeIdx);
+      });
+    }
+
+    let rafPending = false;
+    function onScroll() {
+      if (rafPending) return;
+      rafPending = true;
+      requestAnimationFrame(() => {
+        updateProgress();
+        rafPending = false;
+      });
+    }
+
+    function onResize() {
+      recomputeLayout();
+      updateProgress();
+    }
+
+    recomputeLayout();
+    updateProgress();
+
+    window.setTimeout(() => {
+      recomputeLayout();
+      updateProgress();
+    }, 400);
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initProgressTOC);
+  } else {
+    initProgressTOC();
+  }
+
+  document.addEventListener("astro:page-load", initProgressTOC);
+</script>
