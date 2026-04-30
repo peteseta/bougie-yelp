@@ -26,6 +26,7 @@
     const buttons = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
     const feedItems =
       document.querySelectorAll<HTMLElement>(".feed-item[data-post-type]");
+    const featuredSection = document.querySelector<HTMLElement>("#featured-section");
 
     buttons.forEach(btn => {
       btn.addEventListener("click", () => {
@@ -36,16 +37,16 @@
 
         feedItems.forEach(item => {
           const postType = item.dataset.postType;
-          const isFeatured = item.dataset.featured === "true";
           const matchesFilter = filter === "all" || postType === filter;
-
-          // Show featured posts if filter is "all" OR if post matches current filter
-          if (isFeatured) {
-            item.style.display = matchesFilter ? "" : "none";
-          } else {
-            item.style.display = matchesFilter ? "" : "none";
-          }
+          item.style.display = matchesFilter ? "" : "none";
         });
+
+        if (featuredSection) {
+          const anyFeaturedVisible = [...feedItems].some(
+            item => item.dataset.featured === "true" && item.style.display !== "none"
+          );
+          featuredSection.style.display = anyFeaturedVisible ? "" : "none";
+        }
       });
     });
   }
