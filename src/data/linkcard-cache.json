@@ -908,5 +908,40 @@
     "image": "https://worksinprogress.co/wip-image/uploads/2026/04/WIP_i23-Share_Cards-japanese-railways.jpg",
     "favicon": "https://worksinprogress.co/images/favicon.ico",
     "fetchedAt": "2026-04-22T03:57:58.708Z"
+  },
+  "https://alexanderobenauer.com/labnotes/000/": {
+    "title": "LN 000: The Lab Notes",
+    "description": "The Lab Notes document the progress, experiments, and insights in my research on the future of personal computing.",
+    "image": "",
+    "favicon": "https://alexanderobenauer.com/assets/icons/favicon-32x32.png",
+    "fetchedAt": "2026-04-30T05:24:47.619Z"
+  },
+  "https://talkie-lm.com/introducing-talkie": {
+    "title": "Introducing talkie: a 13B vintage language model from 1930",
+    "description": "",
+    "image": "",
+    "favicon": "https://talkie-lm.com/icon-phone-2.png",
+    "fetchedAt": "2026-04-30T05:24:47.688Z"
+  },
+  "https://www.henrikkarlsson.xyz/p/looking-for-alice": {
+    "title": "Looking for Alice - by Henrik Karlsson - Escaping Flatland",
+    "description": "Not dating",
+    "image": "https://substackcdn.com/image/fetch/$s_!yPWW!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F3c6398db-b77f-41fe-8604-5639f4717a9a_800x688.jpeg",
+    "favicon": "https://substackcdn.com/image/fetch/$s_!NLOm!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F212e611c-82bd-4622-a8dc-5cbd2695c8a2%2Ffavicon-16x16.png",
+    "fetchedAt": "2026-04-30T05:24:47.996Z"
+  },
+  "https://publicdomainreview.org/essay/magic-by-return-of-post/": {
+    "title": "Magic by Return of Post: How Mail Order Delivered the Occult\n — The Public Domain Review",
+    "description": "What allowed occultism to blossom in the United States at the turn of the 20th century? Linotype machines, cheap pulp paper, and newly improved postal networks. Allan Johnson investigates the forgotten history and (still living) world of mail-order magic.",
+    "image": "https://pdr-assets.b-cdn.net/essays/magic-by-return-of-post/psychic-featured.jpg",
+    "favicon": "https://publicdomainreview.org/android-icon-192x192.png",
+    "fetchedAt": "2026-04-30T05:24:48.236Z"
+  },
+  "https://worksinprogress.co/issue/the-worlds-most-complex-machine/": {
+    "title": "The world’s most complex machine - Works in Progress Magazine",
+    "description": "By betting on extreme ultraviolet lithography long before it worked, ASML became the chokepoint for cutting-edge chips.",
+    "image": "https://worksinprogress.co/wip-image/uploads/2026/04/WIP_i23-Share_Cards-asml.jpg",
+    "favicon": "https://worksinprogress.co/images/favicon.ico",
+    "fetchedAt": "2026-04-30T05:24:48.502Z"
   }
 }
