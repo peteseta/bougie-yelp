@@ -156,6 +156,10 @@ const items = headings.filter(
     pointer-events: none;
   }
 
+  .ptoc-item.collapsed {
+    display: none;
+  }
+
   .ptoc-dot {
     position: absolute;
     left: -1.5px;
@@ -283,14 +287,30 @@ const items = headings.filter(
 
       const metaEl = toc.querySelector(".ptoc-meta");
 
+      function isInClosedDetails(el) {
+        let node = el.parentElement;
+        while (node && node !== article) {
+          if (node.tagName === "DETAILS" && !node.open) return true;
+          node = node.parentElement;
+        }
+        return false;
+      }
+
       function recomputeLayout() {
         railHeight = railEl.clientHeight;
         metaOffset = metaEl ? metaEl.offsetHeight + 4 : 0;
         articleTop = article.getBoundingClientRect().top + window.scrollY;
         articleHeight = article.scrollHeight;
 
+        // Hide items whose heading is inside a closed <details>
+        headingEls.forEach(({ el, li }) => {
+          li.classList.toggle("collapsed", isInClosedDetails(el));
+        });
+
+        const visible = headingEls.filter(({ li }) => !li.classList.contains("collapsed"));
+
         // Dots use the full [0, railHeight] range — same coordinate space as the pill
-        const dotYs = headingEls.map(({ el }) => {
+        const dotYs = visible.map(({ el }) => {
           const offset =
             el.getBoundingClientRect().top + window.scrollY - articleTop;
           const ratio =
@@ -300,14 +320,13 @@ const items = headings.filter(
           return ratio * railHeight;
         });
 
-        headingEls.forEach(({ li }, i) => {
+        visible.forEach(({ li }, i) => {
           li.style.setProperty("--ptoc-y", `${dotYs[i]}px`);
         });
 
         // Spread labels to avoid overlap — labels are floored at metaOffset so
         // they never overlap the meta block (title/readtime) on hover
-        const sampleLabel =
-          headingEls[0]?.li.querySelector(".ptoc-label");
+        const sampleLabel = visible[0]?.li.querySelector(".ptoc-label");
         const minGap = sampleLabel
           ? Math.max(18, sampleLabel.offsetHeight + 2)
           : 22;
@@ -327,7 +346,7 @@ const items = headings.filter(
           if (!changed) break;
         }
 
-        headingEls.forEach(({ li }, i) => {
+        visible.forEach(({ li }, i) => {
           li.style.setProperty(
             "--ptoc-label-dy",
             `${labelYs[i] - dotYs[i]}px`,
@@ -360,10 +379,11 @@ const items = headings.filter(
         pillEl.style.setProperty("--pill-top", `${pillTop}px`);
         pillEl.style.setProperty("--pill-height", `${pillHeight}px`);
 
-        // Active heading: last one to cross 30% of viewport
+        // Active heading: last visible one to cross 30% of viewport
         const anchorY = viewportH * 0.3;
         let activeIdx = -1;
         for (let i = 0; i < headingEls.length; i++) {
+          if (headingEls[i].li.classList.contains("collapsed")) continue;
           if (headingEls[i].el.getBoundingClientRect().top - anchorY <= 0) {
             activeIdx = i;
           } else {
@@ -417,6 +437,14 @@ const items = headings.filter(
       });
       ro.observe(article);
       ro.observe(railEl);
+
+      // Recompute when collapsibles open or close
+      article.querySelectorAll("details").forEach((details) => {
+        details.addEventListener("toggle", () => {
+          recomputeLayout();
+          updateProgress();
+        }, { signal });
+      });
 
       // Recompute after images and fonts finish loading
       article.querySelectorAll("img").forEach((img) => {
