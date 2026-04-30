@@ -23,6 +23,7 @@ const items = headings.filter(
       <div class="ptoc-meta">
         <div class="ptoc-title">{title}</div>
         <div class="ptoc-readtime" data-readtime />
+        <div class="ptoc-divider" />
       </div>
       <div class="ptoc-rail">
         <div class="ptoc-track" />
@@ -30,7 +31,7 @@ const items = headings.filter(
         <ul class="ptoc-dots">
           {items.map((h) => (
             <li class="ptoc-item" data-depth={h.depth} data-slug={h.slug}>
-              <span class="ptoc-dot" />
+              <span class="ptoc-dot" aria-hidden="true" />
               <a href={`#${h.slug}`} class="ptoc-label" title={h.text}>
                 {h.text}
               </a>
@@ -45,78 +46,83 @@ const items = headings.filter(
 <style>
   .progress-toc {
     position: fixed;
-    left: 0.75rem;
     top: 1rem;
     bottom: 1rem;
-    width: 240px;
+    left: 1.25rem;
+    width: 13rem;
     font-size: 0.78rem;
     line-height: 1.3;
     user-select: none;
-    z-index: 30;
   }
 
-  @media (max-width: 1023px) {
-    .progress-toc {
-      display: none;
-    }
-  }
-
-  /* Meta block — overlays the top of the rail, visible on hover */
+  /* Meta block — overlays the top of the rail, visible on hover/focus-within */
   .ptoc-meta {
     position: absolute;
     top: 0;
-    left: 1rem;
-    width: 220px;
-    padding: 0.6rem 0.8rem;
-    background-color: rgb(var(--color-fill));
-    border-radius: 4px;
+    left: 14px;
+    right: 0;
+    padding: 0.35rem 0.25rem 0.5rem 0;
     opacity: 0;
-    transform: translateY(-2px);
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    transform: translateY(-3px);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
     pointer-events: none;
     z-index: 10;
   }
-  .progress-toc:hover .ptoc-meta {
+  .progress-toc:hover .ptoc-meta,
+  .progress-toc:focus-within .ptoc-meta {
     opacity: 1;
     transform: translateY(0);
-    pointer-events: auto;
   }
+
   .ptoc-title {
-    @apply font-semibold;
+    @apply font-medium;
     color: rgb(var(--color-text-base));
-    text-transform: uppercase;
-    font-size: 0.78rem;
-    letter-spacing: 0.04em;
-    line-height: 1.3;
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    line-height: 1.35;
     margin: 0;
     padding: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
+
   .ptoc-readtime {
     color: rgb(var(--color-text-base));
-    opacity: 0.55;
-    font-size: 0.72rem;
-    margin: 0.25rem 0 0 0;
+    opacity: 0.45;
+    font-size: 0.68rem;
+    margin: 0.15rem 0 0 0;
     padding: 0;
   }
 
-  /* Vertical rail — fills the entire fixed container */
+  .ptoc-divider {
+    height: 1px;
+    background-color: rgb(var(--color-text-base));
+    opacity: 0.18;
+    margin-top: 0.35rem;
+  }
+
+  /* Vertical rail — fills the sticky container */
   .ptoc-rail {
     position: absolute;
     inset: 0;
     width: 100%;
   }
+
   .ptoc-track {
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0;
-    width: 2px;
+    width: 1.5px;
     background-color: rgb(var(--color-text-base));
-    opacity: 0.22;
+    opacity: 0.15;
   }
 
-  /* Sliding pill — same width as track, darker shade. Indicates current
-     viewport position. Sits below dots in z-order so dots punch through. */
+  /* Pill — represents the visible slice of the article */
   .ptoc-pill {
     position: absolute;
     left: 0;
@@ -124,9 +130,11 @@ const items = headings.filter(
     top: var(--pill-top, 0);
     height: var(--pill-height, 40px);
     background-color: rgb(var(--color-text-base));
-    opacity: 0.75;
+    opacity: 0.35;
     z-index: 1;
-    transition: top 0.05s linear;
+    transition:
+      top 0.08s linear,
+      height 0.08s linear;
   }
 
   .ptoc-dots {
@@ -135,198 +143,328 @@ const items = headings.filter(
     list-style: none;
     margin: 0;
     padding: 0;
-    z-index: 2; /* above pill so dots punch through */
+    z-index: 2;
   }
 
   .ptoc-item {
     position: absolute;
     left: 0;
+    right: 0;
     top: var(--ptoc-y, 0);
     transform: translateY(-50%);
     height: 0;
-    /* Allow clicks on dot/label */
     pointer-events: none;
-  }
-  .ptoc-item .ptoc-dot,
-  .ptoc-item .ptoc-label {
-    pointer-events: auto;
   }
 
   .ptoc-dot {
     position: absolute;
-    left: -1px;
+    left: -1.5px;
     top: 0;
     width: 4px;
     height: 4px;
     border-radius: 50%;
     background-color: rgb(var(--color-text-base));
-    opacity: 0.85;
+    /* Fill-color ring creates visible gap between dot and track/pill */
+    box-shadow: 0 0 0 2.5px rgb(var(--color-fill));
+    opacity: 0.75;
     transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 3;
   }
+
+  .ptoc-item.active .ptoc-dot {
+    opacity: 1;
+  }
+
   .ptoc-item[data-depth="3"] .ptoc-dot {
     width: 3px;
     height: 3px;
-    left: -0.5px;
-    opacity: 0.7;
+    left: -1px;
+    opacity: 0.5;
   }
 
-  /* Labels — hidden by default, fade in on hover */
+  /* Labels — hidden and non-interactive by default */
   .ptoc-label {
     position: absolute;
     left: 14px;
-    top: 0;
+    right: 0;
+    top: var(--ptoc-label-dy, 0px);
     transform: translateY(-50%);
-    width: 220px;
     color: rgb(var(--color-text-base));
     text-decoration: none;
     opacity: 0;
-    transition: opacity 0.25s ease, color 0.2s ease;
+    pointer-events: none;
+    transition:
+      opacity 0.2s ease,
+      color 0.2s ease;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     word-break: break-word;
   }
-  .progress-toc:hover .ptoc-label {
-    opacity: 0.55;
+
+  /* Reveal labels on hover/focus-within */
+  .progress-toc:hover .ptoc-label,
+  .progress-toc:focus-within .ptoc-label {
+    opacity: 0.5;
+    pointer-events: auto;
   }
-  .progress-toc:hover .ptoc-item.active .ptoc-label {
+
+  .progress-toc:hover .ptoc-item.active .ptoc-label,
+  .progress-toc:focus-within .ptoc-item.active .ptoc-label {
     opacity: 1;
     font-weight: 600;
   }
+
   .ptoc-label:hover {
     opacity: 1 !important;
     text-decoration: underline;
     text-underline-offset: 2px;
   }
+
+  .ptoc-label:focus-visible {
+    opacity: 1 !important;
+    outline: 2px solid rgb(var(--color-accent));
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
 </style>
 
 <script>
-  function initProgressTOC() {
-    const toc = document.getElementById("progress-toc");
-    const article = document.getElementById("article");
-    if (!toc || !article) return;
+  (() => {
+    const cleanupKey = "__progressTocCleanup";
+    const setupKey = "__progressTocSetup";
 
-    const items = Array.from(toc.querySelectorAll<HTMLElement>(".ptoc-item"));
-    if (items.length === 0) return;
-
-    const railEl = toc.querySelector<HTMLElement>(".ptoc-rail");
-    const pillEl = toc.querySelector<HTMLElement>(".ptoc-pill");
-    const readtimeEl = toc.querySelector<HTMLElement>("[data-readtime]");
-    if (!railEl || !pillEl) return;
-
-    const headingEls = items
-      .map((li) => {
-        const slug = li.dataset.slug;
-        if (!slug) return null;
-        const el = document.getElementById(slug);
-        return el ? { li, el, slug } : null;
-      })
-      .filter(
-        (x): x is { li: HTMLElement; el: HTMLElement; slug: string } => !!x,
-      );
-
-    if (headingEls.length === 0) return;
-
-    if (readtimeEl) {
-      const text = article.innerText || "";
-      const words = text.trim().split(/\s+/).length;
-      const minutes = Math.max(1, Math.round(words / 220));
-      readtimeEl.textContent = `${minutes} min read`;
+    function cleanup() {
+      if (typeof window[cleanupKey] === "function") {
+        window[cleanupKey]();
+      }
+      window[cleanupKey] = undefined;
     }
 
-    let railHeight = 0;
-    let articleTop = 0;
-    let articleHeight = 0;
+    function initProgressTOC() {
+      cleanup();
 
-    function recomputeLayout() {
-      railHeight = railEl!.clientHeight;
-      const articleRect = article!.getBoundingClientRect();
-      articleTop = articleRect.top + window.scrollY;
-      articleHeight = article!.scrollHeight;
+      const toc = document.getElementById("progress-toc");
+      const article = document.getElementById("article");
+      if (!toc || !article) return;
 
-      // Place each dot proportionally along the bar based on heading
-      // offset within the article.
-      headingEls.forEach(({ li, el }) => {
-        const offset =
-          el.getBoundingClientRect().top + window.scrollY - articleTop;
-        const ratio =
-          articleHeight > 0
-            ? Math.max(0, Math.min(1, offset / articleHeight))
-            : 0;
-        li.style.setProperty("--ptoc-y", `${ratio * railHeight}px`);
-      });
-    }
+      const items = Array.from(toc.querySelectorAll(".ptoc-item"));
+      if (items.length === 0) return;
 
-    function updateProgress() {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight;
-      const viewportH = window.innerHeight;
-      const scrollable = docHeight - viewportH;
-      const ratio = scrollable > 0 ? scrollTop / scrollable : 0;
+      const railEl = toc.querySelector(".ptoc-rail");
+      const pillEl = toc.querySelector(".ptoc-pill");
+      const readtimeEl = toc.querySelector("[data-readtime]");
+      if (!railEl || !pillEl) return;
 
-      // Pill height represents the viewport's slice of the document, but
-      // capped to a small visual size (it's a marker, not a fill).
-      const pillHeight = Math.max(
-        20,
-        Math.min(60, (viewportH / docHeight) * railHeight),
-      );
-      const pillTop = ratio * (railHeight - pillHeight);
+      const headingEls = items
+        .map((li) => {
+          const slug = li.dataset.slug;
+          if (!slug) return null;
+          const el = document.getElementById(slug);
+          return el ? { li, el, slug } : null;
+        })
+        .filter((x) => !!x);
 
-      pillEl!.style.setProperty("--pill-top", `${pillTop}px`);
-      pillEl!.style.setProperty("--pill-height", `${pillHeight}px`);
+      if (headingEls.length === 0) return;
 
-      // Active section: last heading whose top has crossed an anchor line
-      // ~30% down the viewport.
-      const anchorY = window.innerHeight * 0.3;
-      let activeIdx = -1;
-      for (let i = 0; i < headingEls.length; i++) {
-        const top = headingEls[i].el.getBoundingClientRect().top;
-        if (top - anchorY <= 0) {
-          activeIdx = i;
-        } else {
-          break;
-        }
+      if (readtimeEl) {
+        const text = article.innerText || "";
+        const words = text.trim().split(/\s+/).length;
+        const minutes = Math.max(1, Math.round(words / 220));
+        readtimeEl.textContent = `${minutes} min read`;
       }
 
-      headingEls.forEach(({ li }, idx) => {
-        li.classList.toggle("active", idx === activeIdx);
-        li.classList.toggle("passed", activeIdx >= 0 && idx < activeIdx);
-      });
-    }
+      let railHeight = 0;
+      let metaOffset = 0;
+      let articleTop = 0;
+      let articleHeight = 0;
 
-    let rafPending = false;
-    function onScroll() {
-      if (rafPending) return;
-      rafPending = true;
-      requestAnimationFrame(() => {
+      const metaEl = toc.querySelector(".ptoc-meta");
+
+      function recomputeLayout() {
+        railHeight = railEl.clientHeight;
+        metaOffset = metaEl ? metaEl.offsetHeight + 4 : 0;
+        articleTop = article.getBoundingClientRect().top + window.scrollY;
+        articleHeight = article.scrollHeight;
+
+        // Dots use the full [0, railHeight] range — same coordinate space as the pill
+        const dotYs = headingEls.map(({ el }) => {
+          const offset =
+            el.getBoundingClientRect().top + window.scrollY - articleTop;
+          const ratio =
+            articleHeight > 0
+              ? Math.max(0, Math.min(1, offset / articleHeight))
+              : 0;
+          return ratio * railHeight;
+        });
+
+        headingEls.forEach(({ li }, i) => {
+          li.style.setProperty("--ptoc-y", `${dotYs[i]}px`);
+        });
+
+        // Spread labels to avoid overlap — labels are floored at metaOffset so
+        // they never overlap the meta block (title/readtime) on hover
+        const sampleLabel =
+          headingEls[0]?.li.querySelector(".ptoc-label");
+        const minGap = sampleLabel
+          ? Math.max(18, sampleLabel.offsetHeight + 2)
+          : 22;
+
+        const labelYs = dotYs.map((y) => Math.max(y, metaOffset));
+        for (let iter = 0; iter < 30; iter++) {
+          let changed = false;
+          for (let i = 1; i < labelYs.length; i++) {
+            const gap = labelYs[i] - labelYs[i - 1];
+            if (gap < minGap) {
+              const push = (minGap - gap) / 2;
+              labelYs[i - 1] -= push;
+              labelYs[i] += push;
+              changed = true;
+            }
+          }
+          if (!changed) break;
+        }
+
+        headingEls.forEach(({ li }, i) => {
+          li.style.setProperty(
+            "--ptoc-label-dy",
+            `${labelYs[i] - dotYs[i]}px`,
+          );
+        });
+      }
+
+      function updateProgress() {
+        if (railHeight <= 0 || articleHeight <= 0) return;
+
+        const scrollY = window.scrollY;
+        const viewportH = window.innerHeight;
+        const artEnd = articleTop + articleHeight;
+
+        // Pill represents the visible slice of the article
+        const visibleTopAbs = Math.max(scrollY, articleTop);
+        const visibleBottomAbs = Math.min(scrollY + viewportH, artEnd);
+
+        let pillTop, pillHeight;
+        if (visibleBottomAbs > visibleTopAbs) {
+          const topFrac = (visibleTopAbs - articleTop) / articleHeight;
+          const bottomFrac = (visibleBottomAbs - articleTop) / articleHeight;
+          pillTop = Math.max(0, topFrac * railHeight);
+          pillHeight = Math.max(4, (bottomFrac - topFrac) * railHeight);
+        } else {
+          pillTop = scrollY + viewportH < articleTop ? 0 : railHeight;
+          pillHeight = 4;
+        }
+
+        pillEl.style.setProperty("--pill-top", `${pillTop}px`);
+        pillEl.style.setProperty("--pill-height", `${pillHeight}px`);
+
+        // Active heading: last one to cross 30% of viewport
+        const anchorY = viewportH * 0.3;
+        let activeIdx = -1;
+        for (let i = 0; i < headingEls.length; i++) {
+          if (headingEls[i].el.getBoundingClientRect().top - anchorY <= 0) {
+            activeIdx = i;
+          } else {
+            break;
+          }
+        }
+
+        headingEls.forEach(({ li }, idx) => {
+          const isActive = idx === activeIdx;
+          li.classList.toggle("active", isActive);
+          li.classList.toggle("passed", activeIdx >= 0 && idx < activeIdx);
+          const link = li.querySelector(".ptoc-label");
+          if (link) {
+            if (isActive) {
+              link.setAttribute("aria-current", "location");
+            } else {
+              link.removeAttribute("aria-current");
+            }
+          }
+        });
+      }
+
+      const header = document.querySelector("header");
+
+      function updateTocPosition() {
+        const headerBottom = header
+          ? Math.max(0, header.getBoundingClientRect().bottom)
+          : 0;
+        // +16 keeps a 1rem gap between the navbar and the start of the bar
+        toc.style.top = Math.max(16, headerBottom + 16) + "px";
+      }
+
+      let rafPending = false;
+      function onScroll() {
+        if (rafPending) return;
+        rafPending = true;
+        requestAnimationFrame(() => {
+          updateTocPosition();
+          recomputeLayout();
+          updateProgress();
+          rafPending = false;
+        });
+      }
+
+      const controller = new AbortController();
+      const { signal } = controller;
+
+      const ro = new ResizeObserver(() => {
+        recomputeLayout();
         updateProgress();
-        rafPending = false;
       });
-    }
+      ro.observe(article);
+      ro.observe(railEl);
 
-    function onResize() {
+      // Recompute after images and fonts finish loading
+      article.querySelectorAll("img").forEach((img) => {
+        if (!img.complete) {
+          img.addEventListener(
+            "load",
+            () => {
+              recomputeLayout();
+              updateProgress();
+            },
+            { once: true, signal },
+          );
+        }
+      });
+
+      if (document.fonts?.ready) {
+        document.fonts.ready.then(() => {
+          recomputeLayout();
+          updateProgress();
+        });
+      }
+
+      window.addEventListener("scroll", onScroll, { passive: true, signal });
+
+      updateTocPosition();
       recomputeLayout();
       updateProgress();
+
+      window[cleanupKey] = () => {
+        controller.abort();
+        ro.disconnect();
+      };
     }
 
-    recomputeLayout();
-    updateProgress();
+    if (!window[setupKey]) {
+      window[setupKey] = true;
+      document.addEventListener("astro:before-swap", cleanup);
+      document.addEventListener("astro:page-load", initProgressTOC);
 
-    window.setTimeout(() => {
-      recomputeLayout();
-      updateProgress();
-    }, 400);
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize);
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initProgressTOC);
-  } else {
-    initProgressTOC();
-  }
-
-  document.addEventListener("astro:page-load", initProgressTOC);
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initProgressTOC, {
+          once: true,
+        });
+      } else {
+        initProgressTOC();
+      }
+    } else {
+      initProgressTOC();
+    }
+  })();
 </script>

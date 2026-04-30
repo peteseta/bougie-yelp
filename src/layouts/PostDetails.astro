@@ -236,16 +236,19 @@ const nextPost =
     padding: 0 1rem;
   }
 
-  @media (min-width: 1024px) {
+  /* Medium: TOC + content (xl = 1280px).
+     Grid is full-width so the TOC column sits at the left edge of the page.
+     Content self-centers within its 1fr column via max-width + margin auto. */
+  @media (min-width: 1280px) {
     .post-grid--writing {
       display: grid;
       grid-template-columns:
         minmax(10rem, 13rem)
         clamp(0.75rem, 1.8vw, 1.5rem)
-        minmax(0, 720px);
+        1fr;
       align-items: stretch;
-      max-width: calc(13rem + 1.5rem + 720px);
-      margin: 0 auto;
+      width: 100%;
+      padding-left: 1.25rem;
     }
 
     .post-grid--writing .post-grid__left {
@@ -256,13 +259,14 @@ const nextPost =
 
     .post-grid--writing .post-grid__content {
       grid-column: 3;
-      max-width: none;
-      margin: 0;
+      max-width: 720px;
+      margin: 0 auto;
       padding: 0;
     }
   }
 
-  @media (min-width: 1320px) {
+  /* Wide: TOC + content + footnotes (1400px) */
+  @media (min-width: 1400px) {
     .post-grid--writing {
       grid-template-columns:
         minmax(10rem, 13rem)
@@ -271,6 +275,14 @@ const nextPost =
         clamp(0.75rem, 1.8vw, 1.5rem)
         minmax(13rem, 17rem);
       max-width: calc(13rem + 1.5rem + 720px + 1.5rem + 17rem);
+      margin: 0 auto;
+      padding-left: 1.25rem;
+    }
+
+    .post-grid--writing .post-grid__content {
+      max-width: none;
+      margin: 0;
+      padding: 0;
     }
 
     .post-grid--writing .post-grid__right {
