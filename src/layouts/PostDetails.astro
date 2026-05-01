@@ -34,6 +34,20 @@ const {
 
 const { Content, headings } = await render(post);
 
+const customHeadingOverrides: Record<string, { depth: 2; slug: string; text: string }[]> = {
+  "2026/02/spotify-dataviz": [
+    { depth: 2, slug: "what-genres-i-listen-to", text: "What genres I listen to" },
+    { depth: 2, slug: "who-i-dropped", text: "Who I dropped" },
+    { depth: 2, slug: "who-stuck-around", text: "Who stuck around" },
+    { depth: 2, slug: "what-i-was-singing-about", text: "What I was singing about" },
+    { depth: 2, slug: "going-home", text: "Going home" },
+    { depth: 2, slug: "was-i-surprised", text: "Was I surprised?" },
+  ],
+};
+
+const effectiveHeadings =
+  headings.length > 0 ? headings : (customHeadingOverrides[post.id] ?? []);
+
 const postType = getPostType(post);
 const isWriting = postType === "writing";
 
@@ -74,36 +88,39 @@ const nextPost =
   <main id="main-content" class="post-shell">
     <div class:list={["post-grid", { "post-grid--writing": isWriting }]}>
       <aside class="post-grid__left">
-        {isWriting && <ProgressTOC headings={headings} title={title} />}
+        {isWriting && <ProgressTOC headings={effectiveHeadings} title={title} />}
       </aside>
 
       <div class="post-grid__content">
-        <button
-          class="focus-outline mb-6 mt-8 flex hover:opacity-75"
-          onclick="(() => { const stored = sessionStorage.getItem('prevPageUrl'); if (stored) { try { if (new URL(stored).pathname !== location.pathname) { window.location.href = stored; return; } } catch {} } const ref = document.referrer; if (ref) { try { const u = new URL(ref); if (u.origin === location.origin && u.pathname !== location.pathname) { window.location.href = ref; return; } } catch {} } window.location.href = '/'; })()"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg"
-            ><path
-              d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
-            ></path>
-          </svg><span>Go back</span>
-        </button>
-
-        <div class="mb-8">
-          <h1
-            transition:name={slugifyStr(title)}
-            class="post-title inline-block"
+        <div class="post-topbar">
+          <button
+            class="focus-outline flex hover:opacity-75"
+            onclick="(() => { const stored = sessionStorage.getItem('prevPageUrl'); if (stored) { try { if (new URL(stored).pathname !== location.pathname) { window.location.href = stored; return; } } catch {} } const ref = document.referrer; if (ref) { try { const u = new URL(ref); if (u.origin === location.origin && u.pathname !== location.pathname) { window.location.href = ref; return; } } catch {} } window.location.href = '/'; })()"
           >
-            {title}
-          </h1>
+            <svg xmlns="http://www.w3.org/2000/svg"
+              ><path
+                d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
+              ></path>
+            </svg><span>Go back</span>
+          </button>
+
           <Datetime
             pubDatetime={pubDatetime}
             modDatetime={modDatetime}
             size="lg"
-            className="my-2"
+            className="post-datetime"
             editPost={editPost}
             postId={post.id}
           />
+        </div>
+
+        <div class="post-header mb-8">
+          <h1
+            transition:name={slugifyStr(title)}
+            class="post-title"
+          >
+            {title}
+          </h1>
         </div>
 
         <article id="article" class="prose max-w-none">
@@ -215,8 +232,75 @@ const nextPost =
     @apply w-full pb-12;
   }
 
+  .post-topbar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .post-datetime {
+    margin: 0;
+    justify-content: flex-end;
+    text-align: right;
+    flex-wrap: wrap;
+  }
+
+  .post-header {
+    margin-bottom: 2.5rem;
+    width: min(980px, calc(100vw - 2rem));
+    max-width: none;
+  }
+
   .post-title {
-    @apply text-2xl font-semibold text-skin-accent;
+    display: block;
+    max-width: 13ch;
+    color: rgb(var(--color-accent));
+    font-size: clamp(2.2rem, 6vw, 5rem);
+    line-height: 0.97;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  @media (max-width: 639px) {
+    .post-topbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .post-datetime {
+      justify-content: flex-start;
+      text-align: left;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .post-header {
+      width: min(1120px, calc(100vw - 3rem));
+      margin-left: 0;
+      margin-right: -14rem;
+    }
+
+    .post-title {
+      max-width: 15ch;
+      margin-left: -0.04em;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .post-header {
+      width: min(1240px, calc(100vw - 6rem));
+      margin-right: -22rem;
+    }
+
+    .post-title {
+      max-width: 16ch;
+    }
   }
 
   .post-grid {
