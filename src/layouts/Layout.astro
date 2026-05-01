@@ -136,6 +136,12 @@ const structuredData = {
 
     <script is:inline src="/toggle-theme.js"></script>
     <script is:inline>
+      // Save current URL before each view-transition navigation (hash changes don't fire this)
+      document.addEventListener("astro:before-preparation", function () {
+        sessionStorage.setItem("prevPageUrl", location.href);
+      });
+    </script>
+    <script is:inline>
       function loadKatexIfNeeded() {
         if (document.querySelector(".katex") && !document.querySelector("link[data-katex]")) {
           const link = document.createElement("link");
