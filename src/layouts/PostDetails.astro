@@ -89,7 +89,18 @@ const nextPost =
               ></path>
             </svg><span>Go back</span>
           </button>
+        </div>
 
+        <div class="post-header">
+          <h1
+            transition:name={slugifyStr(title)}
+            class="post-title"
+          >
+            {title}
+          </h1>
+        </div>
+
+        <div class="post-meta-row">
           <Datetime
             pubDatetime={pubDatetime}
             modDatetime={modDatetime}
@@ -98,15 +109,6 @@ const nextPost =
             editPost={editPost}
             postId={post.id}
           />
-        </div>
-
-        <div class="post-header mb-8">
-          <h1
-            transition:name={slugifyStr(title)}
-            class="post-title"
-          >
-            {title}
-          </h1>
         </div>
 
         <article id="article" class="prose max-w-none">
@@ -216,15 +218,29 @@ const nextPost =
 <style>
   .post-shell {
     @apply w-full pb-12;
+    overflow-x: clip;
   }
 
   .post-topbar {
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
+    justify-content: flex-start;
     margin-top: 2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .post-header {
+    margin-bottom: 0;
+    width: min(980px, calc(100vw - 2rem));
+    max-width: none;
+  }
+
+  .post-meta-row {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 1.75rem;
+    margin-bottom: 2.75rem;
   }
 
   .post-datetime {
@@ -232,12 +248,6 @@ const nextPost =
     justify-content: flex-end;
     text-align: right;
     flex-wrap: wrap;
-  }
-
-  .post-header {
-    margin-bottom: 2.5rem;
-    width: min(980px, calc(100vw - 2rem));
-    max-width: none;
   }
 
   .post-title {
@@ -255,13 +265,12 @@ const nextPost =
 
   @media (max-width: 639px) {
     .post-topbar {
-      flex-direction: column;
-      align-items: flex-start;
+      margin-bottom: 1.5rem;
     }
 
-    .post-datetime {
-      justify-content: flex-start;
-      text-align: left;
+    .post-meta-row {
+      margin-top: 1.5rem;
+      margin-bottom: 2.25rem;
     }
   }
 
@@ -291,6 +300,7 @@ const nextPost =
 
   .post-grid {
     width: 100%;
+    position: relative;
   }
 
   .post-grid__left,
@@ -306,60 +316,28 @@ const nextPost =
     padding: 0 1rem;
   }
 
-  /* Medium: TOC + content (xl = 1280px).
-     Grid is full-width so the TOC column sits at the left edge of the page.
-     Content self-centers within its 1fr column via max-width + margin auto. */
+  /* TOC + footnotes as fixed-position overlays; content always page-centered */
   @media (min-width: 1280px) {
-    .post-grid--writing {
-      display: grid;
-      grid-template-columns:
-        minmax(10rem, 13rem)
-        clamp(0.75rem, 1.8vw, 1.5rem)
-        1fr;
-      align-items: stretch;
-      width: 100%;
-      padding-left: 1.25rem;
+    .post-grid--writing .post-grid__left,
+    .post-grid--writing .post-grid__right {
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
     }
 
     .post-grid--writing .post-grid__left {
-      display: block;
-      grid-column: 1;
-      position: relative;
-    }
-
-    .post-grid--writing .post-grid__content {
-      grid-column: 3;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0;
-    }
-  }
-
-  /* Wide: TOC + content + footnotes (1400px) */
-  @media (min-width: 1400px) {
-    .post-grid--writing {
-      grid-template-columns:
-        minmax(10rem, 13rem)
-        clamp(0.75rem, 1.8vw, 1.5rem)
-        minmax(0, 720px)
-        clamp(0.75rem, 1.8vw, 1.5rem)
-        minmax(13rem, 17rem);
-      max-width: calc(13rem + 1.5rem + 720px + 1.5rem + 17rem);
-      margin: 0 auto;
-      padding-left: 1.25rem;
-    }
-
-    .post-grid--writing .post-grid__content {
-      max-width: none;
-      margin: 0;
-      padding: 0;
+      left: 0;
+      width: 13rem;
     }
 
     .post-grid--writing .post-grid__right {
-      display: block;
-      grid-column: 5;
-      position: relative;
-      min-height: 100%;
+      left: calc(50% + 360px + 1rem);
+      right: 0;
+    }
+
+    .post-grid--writing .post-grid__content {
+      padding: 0;
     }
   }
 </style>

@@ -16,7 +16,7 @@
     --footnote-text-opacity: 0.35;
   }
 
-  @media (max-width: 1399px) {
+  @media (max-width: 1279px) {
     .footnotes-overlay {
       display: none;
     }
@@ -32,10 +32,13 @@
     pointer-events: auto;
     color: var(--color-text-base);
     line-height: 1.4;
+    border-radius: 4px;
     opacity: 0;
     transition:
       opacity 0.25s ease,
-      filter 0.25s ease;
+      filter 0.25s ease,
+      background-color 0.25s ease,
+      box-shadow 0.25s ease;
   }
 
   :global(.footnote-item.visible) {
@@ -82,6 +85,9 @@
     opacity: 1 !important;
     filter: blur(0) !important;
     z-index: 20;
+    background-color: rgb(var(--color-fill) / 0.9);
+    box-shadow: 0 0 16px 6px rgb(var(--color-fill) / 0.7);
+    backdrop-filter: blur(8px);
   }
 
   :global(.footnote-item:hover .footnote-number),

@@ -198,9 +198,14 @@ const items = headings.filter(
     text-decoration: none;
     opacity: 0;
     pointer-events: none;
+    padding: 1px 6px;
+    margin: -1px -6px;
+    border-radius: 4px;
     transition:
       opacity 0.2s ease,
-      color 0.2s ease;
+      color 0.2s ease,
+      background-color 0.2s ease,
+      box-shadow 0.2s ease;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -213,6 +218,9 @@ const items = headings.filter(
   .progress-toc:focus-within .ptoc-label {
     opacity: 0.5;
     pointer-events: auto;
+    background-color: rgb(var(--color-fill) / 0.85);
+    box-shadow: 0 0 12px 4px rgb(var(--color-fill) / 0.7);
+    backdrop-filter: blur(6px);
   }
 
   .progress-toc:hover .ptoc-item.active .ptoc-label,
