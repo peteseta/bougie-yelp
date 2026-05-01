@@ -79,8 +79,8 @@ const nextPost =
 
       <div class="post-grid__content">
         <button
-          class="focus-outline mb-2 mt-4 flex hover:opacity-75"
-          onclick="(() => (history.length === 1) ? window.location = '/' : history.back())()"
+          class="focus-outline mb-6 mt-8 flex hover:opacity-75"
+          onclick="(() => { const stored = sessionStorage.getItem('prevPageUrl'); if (stored) { try { if (new URL(stored).pathname !== location.pathname) { window.location.href = stored; return; } } catch {} } const ref = document.referrer; if (ref) { try { const u = new URL(ref); if (u.origin === location.origin && u.pathname !== location.pathname) { window.location.href = ref; return; } } catch {} } window.location.href = '/'; })()"
         >
           <svg xmlns="http://www.w3.org/2000/svg"
             ><path
