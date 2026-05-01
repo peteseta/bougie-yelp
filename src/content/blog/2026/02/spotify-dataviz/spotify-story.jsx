@@ -1030,7 +1030,8 @@ function useColors(dark) {
    COMPONENTS
    ═══════════════════════════════════════════════════════════════════════════ */
 
-const FONT = "'IBM Plex Mono', monospace";
+const FONT = "'Source Serif 4', Georgia, serif";
+const UI_FONT = "'IBM Plex Mono', monospace";
 
 function ChartTooltip({ active, payload, label, colors }) {
   if (!active || !payload?.length) return null;
@@ -1396,7 +1397,7 @@ export default function SpotifyStory() {
                   <XAxis
                     dataKey="month"
                     tickFormatter={fm}
-                    tick={{ fill: C.textFaint, fontSize: 10, fontFamily: FONT }}
+                    tick={{ fill: C.textFaint, fontSize: 10, fontFamily: UI_FONT }}
                     axisLine={{ stroke: C.border }}
                     tickLine={false}
                     interval={3}
@@ -1463,7 +1464,7 @@ export default function SpotifyStory() {
                         position: "top",
                         fill: C.accent,
                         fontSize: 10,
-                        fontFamily: FONT,
+                        fontFamily: UI_FONT,
                       }}
                     />
                   )}
@@ -1560,6 +1561,7 @@ export default function SpotifyStory() {
             }}
           >
             <h2
+              id="what-genres-i-listen-to"
               style={{
                 fontFamily: FONT,
                 fontSize: 22,
@@ -1603,7 +1605,7 @@ export default function SpotifyStory() {
                   <XAxis
                     dataKey="month"
                     tickFormatter={fm}
-                    tick={{ fill: C.textFaint, fontSize: 10, fontFamily: FONT }}
+                    tick={{ fill: C.textFaint, fontSize: 10, fontFamily: UI_FONT }}
                     axisLine={{ stroke: C.border }}
                     tickLine={false}
                     interval={4}
@@ -1659,6 +1661,7 @@ export default function SpotifyStory() {
             }}
           >
             <h2
+              id="who-i-dropped"
               style={{
                 fontFamily: FONT,
                 fontSize: 22,
@@ -1830,6 +1833,7 @@ export default function SpotifyStory() {
             }}
           >
             <h2
+              id="who-stuck-around"
               style={{
                 fontFamily: FONT,
                 fontSize: 22,
@@ -1971,7 +1975,7 @@ export default function SpotifyStory() {
                         style={{
                           fontSize: 9,
                           color: C.textFaint,
-                          fontFamily: FONT,
+                          fontFamily: UI_FONT,
                         }}
                       >
                         {fm(m)}
@@ -1987,7 +1991,7 @@ export default function SpotifyStory() {
                       fontSize: 9,
                       fontWeight: 600,
                       color: C.accent,
-                      fontFamily: FONT,
+                      fontFamily: UI_FONT,
                       whiteSpace: "nowrap",
                       opacity: 0.45,
                     }}
@@ -2025,6 +2029,7 @@ export default function SpotifyStory() {
             }}
           >
             <h2
+              id="what-i-was-singing-about"
               style={{
                 fontFamily: FONT,
                 fontSize: 22,
@@ -2068,7 +2073,7 @@ export default function SpotifyStory() {
                   <XAxis
                     dataKey="month"
                     tickFormatter={fm}
-                    tick={{ fill: C.textFaint, fontSize: 10, fontFamily: FONT }}
+                    tick={{ fill: C.textFaint, fontSize: 10, fontFamily: UI_FONT }}
                     axisLine={{ stroke: C.border }}
                     tickLine={false}
                     interval={4}
@@ -2182,6 +2187,7 @@ export default function SpotifyStory() {
             }}
           >
             <h2
+              id="going-home"
               style={{
                 fontFamily: FONT,
                 fontSize: 22,
@@ -2235,7 +2241,7 @@ export default function SpotifyStory() {
                     style={{
                       fontSize: 11,
                       color: C.textFaint,
-                      fontFamily: FONT,
+                      fontFamily: UI_FONT,
                       marginBottom: 4,
                     }}
                   >
@@ -2245,7 +2251,7 @@ export default function SpotifyStory() {
                     style={{
                       fontSize: 32,
                       fontWeight: 700,
-                      fontFamily: FONT,
+                      fontFamily: UI_FONT,
                       color: C.green,
                       lineHeight: 1,
                     }}
@@ -2257,7 +2263,7 @@ export default function SpotifyStory() {
                       fontSize: 12,
                       color: C.textLight,
                       marginTop: 6,
-                      fontFamily: FONT,
+                      fontFamily: UI_FONT,
                     }}
                   >
                     {trip.label}
@@ -2294,6 +2300,7 @@ export default function SpotifyStory() {
             }}
           >
             <h2
+              id="was-i-surprised"
               style={{
                 fontFamily: FONT,
                 fontSize: 22,
