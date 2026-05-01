@@ -81,7 +81,8 @@ const nextPost =
         <div class="post-topbar">
           <button
             class="focus-outline flex hover:opacity-75"
-            onclick="(() => { const stored = sessionStorage.getItem('prevPageUrl'); if (stored) { try { if (new URL(stored).pathname !== location.pathname) { window.location.href = stored; return; } } catch {} } const ref = document.referrer; if (ref) { try { const u = new URL(ref); if (u.origin === location.origin && u.pathname !== location.pathname) { window.location.href = ref; return; } } catch {} } window.location.href = '/'; })()"
+            data-go-back
+            type="button"
           >
             <svg xmlns="http://www.w3.org/2000/svg"
               ><path

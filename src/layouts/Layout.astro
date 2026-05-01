@@ -135,10 +135,55 @@ const structuredData = {
     <ViewTransitions />
 
     <script is:inline src="/toggle-theme.js"></script>
-    <script is:inline>
-      // Save current URL before each view-transition navigation (hash changes don't fire this)
-      document.addEventListener("astro:before-preparation", function () {
-        sessionStorage.setItem("prevPageUrl", location.href);
+    <script>
+      import { navigate } from "astro:transitions/client";
+
+      const getPageKey = (url: URL) => `${url.pathname}${url.search}`;
+
+      const getBackTarget = () => {
+        const currentUrl = new URL(window.location.href);
+
+        const getCandidate = (value: string | null) => {
+          if (!value) return null;
+
+          try {
+            const url = new URL(value, window.location.origin);
+            if (
+              url.origin === currentUrl.origin &&
+              getPageKey(url) !== getPageKey(currentUrl)
+            ) {
+              return url.href;
+            }
+          } catch {
+            return null;
+          }
+
+          return null;
+        };
+
+        return (
+          getCandidate(sessionStorage.getItem("prevPageUrl")) ??
+          getCandidate(document.referrer) ??
+          "/"
+        );
+      };
+
+      // Save current URL before each view-transition navigation.
+      // Hash-only changes don't fire this, which keeps in-page anchors from
+      // becoming the "previous page" for the post back button.
+      document.addEventListener("astro:before-preparation", () => {
+        sessionStorage.setItem("prevPageUrl", window.location.href);
+      });
+
+      document.addEventListener("click", event => {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+
+        const backButton = target.closest("[data-go-back]");
+        if (!(backButton instanceof HTMLElement)) return;
+
+        event.preventDefault();
+        navigate(getBackTarget(), { history: "replace" });
       });
     </script>
     <script is:inline>
