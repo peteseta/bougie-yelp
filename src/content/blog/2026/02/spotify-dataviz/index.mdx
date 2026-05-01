@@ -12,6 +12,79 @@ tags:
 description: The last 3 years of my Spotify listening, visualized
 ---
 
-import SpotifyStory from "./spotify-story.jsx";
+import SentimentChart from "@components/spotify-dataviz/SentimentChart.jsx";
+import GenreChart from "@components/spotify-dataviz/GenreChart.jsx";
+import ArtistTimeline from "@components/spotify-dataviz/ArtistTimeline.jsx";
+import ThemeChart from "@components/spotify-dataviz/ThemeChart.jsx";
+import EraCards from "@components/spotify-dataviz/EraCards.jsx";
+import HomeTrips from "@components/spotify-dataviz/HomeTrips.jsx";
 
-<SpotifyStory client:load />
+Since December 2022, I have made a playlist each month containing my favorites of the month. I liked the idea of being able to look back and relive certain memories. Coming up on year three, I wanted to know if there were more patterns to be found.
+
+Collating and analyzing the data, this is what 38 months of saved Spotify tracks say about my taste and mood.
+
+Since Spotify's API doesn't provide song information like tempo, energy, valence, or "danceability" anymore, I pulled genre tags from Last.fm's API. I pulled each song's lyrics from Genius and ran sentiment analysis on the prose with VADER.
+
+What I didn't expect was that the data would map kinda cleanly onto my life. The month I graduated had the darkest lyrics I'd ever saved. And each trip home to Bangkok shows up as a spike in positive sentiment. And when I moved, I unconsciously replaced a lot of my artist roster.
+
+My monthly listening volume with lyrical sentiment overlaid:
+
+<SentimentChart client:load />
+
+I graduated in May 2024, and it's the single quietest and saddest month in 38 months of data. Only 9 tracks saved. A sentiment score of `-0.132`, the only time it ever went negative.
+
+Something about endings?
+
+# What genres I listen to
+
+My favorites from the last three years are (very roughly) 40% indie, 32% pop, and then a scattering of everything else. These proportions have varied over time.
+
+<GenreChart client:load />
+
+A few things stand out. Indie (green) was dominant in late 2022 (73% of what I saved that December) and remains the backbone throughout. Pop surges during album cycles: November '23 with Taylor Swift's _1989 TV_, June '24 with _brat_, and August '25 with Sabrina Carpenter. Hip-hop was most present early on and has almost completely faded from my favorites.
+
+# Who I dropped
+
+In August 2024, I moved from Bangkok to Vancouver. That month, I favorited only 7 tracks, but 93% were from artists I had never saved before.
+
+<EraCards client:load />
+
+Interestingly, moving month had the highest sentiment of any phase — `0.602`. I think maybe it was the optimism of moving somewhere new.
+
+Taylor Swift, who'd been in my top 3 for a year and a half, did NOT make the trip... she vanished entirely after April 2024. Sabrina Carpenter and beabadoobee, who'd been hovering in the background, became my new headliners.
+
+# Who stuck around
+
+This chart maps when each of my top artists appeared in my favorites. Bigger dots = more tracks that month. Some artists defined a single era, and others persisted across the whole timeline.
+
+<ArtistTimeline client:load />
+
+Sabrina Carpenter appeared in 15 different months across 3 years. She's definitely stuck around, and so has beabadoobee.
+
+# What were they singing about?
+
+The NLP analysis I did on the lyrics of every track tagged five recurring themes. Love dominates (it's pop), but the smaller themes reveal the most.
+
+<ThemeChart client:load />
+
+Every February seems to be pretty loaded (haha): in February 2024, I favorited 32 love-tagged tracks and 15 heartbreak tracks. Nostalgia seems to peak during transition periods — it spiked in Feb '24 (last semester), Aug '25 (leaving home again), and Dec '22 when I first started tracking.
+
+# Going home
+
+Maybe the cleanest pattern in the entire dataset: every time I go back to Bangkok, the music I listen to is happier.
+
+<HomeTrips client:load />
+
+For context, my overall average is `0.46`. December 2025 — two weeks at home for New Year's — hit `0.800`, the highest of the entire timeline. Every trip back pushes the needle higher than the surrounding months.
+
+# Was I surprised?
+
+It was cool that the data made legible something I'd only felt — that moving (really, my environment) changed how I listen. The artists I brought with me, the ones I left behind, what I felt in that graduation month, the brightness of coming home. You can really see it in the numbers.
+
+Something something music is memory compressed?
+
+For next time, I'd really like to learn more about effective interactive visualizations. You have to check out [pudding.cool/](https://pudding.cool/).
+
+---
+
+**Methodology:** Data sourced from Spotify saved tracks (Dec 2022 – Jan 2026). Genre classification via Last.fm API tags. Lyrical sentiment analysis via VADER (compound score) on lyrics pulled from Genius. Theme tagging via keyword/NLP classification on lyrics. "New artist" = first-ever appearance in saved tracks. Analysis done in Python; visualization in React + Recharts.

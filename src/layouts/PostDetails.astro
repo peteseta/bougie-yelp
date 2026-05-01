@@ -34,20 +34,6 @@ const {
 
 const { Content, headings } = await render(post);
 
-const customHeadingOverrides: Record<string, { depth: 2; slug: string; text: string }[]> = {
-  "2026/02/spotify-dataviz": [
-    { depth: 2, slug: "what-genres-i-listen-to", text: "What genres I listen to" },
-    { depth: 2, slug: "who-i-dropped", text: "Who I dropped" },
-    { depth: 2, slug: "who-stuck-around", text: "Who stuck around" },
-    { depth: 2, slug: "what-i-was-singing-about", text: "What I was singing about" },
-    { depth: 2, slug: "going-home", text: "Going home" },
-    { depth: 2, slug: "was-i-surprised", text: "Was I surprised?" },
-  ],
-};
-
-const effectiveHeadings =
-  headings.length > 0 ? headings : (customHeadingOverrides[post.id] ?? []);
-
 const postType = getPostType(post);
 const isWriting = postType === "writing";
 
@@ -88,7 +74,7 @@ const nextPost =
   <main id="main-content" class="post-shell">
     <div class:list={["post-grid", { "post-grid--writing": isWriting }]}>
       <aside class="post-grid__left">
-        {isWriting && <ProgressTOC headings={effectiveHeadings} title={title} />}
+        {isWriting && <ProgressTOC headings={headings} title={title} />}
       </aside>
 
       <div class="post-grid__content">
