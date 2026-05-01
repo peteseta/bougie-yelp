@@ -64,7 +64,7 @@ const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
   return (
     <>
       <time dateTime={myDatetime.toISOString()}>{date}</time>
-      <span aria-hidden="true"> | </span>
+      <span aria-hidden="true"> // </span>
       <span className="sr-only">&nbsp;at&nbsp;</span>
       <span className="text-nowrap">{time}</span>
     </>
@@ -84,7 +84,7 @@ const EditPost = ({ editPost, postId }: EditPostProps) => {
   return (
     showEditPost && (
       <>
-        <span aria-hidden="true"> | </span>
+        <span aria-hidden="true"> // </span>
         <a
           className="space-x-1.5 hover:opacity-75"
           href={editPostUrl}
