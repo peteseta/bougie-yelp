@@ -50,12 +50,12 @@ const sortedTags = [...tagCounts.entries()]
 <aside class="sidebar hidden lg:block">
   {reading.length > 0 && (
     <section class="mb-8">
-      <h3 class="mb-3 text-sm font-semibold uppercase tracking-wider text-skin-base opacity-60">
+      <h3 class="mb-3 text-sm font-semibold uppercase tracking-wider text-skin-base opacity-60 font-mono">
         Reading
       </h3>
       <ul class="space-y-2">
         {reading.map(book => (
-          <li class="text-sm">
+          <li class="text-sm font-mono">
             <span class="text-skin-base">{book.title}</span>
             <span class="text-skin-base opacity-50"> — {book.author}</span>
           </li>
@@ -66,12 +66,12 @@ const sortedTags = [...tagCounts.entries()]
 
   {tracks.length > 0 && (
     <section class="mb-8">
-      <h3 class="mb-3 text-sm font-semibold uppercase tracking-wider text-skin-base opacity-60">
+      <h3 class="mb-3 text-sm font-semibold uppercase tracking-wider text-skin-base opacity-60 font-mono">
         Listening
       </h3>
       <ul class="space-y-2">
         {tracks.map(track => (
-          <li class="text-sm">
+          <li class="text-sm font-mono">
             <span class="text-skin-base">{track.title}</span>
             <span class="text-skin-base opacity-50"> — {track.artist}</span>
           </li>
@@ -81,14 +81,14 @@ const sortedTags = [...tagCounts.entries()]
   )}
 
   <section>
-    <h3 class="mb-3 text-sm font-semibold uppercase tracking-wider text-skin-base opacity-60">
+    <h3 class="mb-3 text-sm font-semibold uppercase tracking-wider text-skin-base opacity-60 font-mono">
       Topics
     </h3>
     <div class="flex flex-wrap gap-1.5">
       {sortedTags.map(({ tag, count }) => (
         <a
           href={`/tags/${tag}/`}
-          class="inline-block rounded border border-skin-line px-2 py-1 text-xs text-skin-base transition-colors hover:border-skin-accent hover:text-skin-accent"
+          class="inline-block rounded border border-skin-line px-2 py-1 text-xs text-skin-base transition-colors hover:border-skin-accent hover:text-skin-accent font-mono"
         >
           {tag}
           <span class="ml-0.5 opacity-50">{count}</span>
@@ -103,14 +103,14 @@ const sortedTags = [...tagCounts.entries()]
   {reading.length > 0 && (
     <div class="mobile-section">
       <span class="mobile-label">Something I'm Reading</span>
-      <span class="mobile-scroll-text text-xs text-skin-base">{reading[0].title}<span class="opacity-50"> — {reading[0].author}</span></span>
+      <span class="mobile-scroll-text text-xs text-skin-base font-mono">{reading[0].title}<span class="opacity-50"> — {reading[0].author}</span></span>
     </div>
   )}
 
   {tracks.length > 0 && (
     <div class="mobile-section">
       <span class="mobile-label">Something I'm Listening To</span>
-      <span class="text-xs text-skin-base">{tracks[0].title}</span>
+      <span class="text-xs text-skin-base font-mono">{tracks[0].title}</span>
     </div>
   )}
 
@@ -120,7 +120,7 @@ const sortedTags = [...tagCounts.entries()]
       {sortedTags.map(({ tag, count }) => (
         <a
           href={`/tags/${tag}/`}
-          class="inline-block whitespace-nowrap rounded border border-skin-line px-1.5 text-xs leading-5 text-skin-base transition-colors hover:border-skin-accent hover:text-skin-accent"
+          class="inline-block whitespace-nowrap rounded border border-skin-line px-1.5 text-xs leading-5 text-skin-base transition-colors hover:border-skin-accent hover:text-skin-accent font-mono"
         >
           {tag}
           <span class="ml-0.5 opacity-50">{count}</span>
@@ -168,6 +168,7 @@ const sortedTags = [...tagCounts.entries()]
     opacity: 0.5;
     flex-shrink: 0;
     color: rgb(var(--color-text-base));
+    font-family: "IBM Plex Mono", monospace;
   }
 
   .mobile-scroll-text {

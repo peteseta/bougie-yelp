@@ -25,14 +25,14 @@ const displayDate = new Date(pubDatetime).toLocaleDateString("en-US", {
   <div class="mb-2 flex items-center gap-2 text-sm">
     {featured && <FeaturedBadge />}
     <TypeBadge type={type} />
-    <time datetime={pubDatetime.toISOString()} class="text-skin-base opacity-60">
+    <time datetime={pubDatetime.toISOString()} class="font-mono text-skin-base opacity-60">
       {displayDate}
     </time>
   </div>
   <h3 class="mb-1" style={{ viewTransitionName: slugifyStr(title) }}>
     <a
       href={`/posts/${post.id}/`}
-      class="text-lg font-semibold text-skin-base decoration-dashed underline-offset-4 hover:text-skin-accent hover:underline"
+      class="text-lg font-bold text-skin-base decoration-dashed underline-offset-4 hover:text-skin-accent hover:underline"
     >
       {title}
     </a>
