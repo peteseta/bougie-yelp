@@ -4,672 +4,831 @@
     "description": "",
     "image": "",
     "favicon": "https://www.blankenship.io/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:36.337Z"
+    "fetchedAt": "2026-01-31T04:07:36.337Z",
+    "faviconOrigin": "https://www.blankenship.io/favicon.ico"
   },
   "https://nroottag.github.io/": {
     "title": "Tracking You from a Thousand Miles Away!",
     "description": "A security vulnerability that allows tracking of Bluetooth devices using Apple's Find My network",
     "image": "",
-    "favicon": "https://nroottag.github.io/static/images/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:36.737Z"
+    "favicon": "/linkcard-cache/favicons/45b5e06ee2037712.ico",
+    "fetchedAt": "2026-01-31T04:07:36.737Z",
+    "faviconOrigin": "https://nroottag.github.io/static/images/favicon.ico"
   },
   "https://www.inkandswitch.com/ambsheets/": {
     "title": "",
     "description": "",
     "image": "",
     "favicon": "https://www.inkandswitch.com/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:37.045Z"
+    "fetchedAt": "2026-01-31T04:07:37.045Z",
+    "faviconOrigin": "https://www.inkandswitch.com/favicon.ico"
   },
   "https://hearsum.ca/posts/history-of-code-signing-at-mozilla/": {
     "title": "A Brief History of Code Signing at Mozilla | Ben Hearsum",
     "description": "Shipping large software to end-user devices is a complicated process. Shipping large software securely to end-user devices is even more complicated. Signing the things that ship to end-user devices is",
     "image": "",
     "favicon": "https://hearsum.ca/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:37.442Z"
+    "fetchedAt": "2026-01-31T04:07:37.442Z",
+    "faviconOrigin": "https://hearsum.ca/favicon.ico"
   },
   "https://cerebras.ai/blog/100x-defect-tolerance-how-cerebras-solved-the-yield-problem": {
     "title": "100x Defect Tolerance: How Cerebras Solved the Yield Problem - Cerebras",
     "description": "Cerebras is the go-to platform for fast and effortless AI training. Learn more at cerebras.ai.",
-    "image": "https://cdn.sanity.io/images/e4qjo92p/production/0aa1f017d6130b0f0c9a2b95d085dbbc0c8407dd-2146x1144.png?rect=0,9,2146,1127&amp;w=1200&amp;h=630&amp;fit=max&amp;auto=format",
-    "favicon": "https://cdn.sanity.io/images/e4qjo92p/production/4176e884cf8c14f8c6bcb59fb9f3e332ac90497d-1000x1000.svg?w=512&amp;h=512&amp;fit=max&amp;auto=format",
-    "fetchedAt": "2026-01-31T04:07:38.477Z"
+    "image": "/linkcard-cache/images/f9c4e4a0a887ed26.png",
+    "favicon": "/linkcard-cache/favicons/8ca950f4f3a5b2a8.svg",
+    "fetchedAt": "2026-01-31T04:07:38.477Z",
+    "imageOrigin": "https://cdn.sanity.io/images/e4qjo92p/production/0aa1f017d6130b0f0c9a2b95d085dbbc0c8407dd-2146x1144.png?rect=0,9,2146,1127&amp;w=1200&amp;h=630&amp;fit=max&amp;auto=format",
+    "faviconOrigin": "https://cdn.sanity.io/images/e4qjo92p/production/4176e884cf8c14f8c6bcb59fb9f3e332ac90497d-1000x1000.svg?w=512&amp;h=512&amp;fit=max&amp;auto=format"
   },
   "https://cerebras.ai/blog/mistral-le-chat": {
     "title": "Cerebras brings instant inference to Mistral Le Chat - Cerebras",
     "description": "Cerebras January update: Fastest DeepSeek R1-70B, Mayo Clinic genomic model, Davos appearance, and more! Learn how we&#x27;re accelerating AI with real-time inference, machine learning, and case studies.",
-    "image": "https://cdn.sanity.io/images/e4qjo92p/production/7c4cad7bed76ad1c754236ec1be87a0f62c4c50f-1280x960.jpg?rect=0,144,1280,672&amp;w=1200&amp;h=630&amp;fit=max&amp;auto=format",
-    "favicon": "https://cdn.sanity.io/images/e4qjo92p/production/4176e884cf8c14f8c6bcb59fb9f3e332ac90497d-1000x1000.svg?w=512&amp;h=512&amp;fit=max&amp;auto=format",
-    "fetchedAt": "2026-01-31T04:07:38.793Z"
+    "image": "/linkcard-cache/images/2234f151d5d14af7.jpg",
+    "favicon": "/linkcard-cache/favicons/8ca950f4f3a5b2a8.svg",
+    "fetchedAt": "2026-01-31T04:07:38.793Z",
+    "imageOrigin": "https://cdn.sanity.io/images/e4qjo92p/production/7c4cad7bed76ad1c754236ec1be87a0f62c4c50f-1280x960.jpg?rect=0,144,1280,672&amp;w=1200&amp;h=630&amp;fit=max&amp;auto=format",
+    "faviconOrigin": "https://cdn.sanity.io/images/e4qjo92p/production/4176e884cf8c14f8c6bcb59fb9f3e332ac90497d-1000x1000.svg?w=512&amp;h=512&amp;fit=max&amp;auto=format"
   },
   "https://www.science.org/content/blog-post/what-s-happening-inside-nih": {
     "title": "Just a moment...",
     "description": "",
     "image": "",
-    "favicon": "https://www.science.org/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:38.912Z"
+    "favicon": "/linkcard-cache/favicons/10a7fc36b8c24b36.ico",
+    "fetchedAt": "2026-01-31T04:07:38.912Z",
+    "faviconOrigin": "https://www.science.org/favicon.ico"
   },
   "https://press.uchicago.edu/Misc/Chicago/511928.htm": {
     "title": "They Thought They Were Free: The Germans, 1933-45 by Milton Mayer, an excerpt, 2017 edition",
     "description": "An excerpt from They Thought They Were Free: The Germans, 1933-45 by Milton Mayer. Also available on web site: online catalogs, secure online ordering, excerpts from new books. Sign up for email notification of new releases in your field.",
     "image": "",
     "favicon": "https://press.uchicago.edu/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:39.055Z"
+    "fetchedAt": "2026-01-31T04:07:39.055Z",
+    "faviconOrigin": "https://press.uchicago.edu/favicon.ico"
   },
   "https://arxiv.org/abs/2501.19393": {
     "title": "[2501.19393] s1: Simple test-time scaling",
     "description": "Abstract page for arXiv paper 2501.19393: s1: Simple test-time scaling",
-    "image": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
-    "favicon": "https://arxiv.org/static/browse/0.3.4/images/icons/favicon-32x32.png",
-    "fetchedAt": "2026-01-31T04:07:39.382Z"
+    "image": "/linkcard-cache/images/12d01bd52f6047c4.png",
+    "favicon": "/linkcard-cache/favicons/b603f0a2ba8d7e32.png",
+    "fetchedAt": "2026-01-31T04:07:39.382Z",
+    "imageOrigin": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
+    "faviconOrigin": "https://arxiv.org/static/browse/0.3.4/images/icons/favicon-32x32.png"
   },
   "https://timkellogg.me/blog/2025/02/03/s1": {
     "title": "S1: The $6 R1 Competitor? - Tim Kellogg",
     "description": "",
     "image": "",
-    "favicon": "https://timkellogg.me/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:39.493Z"
+    "favicon": "/linkcard-cache/favicons/b7000927e4c8ec15.ico",
+    "fetchedAt": "2026-01-31T04:07:39.493Z",
+    "faviconOrigin": "https://timkellogg.me/favicon.ico"
   },
   "https://www.abortretry.fail/p/so-powerful-its-kind-of-ridiculous": {
     "title": "So powerful, it&#x27;s kind of ridiculous",
     "description": "the history of 3dfx Interactive",
-    "image": "https://substackcdn.com/image/fetch/$s_!SjiU!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F86d7a7dc-38ee-4829-b1e5-911fb426d03d_1024x839.png",
-    "favicon": "https://substackcdn.com/image/fetch/$s_!nnZp!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1b6b5b0a-6c3e-42d5-9a22-2a031f028725%2Ffavicon-16x16.png",
-    "fetchedAt": "2026-01-31T04:07:39.936Z"
+    "image": "/linkcard-cache/images/caee363a15b0449d.jpg",
+    "favicon": "/linkcard-cache/favicons/1f03595a8c645767.png",
+    "fetchedAt": "2026-01-31T04:07:39.936Z",
+    "imageOrigin": "https://substackcdn.com/image/fetch/$s_!SjiU!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F86d7a7dc-38ee-4829-b1e5-911fb426d03d_1024x839.png",
+    "faviconOrigin": "https://substackcdn.com/image/fetch/$s_!nnZp!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1b6b5b0a-6c3e-42d5-9a22-2a031f028725%2Ffavicon-16x16.png"
   },
   "https://randomaugustine.medium.com/on-apple-exclaves-d683a2c37194": {
     "title": "Just a moment...",
     "description": "",
     "image": "",
-    "favicon": "https://randomaugustine.medium.com/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:40.089Z"
+    "favicon": "/linkcard-cache/favicons/d67cd9d2add37e41.ico",
+    "fetchedAt": "2026-01-31T04:07:40.089Z",
+    "faviconOrigin": "https://randomaugustine.medium.com/favicon.ico"
   },
   "https://exclusivearchitecture.com/03-technical-articles-CLT-12-autofocus-systems.html": {
     "title": "ƎXCLUSIVE ARCHITECTURE",
     "description": "",
     "image": "",
-    "favicon": "https://exclusivearchitecture.com/images/favicon.png",
-    "fetchedAt": "2026-01-31T04:07:40.909Z"
+    "favicon": "/linkcard-cache/favicons/f08cc9f88c2467b6.png",
+    "fetchedAt": "2026-01-31T04:07:40.909Z",
+    "faviconOrigin": "https://exclusivearchitecture.com/images/favicon.png"
   },
   "https://www.bbc.com/news/articles/cq6yg204pvmo": {
     "title": "Plane GPS systems are under sustained attack - is the solution a new atomic clock?",
     "description": "How a new atomic clock might be the way to tackle attacks on plane GPS systems",
-    "image": "https://ichef.bbci.co.uk/news/1024/branded_news/ed7c/live/705a2b40-f524-11ef-9e61-71ee71f26eb1.png",
-    "favicon": "https://static.files.bbci.co.uk/bbcdotcom/web/20260126-113039-ddae8f6031-web-2.38.1-3/favicon-32x32.png",
-    "fetchedAt": "2026-01-31T04:07:41.803Z"
+    "image": "",
+    "favicon": "/linkcard-cache/favicons/efdd142c5250efce.png",
+    "fetchedAt": "2026-01-31T04:07:41.803Z",
+    "imageOrigin": "https://ichef.bbci.co.uk/news/1024/branded_news/ed7c/live/705a2b40-f524-11ef-9e61-71ee71f26eb1.png",
+    "faviconOrigin": "https://static.files.bbci.co.uk/bbcdotcom/web/20260126-113039-ddae8f6031-web-2.38.1-3/favicon-32x32.png"
   },
   "https://herbertlui.net/dont-think-to-write-write-to-think/": {
     "title": "Don’t think to write, write to think &#8211; Herbert Lui",
     "description": "This is one of the lessons that every writer comes to appreciate: writing is thinking. Writing is not the artifact of thinking, it&#8217;s the actual thinking process. There’s no shortage of great quotes on this topic, the implications are less clear: Writing is the planning process and the final product: You don’t design a final [&hellip;]",
     "image": "",
     "favicon": "https://herbertlui.net/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:42.416Z"
+    "fetchedAt": "2026-01-31T04:07:42.416Z",
+    "faviconOrigin": "https://herbertlui.net/favicon.ico"
   },
   "https://80000hours.org/problem-profiles/artificial-intelligence/": {
     "title": "Problem profiles: Risks from power-seeking AI systems | 80,000 Hours",
     "description": "The future of AI is difficult to predict. But while AI systems could have substantial positive effects, there&#039;s a growing consensus about the dangers of AI.",
-    "image": "https://80000hours.org/wp-content/uploads/2022/08/panels-photo.jpg",
-    "favicon": "https://80000hours.org/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:42.508Z"
+    "image": "",
+    "favicon": "/linkcard-cache/favicons/ce5b2eae90835046.ico",
+    "fetchedAt": "2026-01-31T04:07:42.508Z",
+    "imageOrigin": "https://80000hours.org/wp-content/uploads/2022/08/panels-photo.jpg",
+    "faviconOrigin": "https://80000hours.org/favicon.ico"
   },
   "https://www.lesswrong.com/posts/jb4bBdeEEeypNkqzj/orienting-to-3-year-agi-timelines": {
     "title": "Orienting to 3 year AGI timelines — LessWrong",
     "description": "My median expectation is that AGI will be created 3 years from now. I share some thoughts on how to orient to and plan for short AGI timelines.",
-    "image": "https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/jb4bBdeEEeypNkqzj/vflah1ap1sx5wgrkzsfb",
-    "favicon": "https://res.cloudinary.com/lesswrong-2-0/image/upload/v1497915096/favicon_lncumn.ico",
-    "fetchedAt": "2026-01-31T04:07:42.859Z"
+    "image": "/linkcard-cache/images/ce67abcd0b8a6baa.jpg",
+    "favicon": "/linkcard-cache/favicons/5a0047dc3b9557a5.ico",
+    "fetchedAt": "2026-01-31T04:07:42.859Z",
+    "imageOrigin": "https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/jb4bBdeEEeypNkqzj/vflah1ap1sx5wgrkzsfb",
+    "faviconOrigin": "https://res.cloudinary.com/lesswrong-2-0/image/upload/v1497915096/favicon_lncumn.ico"
   },
   "https://www.rand.org/pubs/external_publications/EP70704.html#:~:text=Capture%20of%20AI%20policy%20by,from%20the%20social%20science%20literature.": {
     "title": "How Do AI Companies Fine-Tune Policy? Examining Regulatory Capture in AI Governance | RAND",
     "description": "Regulatory capture of AI policy could allow industry actors to co-opt regulatory regimes to prioritize private over public welfare. We present results from interviews with 17 AI policy experts on potential outcomes and mechanisms of capture.",
     "image": "",
-    "favicon": "https://www.rand.org/etc/rand/designs/common/images/favicon.png",
-    "fetchedAt": "2026-01-31T04:07:43.196Z"
+    "favicon": "/linkcard-cache/favicons/490ee15bef4289ff.png",
+    "fetchedAt": "2026-01-31T04:07:43.196Z",
+    "faviconOrigin": "https://www.rand.org/etc/rand/designs/common/images/favicon.png"
   },
   "https://typefully.com/DanHollick/why-do-we-need-dithering-Ut7oD4k": {
     "title": "Why do we need dithering? | Dan Hollick",
     "description": "Before we all mute the word &#x27;dithering&#x27; I thought I&#x27;d explain a little bit about why we needed to dither digital images in the first place. \n\nAlthough it&#x27;s an aesthetic now, we used to need dithering to trick our eyes into seeing more colors than were actually there. 👇",
-    "image": "https://screenshots.typefully.com/screenshot?size=1200x640&amp;url=https://typefully.com/DanHollick/Ut7oD4k/card",
-    "favicon": "https://typefully-user-avatars.s3.amazonaws.com/_generic/account/10679/typefully_profile.jpeg",
-    "fetchedAt": "2026-01-31T04:07:43.908Z"
+    "image": "/linkcard-cache/images/0d927b152553eece.png",
+    "favicon": "/linkcard-cache/favicons/08b57ada6a52a25d.jpg",
+    "fetchedAt": "2026-01-31T04:07:43.908Z",
+    "imageOrigin": "https://screenshots.typefully.com/screenshot?size=1200x640&amp;url=https://typefully.com/DanHollick/Ut7oD4k/card",
+    "faviconOrigin": "https://typefully-user-avatars.s3.amazonaws.com/_generic/account/10679/typefully_profile.jpeg"
   },
   "https://seed.line.me/index_en.html": {
     "title": "LINE Seed",
     "description": "Meet LINE Seed. LINE'S very first typeface is born.",
-    "image": "https://seed.line.me/src/images/favicon/ogTag.jpg",
-    "favicon": "https://seed.line.me/src/images/favicon/favicon192.png",
-    "fetchedAt": "2026-01-31T04:07:45.679Z"
+    "image": "/linkcard-cache/images/323fc6675307fc15.jpg",
+    "favicon": "/linkcard-cache/favicons/ada09f6d1bb89e6f.png",
+    "fetchedAt": "2026-01-31T04:07:45.679Z",
+    "imageOrigin": "https://seed.line.me/src/images/favicon/ogTag.jpg",
+    "faviconOrigin": "https://seed.line.me/src/images/favicon/favicon192.png"
   },
   "https://www.tfeb.org/fragments/2025/11/18/the-lost-cause-of-the-lisp-machines/": {
     "title": "The lost cause of the Lisp machines",
     "description": "I am just really bored by Lisp Machine romantics at this point: they should go away. I expect they never will....",
     "image": "",
-    "favicon": "https://www.tfeb.org/images/tfb-icon.gif",
-    "fetchedAt": "2026-01-31T04:07:46.178Z"
+    "favicon": "/linkcard-cache/favicons/ddfef9c97b5179d6.gif",
+    "fetchedAt": "2026-01-31T04:07:46.178Z",
+    "faviconOrigin": "https://www.tfeb.org/images/tfb-icon.gif"
   },
   "https://devpost.com/software/mango-full-body-gesture-control-for-any-game": {
     "title": "Mango - Full-Body Gesture Control for Any Game | Devpost",
     "description": "Mango - Full-Body Gesture Control for Any Game - Mango turns your webcam into a full-body motion controller, letting anyone play PC games using ges...",
-    "image": "https://d112y698adiu2z.cloudfront.net/photos/production/software_thumbnail_photos/003/817/257/datas/medium.png",
-    "favicon": "https://devpost.com/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:46.982Z"
+    "image": "/linkcard-cache/images/774b64a300dd9577.png",
+    "favicon": "/linkcard-cache/favicons/1dc925909183b938.ico",
+    "fetchedAt": "2026-01-31T04:07:46.982Z",
+    "imageOrigin": "https://d112y698adiu2z.cloudfront.net/photos/production/software_thumbnail_photos/003/817/257/datas/medium.png",
+    "faviconOrigin": "https://devpost.com/favicon.ico"
   },
   "https://github.com/minjunminji/minecraftCVcontroller": {
     "title": "GitHub - minjunminji/minecraftCVcontroller: gesture-controlled Minecraft using your webcam and OpenCV",
     "description": "gesture-controlled Minecraft using your webcam and OpenCV - minjunminji/minecraftCVcontroller",
-    "image": "https://opengraph.githubassets.com/a4de8db44fb1e3aff8f0d1ed9c715373435d29ac0476bdf812add8da5897604d/minjunminji/minecraftCVcontroller",
+    "image": "/linkcard-cache/images/ae044f3f9051c132.png",
     "favicon": "https://github.githubassets.com/favicons/favicon",
-    "fetchedAt": "2026-01-31T04:07:47.194Z"
+    "fetchedAt": "2026-01-31T04:07:47.194Z",
+    "imageOrigin": "https://opengraph.githubassets.com/a4de8db44fb1e3aff8f0d1ed9c715373435d29ac0476bdf812add8da5897604d/minjunminji/minecraftCVcontroller",
+    "faviconOrigin": "https://github.githubassets.com/favicons/favicon"
   },
   "https://www.jenn.site/after-my-dad-died-we-found-the-love-letters/": {
     "title": "after my dad died, we found the love letters | Jenneral HQ",
     "description": "a few days after , we found the love letters, hidden away among his things. one of them said, \r\n\r\nmy parents were not a love match. at 27 and 26, they were e...",
-    "image": "https://bear-images.sfo2.cdn.digitaloceanspaces.com/herman-1683556668-0.png",
-    "favicon": "https://www.jenn.site/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:47.492Z"
+    "image": "/linkcard-cache/images/cd061aa08282f907.png",
+    "favicon": "/linkcard-cache/favicons/3bf692f77acb4b6a.ico",
+    "fetchedAt": "2026-01-31T04:07:47.492Z",
+    "imageOrigin": "https://bear-images.sfo2.cdn.digitaloceanspaces.com/herman-1683556668-0.png",
+    "faviconOrigin": "https://www.jenn.site/favicon.ico"
   },
   "https://www.medscape.com/viewarticle/many-popular-beliefs-about-allergies-arent-supported-2025a1000uem": {
     "title": "Many Beliefs About Allergies Unsupported by Evidence",
     "description": "Extreme elimination diets and similar drastic measures can cause unnecessary stress when many allergy issues could benefit from more thoughtful management.",
-    "image": "https://img.medscapestatic.com/vim/live/professional_assets/medscape/images/thumbnail_library/dt-251104-asian-child-drinking-milk-800x450.jpg",
-    "favicon": "https://www.medscape.com/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:49.200Z"
+    "image": "/linkcard-cache/images/0cf80657c325da03.jpg",
+    "favicon": "/linkcard-cache/favicons/f10074f932787f90.ico",
+    "fetchedAt": "2026-01-31T04:07:49.200Z",
+    "imageOrigin": "https://img.medscapestatic.com/vim/live/professional_assets/medscape/images/thumbnail_library/dt-251104-asian-child-drinking-milk-800x450.jpg",
+    "faviconOrigin": "https://www.medscape.com/favicon.ico"
   },
   "https://computer.rip/2025-11-22-RuBee.html": {
     "title": "RuBee",
     "description": "",
-    "image": "https://computer.rip/static/social-icon.png",
-    "favicon": "https://computer.rip/static/cubes.svg",
-    "fetchedAt": "2026-01-31T04:07:49.667Z"
+    "image": "/linkcard-cache/images/2e300753b396013b.png",
+    "favicon": "/linkcard-cache/favicons/6df1343904d6b817.svg",
+    "fetchedAt": "2026-01-31T04:07:49.667Z",
+    "imageOrigin": "https://computer.rip/static/social-icon.png",
+    "faviconOrigin": "https://computer.rip/static/cubes.svg"
   },
   "https://ai.meta.com/sam3/": {
     "title": "SAM 3",
     "description": "With SAM 3 you can use text and visual prompts to precisely identify, segment, and follow any object in images or videos&#x2014;coming soon to Instagram Edits and Vibes on the Meta AI app.",
     "image": "",
     "favicon": "https://ai.meta.com/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:51.075Z"
+    "fetchedAt": "2026-01-31T04:07:51.075Z",
+    "faviconOrigin": "https://ai.meta.com/favicon.ico"
   },
   "https://blog.trailofbits.com/2025/09/24/supply-chain-attacks-are-exploiting-our-assumptions/": {
     "title": "Supply chain attacks are exploiting our assumptions - The Trail of Bits Blog",
     "description": "Supply chain attacks exploit fundamental trust assumptions in modern software development, from typosquatting to compromised build pipelines, while new defensive tools are emerging to make these trust relationships explicit and verifiable.",
-    "image": "https://blog.trailofbits.com/img/tob.png",
-    "favicon": "https://blog.trailofbits.com/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:51.606Z"
+    "image": "/linkcard-cache/images/2a6cfa369f43ad81.png",
+    "favicon": "/linkcard-cache/favicons/b2355ca6ca5fdca5.ico",
+    "fetchedAt": "2026-01-31T04:07:51.606Z",
+    "imageOrigin": "https://blog.trailofbits.com/img/tob.png",
+    "faviconOrigin": "https://blog.trailofbits.com/favicon.ico"
   },
   "https://www.oneusefulthing.org/p/three-years-from-gpt-3-to-gemini": {
     "title": "Three Years from GPT-3 to Gemini 3 - by Ethan Mollick",
     "description": "From chatbots to agents",
-    "image": "https://substackcdn.com/image/fetch/$s_!f-5x!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe20744fc-7146-409d-8eff-519e9a2d13d7_2181x1296.png",
-    "favicon": "https://substackcdn.com/image/fetch/$s_!UFMP!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F233e9990-95ea-44ab-afc4-5abfe44f24d4%2Ffavicon-16x16.png",
-    "fetchedAt": "2026-01-31T04:07:52.233Z"
+    "image": "/linkcard-cache/images/96d2a15c24ec6447.jpg",
+    "favicon": "/linkcard-cache/favicons/2ee2a2a7e6898f11.jpg",
+    "fetchedAt": "2026-01-31T04:07:52.233Z",
+    "imageOrigin": "https://substackcdn.com/image/fetch/$s_!f-5x!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe20744fc-7146-409d-8eff-519e9a2d13d7_2181x1296.png",
+    "faviconOrigin": "https://substackcdn.com/image/fetch/$s_!UFMP!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F233e9990-95ea-44ab-afc4-5abfe44f24d4%2Ffavicon-16x16.png"
   },
   "https://robrobinette.com/How_Amps_Work.htm": {
     "title": "How Amps Work",
     "description": "How Tube Guitar Amplifiers Work",
     "image": "",
-    "favicon": "https://robrobinette.com/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:52.821Z"
+    "favicon": "/linkcard-cache/favicons/de81e78a4ec269b2.ico",
+    "fetchedAt": "2026-01-31T04:07:52.821Z",
+    "faviconOrigin": "https://robrobinette.com/favicon.ico"
   },
   "https://asteriskmag.com/issues/12-books/you-arent-in-the-dsm": {
     "title": "You Aren’t In The DSM—Asterisk",
     "description": "Five editions on, the DSM shoulders more responsibilities than it was ever intended for. How did we get here?",
     "image": "",
-    "favicon": "https://asteriskmag.com/assets/favicon/asterisk_mark_0.png",
-    "fetchedAt": "2026-01-31T04:07:53.081Z"
+    "favicon": "/linkcard-cache/favicons/9cb7b29014060aab.png",
+    "fetchedAt": "2026-01-31T04:07:53.081Z",
+    "faviconOrigin": "https://asteriskmag.com/assets/favicon/asterisk_mark_0.png"
   },
   "https://www.dissonances.blog/p/the-ear-does-not-do-a-fourier-transform": {
     "title": "The ear does not do a Fourier transform - by galen",
     "description": "Sensory coding 2: electric boogaloo",
-    "image": "https://substackcdn.com/image/fetch/$s_!KT9h!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd0ee9e15-988a-44d6-a1c2-22b14fd0a53c_1836x325.png",
-    "favicon": "https://substackcdn.com/image/fetch/$s_!-jFf!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd21ddfa1-1e25-4a32-a111-3654c226b90c%2Ffavicon-16x16.png",
-    "fetchedAt": "2026-01-31T04:07:53.356Z"
+    "image": "/linkcard-cache/images/584a0b97badb1520.jpg",
+    "favicon": "/linkcard-cache/favicons/e25c67e0c28d83b9.jpg",
+    "fetchedAt": "2026-01-31T04:07:53.356Z",
+    "imageOrigin": "https://substackcdn.com/image/fetch/$s_!KT9h!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd0ee9e15-988a-44d6-a1c2-22b14fd0a53c_1836x325.png",
+    "faviconOrigin": "https://substackcdn.com/image/fetch/$s_!-jFf!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd21ddfa1-1e25-4a32-a111-3654c226b90c%2Ffavicon-16x16.png"
   },
   "https://www.asimov.press/p/nigeria-crops": {
     "title": "Why Nigeria Accepted GMOs - Asimov Press",
     "description": "Genetically modified crops are finding a foothold in the Global South, producing some unlikely leaders in agritech.",
-    "image": "https://substackcdn.com/image/fetch/$s_!Cyb2!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F023e6f06-8b09-4d6a-8bbb-d31bbf80b371_2000x1260.jpeg",
-    "favicon": "https://substackcdn.com/image/fetch/$s_!SLt_!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feaf04790-7be8-4dd4-8559-1e8b686243b9%2Ffavicon-16x16.png",
-    "fetchedAt": "2026-01-31T04:07:54.057Z"
+    "image": "/linkcard-cache/images/fdeddf36f3e7902e.jpg",
+    "favicon": "/linkcard-cache/favicons/80de9ca1a728d3ba.png",
+    "fetchedAt": "2026-01-31T04:07:54.057Z",
+    "imageOrigin": "https://substackcdn.com/image/fetch/$s_!Cyb2!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F023e6f06-8b09-4d6a-8bbb-d31bbf80b371_2000x1260.jpeg",
+    "faviconOrigin": "https://substackcdn.com/image/fetch/$s_!SLt_!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feaf04790-7be8-4dd4-8559-1e8b686243b9%2Ffavicon-16x16.png"
   },
   "https://wyounas.github.io/aws/concurrency/2025/10/30/reproducing-the-aws-outage-race-condition-with-model-checker/": {
     "title": "Reproducing the AWS Outage Race Condition with a Model Checker | Waqas Younas' blog",
     "description": "Welcome to Waqas' blog",
     "image": "",
-    "favicon": "https://wyounas.github.io/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:54.298Z"
+    "favicon": "/linkcard-cache/favicons/c4c63d886d1c6937.ico",
+    "fetchedAt": "2026-01-31T04:07:54.298Z",
+    "faviconOrigin": "https://wyounas.github.io/favicon.ico"
   },
   "https://github.com/cellwebb/gac": {
     "title": "GitHub - cellwebb/gac: Intelligent LLM-powered git commit message generator that understands your code!",
     "description": "Intelligent LLM-powered git commit message generator that understands your code! - cellwebb/gac",
-    "image": "https://opengraph.githubassets.com/531a463ce7fbb284783a236b90ff82dd89644ebe58df32a0c57c57b7b15182e8/cellwebb/gac",
+    "image": "/linkcard-cache/images/f4c778e91137f118.png",
     "favicon": "https://github.githubassets.com/favicons/favicon",
-    "fetchedAt": "2026-01-31T04:07:55.218Z"
+    "fetchedAt": "2026-01-31T04:07:55.218Z",
+    "imageOrigin": "https://opengraph.githubassets.com/531a463ce7fbb284783a236b90ff82dd89644ebe58df32a0c57c57b7b15182e8/cellwebb/gac",
+    "faviconOrigin": "https://github.githubassets.com/favicons/favicon"
   },
   "https://www.lr.org/en/knowledge/press-room/press-listing/press-release/2026/alarm-overload-is-undermining-safety-at-sea-as-new-research-shows-crews-face-tens-of-thousands-of-daily-alerts/": {
     "title": "Alarm overload is undermining safety at sea shows new LR research | LR",
     "description": "Analysis of more than 40 million alarm-related events shows most alarms offer little operational value, disrupt rest and push crews toward risky workarounds.",
-    "image": "https://www.lr.org/globalassets/alarm-management-social-2026.png",
-    "favicon": "https://www.lr.org/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:55.801Z"
+    "image": "/linkcard-cache/images/4b8d7167a7958344.png",
+    "favicon": "/linkcard-cache/favicons/ae4084bc27ae21e2.ico",
+    "fetchedAt": "2026-01-31T04:07:55.801Z",
+    "imageOrigin": "https://www.lr.org/globalassets/alarm-management-social-2026.png",
+    "faviconOrigin": "https://www.lr.org/favicon.ico"
   },
   "https://www.asimov.press/p/clinic-loop": {
     "title": "Clinic-in-the-Loop - by Ruxandra Teslo and Asimov Press",
     "description": "Clinical trials are engines for scientific discovery. Better drugs require not just more trials, but also improved data collection, to create therapeutic feedback loops.",
-    "image": "https://substackcdn.com/image/fetch/$s_!IRsW!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F88e224af-d240-43ca-b5ef-8433777e19bc_2000x1260.jpeg",
-    "favicon": "https://substackcdn.com/image/fetch/$s_!SLt_!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feaf04790-7be8-4dd4-8559-1e8b686243b9%2Ffavicon-16x16.png",
-    "fetchedAt": "2026-01-31T04:07:56.137Z"
+    "image": "/linkcard-cache/images/fcbcde0e8cf208c8.jpg",
+    "favicon": "/linkcard-cache/favicons/80de9ca1a728d3ba.png",
+    "fetchedAt": "2026-01-31T04:07:56.137Z",
+    "imageOrigin": "https://substackcdn.com/image/fetch/$s_!IRsW!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F88e224af-d240-43ca-b5ef-8433777e19bc_2000x1260.jpeg",
+    "faviconOrigin": "https://substackcdn.com/image/fetch/$s_!SLt_!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feaf04790-7be8-4dd4-8559-1e8b686243b9%2Ffavicon-16x16.png"
   },
   "https://oldvcr.blogspot.com/2026/01/hands-on-with-two-apple-network-server.html": {
     "title": "Old Vintage Computing Research: Hands-on with two Apple Network Server prototype ROMs",
     "description": "",
     "image": "",
-    "favicon": "https://oldvcr.blogspot.com/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:56.759Z"
+    "favicon": "/linkcard-cache/favicons/1c17f5933ebb6cfd.ico",
+    "fetchedAt": "2026-01-31T04:07:56.759Z",
+    "faviconOrigin": "https://oldvcr.blogspot.com/favicon.ico"
   },
   "https://dlt.github.io/blog/posts/introduction-to-postgresql-indexes/#btree": {
     "title": "Introduction to PostgreSQL Indexes :: explain, analyze\n",
     "description": "",
     "image": "",
     "favicon": "https://dlt.github.io/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:56.986Z"
+    "fetchedAt": "2026-01-31T04:07:56.986Z",
+    "faviconOrigin": "https://dlt.github.io/favicon.ico"
   },
   "https://restofworld.org/2026/iran-blackout-tiered-internet/": {
     "title": "Iran is building a two-tier internet that locks 85 million citizens out of the global web - Rest of World",
     "description": "The 15-day blackout is a test run for Barracks Internet, a system where only regime insiders get full connectivity.",
-    "image": "https://restofworld.org/wp-content/uploads/2026/01/GettyImages-2256840554-scaled-e1769150202393-1600x900.jpg",
-    "favicon": "https://restofworld.org/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:57.113Z"
+    "image": "/linkcard-cache/images/8134091b0b5cd2bd.jpg",
+    "favicon": "/linkcard-cache/favicons/ccd9434839df6835.ico",
+    "fetchedAt": "2026-01-31T04:07:57.113Z",
+    "imageOrigin": "https://restofworld.org/wp-content/uploads/2026/01/GettyImages-2256840554-scaled-e1769150202393-1600x900.jpg",
+    "faviconOrigin": "https://restofworld.org/favicon.ico"
   },
   "https://github.com/tldev/posturr": {
     "title": "GitHub - tldev/posturr: A macOS app that blurs your screen when you slouch. Uses Vision framework for real-time posture detection.",
     "description": "A macOS app that blurs your screen when you slouch. Uses Vision framework for real-time posture detection. - tldev/posturr",
-    "image": "https://opengraph.githubassets.com/1a08f9efa5807b742928560f0c341344cac6a847c5e4224b67dd5a4cd677b222/tldev/posturr",
+    "image": "/linkcard-cache/images/bcd6cd8479f35a7e.png",
     "favicon": "https://github.githubassets.com/favicons/favicon",
-    "fetchedAt": "2026-01-31T04:07:57.673Z"
+    "fetchedAt": "2026-01-31T04:07:57.673Z",
+    "imageOrigin": "https://opengraph.githubassets.com/1a08f9efa5807b742928560f0c341344cac6a847c5e4224b67dd5a4cd677b222/tldev/posturr",
+    "faviconOrigin": "https://github.githubassets.com/favicons/favicon"
   },
   "https://www.eff.org/deeplinks/2026/01/report-ice-using-palantir-tool-feeds-medicaid-data": {
     "title": "Report: ICE Using Palantir Tool That Feeds On Medicaid Data | Electronic Frontier Foundation",
     "description": "ICE is using a Palantir tool that uses Medicaid and other government data to stalk people for arrest. This is exactly the kind of data privacy abuse that EFF has been warning about.",
-    "image": "https://www.eff.org/files/banner_library/surveillance-og-2.png",
-    "favicon": "https://www.eff.org/favicon.ico",
-    "fetchedAt": "2026-01-31T04:07:57.927Z"
+    "image": "/linkcard-cache/images/79de0d6aca1b0728.png",
+    "favicon": "/linkcard-cache/favicons/6c131b33e4587be1.ico",
+    "fetchedAt": "2026-01-31T04:07:57.927Z",
+    "imageOrigin": "https://www.eff.org/files/banner_library/surveillance-og-2.png",
+    "faviconOrigin": "https://www.eff.org/favicon.ico"
   },
   "https://digitalseams.com/blog/the-behavioral-cost-of-personalized-pricing": {
     "title": "The behavioral cost of personalized pricing &mdash; Digital Seams",
     "description": "",
-    "image": "http://static1.squarespace.com/static/598a2436f7e0ab837d08f4c6/t/69757739d15d6939dd7530f6/1769306007716/price-discrimination.png?format=1500w",
-    "favicon": "https://images.squarespace-cdn.com/content/v1/598a2436f7e0ab837d08f4c6/5ba8778d-1fd1-45e3-a8cb-346b861097fe/favicon.ico?format=100w",
-    "fetchedAt": "2026-01-31T04:07:58.578Z"
+    "image": "/linkcard-cache/images/11e11df2d3d78f07.webp",
+    "favicon": "/linkcard-cache/favicons/d8c5f237a6e4b4e1.webp",
+    "fetchedAt": "2026-01-31T04:07:58.578Z",
+    "imageOrigin": "http://static1.squarespace.com/static/598a2436f7e0ab837d08f4c6/t/69757739d15d6939dd7530f6/1769306007716/price-discrimination.png?format=1500w",
+    "faviconOrigin": "https://images.squarespace-cdn.com/content/v1/598a2436f7e0ab837d08f4c6/5ba8778d-1fd1-45e3-a8cb-346b861097fe/favicon.ico?format=100w"
   },
   "https://stratechery.com/2026/tsmc-risk/": {
     "title": "TSMC Risk &#8211; Stratechery by Ben Thompson",
     "description": "If hyperscalers and chip companies don&#8217;t build up a TSMC competitor they are set to forego billions of dollars in revenue and stunt the AI revolution.",
-    "image": "https://stratechery.com/wp-content/uploads/2026/01/tsmc-risk-2.png",
-    "favicon": "https://i0.wp.com/stratechery.com/wp-content/uploads/2018/03/cropped-android-chrome-512x512-1.png?fit=32%2C32&#038;ssl=1",
-    "fetchedAt": "2026-01-31T04:07:59.038Z"
+    "image": "/linkcard-cache/images/ecf8b6ce645098f9.png",
+    "favicon": "/linkcard-cache/favicons/763dfeabfb0becb3.png",
+    "fetchedAt": "2026-01-31T04:07:59.038Z",
+    "imageOrigin": "https://stratechery.com/wp-content/uploads/2026/01/tsmc-risk-2.png",
+    "faviconOrigin": "https://i0.wp.com/stratechery.com/wp-content/uploads/2018/03/cropped-android-chrome-512x512-1.png?fit=32%2C32&#038;ssl=1"
   },
   "https://www.theguardian.com/global-development/2025/dec/02/chile-salmon-farms-fish-industry": {
     "title": "‘Those who eat Chilean salmon cannot imagine how much human blood it carries with it’ | Chile | The Guardian",
     "description": "The country is the world&#x2019;s second-largest producer of the popular fish, and the biggest supplier to the US, but its farms are beset by accusations of dangerous labour conditions, antibiotic overuse and ecological harm",
-    "image": "https://i.guim.co.uk/img/media/3dca7aef4085ef09f019e4a618429c0b639ebb71/739_0_5840_4672/master/5840.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=810ed2ca137fbd484aaf5632692ff6ee",
-    "favicon": "https://static.guim.co.uk/images/favicon-32x32.ico",
-    "fetchedAt": "2026-01-31T04:07:59.726Z"
+    "image": "/linkcard-cache/images/0cd0b7d643b0597f.jpg",
+    "favicon": "/linkcard-cache/favicons/4a9ce02e9c1a3125.ico",
+    "fetchedAt": "2026-01-31T04:07:59.726Z",
+    "imageOrigin": "https://i.guim.co.uk/img/media/3dca7aef4085ef09f019e4a618429c0b639ebb71/739_0_5840_4672/master/5840.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=810ed2ca137fbd484aaf5632692ff6ee",
+    "faviconOrigin": "https://static.guim.co.uk/images/favicon-32x32.ico"
   },
   "https://mainstreetautonomy.com/blog/2025-08-29-all-about-automotive-lidar/": {
     "title": "Main Street Autonomy",
     "description": "",
     "image": "",
-    "favicon": "https://mainstreetautonomy.com/favicon.ico",
-    "fetchedAt": "2026-01-31T04:08:00.305Z"
+    "favicon": "/linkcard-cache/favicons/f3f45af678779e01.ico",
+    "fetchedAt": "2026-01-31T04:08:00.305Z",
+    "faviconOrigin": "https://mainstreetautonomy.com/favicon.ico"
   },
   "https://www.lopaciuk.eu/2021/03/26/apple-adb-protocol.html": {
     "title": "Apple Desktop Bus Protocol",
     "description": "Backstory",
     "image": "",
     "favicon": "https://www.lopaciuk.eu/favicon.ico",
-    "fetchedAt": "2026-01-31T04:08:00.544Z"
+    "fetchedAt": "2026-01-31T04:08:00.544Z",
+    "faviconOrigin": "https://www.lopaciuk.eu/favicon.ico"
   },
   "https://www.lesswrong.com/posts/vpNG99GhbBoLov9og/claude-4-5-opus-soul-document#comments": {
     "title": "Claude 4.5 Opus&#x27; Soul Document — LessWrong",
     "description": "Update 2025-12-02: Amanda Askell has kindly confirmed that the document was used in supervised learning and will share the full version and more deta…",
-    "image": "https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/vpNG99GhbBoLov9og/mfacs5fofsh6bbd1cmxb",
-    "favicon": "https://res.cloudinary.com/lesswrong-2-0/image/upload/v1497915096/favicon_lncumn.ico",
-    "fetchedAt": "2026-01-31T04:08:02.027Z"
+    "image": "/linkcard-cache/images/e53c2538c873fc2c.png",
+    "favicon": "/linkcard-cache/favicons/5a0047dc3b9557a5.ico",
+    "fetchedAt": "2026-01-31T04:08:02.027Z",
+    "imageOrigin": "https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/vpNG99GhbBoLov9og/mfacs5fofsh6bbd1cmxb",
+    "faviconOrigin": "https://res.cloudinary.com/lesswrong-2-0/image/upload/v1497915096/favicon_lncumn.ico"
   },
   "https://www.willienotwilly.com/contact-sheet-prompting": {
     "title": "Contact Sheet Prompting | Willie Falloon",
     "description": "Generating cohesive multi-frame narratives with Nano Banana Pro&#x27;s reasoning capabilities.",
-    "image": "https://willienotwilly.com/contact-sheet-og.jpg",
-    "favicon": "https://www.willienotwilly.com/favicon.ico?favicon.0b3bf435.ico",
-    "fetchedAt": "2026-01-31T04:08:02.703Z"
+    "image": "/linkcard-cache/images/4c581435eb49f64f.jpg",
+    "favicon": "/linkcard-cache/favicons/30f945a26e1b76ed.ico",
+    "fetchedAt": "2026-01-31T04:08:02.703Z",
+    "imageOrigin": "https://willienotwilly.com/contact-sheet-og.jpg",
+    "faviconOrigin": "https://www.willienotwilly.com/favicon.ico?favicon.0b3bf435.ico"
   },
   "https://reverbmachine.com/blog/deconstructing-brian-eno-music-for-airports/": {
     "title": "How Brian Eno Created &quot;Ambient 1: Music For Airports&quot;",
     "description": "In 1978, Brian Eno released Ambient 1: Music for Airports, a landmark album in ambient and electronic music. Although it wasn&#039;t the first ambient",
-    "image": "https://media.reverbmachine.com/2019/07/brian-eno-music-for-airports-1024x341.jpg",
+    "image": "/linkcard-cache/images/1a56755ebdc69ddb.webp",
     "favicon": "https://reverbmachine.com/wp-content/uploads/fbrfg/favicon-32x32.png",
-    "fetchedAt": "2026-01-31T04:08:04.889Z"
+    "fetchedAt": "2026-01-31T04:08:04.889Z",
+    "imageOrigin": "https://media.reverbmachine.com/2019/07/brian-eno-music-for-airports-1024x341.jpg",
+    "faviconOrigin": "https://reverbmachine.com/wp-content/uploads/fbrfg/favicon-32x32.png"
   },
   "https://react.dev/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components": {
     "title": "Denial of Service and Source Code Exposure in React Server Components – React",
     "description": "The library for web and native user interfaces",
-    "image": "https://react.dev/images/og-blog.png",
-    "favicon": "https://react.dev/favicon-32x32.png",
-    "fetchedAt": "2026-01-31T04:08:05.094Z"
+    "image": "/linkcard-cache/images/3f5fbf304f03aacf.png",
+    "favicon": "/linkcard-cache/favicons/3d683122333ce221.png",
+    "fetchedAt": "2026-01-31T04:08:05.094Z",
+    "imageOrigin": "https://react.dev/images/og-blog.png",
+    "faviconOrigin": "https://react.dev/favicon-32x32.png"
   },
   "https://www.404media.co/flock-exposed-its-ai-powered-cameras-to-the-internet-we-tracked-ourselves/": {
     "title": "Flock Exposed Its AI-Powered Cameras to the Internet. We Tracked Ourselves",
     "description": "Flock left at least 60 of its people-tracking Condor PTZ cameras live streaming and exposed to the open internet.",
-    "image": "https://www.404media.co/content/images/size/w1200/2025/12/1222.gif",
-    "favicon": "https://www.404media.co/content/images/size/w256h256/format/png/2023/08/favicon-3.svg",
-    "fetchedAt": "2026-01-31T04:08:05.806Z"
+    "image": "",
+    "favicon": "/linkcard-cache/favicons/353adab28bd975ba.png",
+    "fetchedAt": "2026-01-31T04:08:05.806Z",
+    "imageOrigin": "https://www.404media.co/content/images/size/w1200/2025/12/1222.gif",
+    "faviconOrigin": "https://www.404media.co/content/images/size/w256h256/format/png/2023/08/favicon-3.svg"
   },
   "https://www.allaboutcircuits.com/industry-articles/fpgas-need-a-new-future/": {
     "title": "Just a moment...",
     "description": "",
     "image": "",
     "favicon": "https://www.allaboutcircuits.com/favicon.ico",
-    "fetchedAt": "2026-01-31T04:08:05.960Z"
+    "fetchedAt": "2026-01-31T04:08:05.960Z",
+    "faviconOrigin": "https://www.allaboutcircuits.com/favicon.ico"
   },
   "https://laurenleek.substack.com/p/how-google-maps-quietly-allocates": {
     "title": "How Google Maps quietly allocates survival across London’s restaurants - and how I built a dashboard to see through it",
     "description": "I wanted a dinner recommendation and got a research agenda instead. Using 13000+ restaurants, I rebuild its ratings with machine learning and map how algorithmic visibility actually distributes power.",
-    "image": "https://substackcdn.com/image/fetch/$s_!sPnJ!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F65709628-04f8-4288-b0c0-7f933fab17c3_1893x753.png",
-    "favicon": "https://substackcdn.com/image/fetch/$s_!OvAt!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8681b9f0-71da-4202-88e7-ddcc0df589e8%2Ffavicon-16x16.png",
-    "fetchedAt": "2026-01-31T04:08:06.397Z"
+    "image": "/linkcard-cache/images/535348f10fb5bdba.jpg",
+    "favicon": "/linkcard-cache/favicons/f9af7871e9d83378.png",
+    "fetchedAt": "2026-01-31T04:08:06.397Z",
+    "imageOrigin": "https://substackcdn.com/image/fetch/$s_!sPnJ!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F65709628-04f8-4288-b0c0-7f933fab17c3_1893x753.png",
+    "faviconOrigin": "https://substackcdn.com/image/fetch/$s_!OvAt!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8681b9f0-71da-4202-88e7-ddcc0df589e8%2Ffavicon-16x16.png"
   },
   "https://harpers.org/archive/2025/12/kicking-robots-james-vincent-humanoids/": {
     "title": "Kicking Robots, by James Vincent",
     "description": "Humanoids and the tech-­industry hype machine",
-    "image": "https://wp.harpers.org/wp-content/uploads/2025/11/CUT-7-scaled.jpg",
-    "favicon": "https://wp.harpers.org/wp-content/themes/timber/assets/img/favicon-192x192.png",
-    "fetchedAt": "2026-01-31T04:08:06.823Z"
+    "image": "",
+    "favicon": "/linkcard-cache/favicons/be7604ff247dd35c.png",
+    "fetchedAt": "2026-01-31T04:08:06.823Z",
+    "imageOrigin": "https://wp.harpers.org/wp-content/uploads/2025/11/CUT-7-scaled.jpg",
+    "faviconOrigin": "https://wp.harpers.org/wp-content/themes/timber/assets/img/favicon-192x192.png"
   },
   "https://www.jeffgeerling.com/blog/2025/nist-was-5-%CE%BCs-utc-after-last-weeks-power-cut": {
     "title": "NIST was 5 μs off UTC after last week's power cut - Jeff Geerling",
     "description": "If you were 5 microseconds late today, blame it on NIST.\nTheir facility in Boulder Colorado just had its power cut for multiple days. After a backup generator failed, their main ensemble clock lost track of UTC, or Universal Time Coordinated.\nBut even if you used the NTP timing servers they run, they were never off by more than 5 microseconds.\n5 μs might seem insignificant. But it is significant for scientists and universities who rely on NIST's more specialized timing signals.",
     "image": "",
-    "favicon": "https://www.jeffgeerling.com/favicon.ico",
-    "fetchedAt": "2026-01-31T04:08:07.141Z"
+    "favicon": "/linkcard-cache/favicons/d07797a83ea3b2a2.ico",
+    "fetchedAt": "2026-01-31T04:08:07.141Z",
+    "faviconOrigin": "https://www.jeffgeerling.com/favicon.ico"
   },
   "https://github.com/shrimbly/node-banana": {
     "title": "GitHub - shrimbly/node-banana: Free and open node based generative workflows.",
     "description": "Free and open node based generative workflows. . Contribute to shrimbly/node-banana development by creating an account on GitHub.",
-    "image": "https://opengraph.githubassets.com/021e7ca24a2d1cfd0e2aa69196b2487bdbf9233e77fe1aac90c2691e8e71f4ed/shrimbly/node-banana",
+    "image": "/linkcard-cache/images/b5c74cbeebd7643f.png",
     "favicon": "https://github.githubassets.com/favicons/favicon",
-    "fetchedAt": "2026-01-31T04:08:07.948Z"
+    "fetchedAt": "2026-01-31T04:08:07.948Z",
+    "imageOrigin": "https://opengraph.githubassets.com/021e7ca24a2d1cfd0e2aa69196b2487bdbf9233e77fe1aac90c2691e8e71f4ed/shrimbly/node-banana",
+    "faviconOrigin": "https://github.githubassets.com/favicons/favicon"
   },
   "https://poniesandlight.co.uk/reflect/gamma/": {
     "title": "Notes on Gamma",
     "description": "The nuance between seeing and perceiving, linearity and non-linearity, what EOTFs are &ndash; and how to draw nice smooth gradients against the odds",
-    "image": "https://poniesandlight.co.uk//img/reflect/gamma/gradient_2_2_gamma_srgb_swapchain.png",
+    "image": "",
     "favicon": "https://poniesandlight.co.uk//img/favicon.svg",
-    "fetchedAt": "2026-01-31T04:08:09.781Z"
+    "fetchedAt": "2026-01-31T04:08:09.781Z",
+    "imageOrigin": "https://poniesandlight.co.uk//img/reflect/gamma/gradient_2_2_gamma_srgb_swapchain.png",
+    "faviconOrigin": "https://poniesandlight.co.uk//img/favicon.svg"
   },
   "https://about.fb.com/news/2025/12/our-new-sam-audio-model-transforms-audio-editing/": {
     "title": "Our New SAM Audio Model Transforms Audio Editing",
     "description": "We&#039;re introducing SAM Audio, a state-of-the-art AI model that enables you to segment sound.",
-    "image": "https://about.fb.com/wp-content/uploads/2025/12/SAM-Audio_Social-Share.jpg?w=1200",
-    "favicon": "https://about.fb.com/wp-content/uploads/2021/10/meta-favicon.png?fit=16%2C16",
-    "fetchedAt": "2026-01-31T04:08:09.929Z"
+    "image": "/linkcard-cache/images/f0ccbcf6f23789a4.jpg",
+    "favicon": "/linkcard-cache/favicons/9a90c0f7e41c6dab.png",
+    "fetchedAt": "2026-01-31T04:08:09.929Z",
+    "imageOrigin": "https://about.fb.com/wp-content/uploads/2025/12/SAM-Audio_Social-Share.jpg?w=1200",
+    "faviconOrigin": "https://about.fb.com/wp-content/uploads/2021/10/meta-favicon.png?fit=16%2C16"
   },
   "https://xania.org/202512/11-pop-goes-the-weasel-er-count": {
     "title": "Pop goes the...population count? &#8212; Matt Godbolt&#8217;s blog",
     "description": "Compilers can take advantage of some very specific instructions",
     "image": "",
-    "favicon": "https://xania.org/favicon.ico",
-    "fetchedAt": "2026-01-31T04:08:10.265Z"
+    "favicon": "/linkcard-cache/favicons/3ffb42eaa11ac584.ico",
+    "fetchedAt": "2026-01-31T04:08:10.265Z",
+    "faviconOrigin": "https://xania.org/favicon.ico"
   },
   "https://1517.substack.com/p/powder-and-stone-or-why-medieval": {
     "title": "Powder &amp; Stone. Or, Why Medieval Rulers Loved Castles.",
     "description": "And how gunpowder and castles led to modern states and centralized taxation. Part I.",
-    "image": "https://substackcdn.com/image/fetch/$s_!XQXi!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc17d52a4-212e-4567-b65f-3b17dcce7bb4_3840x2160.png",
-    "favicon": "https://substackcdn.com/image/fetch/$s_!rfiq!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F18958721-770c-4045-bc07-2a4399c46f38%2Ffavicon-16x16.png",
-    "fetchedAt": "2026-01-31T04:08:10.529Z"
+    "image": "/linkcard-cache/images/237ce03beca7b7aa.jpg",
+    "favicon": "/linkcard-cache/favicons/541591bf790f0ada.png",
+    "fetchedAt": "2026-01-31T04:08:10.529Z",
+    "imageOrigin": "https://substackcdn.com/image/fetch/$s_!XQXi!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc17d52a4-212e-4567-b65f-3b17dcce7bb4_3840x2160.png",
+    "faviconOrigin": "https://substackcdn.com/image/fetch/$s_!rfiq!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F18958721-770c-4045-bc07-2a4399c46f38%2Ffavicon-16x16.png"
   },
   "https://larr.net/p/namings.html": {
     "title": "Programmers and software developers lost the plot on naming their tools",
     "description": "",
     "image": "",
     "favicon": "https://larr.net/favicon.ico",
-    "fetchedAt": "2026-01-31T04:08:10.759Z"
+    "fetchedAt": "2026-01-31T04:08:10.759Z",
+    "faviconOrigin": "https://larr.net/favicon.ico"
   },
   "https://www.reuters.com/world/us/rubio-stages-font-coup-times-new-roman-ousts-calibri-2025-12-09/": {
     "title": "reuters.com",
     "description": "",
     "image": "",
-    "favicon": "https://www.reuters.com/favicon.ico",
-    "fetchedAt": "2026-01-31T04:08:10.917Z"
+    "favicon": "/linkcard-cache/favicons/36cdc0882480491d.ico",
+    "fetchedAt": "2026-01-31T04:08:10.917Z",
+    "faviconOrigin": "https://www.reuters.com/favicon.ico"
   },
   "https://www.theguardian.com/news/ng-interactive/2025/dec/04/the-long-read-snail-farm-tax-avoidance-scheme-terry-ball": {
     "title": "The snail farm don: is this the most brazen tax avoidance scheme of all time? | Tax avoidance | The Guardian",
     "description": "&#x3C;strong&#x3E;The long read:&#x3C;/strong&#x3E; Terry Ball &#x2013; renowned shoe salesman, friend to former mafiosi &#x2013; has resolved to spend his last years finding ways to cheat authorities he feels have cheated him. His greatest ruse? A tax-dodging snail empire",
-    "image": "https://i.guim.co.uk/img/media/21bc904715552ae411751866161f4b0dec511559/1_0_4998_4000/master/4998.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=307d2f48b5addf6b83ba7aabe74f1096",
-    "favicon": "https://static.guim.co.uk/images/favicon-32x32.ico",
-    "fetchedAt": "2026-01-31T04:08:11.529Z"
+    "image": "/linkcard-cache/images/e49fd1d0ac278c38.jpg",
+    "favicon": "/linkcard-cache/favicons/4a9ce02e9c1a3125.ico",
+    "fetchedAt": "2026-01-31T04:08:11.529Z",
+    "imageOrigin": "https://i.guim.co.uk/img/media/21bc904715552ae411751866161f4b0dec511559/1_0_4998_4000/master/4998.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=307d2f48b5addf6b83ba7aabe74f1096",
+    "faviconOrigin": "https://static.guim.co.uk/images/favicon-32x32.ico"
   },
   "https://www.wallpaper.com/design-interiors/corporate-design-branding/volvo-new-font-volvo-centum": {
     "title": "Volvo Centum is Dalton Maag's new typeface for Volvo | Wallpaper*",
     "description": "Designed for the information age, Volvo Centum is an ultra-legible typeface for Volvo's interfaces",
-    "image": "https://cdn.mos.cms.futurecdn.net/Bbk6idpyNNyVN9L889eenE-2560-80.jpg",
-    "favicon": "https://cdn.mos.cms.futurecdn.net/flexiimages/iiwmrp3wre1656622788.png",
-    "fetchedAt": "2026-01-31T04:08:11.875Z"
+    "image": "/linkcard-cache/images/5d28a6bc88c0e5df.jpg",
+    "favicon": "/linkcard-cache/favicons/e0ca6ec9bb998ffa.png",
+    "fetchedAt": "2026-01-31T04:08:11.875Z",
+    "imageOrigin": "https://cdn.mos.cms.futurecdn.net/Bbk6idpyNNyVN9L889eenE-2560-80.jpg",
+    "faviconOrigin": "https://cdn.mos.cms.futurecdn.net/flexiimages/iiwmrp3wre1656622788.png"
   },
   "https://alexene.dev/2025/12/03/Why-do-my-headphones-buzz-when-I-run-my-game.html": {
     "title": "Alexandru Ene blog",
     "description": "",
     "image": "",
     "favicon": "https://alexene.dev/favicon.ico",
-    "fetchedAt": "2026-01-31T04:08:12.254Z"
+    "fetchedAt": "2026-01-31T04:08:12.254Z",
+    "faviconOrigin": "https://alexene.dev/favicon.ico"
   },
   "https://an.dywa.ng/carrier-gnss.html": {
     "title": "Mobile carriers can get your GPS location",
     "description": "In iOS 26.3, Apple introduced a new privacy feature which limits “precise location” data made available to cellular networks via cell towers. The feature is only available to devices with Apple’s in-house modem introduced in 2025. The announcement1 says https://support.apple.com/en-us/126101 ↩",
     "image": "",
     "favicon": "https://an.dywa.ng/favicon.ico",
-    "fetchedAt": "2026-02-01T22:13:37.237Z"
+    "fetchedAt": "2026-02-01T22:13:37.237Z",
+    "faviconOrigin": "https://an.dywa.ng/favicon.ico"
   },
   "https://phys.org/news/2026-01-coffee-agent-substitute-electron-microscopy.html": {
     "title": "Coffee as a staining agent substitute in electron microscopy",
     "description": "To ensure that the tissue structures of biological samples are easily recognizable under the electron microscope, they are treated with a staining agent. The standard staining agent for this is uranyl acetate. However, some laboratories are not allowed to use this highly toxic and radioactive substance for safety reasons.",
-    "image": "https://scx2.b-cdn.net/gfx/news/2026/coffee-as-a-staining-a.jpg",
-    "favicon": "https://phys.org/favicon.ico",
-    "fetchedAt": "2026-02-03T00:39:36.976Z"
+    "image": "/linkcard-cache/images/22d5db8418a984fc.jpg",
+    "favicon": "/linkcard-cache/favicons/76e58375e3c1458d.ico",
+    "fetchedAt": "2026-02-03T00:39:36.976Z",
+    "imageOrigin": "https://scx2.b-cdn.net/gfx/news/2026/coffee-as-a-staining-a.jpg",
+    "faviconOrigin": "https://phys.org/favicon.ico"
   },
   "https://www.youtube.com/watch?v=l-kZGrDz7PU": {
     "title": "Flock CEO calls Deflock a \"terrorist organization\" - YouTube",
     "description": "In an interview with Forbes, the CEO of Flock labels Deflock as a so-called \"terrorist organization\".The interview: https://youtu.be/fVCVQcd9PLc?si=qVLkcKMDD...",
-    "image": "https://i.ytimg.com/vi/l-kZGrDz7PU/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgZShlMA8=&amp;rs=AOn4CLCwI6ZwuDrFxjCu2qvjkQnobIvWbA",
-    "favicon": "https://www.youtube.com/s/desktop/9eacfcec/img/favicon_32x32.png",
-    "fetchedAt": "2026-02-07T23:29:08.839Z"
+    "image": "/linkcard-cache/images/9d28ed7a681a5d19.jpg",
+    "favicon": "/linkcard-cache/favicons/b8934efbd6496edf.png",
+    "fetchedAt": "2026-02-07T23:29:08.839Z",
+    "imageOrigin": "https://i.ytimg.com/vi/l-kZGrDz7PU/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgZShlMA8=&amp;rs=AOn4CLCwI6ZwuDrFxjCu2qvjkQnobIvWbA",
+    "faviconOrigin": "https://www.youtube.com/s/desktop/9eacfcec/img/favicon_32x32.png"
   },
   "https://www.youtube.com/watch?v=uB0gr7Fh6lY": {
     "title": "We Hacked Flock Safety Cameras in under 30 Seconds. 🫥 - YouTube",
     "description": "Go to https://ground.news/benn for a better way to stay informed. Subscribe for 40% off unlimited access to world-wide coverage through my link. ⬇️ Epic amou...",
-    "image": "https://i.ytimg.com/vi/uB0gr7Fh6lY/maxresdefault.jpg",
-    "favicon": "https://www.youtube.com/s/desktop/9eacfcec/img/favicon_32x32.png",
-    "fetchedAt": "2026-02-07T23:29:08.844Z"
+    "image": "/linkcard-cache/images/f765ccee3669b807.jpg",
+    "favicon": "/linkcard-cache/favicons/b8934efbd6496edf.png",
+    "fetchedAt": "2026-02-07T23:29:08.844Z",
+    "imageOrigin": "https://i.ytimg.com/vi/uB0gr7Fh6lY/maxresdefault.jpg",
+    "faviconOrigin": "https://www.youtube.com/s/desktop/9eacfcec/img/favicon_32x32.png"
   },
   "https://mistral.ai/news/voxtral-transcribe-2": {
     "title": "Voxtral transcribes at the speed of sound. | Mistral AI",
     "description": "Precision diarization, real-time transcription, and a new audio playground.",
-    "image": "https://mistral.ai/img/mistral-cover.png",
-    "favicon": "https://mistral.ai/favicon.ico?favicon.75796e92.ico",
-    "fetchedAt": "2026-02-07T23:30:09.877Z"
+    "image": "/linkcard-cache/images/be7be69c22bfbe6d.png",
+    "favicon": "/linkcard-cache/favicons/b32275d071879d68.ico",
+    "fetchedAt": "2026-02-07T23:30:09.877Z",
+    "imageOrigin": "https://mistral.ai/img/mistral-cover.png",
+    "faviconOrigin": "https://mistral.ai/favicon.ico?favicon.75796e92.ico"
   },
   "https://waymo.com/blog/2026/02/the-waymo-world-model-a-new-frontier-for-autonomous-driving-simulation": {
     "title": "The Waymo World Model: A New Frontier For Autonomous Driving Simulation",
     "description": "We are excited to introduce the Waymo World Model, a frontier generative model that sets a new bar for large-scale, hyper-realistic autonomous driving simulation. ",
-    "image": "https://images.ctfassets.net/7ijaobx36mtm/2S3Bfbzy16Vo5uHU5kQkFC/05bc9c945a8908eae6d69cb7ead4093e/preview.png",
-    "favicon": "https://waymo.com/favicon.png",
-    "fetchedAt": "2026-02-07T23:30:12.600Z"
+    "image": "/linkcard-cache/images/8b8179417f4b5eda.png",
+    "favicon": "/linkcard-cache/favicons/0911de7ecac3840e.png",
+    "fetchedAt": "2026-02-07T23:30:12.600Z",
+    "imageOrigin": "https://images.ctfassets.net/7ijaobx36mtm/2S3Bfbzy16Vo5uHU5kQkFC/05bc9c945a8908eae6d69cb7ead4093e/preview.png",
+    "faviconOrigin": "https://waymo.com/favicon.png"
   },
   "https://1password.com/blog/from-magic-to-malware-how-openclaws-agent-skills-become-an-attack-surface": {
     "title": "From magic to malware: How OpenClaw's agent skills become an attack surface | 1Password",
     "description": "The same capabilities that make OpenClaw a groundbreaking tool also make it an urgent security risk. This blog contains confirmed examples of agent skills being used as malware vectors, and advice on how to protect yourself if you're experimenting with them.",
-    "image": "https://images.ctfassets.net/3091ajzcmzlr/1LlGltd9bh09UR5RWaZqlf/92337af2b90765ea33d038e538797394/Hero_The_Risk_of_Agent_Skill_Registries_1920x1080.webp",
-    "favicon": "https://1password.com/favicon.ico",
-    "fetchedAt": "2026-02-07T23:30:15.690Z"
+    "image": "/linkcard-cache/images/5a3439a8b8f1b523.webp",
+    "favicon": "/linkcard-cache/favicons/89ff028db95de7cd.ico",
+    "fetchedAt": "2026-02-07T23:30:15.690Z",
+    "imageOrigin": "https://images.ctfassets.net/3091ajzcmzlr/1LlGltd9bh09UR5RWaZqlf/92337af2b90765ea33d038e538797394/Hero_The_Risk_of_Agent_Skill_Registries_1920x1080.webp",
+    "faviconOrigin": "https://1password.com/favicon.ico"
   },
   "https://wikiedu.org/blog/2026/01/29/generative-ai-and-wikipedia-editing-what-we-learned-in-2025/": {
     "title": "Generative AI and Wikipedia editing: What we learned in 2025 – Wiki Education",
     "description": "Like many organizations, Wiki Education has grappled with generative AI, its impacts, opportunities, and threats, for several years. As an organization that runs large-scale programs to bring new e…",
-    "image": "https://wikiedu.org/wp-content/uploads/2026/01/GenAI-blog-post-2026-feature-image.png",
-    "favicon": "https://wikiedu.org/favicon.ico",
-    "fetchedAt": "2026-02-07T23:32:44.896Z"
+    "image": "/linkcard-cache/images/79694909ced5b945.png",
+    "favicon": "/linkcard-cache/favicons/bcf1c81227488a09.ico",
+    "fetchedAt": "2026-02-07T23:32:44.896Z",
+    "imageOrigin": "https://wikiedu.org/wp-content/uploads/2026/01/GenAI-blog-post-2026-feature-image.png",
+    "faviconOrigin": "https://wikiedu.org/favicon.ico"
   },
   "https://adnanthekhan.com/posts/clinejection/": {
     "title": "Clinejection — Compromising Cline's Production Releases just by Prompting an Issue Triager | Adnan Khan - Security Research",
     "description": "Clinejection — Compromising Cline's Production Releases just by Prompting an Issue Triager - Security research by adnanthekhan",
-    "image": "https://adnanthekhan.com/_astro/images/clinejection.BWC24kLc.png",
-    "favicon": "https://adnanthekhan.com/favicon.ico",
-    "fetchedAt": "2026-03-07T00:50:00.879Z"
+    "image": "",
+    "favicon": "/linkcard-cache/favicons/3c8f34b6c807e6f6.ico",
+    "fetchedAt": "2026-03-07T00:50:00.879Z",
+    "imageOrigin": "https://adnanthekhan.com/_astro/images/clinejection.BWC24kLc.png",
+    "faviconOrigin": "https://adnanthekhan.com/favicon.ico"
   },
   "https://spectrum.ieee.org/3d-scanning-particle-accelerator-antscan": {
     "title": "Antscan's 3D Scanning Reveals Ant Anatomy - IEEE Spectrum",
     "description": "Antscan's 3d scanning efforts capture ants' anatomy in stunning detail, providing invaluable insights for science, education, and creative industries.",
-    "image": "https://spectrum.ieee.org/media-library/image.jpg?id=65150276&width=1200&height=600&coordinates=0%2C214%2C0%2C36",
-    "favicon": "https://assets.rebelmouse.io/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8yNjU5NjY0OS9vcmlnaW4ucG5nIiwiZXhwaXJlc19hdCI6MTc4NTc0NjUwNn0.pFbPADvK9fyfasig9FMci3xf6UeB_WJaER5Yea_eRpI/img.png?width=48&height=48",
-    "fetchedAt": "2026-03-07T00:50:18.690Z"
+    "image": "/linkcard-cache/images/928eaf56c7dddee5.jpg",
+    "favicon": "/linkcard-cache/favicons/8be89329726ea207.png",
+    "fetchedAt": "2026-03-07T00:50:18.690Z",
+    "imageOrigin": "https://spectrum.ieee.org/media-library/image.jpg?id=65150276&width=1200&height=600&coordinates=0%2C214%2C0%2C36",
+    "faviconOrigin": "https://assets.rebelmouse.io/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8yNjU5NjY0OS9vcmlnaW4ucG5nIiwiZXhwaXJlc19hdCI6MTc4NTc0NjUwNn0.pFbPADvK9fyfasig9FMci3xf6UeB_WJaER5Yea_eRpI/img.png?width=48&height=48"
   },
   "https://rygoldstein.com/posts/perils-of-isbn": {
     "title": "The Perils of ISBN",
     "description": "Last year I got into using Letterboxd, to complement my goal of watching more (good) movies. It’s got a really clean interface, the social features are useful but unobtrusive, and it makes remembering what I’ve watched and when I watched it easy. So why isn’t there a Letterboxd for books?",
     "image": "",
     "favicon": "https://rygoldstein.com/favicon.ico",
-    "fetchedAt": "2026-03-07T00:50:19.568Z"
+    "fetchedAt": "2026-03-07T00:50:19.568Z",
+    "faviconOrigin": "https://rygoldstein.com/favicon.ico"
   },
   "https://harpers.org/archive/2026/03/childs-play-sam-kriss-ai-startup-roy-lee/": {
     "title": "Child’s Play, by Sam Kriss",
     "description": "Tech’s new generation and the end of thinking",
-    "image": "https://wp.harpers.org/wp-content/uploads/2026/02/CUT-12-scaled.jpg",
-    "favicon": "https://wp.harpers.org/wp-content/themes/timber/assets/img/favicon-192x192.png",
-    "fetchedAt": "2026-03-07T00:50:31.026Z"
+    "image": "",
+    "favicon": "/linkcard-cache/favicons/be7604ff247dd35c.png",
+    "fetchedAt": "2026-03-07T00:50:31.026Z",
+    "imageOrigin": "https://wp.harpers.org/wp-content/uploads/2026/02/CUT-12-scaled.jpg",
+    "faviconOrigin": "https://wp.harpers.org/wp-content/themes/timber/assets/img/favicon-192x192.png"
   },
   "https://www.governance.fyi/p/america-vs-singapore-you-cant-save": {
     "title": "America vs. Singapore: You Can’t Save Your Way out of Economic Shocks",
     "description": "Saving regret has less to do with procrastination than we thought, and more to do with whether your country absorbs economic shocks or lets them hit your savings",
-    "image": "https://substackcdn.com/image/fetch/$s_!mrn8!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb306c317-e1de-4420-95f5-9d3f1bc7b28f_800x430.jpeg",
-    "favicon": "https://substackcdn.com/image/fetch/$s_!y0nB!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fabecfdef-c82b-469f-9e7d-ec00faae6278%2Ffavicon-16x16.png",
-    "fetchedAt": "2026-03-07T01:18:12.242Z"
+    "image": "/linkcard-cache/images/b87b26cfb6af75e2.jpg",
+    "favicon": "/linkcard-cache/favicons/69900280f4408964.jpg",
+    "fetchedAt": "2026-03-07T01:18:12.242Z",
+    "imageOrigin": "https://substackcdn.com/image/fetch/$s_!mrn8!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb306c317-e1de-4420-95f5-9d3f1bc7b28f_800x430.jpeg",
+    "faviconOrigin": "https://substackcdn.com/image/fetch/$s_!y0nB!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fabecfdef-c82b-469f-9e7d-ec00faae6278%2Ffavicon-16x16.png"
   },
   "https://www.amplifypartners.com/blog-posts/arming-the-rebels-with-gpus-gradium-kyutai-and-audio-ai": {
     "title": "Arming the rebels with GPUs: Gradium, Kyutai, and Audio AI | Amplify Partners",
     "description": "The story of Gradium, the anatomy of audio AI models, and why smaller labs continue to edge out larger ones when it comes to voice.",
-    "image": "https://cdn.prod.website-files.com/67ebc022dbceaf64bee0f5c6/698dee7b45fa7300a1234d80_Microphone.webp",
+    "image": "/linkcard-cache/images/21dac2f2e3432426.webp",
     "favicon": "https://www.amplifypartners.com/favicon.ico",
-    "fetchedAt": "2026-03-07T01:18:12.363Z"
+    "fetchedAt": "2026-03-07T01:18:12.363Z",
+    "imageOrigin": "https://cdn.prod.website-files.com/67ebc022dbceaf64bee0f5c6/698dee7b45fa7300a1234d80_Microphone.webp",
+    "faviconOrigin": "https://www.amplifypartners.com/favicon.ico"
   },
   "https://jasonfantl.com/posts/Universal-Unique-IDs/": {
     "title": "Cosmologically Unique IDs | Jason Fantl",
     "description": "We are an exploratory species, just past the solar system now, but perhaps one day we will look back and call our galaxy merely the first. There are many problems to solve along the way, and today we will look at one very small one. How do we assign IDs to devices (or any object) so the IDs are guaranteed to always be unique?",
     "image": "",
-    "favicon": "https://jasonfantl.com/assets/img/favicons/favicon-32x32.png",
-    "fetchedAt": "2026-03-07T01:18:12.764Z"
+    "favicon": "/linkcard-cache/favicons/d7a4d5c4b876e647.png",
+    "fetchedAt": "2026-03-07T01:18:12.764Z",
+    "faviconOrigin": "https://jasonfantl.com/assets/img/favicons/favicon-32x32.png"
   },
   "https://spencer.wtf/2026/02/20/cleaning-up-merged-git-branches-a-one-liner-from-the-cias-leaked-dev-docs.html": {
     "title": "Cleaning up merged git branches: a one-liner from the CIA's leaked dev docs | spencer.wtf",
     "description": "How to delete all merged git branches locally with a single command. This one-liner has been in my zshrc since 2017 — I found it buried in the CIA's Vault7 l...",
-    "image": "https://spencer.wtf/assets/images/ogimage.png",
-    "favicon": "https://spencer.wtf/assets/favicon/favicon-96x96.png",
-    "fetchedAt": "2026-03-07T01:18:13.035Z"
+    "image": "/linkcard-cache/images/3611fb40b38a8e11.png",
+    "favicon": "/linkcard-cache/favicons/4afa04bfa46eb44a.png",
+    "fetchedAt": "2026-03-07T01:18:13.035Z",
+    "imageOrigin": "https://spencer.wtf/assets/images/ogimage.png",
+    "faviconOrigin": "https://spencer.wtf/assets/favicon/favicon-96x96.png"
   },
   "https://www.anthropic.com/news/mozilla-firefox-security": {
     "title": "Partnering with Mozilla to improve Firefox’s security \\ Anthropic",
     "description": "Anthropic is an AI safety and research company that's working to build reliable, interpretable, and steerable AI systems.",
-    "image": "https://www.anthropic.com/api/opengraph-illustration?name=Object%20Desktop&amp;backgroundColor=coral",
-    "favicon": "https://www.anthropic.com/images/icons/favicon-32x32.png",
-    "fetchedAt": "2026-03-07T01:18:14.077Z"
+    "image": "/linkcard-cache/images/9d688be382ec115b.png",
+    "favicon": "/linkcard-cache/favicons/201ca28a734cdc5f.png",
+    "fetchedAt": "2026-03-07T01:18:14.077Z",
+    "imageOrigin": "https://www.anthropic.com/api/opengraph-illustration?name=Object%20Desktop&amp;backgroundColor=coral",
+    "faviconOrigin": "https://www.anthropic.com/images/icons/favicon-32x32.png"
   },
   "https://www.404media.co/cbp-tapped-into-the-online-advertising-ecosystem-to-track-peoples-movements/": {
     "title": "CBP Tapped Into the Online Advertising Ecosystem To Track Peoples’ Movements",
     "description": "An internal DHS document obtained by 404 Media shows for the first time CBP used location data sourced from the online advertising industry to track phone locations. ICE has bought access to similar tools.",
-    "image": "https://www.404media.co/content/images/size/w1200/2026/02/54723348049_72eefb5739.jpg",
-    "favicon": "https://www.404media.co/content/images/size/w256h256/format/png/2023/08/favicon-3.svg",
-    "fetchedAt": "2026-03-07T01:18:14.143Z"
+    "image": "/linkcard-cache/images/95db2e955b650016.jpg",
+    "favicon": "/linkcard-cache/favicons/353adab28bd975ba.png",
+    "fetchedAt": "2026-03-07T01:18:14.143Z",
+    "imageOrigin": "https://www.404media.co/content/images/size/w1200/2026/02/54723348049_72eefb5739.jpg",
+    "faviconOrigin": "https://www.404media.co/content/images/size/w256h256/format/png/2023/08/favicon-3.svg"
   },
   "https://ogirardot.writizzy.com/p/good-software-knows-when-to-stop": {
     "title": "Good software knows when to stop | Olivier Girardot's Ramblings",
     "description": "Good software knows what problem it solves and what needs to be tackled by another tool",
-    "image": "https://ogirardot.writizzy.com/__og-image__/image/p/good-software-knows-when-to-stop/og.png",
-    "favicon": "https://ogirardot.writizzy.com/default-favicon-96x96.png",
-    "fetchedAt": "2026-03-07T01:18:15.548Z"
+    "image": "",
+    "favicon": "/linkcard-cache/favicons/7be1b54349aa351a.png",
+    "fetchedAt": "2026-03-07T01:18:15.548Z",
+    "imageOrigin": "https://ogirardot.writizzy.com/__og-image__/image/p/good-software-knows-when-to-stop/og.png",
+    "faviconOrigin": "https://ogirardot.writizzy.com/default-favicon-96x96.png"
   },
   "https://www.lumafield.com/scan-of-the-month/health-wearables": {
     "title": "Inside Health Wearables: CT Scans of Oura, Dexcom, Omnipod & Jabra",
     "description": "Experience the engineering behind today’s leading health wearables including Oura Ring, Dexcom G7, Omnipod, and Jabra Hearing Aids. Industrial CT scans reveal how these devices merge medical precision with consumer design.",
-    "image": "https://cdn.prod.website-files.com/63e15418201b6e2a5cabb911/6993be41b53672d6f35bedc7_og-image-sotm-health-wearables.jpg",
+    "image": "/linkcard-cache/images/1699db5d558db0b1.jpg",
     "favicon": "https://www.lumafield.com/favicon.ico",
-    "fetchedAt": "2026-03-07T01:18:15.653Z"
+    "fetchedAt": "2026-03-07T01:18:15.653Z",
+    "imageOrigin": "https://cdn.prod.website-files.com/63e15418201b6e2a5cabb911/6993be41b53672d6f35bedc7_og-image-sotm-health-wearables.jpg",
+    "faviconOrigin": "https://www.lumafield.com/favicon.ico"
   },
   "https://openai.com/index/introducing-gpt-5-4/": {
     "title": "",
     "description": "",
     "image": "",
     "favicon": "https://openai.com/favicon.ico",
-    "fetchedAt": "2026-03-07T01:18:15.705Z"
+    "fetchedAt": "2026-03-07T01:18:15.705Z",
+    "faviconOrigin": "https://openai.com/favicon.ico"
   },
   "https://news.ycombinator.com/item?id=47268391": {
     "title": "Labor market impacts of AI: A new measure and early evidence | Hacker News",
     "description": "",
     "image": "",
-    "favicon": "https://news.ycombinator.com/y18.svg",
-    "fetchedAt": "2026-03-07T01:18:16.090Z"
+    "favicon": "/linkcard-cache/favicons/73cf914472e1b5e1.svg",
+    "fetchedAt": "2026-03-07T01:18:16.090Z",
+    "faviconOrigin": "https://news.ycombinator.com/y18.svg"
   },
   "https://www.anthropic.com/research/labor-market-impacts": {
     "title": "Labor market impacts of AI: A new measure and early evidence \\ Anthropic",
     "description": "Anthropic is an AI safety and research company that's working to build reliable, interpretable, and steerable AI systems.",
-    "image": "https://www.anthropic.com/api/opengraph-illustration?name=Hand%20NodeLine&amp;backgroundColor=cactus",
-    "favicon": "https://www.anthropic.com/images/icons/favicon-32x32.png",
-    "fetchedAt": "2026-03-07T01:18:18.070Z"
+    "image": "/linkcard-cache/images/2f70191a52231ffa.png",
+    "favicon": "/linkcard-cache/favicons/201ca28a734cdc5f.png",
+    "fetchedAt": "2026-03-07T01:18:18.070Z",
+    "imageOrigin": "https://www.anthropic.com/api/opengraph-illustration?name=Hand%20NodeLine&amp;backgroundColor=cactus",
+    "faviconOrigin": "https://www.anthropic.com/images/icons/favicon-32x32.png"
   },
   "https://www.osnews.com/story/144527/never-bet-against-x86/": {
     "title": "Never bet against x86  –  OSnews",
     "description": "",
     "image": "",
-    "favicon": "https://www.osnews.com/icons/favicon-32x32.png",
-    "fetchedAt": "2026-03-07T01:18:18.688Z"
+    "favicon": "/linkcard-cache/favicons/d557ce317fe82ee2.png",
+    "fetchedAt": "2026-03-07T01:18:18.688Z",
+    "faviconOrigin": "https://www.osnews.com/icons/favicon-32x32.png"
   },
   "https://hatchet.run/blog/supertoast-tables": {
     "title": "Hatchet · Supertoast tables",
     "description": "Deploy More Resilient Apps. Hatchet is a platform for building distributed web apps that solves scaling problems like concurrency, fairness, and rate limiting. Instead of managing your own task queue or pub/sub system, you can use Hatchet to distribute your functions between a set of workers with minimal configuration or infrastructure.",
-    "image": "https://hatchet.run/assets/og-PqKfvZWg.png",
+    "image": "/linkcard-cache/images/61a820732867b9df.png",
     "favicon": "data:image/x-icon;base64,AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAACMuAAAjLgAAAAAAAAAAAAAaBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8ZBgL/GQYD/xoHA/8YBQH/FgMA/xYDAP8WAwD/FgMA/xcEAP8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GAUC/y8aE/8iDwr/GQYC/0YvJv9sUkT/alBC/2pQQv9rUUP/WkI2/yAMB/8ZBgL/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xcEAf8/KSD/w6KI/2BHOv8VAwD/Ri8m/9a0mP//2rn//ti3///Zt//20bH/h2tZ/x4LBv8ZBgL/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8XBAH/Pykg/8uqj///373/s5R8/x8MB/8XBAH/UDgt/9+8n///27r//9m4///auf/307P/h2tZ/x4LBv8ZBgL/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/FwQB/z8pIP/Lqo///9u6///auf/vy6z/Tzct/xcEAf8XBQH/WUE1/+XCpf//27r//9m4///auf/207L/h2tZ/x4LBv8ZBgL/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xcEAf8/KSD/y6qP///buv//2bj//9m4///cuv+gg27/GwgE/xoHA/8YBQH/Y0o9/+vIqf//27r//9m4///auf/207P/h2tZ/x4LBv8ZBgL/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8XBAH/Pykg/8uqj///27r//9m4///ZuP//2bj//9q5/+bDpf9AKiH/GAUB/xoHA/8ZBgL/blRF//DNrf//27n//9m4///auf/307P/h2tZ/x4LBv8ZBgL/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/FwQB/z8pIP/Lqo///9y6///ZuP//2bj//9m4///ZuP//2bj//9u6/41xX/8YBQL/GgcD/xoHA/8aBwP/eV5O//TQsf//2rn//9m4///auf/307P/h2tZ/x4LBv8ZBgL/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xgFAf8+KB//y6qP///cuv//2rn//9u6///buf//27n//9u5///buf//3bv/27md/zUgGf8YBQL/GgcD/xkGA/8cCQX/hWlX//fUs///2rn//9m4///auf/307P/hmpY/x4KBv8ZBgP/GgcD/xoHA/8aBwP/GgcD/xoHA/8ZBgL/MRwV/8Skiv//3Lr//9u5/+G+of+EaFb/fWJS/35iUv9+YlL/fmJS/35iUv98YFD/NiEZ/xgGAv8aBwP/GgcD/xkGAv8fCwf/kHRg//rWtv//2rn//9m4///auf/20rL/eF1N/xkGA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xYEAP9yWEn//tq4///ZuP//2rn/7ciq/19HOv8UAgD/FgQA/xYEAP8WBAD/FgQA/xYEAP8ZBgL/GgcD/xoHA/8aBwP/GgcD/xkGAv8iDgn/nH5q//zYt///2bj//9m4///cu//Tspb/KxcQ/xkGAv8aBwP/GgcD/xoHA/8aBwP/FgQA/3BWR//+2bj//9m4///ZuP//27r/5cKk/1hANP8XBQH/GgcD/xoHA/8aBwP/GgcD/xoHA/8YBQH/FgQA/xYEAP8WBAD/FgQA/xUCAP8iDwv/qIp0///auf//2bj//9y7/9Gwlf8qFhD/GQYC/xoHA/8aBwP/GgcD/xoHA/8ZBgL/LxoT/8Cfhv//3Lr//9m4///ZuP//27r/3ryf/083LP8XBAH/GgcD/xoHA/8aBwP/HAkE/2RLPf+IbFr/hmpZ/4ZqWf+Galn/hmpZ/4RoV/+uj3j//di3///auf/00LD/c1hJ/xkGAv8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8YBQH/OiQc/8ali///27r//9m4///ZuP//3Lr/1rSZ/0YvJv8XBAH/GgcD/xoHA/8YBQH/fmNS//7buv//3Lr//9y6///cuv//3Lr//9y6///buf//2rn/9dGx/4BkU/8cCQX/GQcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8XBQH/OyUd/8ali///27r//9m4///ZuP//3Lr/zq2S/z4oH/8XBQH/GgcD/xgFAv81Hxj/27mc///buv//2bj//9m4///ZuP//2bj//9q5//TRsf+AZVT/HAkF/xkGAv8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8XBAH/OyUd/8ali///27r//9m4///ZuP//27r/xaSL/zYhGf8XBQH/GgcD/xkGAv+PcmD//9u6///ZuP//2bj//9m4///auf/10bH/gGVU/x0JBf8ZBgL/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8XBQH/OyUd/8ali///27r//9m4///ZuP//27r/u5uD/zAbFP8YBQH/GAUB/0ErIv/nw6X//9q5///ZuP//2rn/9dGx/4BlVP8dCQX/GQYC/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8XBQH/OyUd/8ali///27r//9m4///ZuP//2rn/sZF6/yoWEP8YBQH/GwgE/6KEb///3Lr//9q5//XRsf+AZVT/HAkF/xkGAv8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8XBAH/OiUd/8ali///27r//9m4///ZuP/+2rn/pohy/yYSDP8WAwD/Tzgu//HNrv/10rL/gGVU/x0JBf8ZBgL/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8XBQH/OyUd/8Wkiv/817b/+9a1//zWtf/61bT/l3pm/yEOCf8gDQj/qot1/4NoVv8dCQX/GQYC/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8YBQH/NB8Y/2BHOv9hSDv/YUg7/2JJPP9cRDf/JxMN/xkGAv8tGBL/HwwH/xkGAv8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8YBgL/FgMA/xYDAP8WAwD/FgMA/xYEAP8ZBgP/GgcD/xkGAv8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/GgcD/xoHA/8aBwP/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
-    "fetchedAt": "2026-03-07T01:18:18.948Z"
+    "fetchedAt": "2026-03-07T01:18:18.948Z",
+    "imageOrigin": "https://hatchet.run/assets/og-PqKfvZWg.png"
   },
   "https://hbr.org/2026/03/when-using-ai-leads-to-brain-fry": {
     "title": "When Using AI Leads to “Brain Fry”",
     "description": "As firms increasingly incentivize employees to build and oversee complex teams of agents—for example, by measuring and rewarding token consumption as a proxy for performance—people are finding themselves pushed to their cognitive limits. Participants in a recent study described a “buzzing” feeling or a mental fog with difficulty focusing, slower decision-making, and headaches. The authors call this phenomenon “AI brain fry,” defined as mental fatigue from excessive use or oversight of AI tools beyond one’s cognitive capacity. This AI-associated mental strain carries significant costs in the form of increased employee errors, decision fatigue, and intention to quit. The findings also show how AI-driven workflows can be designed to diminish burnout and point toward specific manager, team, and organizational practices to avoid mental fatigue even as AI work intensifies.",
-    "image": "https://hbr.org/resources/images/article_assets/2026/03/Mar26_06_1053577584.jpg",
-    "favicon": "https://hbr.org/resources/images/android-chrome-192x192.png",
-    "fetchedAt": "2026-03-07T01:18:19.325Z"
+    "image": "/linkcard-cache/images/2027deecdb0d6489.jpg",
+    "favicon": "/linkcard-cache/favicons/a106f5f659a6a42e.png",
+    "fetchedAt": "2026-03-07T01:18:19.325Z",
+    "imageOrigin": "https://hbr.org/resources/images/article_assets/2026/03/Mar26_06_1053577584.jpg",
+    "faviconOrigin": "https://hbr.org/resources/images/android-chrome-192x192.png"
   },
   "https://www.michaelgeist.ca/2026/03/a-tale-of-two-bills-lawful-access-returns-with-changes-to-warrantless-access-but-dangerous-backdoor-surveillance-risks-remains/": {
     "title": "A Tale of Two Bills: Lawful Access Returns With Changes to Warrantless Access But Dangerous Backdoor Surveillance Risks Remain - Michael Geist",
     "description": "The decades-long battle over lawful access entered a new phase yesterday with the introduction of Bill C-22, the Lawful Access Act. This bill follows the attempt last spring to bury lawful access provisions in Bill C-2, a border measures bill that was the new government’s first piece of substantive legislation. The lawful access elements of the bill faced an immediate backlash given the inclusion of unprecedented rules permitting widespread warrantless access to personal information. Those rules were on very shaky constitutional ground and the government ultimately decided to hit the reset button on lawful access by proceeding with the border measures in a different bill.  Lawful access never dies, however. Bill C-22 cover the two main aspects of lawful access: law enforcement access to personal information held by communication service providers such as ISPs and wireless providers and the development of surveillance and monitoring capabilities within Canadian networks. In fact, the bill is separated into two with the first half dealing with “timely access to data and information” and the second establishing the Supporting Authorized Access to Information Act (SAAIA).",
-    "image": "https://www.michaelgeist.ca/wp-content/uploads/2026/03/screenshot_4102.png",
-    "favicon": "https://www.michaelgeist.ca/wp-content/uploads/2017/12/cropped-MichaelGeist2017-32x32.jpg",
-    "fetchedAt": "2026-03-26T06:43:04.960Z"
+    "image": "",
+    "favicon": "/linkcard-cache/favicons/5f6deccc3a67ac1f.jpg",
+    "fetchedAt": "2026-03-26T06:43:04.960Z",
+    "imageOrigin": "https://www.michaelgeist.ca/wp-content/uploads/2026/03/screenshot_4102.png",
+    "faviconOrigin": "https://www.michaelgeist.ca/wp-content/uploads/2017/12/cropped-MichaelGeist2017-32x32.jpg"
   },
   "https://www.codastory.com/armed-conflict/the-ai-powered-forever-wars-start-now/": {
     "title": "The AI-powered ‘forever wars’ start now - Coda Story",
     "description": "In Iran, artificial intelligence is being used to select targets, summarize intelligence and make the ‘kill chain’ ruthlessly efficient",
-    "image": "https://www.codastory.com/wp-content/uploads/2026/03/P-C-board-768x432.gif",
-    "favicon": "https://www.codastory.com/wp-content/uploads/2019/07/cropped-LogoWeb2021Transparent-1-32x32.png",
-    "fetchedAt": "2026-03-26T06:43:05.214Z"
+    "image": "",
+    "favicon": "/linkcard-cache/favicons/e51b3a7f8dba4bbc.png",
+    "fetchedAt": "2026-03-26T06:43:05.214Z",
+    "imageOrigin": "https://www.codastory.com/wp-content/uploads/2026/03/P-C-board-768x432.gif",
+    "faviconOrigin": "https://www.codastory.com/wp-content/uploads/2019/07/cropped-LogoWeb2021Transparent-1-32x32.png"
   },
   "https://daringfireball.net/2026/03/apple_enclaves_neo_camera_indicator": {
     "title": "Daring Fireball: Apple Exclaves and the Secure Design of the MacBook Neo’s On-Screen Camera Indicator",
     "description": "“What that means in practice is that even a kernel-level exploit would not be able to turn on the camera without the light appearing on screen.”",
-    "image": "https://daringfireball.net/graphics/df-wide-card.png",
-    "favicon": "https://daringfireball.net/favicon.ico",
-    "fetchedAt": "2026-03-26T06:43:05.369Z"
+    "image": "/linkcard-cache/images/b6e7cb4ea6e57dd8.png",
+    "favicon": "/linkcard-cache/favicons/b2b2380d6218e80a.ico",
+    "fetchedAt": "2026-03-26T06:43:05.369Z",
+    "imageOrigin": "https://daringfireball.net/graphics/df-wide-card.png",
+    "faviconOrigin": "https://daringfireball.net/favicon.ico"
   },
   "https://www.vanityfair.com/news/2018/01/brotopia-silicon-valley-secretive-orgiastic-inner-sanctum": {
     "title": "“Oh My God, This Is So F---ed Up”: Inside Silicon Valley’s Secretive, Orgiastic Dark Side | Vanity Fair",
     "description": "Some of the most powerful men in Silicon Valley are regulars at exclusive, drug-fueled, sex-laced parties—gatherings they describe not as scandalous, or even secret, but as a bold, unconventional lifestyle choice. Yet, while the guys get laid, the women get screwed. In an adaptation from her new book, Brotopia, Emily Chang exposes the tired and toxic dynamic at play.",
-    "image": "https://media.vanityfair.com/photos/5a3d410fc907581c4e97c686/16:9/w_1280,c_limit/t-MAG-0218-Brotopia.jpg",
-    "favicon": "https://www.vanityfair.com/verso/static/vanityfair-global/assets/favicon.ico",
-    "fetchedAt": "2026-03-26T06:43:06.403Z"
+    "image": "/linkcard-cache/images/772f524d237c9eca.jpg",
+    "favicon": "/linkcard-cache/favicons/7e39508e0ea530f0.ico",
+    "fetchedAt": "2026-03-26T06:43:06.403Z",
+    "imageOrigin": "https://media.vanityfair.com/photos/5a3d410fc907581c4e97c686/16:9/w_1280,c_limit/t-MAG-0218-Brotopia.jpg",
+    "faviconOrigin": "https://www.vanityfair.com/verso/static/vanityfair-global/assets/favicon.ico"
   },
   "https://mathweb.ucsd.edu/~crypto/Projects/MarkBarry/": {
     "title": "mathweb.ucsd.edu",
@@ -681,267 +840,330 @@
   "https://github.com/eggricesoy/filmkit": {
     "title": "GitHub - eggricesoy/filmkit: Create and manage Fujifilm camera profiles, with ease and speed. Connect your camera and you are good to go! · GitHub",
     "description": "Create and manage Fujifilm camera profiles, with ease and speed. Connect your camera and you are good to go! - eggricesoy/filmkit",
-    "image": "https://opengraph.githubassets.com/6aab0c60b85f3b4bd1d4528c6016c747cd2a17d17563accbd1a633a3ea22ea11/eggricesoy/filmkit",
+    "image": "/linkcard-cache/images/ef1de79db65d80b7.png",
     "favicon": "https://github.githubassets.com/favicons/favicon",
-    "fetchedAt": "2026-03-26T06:43:07.411Z"
+    "fetchedAt": "2026-03-26T06:43:07.411Z",
+    "imageOrigin": "https://opengraph.githubassets.com/6aab0c60b85f3b4bd1d4528c6016c747cd2a17d17563accbd1a633a3ea22ea11/eggricesoy/filmkit",
+    "faviconOrigin": "https://github.githubassets.com/favicons/favicon"
   },
   "https://www.sophielwang.com/blog/jpeg": {
     "title": "Sophie Wang",
     "description": "",
     "image": "",
     "favicon": "https://www.sophielwang.com/moon.png",
-    "fetchedAt": "2026-03-26T06:43:07.579Z"
+    "fetchedAt": "2026-03-26T06:43:07.579Z",
+    "faviconOrigin": "https://www.sophielwang.com/moon.png"
   },
   "https://antithesis.com/blog/2026/hegel/": {
     "title": "Hypothesis, Antithesis, synthesis | Antithesis Blog",
     "description": "Introducing Hegel, our new family of property-based testing libraries.",
-    "image": "https://antithesis.com/blog/2026/hegel/images/hedgel.jpg",
-    "favicon": "https://antithesis.com/images/favicon.ico",
-    "fetchedAt": "2026-03-26T06:43:07.663Z"
+    "image": "",
+    "favicon": "/linkcard-cache/favicons/2e81619b836d6057.ico",
+    "fetchedAt": "2026-03-26T06:43:07.663Z",
+    "imageOrigin": "https://antithesis.com/blog/2026/hegel/images/hedgel.jpg",
+    "faviconOrigin": "https://antithesis.com/images/favicon.ico"
   },
   "https://techno-fandom.org/~hobbit/cars/ev/": {
     "title": "Kona EV hacking",
     "description": "Header page for hacks and investigations\n of the Hyundai Kona electric vehicle",
     "image": "",
-    "favicon": "https://techno-fandom.org/favicon.ico",
-    "fetchedAt": "2026-03-26T06:43:08.173Z"
+    "favicon": "/linkcard-cache/favicons/b37663c0dc5be5bb.ico",
+    "fetchedAt": "2026-03-26T06:43:08.173Z",
+    "faviconOrigin": "https://techno-fandom.org/favicon.ico"
   },
   "https://computer.rip/2026-03-14-lotusnotes.html": {
     "title": "LotusNotes",
     "description": "",
-    "image": "https://computer.rip/static/social-icon.png",
-    "favicon": "https://computer.rip/static/cubes.svg",
-    "fetchedAt": "2026-03-26T06:43:08.599Z"
+    "image": "/linkcard-cache/images/2e300753b396013b.png",
+    "favicon": "/linkcard-cache/favicons/6df1343904d6b817.svg",
+    "fetchedAt": "2026-03-26T06:43:08.599Z",
+    "imageOrigin": "https://computer.rip/static/social-icon.png",
+    "faviconOrigin": "https://computer.rip/static/cubes.svg"
   },
   "https://www.together.ai/blog/mamba-3": {
     "title": "Mamba-3",
     "description": "Meet Mamba-3: the SSM built for inference. Faster than Transformers at decode, stronger than Mamba-2, and open-source from day one.",
-    "image": "https://cdn.prod.website-files.com/69654e88dce9154b5f12070c/69b7a26c1981b395c1cb68d1_20260311_Mamba3_1200x630%20(1).jpg",
+    "image": "/linkcard-cache/images/2d086f8ae6655c7f.jpg",
     "favicon": "https://www.together.ai/favicon.ico",
-    "fetchedAt": "2026-03-26T06:43:08.765Z"
+    "fetchedAt": "2026-03-26T06:43:08.765Z",
+    "imageOrigin": "https://cdn.prod.website-files.com/69654e88dce9154b5f12070c/69b7a26c1981b395c1cb68d1_20260311_Mamba3_1200x630%20(1).jpg",
+    "faviconOrigin": "https://www.together.ai/favicon.ico"
   },
   "https://acoup.blog/2026/03/25/miscellanea-the-war-in-iran/": {
     "title": "Miscellanea: The War in Iran – A Collection of Unmitigated Pedantry",
     "description": "This post is a set of my observations on the current war in Iran and my thoughts on the broader strategic implications. I am not, of course, an expert on the region nor do I have access to any special information, so I am going to treat that all with a high degree of uncertainty.…",
-    "image": "https://acoup.blog/wp-content/uploads/2026/03/image-3.png",
-    "favicon": "https://i0.wp.com/acoup.blog/wp-content/uploads/2019/05/cropped-altar-of-domitius-ahenobarb-1-1.jpg?fit=32%2C32&#038;ssl=1",
-    "fetchedAt": "2026-03-26T06:43:08.851Z"
+    "image": "",
+    "favicon": "/linkcard-cache/favicons/ffd5531d3bf3d483.jpg",
+    "fetchedAt": "2026-03-26T06:43:08.851Z",
+    "imageOrigin": "https://acoup.blog/wp-content/uploads/2026/03/image-3.png",
+    "faviconOrigin": "https://i0.wp.com/acoup.blog/wp-content/uploads/2019/05/cropped-altar-of-domitius-ahenobarb-1-1.jpg?fit=32%2C32&#038;ssl=1"
   },
   "https://smu160.github.io/posts/missile-defense-is-np-complete/": {
     "title": "Missile Defense is NP-Complete | An Optimization Odyssey",
     "description": "Exploring the Weapon-Target Assignment problem: how missile defense connects to NP-completeness, SSPK probability calculations, and how saturation attacks exploit computational limits.",
     "image": "",
     "favicon": "https://smu160.github.io/favicon.ico",
-    "fetchedAt": "2026-03-26T06:43:08.930Z"
+    "fetchedAt": "2026-03-26T06:43:08.930Z",
+    "faviconOrigin": "https://smu160.github.io/favicon.ico"
   },
   "https://futuresearch.ai/blog/no-prompt-injection-required/": {
     "title": "No Prompt Injection Required",
     "description": "A malicious litellm release on PyPI compromised our machine through an MCP server's unpinned dependency. No prompt injection, no LLM trickery, just a poisoned package auto-downloaded by uvx.",
-    "image": "https://futuresearch.ai/futuresearch-logo.webp",
-    "favicon": "https://futuresearch.ai/icon.png?dfd4c66afe1db727",
-    "fetchedAt": "2026-03-26T06:43:09.426Z"
+    "image": "/linkcard-cache/images/adf272e14291068d.webp",
+    "favicon": "/linkcard-cache/favicons/918e773bed644605.png",
+    "fetchedAt": "2026-03-26T06:43:09.426Z",
+    "imageOrigin": "https://futuresearch.ai/futuresearch-logo.webp",
+    "faviconOrigin": "https://futuresearch.ai/icon.png?dfd4c66afe1db727"
   },
   "https://simonwillison.net/2026/Mar/19/openai-acquiring-astral/": {
     "title": "Thoughts on OpenAI acquiring Astral and uv/ruff/ty",
     "description": "The big news this morning: Astral to join OpenAI (on the Astral blog) and OpenAI to acquire Astral (the OpenAI announcement). Astral are the company behind uv, ruff, and ty—three …",
     "image": "",
-    "favicon": "https://simonwillison.net/favicon.ico",
-    "fetchedAt": "2026-03-26T06:43:09.537Z"
+    "favicon": "/linkcard-cache/favicons/7c98bdc4b8781381.ico",
+    "fetchedAt": "2026-03-26T06:43:09.537Z",
+    "faviconOrigin": "https://simonwillison.net/favicon.ico"
   },
   "https://news.ycombinator.com/item?id=47459296": {
     "title": "",
     "description": "",
     "image": "",
-    "favicon": "https://news.ycombinator.com/favicon.ico",
-    "fetchedAt": "2026-03-26T06:43:09.752Z"
+    "favicon": "/linkcard-cache/favicons/982718c702332474.ico",
+    "fetchedAt": "2026-03-26T06:43:09.752Z",
+    "faviconOrigin": "https://news.ycombinator.com/favicon.ico"
   },
   "https://blogs.windows.com/windows-insider/2026/03/20/our-commitment-to-windows-quality/": {
     "title": "Our commitment to Windows quality | Windows Insider Blog",
     "description": "Hello Windows Insiders,\n\nI want to speak to you directly, as an engineer who has spent his career building technology that people depend on every day. Windows touches more people's lives than almost any technology on Earth. Every day, we hear from th",
-    "image": "https://winblogs.thesourcemediaassets.com/sites/44/2026/03/WIP-Email_Option-2.png",
-    "favicon": "https://winblogs.thesourcemediaassets.com/sites/44/2021/06/cropped-browser-icon-logo-32x32.jpg",
-    "fetchedAt": "2026-03-26T06:43:10.039Z"
+    "image": "/linkcard-cache/images/4ae2835e2025764d.png",
+    "favicon": "/linkcard-cache/favicons/7f395784937dff01.jpg",
+    "fetchedAt": "2026-03-26T06:43:10.039Z",
+    "imageOrigin": "https://winblogs.thesourcemediaassets.com/sites/44/2026/03/WIP-Email_Option-2.png",
+    "faviconOrigin": "https://winblogs.thesourcemediaassets.com/sites/44/2021/06/cropped-browser-icon-logo-32x32.jpg"
   },
   "https://blog.janestreet.com/can-you-reverse-engineer-our-neural-network/": {
     "title": "Jane Street Blog - Can you reverse engineer our neural network?",
     "description": "A lot of “capture-the-flag” style ML puzzles give you a black box neural net, and your job is to figure out what it does. When we were thinking of creating o...",
-    "image": "https://blog.janestreet.com/can-you-reverse-engineer-our-neural-network/puzzle.png",
+    "image": "",
     "favicon": "https://blog.janestreet.com/favicon.ico",
-    "fetchedAt": "2026-03-26T06:43:10.433Z"
+    "fetchedAt": "2026-03-26T06:43:10.433Z",
+    "imageOrigin": "https://blog.janestreet.com/can-you-reverse-engineer-our-neural-network/puzzle.png",
+    "faviconOrigin": "https://blog.janestreet.com/favicon.ico"
   },
   "https://interpret.csis.org/translations/starlink-militarization-and-its-impact-on-global-strategic-stability/": {
     "title": "Starlink Militarization and Its Impact on Global Strategic Stability - Interpret: China",
     "description": "In this piece, two researchers from PLA-affiliated National University of Defense Technology argue that Starlink will negatively impact global stability, in light of its clear military applications, increased risks of accidents and collisions in space, and SpaceX's close relationship with the U.S. military. The authors foresee a worsening security dilemma as other countries react to broad U.S. deployment of Starlink, thereby impacting strategic stability in space.",
-    "image": "https://interpret.csis.org/wp-content/uploads/2022/03/logo.png",
-    "favicon": "https://interpret.csis.org/wp-content/uploads/2022/01/favicon.png",
-    "fetchedAt": "2026-03-26T06:43:12.597Z"
+    "image": "/linkcard-cache/images/259fb600aee8b7d1.png",
+    "favicon": "/linkcard-cache/favicons/67801b7c3ecc1d4e.png",
+    "fetchedAt": "2026-03-26T06:43:12.597Z",
+    "imageOrigin": "https://interpret.csis.org/wp-content/uploads/2022/03/logo.png",
+    "faviconOrigin": "https://interpret.csis.org/wp-content/uploads/2022/01/favicon.png"
   },
   "https://www.jackpearce.co.uk/posts/starlink-failover/#the-450-standby-plan": {
     "title": "Starlink Mini as a failover - Jack Pearce",
     "description": "I recently picked up a Starlink Mini to use as a backup connection for my home network. The underlying technology is fascinating - thousands of satellites in low Earth orbit delivering broadband almost anywhere. With the new £4.50 standby plan, it's an excellent way to keep things online.",
-    "image": "https://static.jackpearce.co.uk/images/posts/2025/starlink-uk-install.jpeg",
-    "favicon": "https://www.jackpearce.co.uk/favicon-96x96.png",
-    "fetchedAt": "2026-03-26T06:43:13.539Z"
+    "image": "",
+    "favicon": "/linkcard-cache/favicons/ca733c33919d8a13.png",
+    "fetchedAt": "2026-03-26T06:43:13.539Z",
+    "imageOrigin": "https://static.jackpearce.co.uk/images/posts/2025/starlink-uk-install.jpeg",
+    "faviconOrigin": "https://www.jackpearce.co.uk/favicon-96x96.png"
   },
   "https://www.nytimes.com/2026/03/20/business/student-loan-deliquency-default.html": {
     "title": "nytimes.com",
     "description": "",
     "image": "",
-    "favicon": "https://www.nytimes.com/favicon.ico",
-    "fetchedAt": "2026-03-26T06:43:13.655Z"
+    "favicon": "/linkcard-cache/favicons/6958d868d44f5620.ico",
+    "fetchedAt": "2026-03-26T06:43:13.655Z",
+    "faviconOrigin": "https://www.nytimes.com/favicon.ico"
   },
   "https://ramimac.me/teampcp/": {
     "title": "Incident Timeline // TeamPCP Supply Chain Campaign",
     "description": "Timeline and IOCs for TeamPCP's March 2026 supply chain campaign. Trivy, KICS, LiteLLM, and 45+ npm packages compromised through chained credential theft.",
-    "image": "https://ramimac.me/teampcp/og-image.png",
-    "favicon": "https://ramimac.me/favicon.ico",
-    "fetchedAt": "2026-03-26T06:43:14.011Z"
+    "image": "/linkcard-cache/images/ec00333071b67759.png",
+    "favicon": "/linkcard-cache/favicons/e995187f0a014d22.ico",
+    "fetchedAt": "2026-03-26T06:43:14.011Z",
+    "imageOrigin": "https://ramimac.me/teampcp/og-image.png",
+    "faviconOrigin": "https://ramimac.me/favicon.ico"
   },
   "https://vmfunc.re/blog/persona": {
     "title": "the watchers: how openai, the US government, and persona built an identity surveillance machine that files reports on you to the feds",
     "description": "53MB of source code leaked from a government endpoint. 269 verification checks. biometric face databases. SAR filings to FinCEN. and the same company that verifies your ChatGPT account.",
     "image": "",
-    "favicon": "https://avatars.githubusercontent.com/u/59031302?v=4",
-    "fetchedAt": "2026-03-26T06:43:14.101Z"
+    "favicon": "/linkcard-cache/favicons/bd4b2ad56bc1ac48.jpg",
+    "fetchedAt": "2026-03-26T06:43:14.101Z",
+    "faviconOrigin": "https://avatars.githubusercontent.com/u/59031302?v=4"
   },
   "https://www.instantdb.com/essays/architecture": {
     "title": "A backend for AI-coded apps",
     "description": "Instant 1.0 is out! This essay shows a bunch of demos, to explain why we think Instant is the best backend for AI-coded apps. We also cover the architecture that makes all of it work.",
-    "image": "https://www.instantdb.com/img/essays/architecture.jpg",
-    "favicon": "https://www.instantdb.com/img/icon/favicon-196x196.png",
-    "fetchedAt": "2026-04-10T04:15:59.729Z"
+    "image": "/linkcard-cache/images/e94d2f538d34d51a.jpg",
+    "favicon": "/linkcard-cache/favicons/b7b2d7aa977fbe80.png",
+    "fetchedAt": "2026-04-10T04:15:59.729Z",
+    "imageOrigin": "https://www.instantdb.com/img/essays/architecture.jpg",
+    "faviconOrigin": "https://www.instantdb.com/img/icon/favicon-196x196.png"
   },
   "https://davidoks.blog/p/how-funerals-keep-africa-poor": {
     "title": "How funerals keep Africa poor - David Oks",
     "description": "Why the poorest people in the world spend fortunes burying their dead",
-    "image": "https://substackcdn.com/image/fetch/$s_!m4zD!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0417c22b-4a4f-40c2-8baa-118fb9ffb2f6_2362x1575.png",
-    "favicon": "https://substackcdn.com/icons/substack/icon.svg",
-    "fetchedAt": "2026-04-10T04:15:59.805Z"
+    "image": "/linkcard-cache/images/69976d7dbc2edf24.jpg",
+    "favicon": "/linkcard-cache/favicons/c325c851eaf29d5a.svg",
+    "fetchedAt": "2026-04-10T04:15:59.805Z",
+    "imageOrigin": "https://substackcdn.com/image/fetch/$s_!m4zD!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0417c22b-4a4f-40c2-8baa-118fb9ffb2f6_2362x1575.png",
+    "faviconOrigin": "https://substackcdn.com/icons/substack/icon.svg"
   },
   "https://lzon.ca/posts/other/microsoft-user-abuse/": {
     "title": "How Microsoft abuses its users",
     "description": "",
     "image": "",
-    "favicon": "https://lzon.ca/favicon.ico",
-    "fetchedAt": "2026-04-10T04:15:59.909Z"
+    "favicon": "/linkcard-cache/favicons/d63af0db8c166cda.ico",
+    "fetchedAt": "2026-04-10T04:15:59.909Z",
+    "faviconOrigin": "https://lzon.ca/favicon.ico"
   },
   "https://cacm.acm.org/news/how-nasa-built-artemis-iis-fault-tolerant-computer/": {
     "title": "Attention Required! | Cloudflare",
     "description": "",
     "image": "",
-    "favicon": "https://cacm.acm.org/favicon.ico",
-    "fetchedAt": "2026-04-10T04:15:59.934Z"
+    "favicon": "/linkcard-cache/favicons/5c4c2f2e570bb2a7.ico",
+    "fetchedAt": "2026-04-10T04:15:59.934Z",
+    "faviconOrigin": "https://cacm.acm.org/favicon.ico"
   },
   "https://astral.sh/blog/open-source-security-at-astral": {
     "title": "Open source security at Astral",
     "description": "Insights and guidance from our engineering team on how Astral secures its tools.",
-    "image": "https://astral.sh/static/OpenGraph/Astral.jpg",
-    "favicon": "https://astral.sh/static/favicon-32x32.png",
-    "fetchedAt": "2026-04-10T04:16:00.128Z"
+    "image": "/linkcard-cache/images/e747ffba4b4c3138.jpg",
+    "favicon": "/linkcard-cache/favicons/f08a151d6c9217b0.png",
+    "fetchedAt": "2026-04-10T04:16:00.128Z",
+    "imageOrigin": "https://astral.sh/static/OpenGraph/Astral.jpg",
+    "faviconOrigin": "https://astral.sh/static/favicon-32x32.png"
   },
   "https://bryankeller.github.io/2026/04/08/porting-mac-os-x-nintendo-wii.html": {
     "title": "Porting Mac OS X to the Nintendo Wii | Bryan Keller’s Dev Blog",
     "description": "Mac OS X 10.0 (Cheetah) running natively on the Nintendo Wii",
     "image": "",
-    "favicon": "https://bryankeller.github.io/assets/icons/favicon-32x32.png?v=2",
-    "fetchedAt": "2026-04-10T04:16:00.210Z"
+    "favicon": "/linkcard-cache/favicons/f0e516e5ec71d6b8.png",
+    "fetchedAt": "2026-04-10T04:16:00.210Z",
+    "faviconOrigin": "https://bryankeller.github.io/assets/icons/favicon-32x32.png?v=2"
   },
   "https://github.com/aloshdenny/reverse-SynthID": {
     "title": "GitHub - aloshdenny/reverse-SynthID: reverse engineering Gemini's SynthID detection · GitHub",
     "description": "reverse engineering Gemini's SynthID detection. Contribute to aloshdenny/reverse-SynthID development by creating an account on GitHub.",
-    "image": "https://opengraph.githubassets.com/e80f7feca3058f9c3468252f0f9fb6e5b6becb56ad1dfdd0f4c531ae18791f97/aloshdenny/reverse-SynthID",
+    "image": "/linkcard-cache/images/e4085d52176ac924.png",
     "favicon": "https://github.githubassets.com/favicons/favicon",
-    "fetchedAt": "2026-04-10T04:16:01.073Z"
+    "fetchedAt": "2026-04-10T04:16:01.073Z",
+    "imageOrigin": "https://opengraph.githubassets.com/e80f7feca3058f9c3468252f0f9fb6e5b6becb56ad1dfdd0f4c531ae18791f97/aloshdenny/reverse-SynthID",
+    "faviconOrigin": "https://github.githubassets.com/favicons/favicon"
   },
   "https://www.newyorker.com/magazine/2026/04/13/sam-altman-may-control-our-future-can-he-be-trusted": {
     "title": "Sam Altman May Control Our Future—Can He Be Trusted? | The New Yorker",
     "description": "New interviews and closely guarded documents shed light on the persistent doubts about the head of OpenAI, Ronan Farrow and Andrew Marantz write.",
-    "image": "https://media.newyorker.com/photos/69cd326ac6ea0f4558d6e181/16:9/w_1280,c_limit/r47927.jpg",
-    "favicon": "https://www.newyorker.com/verso/static/thenewyorker-us/assets/favicon.ico",
-    "fetchedAt": "2026-04-10T04:16:01.433Z"
+    "image": "/linkcard-cache/images/2b548a43727a55a9.jpg",
+    "favicon": "/linkcard-cache/favicons/6d40cd07eaf82288.ico",
+    "fetchedAt": "2026-04-10T04:16:01.433Z",
+    "imageOrigin": "https://media.newyorker.com/photos/69cd326ac6ea0f4558d6e181/16:9/w_1280,c_limit/r47927.jpg",
+    "faviconOrigin": "https://www.newyorker.com/verso/static/thenewyorker-us/assets/favicon.ico"
   },
   "https://aphyr.com/posts/413-the-future-of-everything-is-lies-i-guess-culture": {
     "title": "The Future of Everything is Lies, I Guess: Culture",
     "description": "",
     "image": "",
-    "favicon": "https://aphyr.com/favicon.ico",
-    "fetchedAt": "2026-04-10T04:16:01.688Z"
+    "favicon": "/linkcard-cache/favicons/c1d5aa151d30a4b6.ico",
+    "fetchedAt": "2026-04-10T04:16:01.688Z",
+    "faviconOrigin": "https://aphyr.com/favicon.ico"
   },
   "https://www.worksinprogress.news/p/whats-new-in-biology-spring-2026": {
     "title": "What’s new in biology: spring 2026",
     "description": "A breakthrough drug for pancreatic cancer, organ recovery, weight loss drugs that preserve muscle, a whole-cell simulation, how plants make nicotine, semaglutide fails for Alzheimer’s, and more.",
-    "image": "https://substackcdn.com/image/fetch/$s_!wUvS!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6506cc44-8c3e-4e77-930d-08232d306766_1187x785.jpeg",
-    "favicon": "https://substackcdn.com/image/fetch/$s_!fsY7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1928a761-c368-4a01-adef-68f8656aa6fe%2Ffavicon-16x16.png",
-    "fetchedAt": "2026-04-22T03:57:40.725Z"
+    "image": "/linkcard-cache/images/cb4ecc90b12deae8.jpg",
+    "favicon": "/linkcard-cache/favicons/2caaf69313a0b378.png",
+    "fetchedAt": "2026-04-22T03:57:40.725Z",
+    "imageOrigin": "https://substackcdn.com/image/fetch/$s_!wUvS!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6506cc44-8c3e-4e77-930d-08232d306766_1187x785.jpeg",
+    "faviconOrigin": "https://substackcdn.com/image/fetch/$s_!fsY7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1928a761-c368-4a01-adef-68f8656aa6fe%2Ffavicon-16x16.png"
   },
   "https://thetailrisk.substack.com/p/how-to-rig-a-disputed-elections-prediction": {
     "title": "How To Rig a Disputed Election's Prediction Markets for $10 Million or Less",
     "description": "Polymarket's decentralized oracle can be bought for less than a rounding error on a campaign budget, and no one is talking about it.",
-    "image": "https://substackcdn.com/image/fetch/$s_!73Sw!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff78a3ddb-7c24-44f7-a3e2-b2683b2657cb_922x566.png",
-    "favicon": "https://substackcdn.com/image/fetch/$s_!-3Z0!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F271edca8-0c71-4133-9259-8cf6a6a6e77d%2Ffavicon-16x16.png",
-    "fetchedAt": "2026-04-22T03:57:57.912Z"
+    "image": "/linkcard-cache/images/3e72005d5d7b57a1.jpg",
+    "favicon": "/linkcard-cache/favicons/ca5b53906904e5a8.png",
+    "fetchedAt": "2026-04-22T03:57:57.912Z",
+    "imageOrigin": "https://substackcdn.com/image/fetch/$s_!73Sw!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff78a3ddb-7c24-44f7-a3e2-b2683b2657cb_922x566.png",
+    "faviconOrigin": "https://substackcdn.com/image/fetch/$s_!-3Z0!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F271edca8-0c71-4133-9259-8cf6a6a6e77d%2Ffavicon-16x16.png"
   },
   "https://dynomight.net/colors/": {
     "title": "New colors without shooting lasers into your eyes",
     "description": "Can optical illusions take you outside the human color gamut?",
-    "image": "https://dynomight.net/img/colors/goat.jpg",
+    "image": "/linkcard-cache/images/e358f000ceeeb2a1.jpg",
     "favicon": "https://dynomight.net/favicon.ico",
-    "fetchedAt": "2026-04-22T03:57:58.072Z"
+    "fetchedAt": "2026-04-22T03:57:58.072Z",
+    "imageOrigin": "https://dynomight.net/img/colors/goat.jpg",
+    "faviconOrigin": "https://dynomight.net/favicon.ico"
   },
   "https://asteriskmag.com/issues/14/the-mystery-in-the-medicine-cabinet": {
     "title": "The Mystery in the Medicine Cabinet—Asterisk",
     "description": "Acetaminophen, ibuprofen, and what doctors probably want you to know.",
-    "image": "https://asteriskmag.com/media/pages/issues/14/the-mystery-in-the-medicine-cabinet/e71f2c3954-1776281832/dynomight-social-1600x900-crop-sharpen50.png",
-    "favicon": "https://asteriskmag.com/media/pages/issues/14/77cec97831-1776192301/asterisk_marks_30.svg",
-    "fetchedAt": "2026-04-22T03:57:58.276Z"
+    "image": "",
+    "favicon": "/linkcard-cache/favicons/fca630f33ae2bf97.svg",
+    "fetchedAt": "2026-04-22T03:57:58.276Z",
+    "imageOrigin": "https://asteriskmag.com/media/pages/issues/14/the-mystery-in-the-medicine-cabinet/e71f2c3954-1776281832/dynomight-social-1600x900-crop-sharpen50.png",
+    "faviconOrigin": "https://asteriskmag.com/media/pages/issues/14/77cec97831-1776192301/asterisk_marks_30.svg"
   },
   "https://www.worksinprogress.news/p/what-really-stopped-the-boats?publication_id=90387&post_id=194798120&triggerShare=true&isFreemail=true&r=z7e9j&triedRedirect=true": {
     "title": "The myth of Nauru - The Works in Progress Newsletter",
     "description": "Many countries want to copy Australia’s immigration rules. But its most-copied border policy is not the one that worked.",
-    "image": "https://substackcdn.com/image/fetch/$s_!3Vzz!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd29528b0-94b9-4501-87e0-3be8a8cd0ee8_1600x900.jpeg",
-    "favicon": "https://substackcdn.com/image/fetch/$s_!fsY7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1928a761-c368-4a01-adef-68f8656aa6fe%2Ffavicon-16x16.png",
-    "fetchedAt": "2026-04-22T03:57:58.445Z"
+    "image": "/linkcard-cache/images/7113a192dff18b48.jpg",
+    "favicon": "/linkcard-cache/favicons/2caaf69313a0b378.png",
+    "fetchedAt": "2026-04-22T03:57:58.445Z",
+    "imageOrigin": "https://substackcdn.com/image/fetch/$s_!3Vzz!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd29528b0-94b9-4501-87e0-3be8a8cd0ee8_1600x900.jpeg",
+    "faviconOrigin": "https://substackcdn.com/image/fetch/$s_!fsY7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1928a761-c368-4a01-adef-68f8656aa6fe%2Ffavicon-16x16.png"
   },
   "https://worksinprogress.co/issue/why-japan-has-such-good-railways/": {
     "title": "Why Japan has such good railways - Works in Progress Magazine",
     "description": "Japan's railways are the finest in the world. Other countries can copy its formula.",
-    "image": "https://worksinprogress.co/wip-image/uploads/2026/04/WIP_i23-Share_Cards-japanese-railways.jpg",
-    "favicon": "https://worksinprogress.co/images/favicon.ico",
-    "fetchedAt": "2026-04-22T03:57:58.708Z"
+    "image": "/linkcard-cache/images/95164b81d6cbd051.jpg",
+    "favicon": "/linkcard-cache/favicons/7908cde02d7ed78d.ico",
+    "fetchedAt": "2026-04-22T03:57:58.708Z",
+    "imageOrigin": "https://worksinprogress.co/wip-image/uploads/2026/04/WIP_i23-Share_Cards-japanese-railways.jpg",
+    "faviconOrigin": "https://worksinprogress.co/images/favicon.ico"
   },
   "https://alexanderobenauer.com/labnotes/000/": {
     "title": "LN 000: The Lab Notes",
     "description": "The Lab Notes document the progress, experiments, and insights in my research on the future of personal computing.",
     "image": "",
-    "favicon": "https://alexanderobenauer.com/assets/icons/favicon-32x32.png",
-    "fetchedAt": "2026-04-30T05:24:47.619Z"
+    "favicon": "/linkcard-cache/favicons/4127cb190da3b872.png",
+    "fetchedAt": "2026-04-30T05:24:47.619Z",
+    "faviconOrigin": "https://alexanderobenauer.com/assets/icons/favicon-32x32.png"
   },
   "https://talkie-lm.com/introducing-talkie": {
     "title": "Introducing talkie: a 13B vintage language model from 1930",
     "description": "",
     "image": "",
-    "favicon": "https://talkie-lm.com/icon-phone-2.png",
-    "fetchedAt": "2026-04-30T05:24:47.688Z"
+    "favicon": "/linkcard-cache/favicons/96d66b3163853d96.png",
+    "fetchedAt": "2026-04-30T05:24:47.688Z",
+    "faviconOrigin": "https://talkie-lm.com/icon-phone-2.png"
   },
   "https://www.henrikkarlsson.xyz/p/looking-for-alice": {
     "title": "Looking for Alice - by Henrik Karlsson - Escaping Flatland",
     "description": "Not dating",
-    "image": "https://substackcdn.com/image/fetch/$s_!yPWW!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F3c6398db-b77f-41fe-8604-5639f4717a9a_800x688.jpeg",
-    "favicon": "https://substackcdn.com/image/fetch/$s_!NLOm!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F212e611c-82bd-4622-a8dc-5cbd2695c8a2%2Ffavicon-16x16.png",
-    "fetchedAt": "2026-04-30T05:24:47.996Z"
+    "image": "/linkcard-cache/images/1a69f7f3c1d25b0d.jpg",
+    "favicon": "/linkcard-cache/favicons/73f2834c7b4f99fd.jpg",
+    "fetchedAt": "2026-04-30T05:24:47.996Z",
+    "imageOrigin": "https://substackcdn.com/image/fetch/$s_!yPWW!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F3c6398db-b77f-41fe-8604-5639f4717a9a_800x688.jpeg",
+    "faviconOrigin": "https://substackcdn.com/image/fetch/$s_!NLOm!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F212e611c-82bd-4622-a8dc-5cbd2695c8a2%2Ffavicon-16x16.png"
   },
   "https://publicdomainreview.org/essay/magic-by-return-of-post/": {
     "title": "Magic by Return of Post: How Mail Order Delivered the Occult\n — The Public Domain Review",
     "description": "What allowed occultism to blossom in the United States at the turn of the 20th century? Linotype machines, cheap pulp paper, and newly improved postal networks. Allan Johnson investigates the forgotten history and (still living) world of mail-order magic.",
-    "image": "https://pdr-assets.b-cdn.net/essays/magic-by-return-of-post/psychic-featured.jpg",
-    "favicon": "https://publicdomainreview.org/android-icon-192x192.png",
-    "fetchedAt": "2026-04-30T05:24:48.236Z"
+    "image": "/linkcard-cache/images/6563587d0b56c776.jpg",
+    "favicon": "/linkcard-cache/favicons/9732f19e66772899.png",
+    "fetchedAt": "2026-04-30T05:24:48.236Z",
+    "imageOrigin": "https://pdr-assets.b-cdn.net/essays/magic-by-return-of-post/psychic-featured.jpg",
+    "faviconOrigin": "https://publicdomainreview.org/android-icon-192x192.png"
   },
   "https://worksinprogress.co/issue/the-worlds-most-complex-machine/": {
     "title": "The world’s most complex machine - Works in Progress Magazine",
     "description": "By betting on extreme ultraviolet lithography long before it worked, ASML became the chokepoint for cutting-edge chips.",
-    "image": "https://worksinprogress.co/wip-image/uploads/2026/04/WIP_i23-Share_Cards-asml.jpg",
-    "favicon": "https://worksinprogress.co/images/favicon.ico",
-    "fetchedAt": "2026-04-30T05:24:48.502Z"
+    "image": "/linkcard-cache/images/8b7589c30d9533b4.jpg",
+    "favicon": "/linkcard-cache/favicons/7908cde02d7ed78d.ico",
+    "fetchedAt": "2026-04-30T05:24:48.502Z",
+    "imageOrigin": "https://worksinprogress.co/wip-image/uploads/2026/04/WIP_i23-Share_Cards-asml.jpg",
+    "faviconOrigin": "https://worksinprogress.co/images/favicon.ico"
   }
 }
