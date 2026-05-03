@@ -1,0 +1,131 @@
+---
+interface Props {
+  nextPage: string | null;
+}
+
+const { nextPage } = Astro.props;
+---
+
+<div id="feed-list" data-next-page={nextPage ?? ""}>
+  <slot />
+</div>
+{nextPage && <div id="feed-sentinel" aria-hidden="true" style="height:1px"></div>}
+
+<script>
+  function skeletonItem(): HTMLElement {
+    const div = document.createElement("div");
+    div.className = "feed-item border-b border-skin-line";
+    div.setAttribute("aria-hidden", "true");
+    div.innerHTML = `<div style="padding:1rem 0">
+      <div style="display:flex;gap:0.5rem;margin-bottom:0.5rem">
+        <div class="skel" style="height:1.25rem;width:3.5rem;border-radius:9999px"></div>
+        <div class="skel" style="height:1rem;width:6rem;border-radius:0.25rem"></div>
+      </div>
+      <div style="display:flex;gap:1rem">
+        <div style="flex:1">
+          <div class="skel" style="height:1rem;width:75%;border-radius:0.25rem;margin-bottom:0.5rem"></div>
+          <div class="skel" style="height:0.75rem;width:100%;border-radius:0.25rem;margin-bottom:0.25rem"></div>
+          <div class="skel" style="height:0.75rem;width:66%;border-radius:0.25rem"></div>
+          <div style="display:flex;align-items:center;gap:0.375rem;margin-top:0.5rem">
+            <div class="skel" style="height:0.75rem;width:0.75rem;border-radius:9999px"></div>
+            <div class="skel" style="height:0.75rem;width:6rem;border-radius:0.25rem"></div>
+          </div>
+        </div>
+        <div class="skel skel-img" style="height:5rem;width:5rem;flex-shrink:0;border-radius:0.25rem"></div>
+      </div>
+    </div>`;
+    return div;
+  }
+
+  function ensureSkeletonStyles() {
+    if (document.getElementById("infinite-feed-skeleton-styles")) return;
+    const style = document.createElement("style");
+    style.id = "infinite-feed-skeleton-styles";
+    style.textContent = `
+      .skel { background-color:rgb(var(--color-border)); animation:skel-pulse 1.5s cubic-bezier(0.4,0,0.6,1) infinite; }
+      .skel-img { display:none; }
+      @media (min-width:640px) { .skel-img { display:block; } }
+      @keyframes skel-pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function ensureSentinel(): HTMLElement {
+    let s = document.getElementById("feed-sentinel");
+    if (!s) {
+      s = document.createElement("div");
+      s.id = "feed-sentinel";
+      s.setAttribute("aria-hidden", "true");
+      s.style.height = "1px";
+      document.getElementById("feed-list")?.insertAdjacentElement("afterend", s);
+    }
+    return s as HTMLElement;
+  }
+
+  let currentObserver: IntersectionObserver | null = null;
+
+  function init() {
+    currentObserver?.disconnect();
+    currentObserver = null;
+
+    const list = document.getElementById("feed-list");
+    if (!list) return;
+
+    if (!list.dataset.nextPage) {
+      document.getElementById("feed-sentinel")?.remove();
+      return;
+    }
+
+    ensureSkeletonStyles();
+    const sentinel = ensureSentinel();
+    let loading = false;
+
+    const io = new IntersectionObserver(
+      async ([entry]) => {
+        if (!entry.isIntersecting || loading) return;
+
+        const nextUrl = list.dataset.nextPage;
+        if (!nextUrl) {
+          io.disconnect();
+          return;
+        }
+
+        loading = true;
+
+        const skeletons = Array.from({ length: 5 }, skeletonItem);
+        skeletons.forEach(s => list.appendChild(s));
+
+        try {
+          const html = await fetch(nextUrl).then(r => r.text());
+          const doc = new DOMParser().parseFromString(html, "text/html");
+          const incoming = doc.getElementById("feed-list");
+          if (!incoming) { io.disconnect(); return; }
+
+          skeletons.forEach(s => s.remove());
+          Array.from(incoming.children).forEach(c => list.appendChild(c));
+
+          const nextNextPage = incoming.dataset.nextPage ?? "";
+          list.dataset.nextPage = nextNextPage;
+
+          if (!nextNextPage) {
+            io.disconnect();
+            sentinel.remove();
+          }
+        } catch (err) {
+          console.error("InfiniteFeed fetch failed:", err);
+          skeletons.forEach(s => s.remove());
+        } finally {
+          loading = false;
+        }
+      },
+      { rootMargin: "800px 0px" },
+    );
+
+    io.observe(sentinel);
+    currentObserver = io;
+  }
+
+  init();
+  document.addEventListener("astro:after-swap", init);
+  document.addEventListener("feedfilter:changed", init);
+</script>

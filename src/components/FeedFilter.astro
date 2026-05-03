@@ -1,18 +1,29 @@
 ---
-// No props needed — purely client-side filtering
+const { pathname } = Astro.url;
+const activeFilter =
+  pathname.startsWith("/weblogs") ? "weblogs"
+  : pathname.startsWith("/devlogs") ? "devlogs"
+  : pathname.startsWith("/writings") ? "writings"
+  : "all";
+
+const filters = ["all", "weblogs", "devlogs", "writings"] as const;
 ---
 
-<div class="feed-filter mb-6 flex flex-wrap gap-2">
-  <button class="filter-btn active" data-filter="all">all</button>
-  <button class="filter-btn" data-filter="weblog">weblogs</button>
-  <button class="filter-btn" data-filter="devlog">devlogs</button>
-  <button class="filter-btn" data-filter="writing">writings</button>
-</div>
+<nav class="feed-filter mb-6 flex flex-wrap gap-2" aria-label="Post type filter">
+  {filters.map(f => (
+    <button
+      class:list={["filter-btn", { active: activeFilter === f }]}
+      data-filter={f}
+    >{f}</button>
+  ))}
+</nav>
 
 <style>
   .filter-btn {
     @apply rounded border border-skin-line px-3 py-1 text-sm text-skin-base transition-colors;
     font-family: "IBM Plex Mono", monospace;
+    cursor: pointer;
+    background: transparent;
   }
   .filter-btn:hover {
     @apply border-skin-accent text-skin-accent;
@@ -20,39 +31,94 @@
   .filter-btn.active {
     @apply border-skin-accent bg-skin-accent/10 text-skin-accent;
   }
+  .filter-btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
 </style>
 
 <script>
-  function initFilter() {
+  function skeletonItem(): HTMLElement {
+    const div = document.createElement("div");
+    div.className = "feed-item border-b border-skin-line";
+    div.setAttribute("aria-hidden", "true");
+    div.innerHTML = `<div style="padding:1rem 0">
+      <div style="display:flex;gap:0.5rem;margin-bottom:0.5rem">
+        <div class="skel" style="height:1.25rem;width:3.5rem;border-radius:9999px"></div>
+        <div class="skel" style="height:1rem;width:6rem;border-radius:0.25rem"></div>
+      </div>
+      <div style="display:flex;gap:1rem">
+        <div style="flex:1">
+          <div class="skel" style="height:1rem;width:75%;border-radius:0.25rem;margin-bottom:0.5rem"></div>
+          <div class="skel" style="height:0.75rem;width:100%;border-radius:0.25rem;margin-bottom:0.25rem"></div>
+          <div class="skel" style="height:0.75rem;width:66%;border-radius:0.25rem"></div>
+          <div style="display:flex;align-items:center;gap:0.375rem;margin-top:0.5rem">
+            <div class="skel" style="height:0.75rem;width:0.75rem;border-radius:9999px"></div>
+            <div class="skel" style="height:0.75rem;width:6rem;border-radius:0.25rem"></div>
+          </div>
+        </div>
+        <div class="skel skel-img" style="height:5rem;width:5rem;flex-shrink:0;border-radius:0.25rem"></div>
+      </div>
+    </div>`;
+    return div;
+  }
+
+  function ensureSkeletonStyles() {
+    if (document.getElementById("filter-skeleton-styles")) return;
+    const style = document.createElement("style");
+    style.id = "filter-skeleton-styles";
+    style.textContent = `
+      .skel { background-color:rgb(var(--color-border)); animation:skel-pulse 1.5s cubic-bezier(0.4,0,0.6,1) infinite; }
+      .skel-img { display:none; }
+      @media (min-width:640px) { .skel-img { display:block; } }
+      @keyframes skel-pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function init() {
     const buttons = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
-    const feedItems =
-      document.querySelectorAll<HTMLElement>(".feed-item[data-post-type]");
-    const featuredSection = document.querySelector<HTMLElement>("#featured-section");
 
     buttons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const filter = btn.dataset.filter!;
+      btn.addEventListener("click", async () => {
+        if (btn.classList.contains("active") || btn.disabled) return;
 
-        buttons.forEach(b => b.classList.remove("active"));
+        buttons.forEach(b => {
+          b.classList.remove("active");
+          b.disabled = true;
+        });
         btn.classList.add("active");
 
-        feedItems.forEach(item => {
-          const postType = item.dataset.postType;
-          const matchesFilter = filter === "all" || postType === filter;
-          item.style.display = matchesFilter ? "" : "none";
-        });
+        const list = document.getElementById("feed-list");
+        if (!list) return;
 
-        if (featuredSection) {
-          const anyFeaturedVisible = [...feedItems].some(
-            item => item.dataset.featured === "true" && item.style.display !== "none"
-          );
-          featuredSection.style.display = anyFeaturedVisible ? "" : "none";
+        ensureSkeletonStyles();
+
+        // Replace feed with skeletons immediately
+        list.replaceChildren(...Array.from({ length: 5 }, skeletonItem));
+        list.dataset.nextPage = "";
+        document.dispatchEvent(new CustomEvent("feedfilter:changed"));
+
+        try {
+          const filter = btn.dataset.filter!;
+          const url = filter === "all" ? "/" : `/${filter}`;
+          const html = await fetch(url).then(r => r.text());
+          const doc = new DOMParser().parseFromString(html, "text/html");
+          const incoming = doc.getElementById("feed-list");
+          if (!incoming) return;
+
+          list.replaceChildren(...Array.from(incoming.children));
+          list.dataset.nextPage = incoming.dataset.nextPage ?? "";
+          document.dispatchEvent(new CustomEvent("feedfilter:changed"));
+        } catch (err) {
+          console.error("Filter fetch failed:", err);
+        } finally {
+          buttons.forEach(b => (b.disabled = false));
         }
       });
     });
   }
 
-  // Run on initial load and after Astro view transitions
-  initFilter();
-  document.addEventListener("astro:after-swap", initFilter);
+  init();
+  document.addEventListener("astro:after-swap", init);
 </script>
