@@ -1,0 +1,32 @@
+---
+import Socials from "@components/Socials.astro";
+import { SOCIALS } from "@config";
+
+const socialCount = SOCIALS.filter(s => s.active).length;
+---
+
+<section id="hero">
+  <h1>Everything I (never)<br />posted to Beli.</h1>
+  <p>Figure out my headspace?</p>
+  {socialCount > 0 && (
+    <div class="social-wrapper">
+      <Socials />
+    </div>
+  )}
+</section>
+
+<style>
+  #hero {
+    @apply mx-auto max-w-6xl px-4 pb-8 pt-2;
+  }
+  #hero h1 {
+    @apply my-4 text-3xl font-bold sm:my-8 sm:text-5xl;
+  }
+  #hero p {
+    @apply my-2 text-skin-base opacity-80;
+    font-family: "IBM Plex Mono", monospace;
+  }
+  .social-wrapper {
+    @apply mt-4 flex flex-col sm:flex-row sm:items-center;
+  }
+</style>

@@ -1,0 +1,39 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import FeedSection from "@components/FeedSection.astro";
+import getPostType from "@utils/getPostType";
+import getSortedPosts from "@utils/getSortedPosts";
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const filters = ["all", "weblog", "devlog", "writing"] as const;
+  const posts = await getCollection("blog");
+  const sorted = getSortedPosts(posts);
+
+  return filters.flatMap(filter => {
+    const data = filter === "all"
+      ? sorted.filter(({ data }) => !data.featured)
+      : sorted.filter(post => getPostType(post) === filter && !post.data.featured);
+
+    return paginate(data, {
+      params: { filter },
+      pageSize: 25,
+    });
+  });
+};
+
+const { filter } = Astro.params;
+const { page } = Astro.props;
+const allPosts = await getCollection("blog");
+const featuredPosts = page.currentPage === 1
+  ? getSortedPosts(allPosts).filter(post => (
+      post.data.featured && (filter === "all" || getPostType(post) === filter)
+    ))
+  : [];
+---
+
+<FeedSection
+  featuredPosts={featuredPosts}
+  posts={page.data}
+  nextPage={page.url.next ?? null}
+/>

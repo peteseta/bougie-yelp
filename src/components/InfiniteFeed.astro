@@ -12,6 +12,18 @@ const { nextPage } = Astro.props;
 {nextPage && <div id="feed-sentinel" aria-hidden="true" style="height:1px"></div>}
 
 <script>
+  type InfiniteFeedState = {
+    observer: IntersectionObserver | null;
+    bound: boolean;
+    loading: boolean;
+  };
+
+  declare global {
+    interface Window {
+      __infiniteFeedState?: InfiniteFeedState;
+    }
+  }
+
   function skeletonItem(): HTMLElement {
     const div = document.createElement("div");
     div.className = "feed-item border-b border-skin-line";
@@ -62,11 +74,21 @@ const { nextPage } = Astro.props;
     return s as HTMLElement;
   }
 
-  let currentObserver: IntersectionObserver | null = null;
+  const state = window.__infiniteFeedState ??= {
+    observer: null,
+    bound: false,
+    loading: false,
+  };
+
+  function cleanup() {
+    state.observer?.disconnect();
+    state.observer = null;
+    state.loading = false;
+    document.querySelectorAll(".feed-loading-skeleton").forEach(s => s.remove());
+  }
 
   function init() {
-    currentObserver?.disconnect();
-    currentObserver = null;
+    cleanup();
 
     const list = document.getElementById("feed-list");
     if (!list) return;
@@ -78,11 +100,9 @@ const { nextPage } = Astro.props;
 
     ensureSkeletonStyles();
     const sentinel = ensureSentinel();
-    let loading = false;
-
     const io = new IntersectionObserver(
       async ([entry]) => {
-        if (!entry.isIntersecting || loading) return;
+        if (!entry.isIntersecting || state.loading) return;
 
         const nextUrl = list.dataset.nextPage;
         if (!nextUrl) {
@@ -90,16 +110,20 @@ const { nextPage } = Astro.props;
           return;
         }
 
-        loading = true;
+        state.loading = true;
 
         const skeletons = Array.from({ length: 5 }, skeletonItem);
+        skeletons.forEach(s => s.classList.add("feed-loading-skeleton"));
         skeletons.forEach(s => list.appendChild(s));
 
         try {
-          const html = await fetch(nextUrl).then(r => r.text());
+          const response = await fetch(nextUrl);
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+          const html = await response.text();
           const doc = new DOMParser().parseFromString(html, "text/html");
           const incoming = doc.getElementById("feed-list");
-          if (!incoming) { io.disconnect(); return; }
+          if (!incoming) throw new Error("Missing #feed-list in response");
 
           skeletons.forEach(s => s.remove());
           Array.from(incoming.children).forEach(c => list.appendChild(c));
@@ -115,17 +139,21 @@ const { nextPage } = Astro.props;
           console.error("InfiniteFeed fetch failed:", err);
           skeletons.forEach(s => s.remove());
         } finally {
-          loading = false;
+          state.loading = false;
         }
       },
       { rootMargin: "800px 0px" },
     );
 
     io.observe(sentinel);
-    currentObserver = io;
+    state.observer = io;
   }
 
   init();
-  document.addEventListener("astro:after-swap", init);
-  document.addEventListener("feedfilter:changed", init);
+  if (!state.bound) {
+    document.addEventListener("astro:before-swap", cleanup);
+    document.addEventListener("astro:after-swap", init);
+    document.addEventListener("feed:replaced", init);
+    state.bound = true;
+  }
 </script>

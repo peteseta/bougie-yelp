@@ -4,14 +4,11 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import Socials from "@components/Socials.astro";
-import FeedCard from "@components/FeedCard.astro";
 import FeedFilter from "@components/FeedFilter.astro";
-import InfiniteFeed from "@components/InfiniteFeed.astro";
+import FeedSection from "@components/FeedSection.astro";
+import HomeHero from "@components/HomeHero.astro";
 import Sidebar from "@components/Sidebar.astro";
 import getSortedPosts from "@utils/getSortedPosts";
-import getPostType from "@utils/getPostType";
-import { SITE, SOCIALS } from "@config";
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   const posts = await getCollection("blog");
@@ -21,77 +18,26 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
 };
 
 const { page } = Astro.props;
-const socialCount = SOCIALS.filter(s => s.active).length;
-
 const allPosts = await getCollection("blog");
 const featuredPosts = page.currentPage === 1
   ? getSortedPosts(allPosts).filter(({ data }) => data.featured)
   : [];
-
-function stripMarkdown(text: string): string {
-  return text
-    .replace(/<[^>]+>/g, " ")
-    .replace(/```[\s\S]*?```/g, "")
-    .replace(/`[^`]+`/g, "")
-    .replace(/^#+\s+/gm, "")
-    .replace(/\*\*|__/g, "")
-    .replace(/[*_]/g, "")
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-    .replace(/^\s*[-*+]\s+/gm, "")
-    .replace(/\s+/g, " ")
-    .trim()
-    .slice(0, 500);
-}
+const nextFeedPage = page.url.next ? `/feed/all/${page.currentPage + 1}` : null;
 ---
 
 <Layout>
   <Header />
   <main id="main-content">
-    {page.currentPage === 1 && (
-      <section id="hero">
-        <h1>Everything I (never)<br />posted to Beli.</h1>
-        <p>Figure out my headspace?</p>
-        {socialCount > 0 && (
-          <div class="social-wrapper">
-            <Socials />
-          </div>
-        )}
-      </section>
-    )}
+    <HomeHero />
 
     <div class="two-col">
       <div class="feed-col">
         <FeedFilter />
-        {featuredPosts.length > 0 && (
-          <div id="featured-section" class="mb-6">
-            <div class="featured-grid">
-              {featuredPosts.map(post => (
-                <div
-                  data-post-type={getPostType(post)}
-                  data-featured="true"
-                  class="feed-item featured-grid-item"
-                >
-                  <div class="featured-card-content">
-                    <FeedCard post={post} featured={true} />
-                  </div>
-                  <p class="article-preview" aria-hidden="true">
-                    {stripMarkdown(post.body ?? "")}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-        <InfiniteFeed nextPage={page.url.next ?? null}>
-          {page.data.map(post => (
-            <div
-              data-post-type={getPostType(post)}
-              class="feed-item border-b border-skin-line"
-            >
-              <FeedCard post={post} />
-            </div>
-          ))}
-        </InfiniteFeed>
+        <FeedSection
+          featuredPosts={featuredPosts}
+          posts={page.data}
+          nextPage={nextFeedPage}
+        />
       </div>
       <div class="sidebar-col">
         <Sidebar />
@@ -103,77 +49,14 @@ function stripMarkdown(text: string): string {
 </Layout>
 
 <style>
-  #hero {
-    @apply mx-auto max-w-6xl px-4 pb-8 pt-2;
-  }
-  #hero h1 {
-    @apply my-4 text-3xl font-bold sm:my-8 sm:text-5xl;
-  }
-  #hero p {
-    @apply my-2 text-skin-base opacity-80;
-    font-family: "IBM Plex Mono", monospace;
-  }
-  .social-wrapper {
-    @apply mt-4 flex flex-col sm:flex-row sm:items-center;
-  }
-
   .two-col {
-    @apply mx-auto flex max-w-6xl flex-col gap-8 px-4 pb-12 lg:flex-row;
+    @apply mx-auto flex max-w-6xl flex-col gap-8 px-4 pb-12 pt-4 lg:flex-row;
   }
   .feed-col {
     @apply min-w-0 lg:w-2/3;
   }
   .sidebar-col {
     @apply lg:w-1/3;
-  }
-
-  .featured-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  .featured-grid-item {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgb(var(--color-border));
-    border-radius: 0.5rem;
-    padding: 1rem;
-    transition: background-color 0.15s ease;
-  }
-  .featured-grid-item:hover {
-    background-color: rgba(var(--color-card), 0.18);
-  }
-  .featured-card-content {
-    position: relative;
-    z-index: 1;
-  }
-  :global(.featured-grid-item article) {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  .article-preview {
-    position: absolute;
-    bottom: 0;
-    right: 1rem;
-    left: 1rem;
-    height: 2.75rem;
-    margin: 0;
-    font-size: 0.6rem;
-    line-height: 1.5;
-    text-align: right;
-    color: rgb(var(--color-text-base));
-    opacity: 0.22;
-    pointer-events: none;
-    overflow: hidden;
-    -webkit-mask-image:
-      linear-gradient(to bottom, transparent 30%, black 85%),
-      linear-gradient(to right, transparent 10%, black 50%);
-    mask-image:
-      linear-gradient(to bottom, transparent 30%, black 85%),
-      linear-gradient(to right, transparent 10%, black 50%);
-    -webkit-mask-composite: source-in;
-    mask-composite: intersect;
-    z-index: 0;
   }
 
   @media (max-width: 1023px) {

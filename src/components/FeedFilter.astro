@@ -7,18 +7,22 @@ const activeFilter =
   : "all";
 
 const filters = [
-  { id: "all",     label: "all" },
-  { id: "weblog",  label: "weblogs" },
-  { id: "devlog",  label: "devlogs" },
-  { id: "writing", label: "writings" },
+  { id: "all", label: "all", href: "/" },
+  { id: "weblog", label: "weblogs", href: "/weblog" },
+  { id: "devlog", label: "devlogs", href: "/devlog" },
+  { id: "writing", label: "writings", href: "/writing" },
 ] as const;
 ---
 
 <nav class="feed-filter mb-6 flex flex-wrap gap-2" aria-label="Post type filter">
-  {filters.map(({ id, label }) => (
+  {filters.map(({ id, label, href }) => (
     <button
+      type="button"
       class:list={["filter-btn", { active: activeFilter === id }]}
       data-filter={id}
+      data-fragment-url={`/feed/${id}`}
+      data-route-url={href}
+      aria-current={activeFilter === id ? "page" : undefined}
     >{label}</button>
   ))}
 </nav>
@@ -29,6 +33,7 @@ const filters = [
     font-family: "IBM Plex Mono", monospace;
     cursor: pointer;
     background: transparent;
+    text-decoration: none;
   }
   .filter-btn:hover {
     @apply border-skin-accent text-skin-accent;
@@ -36,108 +41,161 @@ const filters = [
   .filter-btn.active {
     @apply border-skin-accent bg-skin-accent/10 text-skin-accent;
   }
-  .filter-btn:disabled {
-    opacity: 0.5;
-    cursor: default;
-  }
 </style>
 
 <script>
-  function skeletonItem(): HTMLElement {
-    const div = document.createElement("div");
-    div.className = "feed-item border-b border-skin-line";
-    div.setAttribute("aria-hidden", "true");
-    div.innerHTML = `<div style="padding:1rem 0">
-      <div style="display:flex;gap:0.5rem;margin-bottom:0.5rem">
-        <div class="skel" style="height:1.25rem;width:3.5rem;border-radius:9999px"></div>
-        <div class="skel" style="height:1rem;width:6rem;border-radius:0.25rem"></div>
-      </div>
-      <div style="display:flex;gap:1rem">
-        <div style="flex:1">
-          <div class="skel" style="height:1rem;width:75%;border-radius:0.25rem;margin-bottom:0.5rem"></div>
-          <div class="skel" style="height:0.75rem;width:100%;border-radius:0.25rem;margin-bottom:0.25rem"></div>
-          <div class="skel" style="height:0.75rem;width:66%;border-radius:0.25rem"></div>
-          <div style="display:flex;align-items:center;gap:0.375rem;margin-top:0.5rem">
-            <div class="skel" style="height:0.75rem;width:0.75rem;border-radius:9999px"></div>
-            <div class="skel" style="height:0.75rem;width:6rem;border-radius:0.25rem"></div>
-          </div>
-        </div>
-        <div class="skel skel-img" style="height:5rem;width:5rem;flex-shrink:0;border-radius:0.25rem"></div>
-      </div>
-    </div>`;
-    return div;
+  type FeedFilterState = {
+    bound: boolean;
+    cache: Map<string, string>;
+    controller: AbortController | null;
+  };
+
+  declare global {
+    interface Window {
+      __feedFilterState?: FeedFilterState;
+    }
   }
 
-  function ensureSkeletonStyles() {
-    if (document.getElementById("filter-skeleton-styles")) return;
-    const style = document.createElement("style");
-    style.id = "filter-skeleton-styles";
-    style.textContent = `
-      .skel { background-color:rgb(var(--color-border)); animation:skel-pulse 1.5s cubic-bezier(0.4,0,0.6,1) infinite; }
-      .skel-img { display:none; }
-      @media (min-width:640px) { .skel-img { display:block; } }
-      @keyframes skel-pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-    `;
-    document.head.appendChild(style);
+  const state = window.__feedFilterState ??= {
+    bound: false,
+    cache: new Map(),
+    controller: null,
+  };
+
+  function getButtons() {
+    return Array.from(document.querySelectorAll<HTMLButtonElement>(".filter-btn[data-filter][data-fragment-url][data-route-url]"));
   }
 
-  function init() {
-    const buttons = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
-
-    buttons.forEach(btn => {
-      btn.addEventListener("click", async () => {
-        if (btn.classList.contains("active") || btn.disabled) return;
-
-        buttons.forEach(b => {
-          b.classList.remove("active");
-          b.disabled = true;
-        });
-        btn.classList.add("active");
-
-        const list = document.getElementById("feed-list");
-        if (!list) return;
-
-        ensureSkeletonStyles();
-
-        // Replace feed with skeletons immediately
-        list.replaceChildren(...Array.from({ length: 5 }, skeletonItem));
-        list.dataset.nextPage = "";
-        document.dispatchEvent(new CustomEvent("feedfilter:changed"));
-
-        try {
-          const filter = btn.dataset.filter!;
-
-          // Filter featured grid items in-place (data-post-type and filter are both singular)
-          const featuredSection = document.getElementById("featured-section");
-          const featuredItems = document.querySelectorAll<HTMLElement>(".featured-grid-item[data-post-type]");
-          if (featuredSection && featuredItems.length > 0) {
-            let anyVisible = false;
-            featuredItems.forEach(item => {
-              const visible = filter === "all" || item.dataset.postType === filter;
-              item.style.display = visible ? "" : "none";
-              if (visible) anyVisible = true;
-            });
-            featuredSection.style.display = anyVisible ? "" : "none";
-          }
-
-          const url = filter === "all" ? "/" : `/${filter}`;
-          const html = await fetch(url).then(r => r.text());
-          const doc = new DOMParser().parseFromString(html, "text/html");
-          const incoming = doc.getElementById("feed-list");
-          if (!incoming) return;
-
-          list.replaceChildren(...Array.from(incoming.children));
-          list.dataset.nextPage = incoming.dataset.nextPage ?? "";
-          document.dispatchEvent(new CustomEvent("feedfilter:changed"));
-        } catch (err) {
-          console.error("Filter fetch failed:", err);
-        } finally {
-          buttons.forEach(b => (b.disabled = false));
-        }
-      });
+  function setActive(filter: string) {
+    getButtons().forEach(button => {
+      const active = button.dataset.filter === filter;
+      button.classList.toggle("active", active);
+      if (active) {
+        button.setAttribute("aria-current", "page");
+      } else {
+        button.removeAttribute("aria-current");
+      }
     });
   }
 
-  init();
-  document.addEventListener("astro:after-swap", init);
+  function parseFeedSection(html: string): HTMLElement {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    const incoming = doc.getElementById("feed-section");
+    if (!incoming) throw new Error("Missing #feed-section in response");
+    return incoming;
+  }
+
+  async function loadFragment(url: string, signal?: AbortSignal) {
+    const cached = state.cache.get(url);
+    if (cached) return cached;
+
+    const response = await fetch(url, { signal });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const html = await response.text();
+    parseFeedSection(html);
+    state.cache.set(url, html);
+    return html;
+  }
+
+  function prefetch(button: HTMLButtonElement) {
+    const url = button.dataset.fragmentUrl;
+    if (!url || state.cache.has(url)) return;
+    loadFragment(url).catch(() => {});
+  }
+
+  function cacheCurrentSection() {
+    const current = document.getElementById("feed-section");
+    const activeButton = getButtons().find(button => button.classList.contains("active"));
+    const fragmentUrl = activeButton?.dataset.fragmentUrl;
+    if (current && fragmentUrl) {
+      state.cache.set(fragmentUrl, current.outerHTML);
+    }
+  }
+
+  function filterForPath(pathname: string) {
+    if (pathname.startsWith("/weblog")) return "weblog";
+    if (pathname.startsWith("/devlog")) return "devlog";
+    if (pathname.startsWith("/writing")) return "writing";
+    return "all";
+  }
+
+  async function applyFilter(button: HTMLButtonElement, mode: "push" | "replace" = "push") {
+    const current = document.getElementById("feed-section");
+    const filter = button.dataset.filter;
+    const fragmentUrl = button.dataset.fragmentUrl;
+    if (!current || !filter || !fragmentUrl) return;
+
+    const previousFilter = getButtons().find(b => b.classList.contains("active"))?.dataset.filter ?? "all";
+    state.controller?.abort();
+    state.controller = new AbortController();
+    setActive(filter);
+
+    try {
+      const html = await loadFragment(fragmentUrl, state.controller.signal);
+      const incoming = parseFeedSection(html);
+      current.replaceWith(incoming);
+      if (mode === "push") {
+        history.pushState({ feedFilter: filter }, "", button.dataset.routeUrl);
+      } else {
+        history.replaceState({ feedFilter: filter }, "", button.dataset.routeUrl);
+      }
+      document.dispatchEvent(new CustomEvent("feed:replaced"));
+    } catch (err) {
+      if (err instanceof DOMException && err.name === "AbortError") return;
+      console.error("Feed filter fetch failed:", err);
+      setActive(previousFilter);
+    } finally {
+      if (!state.controller?.signal.aborted) {
+        state.controller = null;
+      }
+    }
+  }
+
+  function onClick(event: MouseEvent) {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+
+    const button = target.closest<HTMLButtonElement>(".filter-btn[data-filter][data-fragment-url][data-route-url]");
+    if (!button) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+
+    if (button.classList.contains("active")) return;
+    applyFilter(button);
+  }
+
+  function onPopState() {
+    const filter = filterForPath(window.location.pathname);
+    const button = getButtons().find(b => b.dataset.filter === filter);
+    if (button) applyFilter(button, "replace");
+  }
+
+  function prefetchAll() {
+    getButtons().forEach(button => prefetch(button));
+  }
+
+  function bind() {
+    if (state.bound) return;
+    cacheCurrentSection();
+    history.replaceState({ feedFilter: filterForPath(window.location.pathname) }, "", window.location.href);
+    document.addEventListener("click", onClick, { capture: true });
+    document.addEventListener("mouseover", event => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const button = target.closest<HTMLButtonElement>(".filter-btn[data-fragment-url]");
+      if (button) prefetch(button);
+    });
+    window.addEventListener("popstate", onPopState);
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(prefetchAll);
+    } else {
+      window.setTimeout(prefetchAll, 250);
+    }
+    state.bound = true;
+  }
+
+  bind();
 </script>
