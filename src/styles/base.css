@@ -117,25 +117,23 @@
     overflow-y: scroll;
   }
 
-  /* width */
+  /*
   ::-webkit-scrollbar {
     @apply w-3;
   }
 
-  /* Track */
   ::-webkit-scrollbar-track {
     @apply bg-skin-fill;
   }
 
-  /* Handle */
   ::-webkit-scrollbar-thumb {
     @apply bg-skin-card;
   }
 
-  /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-skin-card-muted;
   }
+  */
 
   /* ===== Code Blocks & Syntax Highlighting ===== */
   pre:has(code) {
