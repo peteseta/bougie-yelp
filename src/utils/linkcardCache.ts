@@ -7,7 +7,9 @@ export interface LinkCardMetadata {
   title: string;
   description: string;
   image: string;
+  imageOrigin: string;
   favicon: string;
+  faviconOrigin: string;
   fetchedAt: string;
 }
 
