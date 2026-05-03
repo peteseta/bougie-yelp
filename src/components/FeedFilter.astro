@@ -1,20 +1,25 @@
 ---
 const { pathname } = Astro.url;
 const activeFilter =
-  pathname.startsWith("/weblogs") ? "weblogs"
-  : pathname.startsWith("/devlogs") ? "devlogs"
-  : pathname.startsWith("/writings") ? "writings"
+  pathname.startsWith("/weblog") ? "weblog"
+  : pathname.startsWith("/devlog") ? "devlog"
+  : pathname.startsWith("/writing") ? "writing"
   : "all";
 
-const filters = ["all", "weblogs", "devlogs", "writings"] as const;
+const filters = [
+  { id: "all",     label: "all" },
+  { id: "weblog",  label: "weblogs" },
+  { id: "devlog",  label: "devlogs" },
+  { id: "writing", label: "writings" },
+] as const;
 ---
 
 <nav class="feed-filter mb-6 flex flex-wrap gap-2" aria-label="Post type filter">
-  {filters.map(f => (
+  {filters.map(({ id, label }) => (
     <button
-      class:list={["filter-btn", { active: activeFilter === f }]}
-      data-filter={f}
-    >{f}</button>
+      class:list={["filter-btn", { active: activeFilter === id }]}
+      data-filter={id}
+    >{label}</button>
   ))}
 </nav>
 
@@ -102,15 +107,13 @@ const filters = ["all", "weblogs", "devlogs", "writings"] as const;
         try {
           const filter = btn.dataset.filter!;
 
-          // Filter featured grid items in-place
-          // filter values are plural ("weblogs") but data-post-type is singular ("weblog")
-          const postType = ({ weblogs: "weblog", devlogs: "devlog", writings: "writing" } as Record<string, string>)[filter];
+          // Filter featured grid items in-place (data-post-type and filter are both singular)
           const featuredSection = document.getElementById("featured-section");
           const featuredItems = document.querySelectorAll<HTMLElement>(".featured-grid-item[data-post-type]");
           if (featuredSection && featuredItems.length > 0) {
             let anyVisible = false;
             featuredItems.forEach(item => {
-              const visible = filter === "all" || item.dataset.postType === postType;
+              const visible = filter === "all" || item.dataset.postType === filter;
               item.style.display = visible ? "" : "none";
               if (visible) anyVisible = true;
             });
