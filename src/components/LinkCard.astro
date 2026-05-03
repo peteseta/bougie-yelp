@@ -1,9 +1,7 @@
 ---
-import {
-  getCachedMetadata,
-  setCachedMetadata,
-} from "@utils/linkcardCache";
+import { getCachedMetadata, setCachedMetadata } from "@utils/linkcardCache";
 import { fetchLinkCardMetadata } from "@utils/fetchLinkCardMetadata";
+import { decodeHtmlEntities } from "@utils/decodeHtmlEntities";
 
 interface Props {
   url: string;
@@ -21,6 +19,9 @@ async function fetchAndCacheMetadata(targetUrl: string) {
 }
 
 const metadata = await fetchAndCacheMetadata(url);
+const displayTitle =
+  decodeHtmlEntities(metadata.title || "") || new URL(url).hostname;
+const displayDescription = decodeHtmlEntities(metadata.description || "");
 ---
 
 <a
@@ -30,41 +31,53 @@ const metadata = await fetchAndCacheMetadata(url);
   class="group block border-l-[3px] border-skin-accent/40 bg-skin-card/20 px-5 py-5 mb-8 font-mono transition-[border-color,background-color] hover:border-skin-accent hover:bg-skin-card/35 !underline-offset-[3px]"
 >
   <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
-    {metadata.image && (
-      <div class="flex-shrink-0 self-start">
-        <img
-          src={metadata.image}
-          alt=""
-          loading="lazy"
-          decoding="async"
-          class="h-24 w-24 rounded border border-skin-line object-cover"
-        />
-      </div>
-    )}
+    {
+      metadata.image && (
+        <div class="flex-shrink-0 self-start">
+          <img
+            src={metadata.image}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            class="h-24 w-24 rounded border border-skin-line object-cover"
+          />
+        </div>
+      )
+    }
     <div class="min-w-0 flex-grow">
       <div class="flex flex-col">
-        <span class="text-xs font-light text-skin-base opacity-50 -mb-7">via:</span>
-        <h3 class="break-words font-medium text-skin-accent decoration-dashed !underline-offset-[3px] group-hover:underline">
-          {metadata.title || new URL(url).hostname}
+        <span class="text-xs font-light text-skin-base opacity-50 -mb-7"
+          >via:</span
+        >
+        <h3
+          class="break-words font-medium text-skin-accent decoration-dashed !underline-offset-[3px] group-hover:underline"
+        >
+          {displayTitle}
         </h3>
       </div>
-      {metadata.description && (
-        <p class="mt-2 break-words text-sm text-skin-base opacity-90 line-clamp-2">
-          {metadata.description}
-        </p>
-      )}
-      <div class="mt-2.5 flex min-w-0 items-center gap-2 text-sm text-skin-base opacity-75">
+      {
+        displayDescription && (
+          <p class="mt-2 break-words text-sm text-skin-base opacity-90 line-clamp-2">
+            {displayDescription}
+          </p>
+        )
+      }
+      <div
+        class="mt-2.5 flex min-w-0 items-center gap-2 text-sm text-skin-base opacity-75"
+      >
         <span class="flex min-w-0 items-center gap-1.5">
-          {metadata.favicon && (
-            <img
-              src={metadata.favicon}
-              alt=""
-              loading="lazy"
-              decoding="async"
-              class="h-3.5 w-3.5"
-              onerror="this.style.display='none'"
-            />
-          )}
+          {
+            metadata.favicon && (
+              <img
+                src={metadata.favicon}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                class="h-3.5 w-3.5"
+                onerror="this.style.display='none'"
+              />
+            )
+          }
           <span class="min-w-0 truncate">{new URL(url).hostname}</span>
         </span>
         <span>↗</span>
