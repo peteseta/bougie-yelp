@@ -10,7 +10,7 @@ const { url } = Astro.props;
 const metadata = getCachedMetadata(url);
 const displayTitle = decodeHtmlEntities(metadata?.title || "") || new URL(url).hostname;
 const displayDescription = decodeHtmlEntities(metadata?.description || "");
-const displayFavicon = metadata?.favicon || "/favicon.ico";
+const displayFavicon = metadata?.favicon || "";
 const displayImage = metadata?.image || "";
 ---
 
@@ -26,6 +26,10 @@ const displayImage = metadata?.image || "";
         <img
           src={displayImage}
           alt=""
+          width="80"
+          height="80"
+          loading="lazy"
+          decoding="async"
           class="h-20 w-20 rounded border border-skin-line object-cover"
         />
       </div>
@@ -44,6 +48,10 @@ const displayImage = metadata?.image || "";
           <img
             src={displayFavicon}
             alt=""
+            width="12"
+            height="12"
+            loading="lazy"
+            decoding="async"
             class="h-3 w-3"
             onerror="this.style.display='none'"
           />
