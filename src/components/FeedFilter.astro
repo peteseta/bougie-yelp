@@ -101,6 +101,22 @@ const filters = ["all", "weblogs", "devlogs", "writings"] as const;
 
         try {
           const filter = btn.dataset.filter!;
+
+          // Filter featured grid items in-place
+          // filter values are plural ("weblogs") but data-post-type is singular ("weblog")
+          const postType = ({ weblogs: "weblog", devlogs: "devlog", writings: "writing" } as Record<string, string>)[filter];
+          const featuredSection = document.getElementById("featured-section");
+          const featuredItems = document.querySelectorAll<HTMLElement>(".featured-grid-item[data-post-type]");
+          if (featuredSection && featuredItems.length > 0) {
+            let anyVisible = false;
+            featuredItems.forEach(item => {
+              const visible = filter === "all" || item.dataset.postType === postType;
+              item.style.display = visible ? "" : "none";
+              if (visible) anyVisible = true;
+            });
+            featuredSection.style.display = anyVisible ? "" : "none";
+          }
+
           const url = filter === "all" ? "/" : `/${filter}`;
           const html = await fetch(url).then(r => r.text());
           const doc = new DOMParser().parseFromString(html, "text/html");

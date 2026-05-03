@@ -14,7 +14,7 @@ import getPostType from "@utils/getPostType";
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   const posts = await getCollection("blog");
   const sorted = getSortedPosts(posts);
-  const writings = sorted.filter(p => getPostType(p) === "writing");
+  const writings = sorted.filter(p => getPostType(p) === "writing" && !p.data.featured);
   return paginate(writings, { pageSize: 25 });
 };
 
