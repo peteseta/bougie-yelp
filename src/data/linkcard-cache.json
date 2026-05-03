@@ -1165,5 +1165,59 @@
     "fetchedAt": "2026-04-30T05:24:48.502Z",
     "imageOrigin": "https://worksinprogress.co/wip-image/uploads/2026/04/WIP_i23-Share_Cards-asml.jpg",
     "faviconOrigin": "https://worksinprogress.co/images/favicon.ico"
+  },
+  "https://eclecticlight.co/2026/05/02/how-fast-is-a-macos-vm-and-how-small-could-it-be/": {
+    "title": "How fast is a macOS VM, and how small could it be? – The Eclectic Light Company",
+    "description": "Latest Geekbench performance figures for macOS VMs, and testing of how few cores and how little memory is really needed: could you run a macOS VM usefully on a MacBook Neo?",
+    "image": "/linkcard-cache/images/3424046238238797.png",
+    "imageOrigin": "https://eclecticlight.co/wp-content/uploads/2015/01/cropped-eclecticlightlogo-e1421784280911.png?w=200",
+    "favicon": "/linkcard-cache/favicons/f699cffb408423fe.png",
+    "faviconOrigin": "https://eclecticlight.co/wp-content/uploads/2015/01/cropped-eclecticlightlogo-e1421784280911.png?w=32",
+    "fetchedAt": "2026-05-03T06:41:55.929Z"
+  },
+  "https://simonwillison.net/2026/Apr/24/deepseek-v4/": {
+    "title": "DeepSeek V4—almost on the frontier, a fraction of the price",
+    "description": "Chinese AI lab DeepSeek’s last model release was V3.2 (and V3.2 Speciale) last December. They just dropped the first of their hotly anticipated V4 series in the shape of two …",
+    "image": "/linkcard-cache/images/58bdcb92ecdbe077.jpg",
+    "imageOrigin": "https://static.simonwillison.net/static/2026/deepseek-v4-card.jpg",
+    "favicon": "/linkcard-cache/favicons/7c98bdc4b8781381.ico",
+    "faviconOrigin": "https://simonwillison.net/favicon.ico",
+    "fetchedAt": "2026-05-03T06:41:55.998Z"
+  },
+  "https://www.bbc.com/news/articles/cvgzk91leweo": {
+    "title": "Smuggling Starlink tech into Iran to beat the internet blackout",
+    "description": "Sahand tells the BBC World Service he sends satellite internet terminals into Iran to help show \"the real picture\".",
+    "image": "/linkcard-cache/images/b6b43259935e0b71.jpg",
+    "imageOrigin": "https://ichef.bbci.co.uk/news/1024/branded_news/8c14/live/20b8b580-44c8-11f1-ac78-2112837ce2aa.jpg",
+    "favicon": "/linkcard-cache/favicons/52636c631235d025.png",
+    "faviconOrigin": "https://static.files.bbci.co.uk/bbcdotcom/web/20260427-074339-4d487e3684-web-3.2.0-4/favicon-32x32.png",
+    "fetchedAt": "2026-05-03T06:41:56.047Z"
+  },
+  "https://text.npr.org/nx-s1-5798892": {
+    "title": "Wyoming celebrates 'nuclear renaissance' as feds approve license for a new reactor",
+    "description": "",
+    "image": "",
+    "imageOrigin": "",
+    "favicon": "/linkcard-cache/favicons/1ad8f672881147f7.png",
+    "faviconOrigin": "https://text.npr.org/favicon.ico",
+    "fetchedAt": "2026-05-03T06:41:56.123Z"
+  },
+  "https://www.noctua.at/en/expertise/blog/how-can-it-take-so-long-to-release-black-fan-versions": {
+    "title": "Why does it take so long to release black fan versions?",
+    "description": "People often wonder why the chromax.black versions of our fans take longer to launch after the classic colours. In a nutshell, the reason is that this is less like painting a wooden fence, which is easy, and more like changing the colour of a carbon-fibre Formula 1 part, which requires re-calculating the weight, strength and aerodynamics.",
+    "image": "",
+    "imageOrigin": "",
+    "favicon": "/linkcard-cache/favicons/79cba4a447fdade7.png",
+    "faviconOrigin": "https://www.noctua.at/favicon.ico",
+    "fetchedAt": "2026-05-03T06:41:56.128Z"
+  },
+  "https://www.david-smith.org/blog/2026/04/29/maps-on-watchos/": {
+    "title": "Six Years Perfecting Maps on watchOS - David Smith, Independent iOS Developer",
+    "description": "",
+    "image": "",
+    "imageOrigin": "",
+    "favicon": "/linkcard-cache/favicons/12003e5c1ee4186f.ico",
+    "faviconOrigin": "https://www.david-smith.org/favicon.ico",
+    "fetchedAt": "2026-05-03T06:41:56.161Z"
   }
 }
