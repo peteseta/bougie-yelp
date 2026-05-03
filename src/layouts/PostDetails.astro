@@ -340,11 +340,7 @@ const nextPost =
   }
 </style>
 
-<script
-  define:vars={{ shouldShowTopProgress: !showToC }}
-  is:inline
-  data-astro-rerun
->
+<script is:inline data-astro-rerun>
   (() => {
     const setupKey = "__postDetailsSetup";
     const cleanupKey = "__postDetailsCleanup";
@@ -354,45 +350,6 @@ const nextPost =
         window[cleanupKey]();
       }
       window[cleanupKey] = undefined;
-    }
-
-    function ensureProgressBar() {
-      const existing = document.querySelector(".progress-container");
-
-      if (!shouldShowTopProgress) {
-        existing?.remove();
-        return null;
-      }
-
-      if (existing) {
-        return existing.querySelector("#myBar");
-      }
-
-      const progressContainer = document.createElement("div");
-      progressContainer.className =
-        "progress-container fixed top-0 z-10 h-1 w-full bg-skin-fill";
-
-      const progressBar = document.createElement("div");
-      progressBar.className = "progress-bar h-1 w-0 bg-skin-accent";
-      progressBar.id = "myBar";
-
-      progressContainer.appendChild(progressBar);
-      document.body.appendChild(progressContainer);
-
-      return progressBar;
-    }
-
-    function updateProgressBar() {
-      const myBar = document.getElementById("myBar");
-      if (!myBar) return;
-
-      const winScroll =
-        document.body.scrollTop || document.documentElement.scrollTop;
-      const height =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-      myBar.style.width = `${scrolled}%`;
     }
 
     function addHeadingLinks() {
@@ -495,30 +452,11 @@ const nextPost =
 
     function initPostDetails() {
       cleanup();
-
-      const controller = new AbortController();
-      const { signal } = controller;
-
-      ensureProgressBar();
-      updateProgressBar();
       addHeadingLinks();
       attachCopyButtons();
       setupBackToTop();
 
-      if (shouldShowTopProgress) {
-        document.addEventListener("scroll", updateProgressBar, {
-          passive: true,
-          signal,
-        });
-        window.addEventListener("resize", updateProgressBar, { signal });
-      }
-
-      window[cleanupKey] = () => {
-        controller.abort();
-        if (!shouldShowTopProgress) {
-          document.querySelector(".progress-container")?.remove();
-        }
-      };
+      window[cleanupKey] = undefined;
     }
 
     if (!window[setupKey]) {
