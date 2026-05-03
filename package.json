@@ -12,9 +12,9 @@
     "astro": "astro",
     "tina:build": "tinacms build",
     "tina:dev": "tinacms dev",
-    "format:check": "prettier --check . --plugin=prettier-plugin-astro",
-    "format": "prettier --write . --plugin=prettier-plugin-astro",
-    "lint": "eslint ."
+    "format:check": "prettier --check . \"!public/**\" --plugin=prettier-plugin-astro",
+    "format": "prettier --write . \"!public/**\" --plugin=prettier-plugin-astro",
+    "lint": "eslint . --ignore-pattern \"public/**\""
   },
   "dependencies": {
     "@astrojs/check": "^0.9.8",
