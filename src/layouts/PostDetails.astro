@@ -35,7 +35,7 @@ const {
 const { Content, headings } = await render(post);
 
 const postType = getPostType(post);
-const isWriting = postType === "writing";
+const showToC = postType === "writing" || postType === "devlog";
 
 const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
 const ogUrl = new URL(
@@ -72,9 +72,9 @@ const nextPost =
   <Header />
 
   <main id="main-content" class="post-shell">
-    <div class:list={["post-grid", { "post-grid--writing": isWriting }]}>
+    <div class:list={["post-grid", { "post-grid--writing": showToC }]}>
       <aside class="post-grid__left">
-        {isWriting && <ProgressTOC headings={headings} title={title} />}
+        {showToC && <ProgressTOC headings={headings} title={title} />}
       </aside>
 
       <div class="post-grid__content">
@@ -93,10 +93,7 @@ const nextPost =
         </div>
 
         <div class="post-header">
-          <h1
-            transition:name={slugifyStr(title)}
-            class="post-title"
-          >
+          <h1 transition:name={slugifyStr(title)} class="post-title">
             {title}
           </h1>
         </div>
@@ -209,7 +206,7 @@ const nextPost =
       </div>
 
       <aside class="post-grid__right">
-        {isWriting && <SidebarFootnotes />}
+        {showToC && <SidebarFootnotes />}
       </aside>
     </div>
   </main>
@@ -344,7 +341,7 @@ const nextPost =
 </style>
 
 <script
-  define:vars={{ shouldShowTopProgress: !isWriting }}
+  define:vars={{ shouldShowTopProgress: !showToC }}
   is:inline
   data-astro-rerun
 >
