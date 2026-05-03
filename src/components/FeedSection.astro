@@ -29,26 +29,28 @@ function stripMarkdown(text: string): string {
 ---
 
 <div id="feed-section">
-  {featuredPosts.length > 0 && (
-    <div id="featured-section" class="mb-6">
-      <div class="featured-grid">
-        {featuredPosts.map(post => (
-          <div
-            data-post-type={getPostType(post)}
-            data-featured="true"
-            class="feed-item featured-grid-item"
-          >
-            <div class="featured-card-content">
-              <FeedCard post={post} featured={true} />
+  {
+    featuredPosts.length > 0 && (
+      <div id="featured-section" class="mb-6">
+        <div class="featured-grid">
+          {featuredPosts.map((post) => (
+            <div
+              data-post-type={getPostType(post)}
+              data-featured="true"
+              class="feed-item featured-grid-item"
+            >
+              <div class="featured-card-content">
+                <FeedCard post={post} featured={true} />
+              </div>
+              <p class="article-preview" aria-hidden="true">
+                {stripMarkdown(post.body ?? "")}
+              </p>
             </div>
-            <p class="article-preview" aria-hidden="true">
-              {stripMarkdown(post.body ?? "")}
-            </p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-  )}
+    )
+  }
   <FeedItems posts={posts} nextPage={nextPage} />
 </div>
 

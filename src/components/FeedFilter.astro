@@ -1,10 +1,12 @@
 ---
 const { pathname } = Astro.url;
-const activeFilter =
-  pathname.startsWith("/weblog") ? "weblog"
-  : pathname.startsWith("/devlog") ? "devlog"
-  : pathname.startsWith("/writing") ? "writing"
-  : "all";
+const activeFilter = pathname.startsWith("/weblog")
+  ? "weblog"
+  : pathname.startsWith("/devlog")
+    ? "devlog"
+    : pathname.startsWith("/writing")
+      ? "writing"
+      : "all";
 
 const filters = [
   { id: "all", label: "all", href: "/" },
@@ -14,17 +16,24 @@ const filters = [
 ] as const;
 ---
 
-<nav class="feed-filter mb-6 flex flex-wrap gap-2" aria-label="Post type filter">
-  {filters.map(({ id, label, href }) => (
-    <button
-      type="button"
-      class:list={["filter-btn", { active: activeFilter === id }]}
-      data-filter={id}
-      data-fragment-url={`/feed/${id}`}
-      data-route-url={href}
-      aria-current={activeFilter === id ? "page" : undefined}
-    >{label}</button>
-  ))}
+<nav
+  class="feed-filter mb-6 flex flex-wrap gap-2"
+  aria-label="Post type filter"
+>
+  {
+    filters.map(({ id, label, href }) => (
+      <button
+        type="button"
+        class:list={["filter-btn", { active: activeFilter === id }]}
+        data-filter={id}
+        data-fragment-url={`/feed/${id}`}
+        data-route-url={href}
+        aria-current={activeFilter === id ? "page" : undefined}
+      >
+        {label}
+      </button>
+    ))
+  }
 </nav>
 
 <style>
@@ -56,18 +65,22 @@ const filters = [
     }
   }
 
-  const state = window.__feedFilterState ??= {
+  const state = (window.__feedFilterState ??= {
     bound: false,
     cache: new Map(),
     controller: null,
-  };
+  });
 
   function getButtons() {
-    return Array.from(document.querySelectorAll<HTMLButtonElement>(".filter-btn[data-filter][data-fragment-url][data-route-url]"));
+    return Array.from(
+      document.querySelectorAll<HTMLButtonElement>(
+        ".filter-btn[data-filter][data-fragment-url][data-route-url]",
+      ),
+    );
   }
 
   function setActive(filter: string) {
-    getButtons().forEach(button => {
+    getButtons().forEach((button) => {
       const active = button.dataset.filter === filter;
       button.classList.toggle("active", active);
       if (active) {
@@ -98,6 +111,32 @@ const filters = [
     return html;
   }
 
+  async function replaceFeedSection(
+    current: HTMLElement,
+    incoming: HTMLElement,
+  ) {
+    const startViewTransition = (
+      document as Document & {
+        startViewTransition?: (callback: () => void) => {
+          finished: Promise<void>;
+        };
+      }
+    ).startViewTransition?.bind(document);
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (!startViewTransition || reduceMotion) {
+      current.replaceWith(incoming);
+      return;
+    }
+
+    const transition = startViewTransition(() => {
+      current.replaceWith(incoming);
+    });
+    await transition.finished.catch(() => {});
+  }
+
   function prefetch(button: HTMLButtonElement) {
     const url = button.dataset.fragmentUrl;
     if (!url || state.cache.has(url)) return;
@@ -106,7 +145,9 @@ const filters = [
 
   function cacheCurrentSection() {
     const current = document.getElementById("feed-section");
-    const activeButton = getButtons().find(button => button.classList.contains("active"));
+    const activeButton = getButtons().find((button) =>
+      button.classList.contains("active"),
+    );
     const fragmentUrl = activeButton?.dataset.fragmentUrl;
     if (current && fragmentUrl) {
       state.cache.set(fragmentUrl, current.outerHTML);
@@ -120,13 +161,18 @@ const filters = [
     return "all";
   }
 
-  async function applyFilter(button: HTMLButtonElement, mode: "push" | "replace" = "push") {
+  async function applyFilter(
+    button: HTMLButtonElement,
+    mode: "push" | "replace" = "push",
+  ) {
     const current = document.getElementById("feed-section");
     const filter = button.dataset.filter;
     const fragmentUrl = button.dataset.fragmentUrl;
     if (!current || !filter || !fragmentUrl) return;
 
-    const previousFilter = getButtons().find(b => b.classList.contains("active"))?.dataset.filter ?? "all";
+    const previousFilter =
+      getButtons().find((b) => b.classList.contains("active"))?.dataset
+        .filter ?? "all";
     state.controller?.abort();
     state.controller = new AbortController();
     setActive(filter);
@@ -134,11 +180,15 @@ const filters = [
     try {
       const html = await loadFragment(fragmentUrl, state.controller.signal);
       const incoming = parseFeedSection(html);
-      current.replaceWith(incoming);
+      await replaceFeedSection(current, incoming);
       if (mode === "push") {
         history.pushState({ feedFilter: filter }, "", button.dataset.routeUrl);
       } else {
-        history.replaceState({ feedFilter: filter }, "", button.dataset.routeUrl);
+        history.replaceState(
+          { feedFilter: filter },
+          "",
+          button.dataset.routeUrl,
+        );
       }
       document.dispatchEvent(new CustomEvent("feed:replaced"));
     } catch (err) {
@@ -156,7 +206,9 @@ const filters = [
     const target = event.target;
     if (!(target instanceof Element)) return;
 
-    const button = target.closest<HTMLButtonElement>(".filter-btn[data-filter][data-fragment-url][data-route-url]");
+    const button = target.closest<HTMLButtonElement>(
+      ".filter-btn[data-filter][data-fragment-url][data-route-url]",
+    );
     if (!button) return;
 
     event.preventDefault();
@@ -169,23 +221,29 @@ const filters = [
 
   function onPopState() {
     const filter = filterForPath(window.location.pathname);
-    const button = getButtons().find(b => b.dataset.filter === filter);
+    const button = getButtons().find((b) => b.dataset.filter === filter);
     if (button) applyFilter(button, "replace");
   }
 
   function prefetchAll() {
-    getButtons().forEach(button => prefetch(button));
+    getButtons().forEach((button) => prefetch(button));
   }
 
   function bind() {
     if (state.bound) return;
     cacheCurrentSection();
-    history.replaceState({ feedFilter: filterForPath(window.location.pathname) }, "", window.location.href);
+    history.replaceState(
+      { feedFilter: filterForPath(window.location.pathname) },
+      "",
+      window.location.href,
+    );
     document.addEventListener("click", onClick, { capture: true });
-    document.addEventListener("mouseover", event => {
+    document.addEventListener("mouseover", (event) => {
       const target = event.target;
       if (!(target instanceof Element)) return;
-      const button = target.closest<HTMLButtonElement>(".filter-btn[data-fragment-url]");
+      const button = target.closest<HTMLButtonElement>(
+        ".filter-btn[data-fragment-url]",
+      );
       if (button) prefetch(button);
     });
     window.addEventListener("popstate", onPopState);
