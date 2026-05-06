@@ -31,6 +31,7 @@
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
     "satori": "^0.11.0",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.11",
     "tinacms": "3.3.2",
     "tslib": "^2.8.1",
