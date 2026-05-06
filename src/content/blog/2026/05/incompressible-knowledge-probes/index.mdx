@@ -1,0 +1,24 @@
+---
+author: Author
+pubDatetime: 2026-05-06T17:41:00-08:00
+title: "Incompressible Knowledge Probes: Estimating Black-Box LLM Parameter Counts via Factual Capacity"
+slug: incompressible-knowledge-probes
+type: weblog
+featured: false
+draft: false
+tags:
+  - ai
+  - llm
+  - scaling
+description: via arxiv.org
+---
+
+<LinkCard url="https://arxiv.org/pdf/2604.24827" />
+
+![Figure 1: IKP calibration curve — knowledge scales log-linearly with model size across 89 open-weight models (R² = 0.917), enabling parameter estimation of proprietary models via horizontal dashed lines.](./figure1.png)
+
+- Calibrating what the authors call "Incompressible Knowledge Probes" on open source models with known parameter counts, they found that knowledge scales log-linearly with model size
+- Using this trend, they were able to estimate the parameter count of proprietary frontier models
+- For instance, at the frontier level, GPT-5.5 is estimated to be 9.7T params, Claude Opus 4.6 is estimated to be 5.3T params, and Gemini 3.1 Pro is excluded as the largest landmark.
+- At the sub-frontier level, Sonnet 4.6 is est. 1.7T params while GPT-5 mini is est. 410B params.
+- For me, this is a reminder that scaling laws still hold and we are still scaling compute and data as much as we are scaling architectural refinements
