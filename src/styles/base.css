@@ -105,6 +105,11 @@
     height: auto;
   }
 
+  /* Footnote refs in superscripts: remove underline offset so it doesn't clip punctuation */
+  .prose sup a[data-footnote-ref] {
+    text-underline-offset: 1px;
+  }
+
   /* Hide default footnotes section on large screens (shown in sidebar instead) */
   @media (min-width: 1024px) {
     .prose section[data-footnotes] {
