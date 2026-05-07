@@ -1330,5 +1330,32 @@
     "favicon": "/linkcard-cache/favicons/12003e5c1ee4186f.ico",
     "faviconOrigin": "https://www.david-smith.org/favicon.ico",
     "fetchedAt": "2026-05-06T07:48:32.968Z"
+  },
+  "https://www.rand.org/pubs/external_publications/EP70704.html#:~:text=Capture%20of%20AI%20policy%20by,from%20the%20social%20science%20literature.": {
+    "title": "How Do AI Companies Fine-Tune Policy? Examining Regulatory Capture in AI Governance | RAND",
+    "description": "Regulatory capture of AI policy could allow industry actors to co-opt regulatory regimes to prioritize private over public welfare. We present results from interviews with 17 AI policy experts on potential outcomes and mechanisms of capture.",
+    "image": "",
+    "imageOrigin": "https://www.rand.org/etc/rand/designs/common/social-images/rand.png",
+    "favicon": "/linkcard-cache/favicons/490ee15bef4289ff.png",
+    "faviconOrigin": "https://www.rand.org/etc/rand/designs/common/images/favicon.png",
+    "fetchedAt": "2026-05-07T10:37:32.732Z"
+  },
+  "https://80000hours.org/problem-profiles/artificial-intelligence/": {
+    "title": "Why AI risks are the world’s most pressing problems | 80,000 Hours",
+    "description": "AGI could rapidly transform the world, posing existential risks to humanity. Here’s why working on AI risks could be the most important use of your career.",
+    "image": "",
+    "imageOrigin": "https://80000hours.org/wp-content/uploads/2026/02/Neural_network_-_Midjourney_and_Grok.png",
+    "favicon": "/linkcard-cache/favicons/ce5b2eae90835046.ico",
+    "faviconOrigin": "https://80000hours.org/favicon.ico",
+    "fetchedAt": "2026-05-07T10:37:33.254Z"
+  },
+  "https://herbertlui.net/dont-think-to-write-write-to-think/": {
+    "title": "Don’t think to write, write to think – Herbert Lui",
+    "description": "This is one of the lessons that every writer comes to appreciate: writing is thinking. Writing is not the artifact of thinking, it’s the actual thinking process. There’s no shortage of great quotes on this topic, the implications are less clear: Writing is the planning process and the final product: You don’t design a final […]",
+    "image": "",
+    "imageOrigin": "",
+    "favicon": "",
+    "faviconOrigin": "https://herbertlui.net/favicon.ico",
+    "fetchedAt": "2026-05-07T10:37:34.523Z"
   }
 }

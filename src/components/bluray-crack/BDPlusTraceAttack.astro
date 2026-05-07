@@ -1,0 +1,504 @@
+---
+
+---
+
+<div class="bdplus-trace">
+  <h2 class="sr-only">
+    Interactive sequence diagram showing how SlySoft's emulator intercepts BD+
+    content code by replaying pre-recorded responses from a legitimate player
+    session
+  </h2>
+
+  <div class="bdpt-top-nav">
+    <div class="bdpt-step-left">
+      <span class="bdpt-step-label">Step through:</span>
+      <div class="bdpt-step-pills" id="bdpt-pills"></div>
+    </div>
+    <div class="bdpt-nav-btns">
+      <button class="bdpt-btn" id="bdpt-prev">← Back</button>
+      <button class="bdpt-btn" id="bdpt-next">Next →</button>
+    </div>
+  </div>
+
+  <div style="position:relative">
+    <div class="bdpt-seq-cols" style="margin:0 0 20px">
+      <div class="bdpt-seq-hdr bdpt-hdr-info">BD+ content code</div>
+      <div class="bdpt-seq-hdr bdpt-hdr-emulator">
+        <div>SlySoft emulator</div>
+        <div class="bdpt-hdr-sub">replaying pre-recorded traces</div>
+      </div>
+    </div>
+
+    <div style="position:relative;min-height:40px" id="bdpt-msgs">
+      <div class="bdpt-life bdpt-life-l"></div>
+      <div class="bdpt-life bdpt-life-r"></div>
+
+      <div class="bdpt-msg-row" data-step="0">
+        <div class="bdpt-msg-desc bdpt-info-text" style="font-weight:500">
+          TRAP_Discovery
+        </div>
+        <div class="bdpt-msg-arrow" style="padding:0 calc(25% - 2px)">
+          <div class="bdpt-arrow-line bdpt-arrow-line-dim"></div>
+        </div>
+        <div style="text-align:center">
+          <span class="bdpt-msg-label bdpt-label-info"
+            >Show me your device certificate</span
+          >
+        </div>
+        <div class="bdpt-msg-desc">
+          Requests manufacturer, serial, firmware version
+        </div>
+      </div>
+
+      <div class="bdpt-msg-row" data-step="1">
+        <div
+          class="bdpt-msg-arrow bdpt-arrow-left"
+          style="padding:0 calc(25% - 2px)"
+        >
+          <div class="bdpt-arrow-line bdpt-arrow-line-success"></div>
+        </div>
+        <div style="text-align:center">
+          <span class="bdpt-msg-label bdpt-label-success"
+            >Certificate &#123; mfr, serial, fw &#125;</span
+          >
+        </div>
+        <div style="text-align:center">
+          <span class="bdpt-replay-badge">↺ from pre-recorded trace</span>
+        </div>
+      </div>
+
+      <div class="bdpt-msg-row" data-step="2">
+        <div class="bdpt-msg-desc bdpt-info-text" style="font-weight:500">
+          TRAP_PrivateKey
+        </div>
+        <div class="bdpt-msg-arrow" style="padding:0 calc(25% - 2px)">
+          <div class="bdpt-arrow-line bdpt-arrow-line-dim"></div>
+        </div>
+        <div style="text-align:center">
+          <span class="bdpt-msg-label bdpt-label-info"
+            >Sign this nonce with ECDSA</span
+          >
+        </div>
+        <div class="bdpt-msg-desc">
+          Random challenge to prove key possession
+        </div>
+      </div>
+
+      <div class="bdpt-msg-row" data-step="3">
+        <div
+          class="bdpt-msg-arrow bdpt-arrow-left"
+          style="padding:0 calc(25% - 2px)"
+        >
+          <div class="bdpt-arrow-line bdpt-arrow-line-success"></div>
+        </div>
+        <div style="text-align:center">
+          <span class="bdpt-msg-label bdpt-label-success"
+            >Signature(nonce, privkey)</span
+          >
+        </div>
+        <div style="text-align:center">
+          <span class="bdpt-replay-badge">↺ from pre-recorded trace</span>
+        </div>
+      </div>
+
+      <div class="bdpt-msg-row" data-step="4">
+        <div class="bdpt-msg-desc bdpt-info-text" style="font-weight:500">
+          TRAP_Aes / TRAP_Sha1
+        </div>
+        <div class="bdpt-msg-arrow" style="padding:0 calc(25% - 2px)">
+          <div class="bdpt-arrow-line bdpt-arrow-line-dim"></div>
+        </div>
+        <div style="text-align:center">
+          <span class="bdpt-msg-label bdpt-label-info"
+            >Run these crypto primitives</span
+          >
+        </div>
+        <div class="bdpt-msg-desc">
+          AES encrypt/decrypt, SHA-1 hash operations
+        </div>
+      </div>
+
+      <div class="bdpt-msg-row" data-step="5">
+        <div
+          class="bdpt-msg-arrow bdpt-arrow-left"
+          style="padding:0 calc(25% - 2px)"
+        >
+          <div class="bdpt-arrow-line bdpt-arrow-line-success"></div>
+        </div>
+        <div style="text-align:center">
+          <span class="bdpt-msg-label bdpt-label-success"
+            >&#123; ciphertext, hash_digest &#125;</span
+          >
+        </div>
+        <div style="text-align:center">
+          <span class="bdpt-replay-badge">↺ from pre-recorded trace</span>
+        </div>
+      </div>
+
+      <div class="bdpt-msg-row" data-step="6">
+        <div class="bdpt-msg-desc bdpt-warn-text" style="font-weight:500">
+          TRAP_FixUpTableSend
+        </div>
+        <div class="bdpt-msg-arrow" style="padding:0 calc(25% - 2px)">
+          <div class="bdpt-arrow-line bdpt-arrow-line-warn"></div>
+        </div>
+        <div class="bdpt-msg-desc">
+          Trusting the emulator as a real player, BD+ delivers the
+          title-specific decryption fix-up table
+        </div>
+        <div style="text-align:center">
+          <span class="bdpt-capture-badge" id="bdpt-capture"
+            >captured by SlySoft and used to unscramble the stream</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bdpt-insight" id="bdpt-insight-early">
+    SlySoft captured pre-recorded responses from a real licensed player, which
+    is replayed verbatim. The certificates, signatures, and hashes pass BD+
+    validation unchanged.
+  </div>
+  <div class="bdpt-insight bdpt-insight-warn" id="bdpt-insight-capture">
+    Convinced it is talking to a real player, BD+ sends the title-specific
+    decryption fix-up table. This is what the cracked player needs to unscramble
+    the video stream.
+  </div>
+</div>
+
+<style is:global>
+  .bdplus-trace {
+    --bdpt-bg: rgb(var(--color-fill));
+    --bdpt-bg-card: rgba(var(--color-card), 0.2);
+    --bdpt-text: rgb(var(--color-text-base));
+    --bdpt-text-dim: rgba(var(--color-text-base), 0.7);
+    --bdpt-text-faint: rgba(var(--color-text-base), 0.45);
+    --bdpt-border: rgb(var(--color-border));
+    --bdpt-accent: rgb(var(--color-accent));
+    --bdpt-accent-bg: rgba(var(--color-accent), 0.12);
+    --bdpt-success: #1d9e75;
+    --bdpt-success-bg: rgba(29, 158, 117, 0.12);
+    --bdpt-warn: #c97b2b;
+    --bdpt-warn-bg: rgba(201, 123, 43, 0.12);
+    --bdpt-danger: #c94040;
+    --bdpt-danger-bg: rgba(201, 64, 64, 0.12);
+    --bdpt-danger-border: rgba(201, 64, 64, 0.4);
+    --bdpt-mono: "IBM Plex Mono", monospace;
+    --bdpt-radius: 6px;
+    margin: 1.5em 0;
+    font-size: 14px;
+    font-family: var(--bdpt-mono);
+  }
+  .bdplus-trace .bdpt-seq-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .bdplus-trace .bdpt-seq-hdr {
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    border-radius: var(--bdpt-radius);
+    color: var(--bdpt-text);
+  }
+  .bdplus-trace .bdpt-hdr-info {
+    background: var(--bdpt-accent-bg);
+    color: var(--bdpt-accent);
+  }
+  .bdplus-trace .bdpt-hdr-emulator {
+    background: var(--bdpt-danger-bg);
+    color: var(--bdpt-danger);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .bdplus-trace .bdpt-hdr-sub {
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.75;
+  }
+  .bdplus-trace .bdpt-life {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--bdpt-border);
+  }
+  .bdplus-trace .bdpt-life-l {
+    left: calc(25% - 2.5px);
+  }
+  .bdplus-trace .bdpt-life-r {
+    right: calc(25% - 2.5px);
+  }
+  .bdplus-trace .bdpt-msg-row {
+    position: relative;
+    padding: 12px 0;
+    opacity: 0;
+    transform: translateY(8px);
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease;
+  }
+  .bdplus-trace .bdpt-msg-row.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .bdplus-trace .bdpt-msg-arrow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 4px 0;
+  }
+  .bdplus-trace .bdpt-arrow-line {
+    flex: 1;
+    height: 1px;
+    position: relative;
+    color: var(--bdpt-text-dim);
+    background: currentColor;
+  }
+  .bdplus-trace .bdpt-arrow-line::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+    transform: translateY(-50%) rotate(45deg);
+    transform-origin: center;
+  }
+  .bdplus-trace .bdpt-arrow-left .bdpt-arrow-line::after {
+    right: auto;
+    left: 0;
+    transform: translateY(-50%) rotate(-135deg);
+  }
+  .bdplus-trace .bdpt-arrow-line-dim {
+    color: var(--bdpt-text-dim);
+  }
+  .bdplus-trace .bdpt-arrow-line-success {
+    color: var(--bdpt-success);
+  }
+  .bdplus-trace .bdpt-arrow-line-warn {
+    color: var(--bdpt-warn);
+  }
+  .bdplus-trace .bdpt-msg-label {
+    font-family: var(--bdpt-mono);
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: inline-block;
+  }
+  .bdplus-trace .bdpt-label-info {
+    background: var(--bdpt-accent-bg);
+    color: var(--bdpt-accent);
+  }
+  .bdplus-trace .bdpt-label-success {
+    background: var(--bdpt-success-bg);
+    color: var(--bdpt-success);
+  }
+  .bdplus-trace .bdpt-label-warn {
+    background: var(--bdpt-warn-bg);
+    color: var(--bdpt-warn);
+  }
+  .bdplus-trace .bdpt-msg-desc {
+    font-size: 12px;
+    color: var(--bdpt-text-dim);
+    text-align: center;
+    margin: 2px 0 0;
+    line-height: 1.5;
+    padding: 0 40px;
+  }
+  .bdplus-trace .bdpt-info-text {
+    color: var(--bdpt-accent);
+    text-align: center;
+  }
+  .bdplus-trace .bdpt-warn-text {
+    color: var(--bdpt-warn);
+    text-align: center;
+  }
+  .bdplus-trace .bdpt-replay-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 1px 8px;
+    border-radius: var(--bdpt-radius);
+    background: rgba(29, 158, 117, 0.08);
+    color: var(--bdpt-success);
+    border: 0.5px solid rgba(29, 158, 117, 0.25);
+    margin: 3px 0 0;
+    font-family: var(--bdpt-mono);
+  }
+  .bdplus-trace .bdpt-capture-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: var(--bdpt-radius);
+    background: var(--bdpt-danger-bg);
+    color: var(--bdpt-danger);
+    margin: 4px 0 0;
+    opacity: 0;
+    transition: opacity 0.4s;
+    font-family: var(--bdpt-mono);
+  }
+  .bdplus-trace .bdpt-capture-badge.visible {
+    opacity: 1;
+  }
+  .bdplus-trace .bdpt-step-pills {
+    display: flex;
+    gap: 6px;
+  }
+  .bdplus-trace .bdpt-pill {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--bdpt-border);
+    transition:
+      background 0.2s,
+      transform 0.2s;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+  }
+  .bdplus-trace .bdpt-pill.active {
+    background: var(--bdpt-accent);
+    transform: scale(1.3);
+  }
+  .bdplus-trace .bdpt-pill.done {
+    background: var(--bdpt-text-dim);
+  }
+  .bdplus-trace .bdpt-top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 10px;
+  }
+  .bdplus-trace .bdpt-step-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .bdplus-trace .bdpt-step-label {
+    font-size: 12px;
+    color: var(--bdpt-text-dim);
+    white-space: nowrap;
+  }
+  .bdplus-trace .bdpt-nav-btns {
+    display: flex;
+    gap: 6px;
+  }
+  .bdplus-trace .bdpt-btn {
+    cursor: pointer;
+    padding: 6px 16px;
+    border-radius: var(--bdpt-radius);
+    border: 0.5px solid var(--bdpt-border);
+    background: transparent;
+    font-size: 12px;
+    color: var(--bdpt-text-dim);
+    transition:
+      background 0.15s,
+      color 0.15s;
+    font-family: var(--bdpt-mono);
+    min-width: 80px;
+    letter-spacing: 0.01em;
+  }
+  .bdplus-trace .bdpt-btn:hover:not(:disabled) {
+    background: var(--bdpt-bg-card);
+    color: var(--bdpt-text);
+  }
+  .bdplus-trace .bdpt-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+  .bdplus-trace .bdpt-insight {
+    margin: 14px 0 0;
+    padding: 10px 14px;
+    background: var(--bdpt-accent-bg);
+    border-radius: var(--bdpt-radius);
+    font-size: 13px;
+    color: var(--bdpt-accent);
+    line-height: 1.6;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      opacity 0.4s,
+      max-height 0.4s;
+  }
+  .bdplus-trace .bdpt-insight.visible {
+    opacity: 1;
+    max-height: 120px;
+  }
+  .bdplus-trace .bdpt-insight-warn {
+    background: var(--bdpt-warn-bg);
+    color: var(--bdpt-warn);
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var msgs = document.getElementById("bdpt-msgs");
+    if (!msgs) return;
+
+    var totalSteps = 7;
+    var step = -1;
+
+    var pillsEl = document.getElementById("bdpt-pills");
+    for (var i = 0; i < totalSteps; i++) {
+      var p = document.createElement("button");
+      p.className = "bdpt-pill";
+      p.setAttribute("aria-label", "Step " + (i + 1));
+      (function (idx) {
+        p.onclick = function () {
+          goTo(idx);
+        };
+      })(i);
+      pillsEl.appendChild(p);
+    }
+
+    document.getElementById("bdpt-prev").onclick = function () {
+      go(-1);
+    };
+    document.getElementById("bdpt-next").onclick = function () {
+      go(1);
+    };
+
+    function goTo(s) {
+      step = Math.max(-1, Math.min(s, totalSteps - 1));
+      msgs.querySelectorAll(".bdpt-msg-row").forEach(function (r) {
+        r.classList.toggle("visible", parseInt(r.dataset.step) <= step);
+      });
+      pillsEl.querySelectorAll(".bdpt-pill").forEach(function (pill, i) {
+        pill.classList.remove("active", "done");
+        if (i === step) pill.classList.add("active");
+        else if (i < step) pill.classList.add("done");
+      });
+
+      document
+        .getElementById("bdpt-capture")
+        .classList.toggle("visible", step >= 6);
+      document
+        .getElementById("bdpt-insight-early")
+        .classList.toggle("visible", step >= 1);
+      document
+        .getElementById("bdpt-insight-capture")
+        .classList.toggle("visible", step >= 6);
+
+      document.getElementById("bdpt-prev").disabled = step < 0;
+      document.getElementById("bdpt-next").disabled = step >= totalSteps - 1;
+    }
+
+    function go(d) {
+      goTo(step + d);
+    }
+    go(1);
+  })();
+</script>

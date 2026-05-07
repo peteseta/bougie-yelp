@@ -1,0 +1,166 @@
+---
+author: Author
+pubDatetime: 2026-05-07T17:37:00+07:00
+title: "How Blu-ray's 'unbreakable' copy protection was broken"
+slug: how-blu-ray-was-cracked
+featured: true
+draft: false
+tags:
+  - technology
+  - security
+  - reverse-engineering
+description: BD+ was the most sophisticated optical-disc DRM ever deployed. SlySoft broke it anyway.
+---
+
+import BDPlusXorFilter from "@components/bluray-crack/BDPlusXorFilter.astro";
+import BDPlusTraceAttack from "@components/bluray-crack/BDPlusTraceAttack.astro";
+import BDPlusGantt from "@components/bluray-crack/BDPlusGantt.astro";
+
+In July 2007, analyst Richard Doherty of the Envisioneering Group predicted that BD+, the new copy protection system shipping on Blu-ray discs, "won't likely be breached for 10 years." Eight months later, a company in Antigua released a €30 piece of software that stripped it from every Blu-ray disc on the market.
+
+What happened in between?
+
+An arms race that, despite years of back-and-forth, the defenders never had a chance of winning.
+
+**A fundamental problem: keeping secrets from your own customers.** Every DRM system ever built for consumer media has the same problem. Cory Doctorow explains in a 2004 talk for Microsoft Research[^cory]:
+
+> In DRM, the attacker is _also the recipient_... At the end of the day, all DRM systems share a common vulnerability: they provide their attackers with ciphertext, the cipher and the key. At this point, the secret isn't a secret anymore.
+
+[^cory]: https://craphound.com/msftdrm.txt
+
+# A virtual machine on every disc
+
+BD+'s designers at Cryptography Research, Inc. (CRI) knew this, in fact their original whitepaper opens by admitting that "most commercial security systems fail catastrophically once an implementation is compromised."
+
+The idea with BD+ was to lessen the impact of a single compromise.
+
+Previous optical-disc DRM systems, such as CSS on DVDs and first-generation AACS on early Blu-rays, relied on static encryption keys. Once a key was compromised, every disc using that key was cracked forever.
+
+In BD+, instead of relying on a single encryption scheme, every Blu-ray disc shipped with its own executable. This ran inside a small virtual machine embedded in the Blu-ray player itself, and its job was to interrogate the player, verify it was legitimate, and only then repair deliberately corrupted sections of the video.
+
+## Corrupted?
+
+During mastering, random sections of the video stream are overwritten with garbage data. Even if you’re able to rip the disc and bypass the encryption without running the BD+ program, you get a movie that plays but with constant visual glitches. It’s watchable enough to see what you're missing, but unwatchable enough to be commercially useless (bootlegs).
+
+The BD+ code, after it's satisfied the player is authentic, generates a **conversion table**, which contains a list of patches that say _at byte offset X, replace 12 bytes with this original data_. The player applies these patches during playback, and you see the movie as intended.
+
+The advantage was supposed to be renewability. Because each disc carried its own security code, studios could ship new defenses with every title. Even if an attacker cracked one movie's protection, the next release could carry revised countermeasures. CRI envisioned it as a "chess game of pirate attacks and publisher countermeasures,.
+
+# Inside the virtual machine
+
+The VM itself is a 32-bit processor modeled on the DLX — an academic RISC instruction set designed by Hennessy and Patterson as a teaching tool.[^1] It has 32 general-purpose registers, 4 MB of addressable memory, and 59 instructions.
+
+[^1]: _Computer Organization and Design_ is probably the standard reference for undergraduate computer architecture courses. And they won the Turing Award in 2017 for their work on RISC.
+
+Two instructions matter most for the protection scheme.
+
+- `TRAP` is the system call instruction. The program uses this to talk to the player, for instance performing cryptographic operations (AES, SHA-1, ECDSA signing), device discovery (requesting the player’s identity certificate), media verification, and the `TRAP_FixUpTableSend` that delivers the conversion table.
+- `INSTF` sets the "instruction filter" register, and this is where it get adversarial.
+
+<BDPlusXorFilter />
+
+Before executing any instruction, the VM XORs it with the current value of the instruction filter register. When the filter is zero, code runs as-is. But the BD+ program routinely calls `INSTF` to change the filter to values derived from AES computations, SHA-1 hashes, or device-specific data.
+
+This means that if you open the raw `.svm` file from the disc and try to disassemble it, it’s nonsense. The real instructions exist only in memory at runtime, and only if you correctly emulate the entire chain of cryptographic operations that produced the filter values.
+
+This is an elegant anti-reverse-engineering measure, particularly against static analysis. This stopped attackers from reading the security code off the disc and understanding it. An attacker would have to run it in an environment that behaves exactly like a real player, or the instructions literally decode to different operations.
+
+# _BD+ didn't offer you any advanced security_
+
+SlySoft, Inc. was an Antigua-based software company that had been making disc-copying tools since the early 2000s. Their product, AnyDVD, could strip copy protection from DVDs and (later) Blu-rays. They were lean, legally aggressive in their choice of jurisdiction, and good at what they did.
+
+In November 2007, SlySoft's beta release of AnyDVD HD demonstrated that the first generation of BD+ discs had a bug: the security code didn't bother checking whether AACS (the separate, underlying Blu-ray encryption layer) was still present. SlySoft's software stripped AACS, and then the BD+ code ran happily on an unmodified copy of CyberLink PowerDVD, oblivious that the disc had already been ripped.
+
+The changelog included a message to Twentieth Century Fox:
+
+> Note to Twentieth Century Fox: As you can see, BD+ didn't offer you any advanced security, it just annoyed some of your customers with older players. So could you please cut this crap and start publishing your titles on HD DVD?
+
+This was a workaround though, not a real crack. It only worked on those early titles and required a specific version of PowerDVD. The full crack came about four months later.
+
+# The trace-recording attack
+
+On March 19, 2008, SlySoft released AnyDVD HD 6.4.0.0. This one stripped BD+ from every Blu-ray disc on the market at the time.
+
+BD+ content code has to run on licensed software players (PowerDVD, WinDVD) that execute on ordinary PCs. SlySoft captured the behavior of those players during legitimate playback, recorded every interaction between the BD+ code and the player environment, and built an emulator that replayed those interactions perfectly. When the BD+ program asked for a device certificate, SlySoft's emulator gave it one captured from a real player. When it challenged the player to sign a cryptographic nonce, the emulator replayed a recorded signature.
+
+<BDPlusTraceAttack />
+
+The content code had no way to tell the difference. Verification requires trusting the endpoint, and the endpoint was a PC the attacker controlled.
+
+Peer van Heuen, SlySoft's head of HD technologies, was characteristically confident in the press release:
+
+> “We are rather proud to have brought back to earth the highly-praised and previously 'unbreakable' BD+."
+> He also admitted that SlySoft had delayed the release from December 2007 "for strategic reasons to wait a bit for the outcome of the format war between HD DVD and Blu-ray."
+
+# The Doom9 volunteers
+
+While SlySoft worked commercially and in secret, a parallel effort played out in public on the Doom9 forum, the same community that had been the center of DVD and AACS reverse engineering for years.
+
+On August 24, 2008, a user posting as _Oopho2ei_ (who described themselves as "not a professional programmer") opened a thread titled "Finally handling BD+ (?)" and began reverse-engineering the VM's instruction set. When asked if the opcodes came from the BD+ patent, Oopho2ei said: "Most of it is from compromised players. I won't give any details about which and how. Don't even try. :)"
+
+Over the next five weeks, the thread became a collective clean-room reimplementation of the BD+ virtual machine. Oopho2ei documented the instruction set, a contributor called Schluppo rewrote the codebase into a functional disassembler, and bmnot built a graphical debugger. The complete Java-based VM emulator was small: 294 lines for the VM, 245 for the debugger.
+
+Validation came when their reimplementation ran a complete BD+ program for over two million instructions with 477 trap calls, producing register and memory states identical to those dumped from a real licensed player. In late October, Oopho2ei announced the first successful restoration of a BD+ protected movie — _The Day After Tomorrow_ — running completely on open-source tools under Linux.
+
+This codebase eventually became `libbdplus`, released by VideoLAN (the maintainers of the media player VLC)
+in December 2013.
+
+# The arms race
+
+Recall that CRI had designed BD+ for exactly this scenario - an ongoing cat-and-mouse game where each new disc carried updated defenses.
+
+This is what they got:
+
+<BDPlusGantt />
+
+The pattern is obvious. The first generation held for eight months. The second only held for one. After that, no generation of BD+ lasted more than a couple of months before SlySoft pushed an update. The "chess game" CRI had envisioned was there, it just turned out that one side was much faster than the other.
+
+The ongoing cost did have one real consequence, though: in January 2009, SlySoft dropped lifetime update subscriptions for the first time in company history. BD+ was the first DRM system that actually made piracy _expensive_ to maintain, because it had to be broken again with every new title.
+
+# An honest DRM
+
+BD+’s designers were honest, unlike other DRM developers like Irdeto/Denuvo.
+
+CRI's original whitepaper concedes that "piracy, like credit card fraud and computer security, is a problem that cannot be solved completely." BD+ was designed to delay, not prevent piracy. CRI partner Mike Rodgers explained the business logic to Stanford Magazine: since studios make 97% of their revenue in the first few weeks after release, even a few weeks of protection has commercial value.
+
+An independent security evaluation by Matthew Green (who would go on to become one of the most respected cryptographers in the world) reached the same conclusion in 2005, before BD+ even shipped: "No device-side content protection system can withstand all attacks. We note explicitly that the protection offered by SPDC content code should be considered time-limited."
+
+This is a more defensible position than "unbreakable," and if the industry had stuck to it, the BD+ story might be remembered more charitably. But analysts promised ten years, studios promoted it as the solution, and when it fell in eight months, the narrative was set.
+
+# The fox that wouldn't die
+
+SlySoft's legal history is its own kind of DRM story.
+
+The company incorporated in Antigua and Barbuda strategically (there was no anti-circumvention law), and Antigua was locked in a WTO dispute with the United States over online gambling, which it won in 2005. The small Caribbean nation had been granted the right to suspend US intellectual property obligations as retaliation, creating a jurisdiction with no interest in helping American copyright holders.
+
+AACS LA, the consortium behind Blu-ray encryption, spent over seven years trying to shut SlySoft down. In 2014, a local magistrate convicted founder Giancarlo Bettini on six counts under Antigua's anti-circumvention law — the first such conviction ever — with total fines of $30,000. Bettini appealed.
+
+Two years later in February 2016, SlySoft's website shut down:
+
+> Due to recent regulatory requirements we have had to cease all activities relating to SlySoft Inc.
+
+A team member added on the forums:
+
+> SlySoft has been shut down after almost 13 years... Goodbye red fox...
+
+The ellipsis was a tell.
+
+Six days later, RedFox launched at redfox.bz — a Belize domain with infrastructure in Latvia — releasing a new version of AnyDVD with the changelog line: "AnyDVD reborn! SlySoft is dead, long live RedFox!"
+
+The team revealed they had never been physically based in Antigua, and that they still had access to SlySoft's build systems and licensing servers.
+
+RedFox operated for eight more years before disappearing without explanation in June 2024. The last offline protection database had been released days before the shutdown — suggesting they may have anticipated the end.
+
+As of May 2026, RedFox has never returned.
+
+# A game it cannot win
+
+No doubt that BD+ was, by the standards of DRM, innovative. The per-disc updatability meant attackers couldn't crack the system once and walk away, and so for the first time, a DRM system imposed real ongoing costs on the attackers trying to break it.
+
+Of course, none of that changes the fundamental. The player runs on the user's hardware. The keys are in the player. The user can watch the player use the keys. At some point, the software has to decrypt the video and put pixels on the screen, and at that point, the secret is out.
+
+BD+ proved, ultimately, is not that DRM doesn't work. It's that it _can't_ work, at least not as a permanent solution. Its designers knew this from the start, and from it they built the most honest and technically interesting copy-protection system of the whole optical-disc era.
+
+---
+
+**Disclosure.** Claude Sonnet 4.6 helped me generate the interactive visualizations.

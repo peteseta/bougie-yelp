@@ -1,0 +1,486 @@
+---
+
+---
+
+<div class="bdplus-xor">
+  <h2 class="sr-only">
+    Interactive diagram showing how BD+ XOR instruction filters cause the same
+    stored bytes to decode into different programs depending on runtime state
+  </h2>
+
+  <p class="bdpx-intro">
+    The same bytes on disc produce different programs depending on the
+    instruction filter. Toggle between states to see how the decoded
+    instructions change:
+  </p>
+
+  <div class="bdpx-state-btns" id="bdpx-btns"></div>
+  <div class="bdpx-filter-display">
+    <span class="bdpx-filter-lbl">INSTF register</span>
+    <span id="bdpx-filter-val" class="bdpx-filter-mono">0x00000000</span>
+  </div>
+
+  <div class="bdpx-pipeline">
+    <div class="bdpx-pipe-stage">
+      <span class="bdpx-pipe-label">.svm file on disc</span>
+      <div class="bdpx-pipe-box">
+        <div class="bdpx-hex" id="bdpx-stored-hex"></div>
+      </div>
+    </div>
+
+    <div class="bdpx-arrow">
+      <svg
+        viewBox="0 0 28 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M2 12H22M18 7l6 5-6 5"></path>
+      </svg>
+    </div>
+
+    <div class="bdpx-xor-sym">
+      <svg width="90" height="104" viewBox="0 0 90 104" aria-hidden="true">
+        <circle cx="45" cy="45" r="40" class="bdpx-xor-circle"></circle>
+        <text
+          x="45"
+          y="45"
+          text-anchor="middle"
+          dominant-baseline="central"
+          class="bdpx-xor-text">XOR</text
+        >
+        <text x="45" y="96" text-anchor="middle" class="bdpx-xor-sub"
+          >⊕ filter</text
+        >
+      </svg>
+    </div>
+
+    <div class="bdpx-arrow">
+      <svg
+        viewBox="0 0 28 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M2 12H22M18 7l6 5-6 5"></path>
+      </svg>
+    </div>
+
+    <div class="bdpx-pipe-stage">
+      <span class="bdpx-pipe-label">Decoded instructions</span>
+      <div class="bdpx-pipe-box bdpx-pipe-box-accent">
+        <div class="bdpx-asm" id="bdpx-decoded-asm"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bdpx-xor-detail-label">
+    Byte-level XOR breakdown (first 4 bytes)
+  </div>
+  <div class="bdpx-xor-bits" id="bdpx-xor-detail"></div>
+
+  <div class="bdpx-takeaway" id="bdpx-takeaway"></div>
+</div>
+
+<style is:global>
+  .bdplus-xor {
+    --bdpx-bg-card: rgba(var(--color-card), 0.2);
+    --bdpx-text: rgb(var(--color-text-base));
+    --bdpx-text-dim: rgba(var(--color-text-base), 0.7);
+    --bdpx-text-faint: rgba(var(--color-text-base), 0.45);
+    --bdpx-border: rgb(var(--color-border));
+    --bdpx-accent: rgb(var(--color-accent));
+    --bdpx-accent-bg: rgba(var(--color-accent), 0.12);
+    --bdpx-warn: #c97b2b;
+    --bdpx-warn-bg: rgba(201, 123, 43, 0.12);
+    --bdpx-success: #1d9e75;
+    --bdpx-success-bg: rgba(29, 158, 117, 0.12);
+    --bdpx-mono: "IBM Plex Mono", monospace;
+    --bdpx-radius: 6px;
+    margin: 1.5em 0;
+    font-size: 14px;
+    font-family: var(--bdpx-mono);
+  }
+  .bdplus-xor .bdpx-state-btns {
+    display: flex;
+    gap: 8px;
+    margin: 0 0 12px;
+    flex-wrap: wrap;
+  }
+  .bdplus-xor .bdpx-state-btn {
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: var(--bdpx-radius);
+    border: 0.5px solid var(--bdpx-border);
+    background: transparent;
+    font-size: 12px;
+    color: var(--bdpx-text-dim);
+    transition: all 0.15s;
+    font-family: inherit;
+    line-height: 1.4;
+    text-align: left;
+    flex: 1;
+    min-width: 0;
+  }
+  .bdplus-xor .bdpx-state-btn:hover {
+    background: var(--bdpx-bg-card);
+    color: var(--bdpx-text);
+  }
+  .bdplus-xor .bdpx-state-btn.active {
+    border-color: var(--bdpx-accent);
+    background: var(--bdpx-accent-bg);
+    color: var(--bdpx-accent);
+  }
+  .bdplus-xor .bdpx-state-lbl {
+    font-size: 11px;
+    color: inherit;
+    margin: 0 0 2px;
+    opacity: 0.7;
+  }
+  .bdplus-xor .bdpx-state-mono {
+    font-family: var(--bdpx-mono);
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .bdplus-xor .bdpx-filter-display {
+    font-family: var(--bdpx-mono);
+    font-size: 13px;
+    padding: 7px 12px;
+    border-radius: var(--bdpx-radius);
+    background: var(--bdpx-bg-card);
+    color: var(--bdpx-text);
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .bdplus-xor .bdpx-filter-lbl {
+    color: var(--bdpx-text-dim);
+    font-size: 11px;
+    font-weight: 500;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .bdplus-xor .bdpx-filter-mono {
+    font-family: var(--bdpx-mono);
+    color: var(--bdpx-accent);
+  }
+  .bdplus-xor .bdpx-pipeline {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0;
+    margin: 0 0 16px;
+  }
+  .bdplus-xor .bdpx-pipe-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 0 1 140px;
+    min-width: 0;
+  }
+  .bdplus-xor .bdpx-pipe-label {
+    font-size: 11px;
+    color: var(--bdpx-text-faint);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    text-align: center;
+  }
+  .bdplus-xor .bdpx-pipe-box {
+    border: 0.5px solid var(--bdpx-border);
+    border-radius: var(--bdpx-radius);
+    padding: 10px 12px;
+    width: 100%;
+    text-align: center;
+    background: rgb(var(--color-fill));
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bdplus-xor .bdpx-pipe-box-accent {
+    border-color: var(--bdpx-accent);
+  }
+  .bdplus-xor .bdpx-hex {
+    font-family: var(--bdpx-mono);
+    font-size: 12px;
+    color: var(--bdpx-text);
+    line-height: 1.7;
+    word-break: break-all;
+  }
+  .bdplus-xor .bdpx-asm {
+    font-family: var(--bdpx-mono);
+    font-size: 12px;
+    line-height: 1.7;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .bdplus-xor .bdpx-asm .op {
+    color: var(--bdpx-accent);
+  }
+  .bdplus-xor .bdpx-asm .reg {
+    color: var(--bdpx-warn);
+  }
+  .bdplus-xor .bdpx-arrow {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: 28px;
+    color: var(--bdpx-text-faint);
+    padding-top: 22px;
+  }
+  .bdplus-xor .bdpx-arrow svg {
+    width: 100%;
+    height: 24px;
+  }
+  .bdplus-xor .bdpx-xor-sym {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 100px;
+    padding-top: 22px;
+  }
+  .bdplus-xor .bdpx-xor-sym svg {
+    width: 90px;
+    height: 104px;
+    display: block;
+  }
+  .bdplus-xor .bdpx-xor-circle {
+    fill: var(--bdpx-bg-card);
+    stroke: var(--bdpx-border);
+    stroke-width: 0.5;
+  }
+  .bdplus-xor .bdpx-xor-text {
+    font-family: var(--bdpx-mono);
+    font-size: 18px;
+    font-weight: 600;
+    fill: var(--bdpx-text);
+  }
+  .bdplus-xor .bdpx-xor-sub {
+    font-size: 11px;
+    fill: var(--bdpx-text-faint);
+  }
+  .bdplus-xor .bdpx-xor-detail-label {
+    font-size: 11px;
+    color: var(--bdpx-text-faint);
+    margin: 0 0 6px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .bdplus-xor .bdpx-xor-bits {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    margin: 0 0 14px;
+    font-family: var(--bdpx-mono);
+    font-size: 11px;
+    text-align: center;
+  }
+  .bdplus-xor .bdpx-xor-bits span {
+    padding: 3px 0;
+    border-radius: 4px;
+    transition:
+      background 0.2s,
+      color 0.2s;
+    color: var(--bdpx-text-dim);
+  }
+  .bdplus-xor .bdpx-xor-bits .hdr {
+    font-size: 10px;
+    color: var(--bdpx-text-faint);
+    padding: 2px 0;
+  }
+  .bdplus-xor .bdpx-xor-bits .changed {
+    background: var(--bdpx-warn-bg);
+    color: var(--bdpx-warn);
+  }
+  .bdplus-xor .bdpx-xor-bits .same {
+    background: var(--bdpx-bg-card);
+    color: var(--bdpx-text-faint);
+  }
+  .bdplus-xor .bdpx-intro {
+    font-size: 13px;
+    color: var(--bdpx-text-dim);
+    margin: 0 0 12px;
+    line-height: 1.6;
+  }
+  .bdplus-xor .bdpx-takeaway {
+    font-size: 13px;
+    color: var(--bdpx-accent);
+    padding: 10px 14px;
+    background: var(--bdpx-accent-bg);
+    border-radius: var(--bdpx-radius);
+    line-height: 1.6;
+  }
+  @media (max-width: 520px) {
+    .bdplus-xor .bdpx-state-btns {
+      gap: 6px;
+    }
+    .bdplus-xor .bdpx-state-btn {
+      flex: 1 1 100%;
+    }
+    .bdplus-xor .bdpx-hex {
+      font-size: 11px;
+    }
+    .bdplus-xor .bdpx-asm {
+      font-size: 11px;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var btnContainer = document.getElementById("bdpx-btns");
+    if (!btnContainer) return;
+
+    var states = [
+      {
+        label: "No filter",
+        filterHex: "0x00000000",
+        filter: 0x00000000,
+        desc: "Filter zeroed, and stored bytes pass through unchanged",
+        takeaway:
+          "With filter = 0, disassembly looks straightforward. An attacker might think that they've found the real code.",
+        asm: [
+          { op: "MOV", args: "R0, #0x4F" },
+          { op: "ADD", args: "R1, R0, #0x12" },
+          { op: "STR", args: "R2, [R3]" },
+          { op: "BNE", args: "0xA840" },
+        ],
+      },
+      {
+        label: "AES-derived filter",
+        filterHex: "0xA3F2B107",
+        filter: 0xa3f2b107,
+        desc: "INSTF loads key derived from an AES round",
+        takeaway:
+          "The same bytes on disc now decode to a different program. The obvious disassembly was just a phantom.",
+        asm: [
+          { op: "TRAP", args: "#0xEC" },
+          { op: "XOR", args: "R5, R7, R6" },
+          { op: "CMP", args: "R0, #0xBE" },
+          { op: "BEQ", args: "0x0147" },
+        ],
+      },
+      {
+        label: "Device fingerprint",
+        filterHex: "0x7D81E53A",
+        filter: 0x7d81e53a,
+        desc: "Filter derived from player hardware ID, which is unique per device",
+        takeaway:
+          "A third interpretation from identical disc bytes. The filter value is bound to the player's hardware, and code that runs correctly on one device is garbage on another.",
+        asm: [
+          { op: "PUSH", args: "{R4, LR}" },
+          { op: "LDR", args: "R1, [R2, #8]" },
+          { op: "ORR", args: "R3, R3, #0x40" },
+          { op: "BL", args: "0xE27A" },
+        ],
+      },
+    ];
+
+    var storedBytes = [
+      0x4f, 0x12, 0x03, 0xa8, 0x23, 0x91, 0x5c, 0xbe, 0x70, 0x44, 0xd1, 0x07,
+      0x8a, 0x40, 0x00, 0x47,
+    ];
+
+    function hexStr(bytes) {
+      return bytes
+        .map(function (b) {
+          return b.toString(16).toUpperCase().padStart(2, "0");
+        })
+        .join(" ");
+    }
+
+    function renderXorDetail(stored, filter) {
+      var fb = [
+        (filter >>> 24) & 0xff,
+        (filter >>> 16) & 0xff,
+        (filter >>> 8) & 0xff,
+        filter & 0xff,
+      ];
+      var first4 = stored.slice(0, 4);
+      var html =
+        '<span class="hdr">stored</span><span class="hdr">filter</span><span class="hdr">result</span><span class="hdr">changed?</span>';
+      first4.forEach(function (b, i) {
+        var f = fb[i];
+        var r = b ^ f;
+        var changed = f !== 0;
+        html +=
+          "<span>" + b.toString(16).toUpperCase().padStart(2, "0") + "</span>";
+        html +=
+          "<span>" + f.toString(16).toUpperCase().padStart(2, "0") + "</span>";
+        html +=
+          '<span class="' +
+          (changed ? "changed" : "same") +
+          '">' +
+          r.toString(16).toUpperCase().padStart(2, "0") +
+          "</span>";
+        html +=
+          '<span class="' +
+          (changed ? "changed" : "same") +
+          '">' +
+          (changed ? "yes" : "—") +
+          "</span>";
+      });
+      return html;
+    }
+
+    var active = 0;
+
+    function render() {
+      var s = states[active];
+      document.getElementById("bdpx-filter-val").textContent = s.filterHex;
+      document.getElementById("bdpx-stored-hex").textContent =
+        hexStr(storedBytes);
+      document.getElementById("bdpx-decoded-asm").innerHTML = s.asm
+        .map(function (i) {
+          return (
+            '<span class="op">' +
+            i.op +
+            '</span> <span class="reg">' +
+            i.args +
+            "</span>"
+          );
+        })
+        .join("<br>");
+      document.getElementById("bdpx-xor-detail").innerHTML = renderXorDetail(
+        storedBytes,
+        s.filter,
+      );
+      document.getElementById("bdpx-takeaway").textContent = s.takeaway;
+      btnContainer
+        .querySelectorAll(".bdpx-state-btn")
+        .forEach(function (btn, i) {
+          btn.classList.toggle("active", i === active);
+        });
+    }
+
+    states.forEach(function (s, i) {
+      var btn = document.createElement("button");
+      btn.className = "bdpx-state-btn";
+      btn.innerHTML =
+        '<div class="bdpx-state-lbl">' +
+        s.desc +
+        '</div>INSTF = <div class="bdpx-state-mono">' +
+        s.filterHex +
+        "</div>";
+      btn.onclick = function () {
+        active = i;
+        render();
+      };
+      btnContainer.appendChild(btn);
+    });
+
+    render();
+  })();
+</script>

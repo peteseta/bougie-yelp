@@ -1,0 +1,450 @@
+---
+
+---
+
+<div class="bdplus-gantt">
+  <h2 class="sr-only">
+    Gantt chart showing BD+ protection generations from 2007 to 2010, with each
+    generation's undefeated period shrinking from 8 months to weeks
+  </h2>
+
+  <div class="bdpg-legend">
+    <span class="bdpg-legend-item">
+      <span class="bdpg-swatch bdpg-swatch-stripe"></span>
+      Undefeated
+    </span>
+    <span class="bdpg-legend-item">
+      <span class="bdpg-swatch" style="background:rgba(29,158,117,0.4)"></span>
+      Cracked and still in use
+    </span>
+    <span class="bdpg-legend-item">
+      <span class="bdpg-crack-line"></span>
+      Crack date
+    </span>
+  </div>
+
+  <div id="bdpg-gantt"></div>
+
+  <div class="bdpg-tick-row">
+    <div></div>
+    <div class="bdpg-tick-track" id="bdpg-ticks"></div>
+    <div></div>
+  </div>
+</div>
+
+<style is:global>
+  .bdplus-gantt {
+    --bdpg-bg-card: rgba(var(--color-card), 0.2);
+    --bdpg-text: rgb(var(--color-text-base));
+    --bdpg-text-dim: rgba(var(--color-text-base), 0.7);
+    --bdpg-text-faint: rgba(var(--color-text-base), 0.45);
+    --bdpg-border: rgb(var(--color-border));
+    --bdpg-mono: "IBM Plex Mono", monospace;
+    --bdpg-radius: 6px;
+    margin: 1.5em 0;
+    font-size: 14px;
+    font-family: var(--bdpg-mono);
+  }
+  .bdplus-gantt .bdpg-legend {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: var(--bdpg-text-dim);
+    margin: 0 0 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .bdplus-gantt .bdpg-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .bdplus-gantt .bdpg-swatch {
+    display: inline-block;
+    width: 18px;
+    height: 11px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .bdplus-gantt .bdpg-swatch-stripe {
+    background: repeating-linear-gradient(
+      -45deg,
+      rgba(216, 90, 48, 0.8),
+      rgba(216, 90, 48, 0.8) 2px,
+      rgba(216, 90, 48, 0.15) 2px,
+      rgba(216, 90, 48, 0.15) 6px
+    );
+  }
+  .bdplus-gantt .bdpg-crack-line {
+    display: inline-block;
+    width: 3px;
+    height: 14px;
+    border-radius: 2px;
+    background: #c94040;
+    flex-shrink: 0;
+  }
+  .bdplus-gantt .gantt-row {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr) 56px;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 4px;
+    cursor: pointer;
+    border-radius: var(--bdpg-radius);
+    transition: background 0.15s;
+  }
+  .bdplus-gantt .gantt-row:hover,
+  .bdplus-gantt .gantt-row.active {
+    background: var(--bdpg-bg-card);
+  }
+  .bdplus-gantt .gen-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--bdpg-text);
+    text-align: right;
+    padding-right: 4px;
+    font-family: var(--bdpg-mono);
+  }
+  .bdplus-gantt .ttd {
+    font-size: 11px;
+    color: var(--bdpg-text-dim);
+    text-align: left;
+    font-family: var(--bdpg-mono);
+    white-space: nowrap;
+  }
+  .bdplus-gantt .bar-track {
+    position: relative;
+    height: 24px;
+    border-radius: 4px;
+  }
+  .bdplus-gantt .bar-uncracked {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    border-radius: 4px 0 0 4px;
+    background: repeating-linear-gradient(
+      -45deg,
+      rgba(216, 90, 48, 0.75),
+      rgba(216, 90, 48, 0.75) 3px,
+      rgba(216, 90, 48, 0.12) 3px,
+      rgba(216, 90, 48, 0.12) 9px
+    );
+  }
+  .bdplus-gantt .bar-cracked {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    border-radius: 0 4px 4px 0;
+    background: rgba(29, 158, 117, 0.4);
+  }
+  .bdplus-gantt .bar-crack {
+    position: absolute;
+    top: -2px;
+    width: 3px;
+    height: 28px;
+    border-radius: 2px;
+    background: #c94040;
+    z-index: 1;
+  }
+  .bdplus-gantt .bdpg-tick-row {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr) 56px;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .bdplus-gantt .bdpg-tick-track {
+    position: relative;
+    height: 20px;
+  }
+  .bdplus-gantt .tick {
+    position: absolute;
+    top: 0;
+    font-size: 10px;
+    color: var(--bdpg-text-faint);
+    transform: translateX(-50%);
+    font-family: var(--bdpg-mono);
+  }
+  .bdplus-gantt .tick::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    width: 1px;
+    height: 4px;
+    background: var(--bdpg-border);
+  }
+  .bdplus-gantt .detail-panel {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition:
+      max-height 0.3s ease,
+      opacity 0.25s ease,
+      margin 0.3s ease;
+    margin: 0;
+    padding: 0 0 0 64px;
+  }
+  .bdplus-gantt .detail-panel.open {
+    max-height: 140px;
+    opacity: 1;
+    margin: 0 0 4px;
+  }
+  .bdplus-gantt .detail-inner {
+    font-size: 12px;
+    color: var(--bdpg-text-dim);
+    line-height: 1.6;
+    padding: 6px 10px;
+    border-left: 2px solid var(--bdpg-border);
+  }
+  .bdplus-gantt .detail-inner .ev {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+  }
+  .bdplus-gantt .detail-inner .dt {
+    font-family: var(--bdpg-mono);
+    font-size: 11px;
+    color: var(--bdpg-text-faint);
+    min-width: 60px;
+    flex-shrink: 0;
+  }
+  @media (max-width: 400px) {
+    .bdplus-gantt .bdpg-card-val {
+      font-size: 16px;
+    }
+    .bdplus-gantt .gantt-row {
+      grid-template-columns: 44px minmax(0, 1fr) 44px;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var container = document.getElementById("bdpg-gantt");
+    if (!container) return;
+
+    var START = new Date(2007, 6, 1);
+    var END = new Date(2010, 5, 1);
+    var SPAN = END - START;
+
+    function pct(d) {
+      return (((d - START) / SPAN) * 100).toFixed(2) + "%";
+    }
+
+    var gens = [
+      {
+        id: "Gen 1",
+        start: new Date(2007, 6, 1),
+        crack: new Date(2008, 2, 1),
+        retire: new Date(2008, 4, 1),
+        ttd: "8 mo",
+        events: [
+          {
+            d: "Jul 2007",
+            t: "First BD+ titles ship, published by Fox and MGM",
+          },
+          { d: "Nov 2007", t: "SlySoft's partial bypass using AACS stripping" },
+          { d: "Mar 2008", t: "A full crack is published" },
+        ],
+      },
+      {
+        id: "Gen 2",
+        start: new Date(2008, 4, 1),
+        crack: new Date(2008, 5, 1),
+        retire: new Date(2008, 9, 1),
+        ttd: "1 mo",
+        events: [
+          { d: "May 2008", t: "Debuts on Jumper, breaking AnyDVD" },
+          { d: "Jun 2008", t: "SlySoft updates AnyDVD" },
+        ],
+      },
+      {
+        id: "Gen 3",
+        start: new Date(2008, 9, 1),
+        crack: new Date(2008, 11, 1),
+        retire: new Date(2009, 1, 1),
+        ttd: "2 mo",
+        events: [
+          {
+            d: "Oct 2008",
+            t: "Multiple code variants; BD+ talks to disc Java layer",
+          },
+          {
+            d: "Dec 2008",
+            t: 'SlySoft cracks it, calling it "incredible magic"',
+          },
+        ],
+      },
+      {
+        id: "Gen 4",
+        start: new Date(2009, 1, 1),
+        crack: new Date(2009, 2, 1),
+        retire: new Date(2009, 4, 1),
+        ttd: "1 mo",
+        events: [
+          {
+            d: "Feb 2009",
+            t: "Debuts in Australia. Employs obfuscated Java and encrypted objects",
+          },
+          {
+            d: "Mar 2009",
+            t: "Cracked, and exactly one year after the original BD+ defeat",
+          },
+        ],
+      },
+      {
+        id: "Gen 5",
+        start: new Date(2009, 4, 1),
+        crack: new Date(2009, 5, 1),
+        retire: new Date(2009, 7, 1),
+        ttd: "~1 mo",
+        events: [
+          { d: "May 2009", t: "Aggressive device fingerprinting begins" },
+          { d: "Jun 2009", t: "SlySoft update ships, within weeks" },
+        ],
+      },
+      {
+        id: "Gen 6",
+        start: new Date(2009, 7, 1),
+        crack: new Date(2009, 8, 1),
+        retire: new Date(2009, 10, 1),
+        ttd: "~1 mo",
+        events: [
+          { d: "Aug 2009", t: "New fingerprint checks deployed" },
+          { d: "Sep 2009", t: "SlySoft update ships" },
+        ],
+      },
+      {
+        id: "Gen 7",
+        start: new Date(2009, 10, 1),
+        crack: new Date(2009, 11, 15),
+        retire: new Date(2010, 0, 1),
+        ttd: "~6 wk",
+        events: [
+          { d: "Nov 2009", t: "Pre-Avatar wave of new protections" },
+          { d: "Dec 2009", t: "Cracked, and before Avatar ships" },
+        ],
+      },
+      {
+        id: "Gen 8",
+        start: new Date(2010, 0, 1),
+        crack: new Date(2010, 2, 1),
+        retire: new Date(2010, 5, 1),
+        ttd: "~2 mo",
+        events: [
+          {
+            d: "Jan 2010",
+            t: "Avatar ships. This is the apex of BD+ complexity",
+          },
+          { d: "Mar 2010", t: "Cracked. The arms race is effectively over" },
+        ],
+      },
+    ];
+
+    var activeIdx = -1;
+
+    gens.forEach(function (g, i) {
+      var row = document.createElement("div");
+      row.className = "gantt-row";
+      row.onclick = function () {
+        toggle(i);
+      };
+
+      var uncrackedLeft = pct(g.start);
+      var uncrackedWidth =
+        (((g.crack - g.start) / SPAN) * 100).toFixed(2) + "%";
+      var crackedLeft = pct(g.crack);
+      var crackedWidth = (((g.retire - g.crack) / SPAN) * 100).toFixed(2) + "%";
+      var crackPos = pct(g.crack);
+
+      row.innerHTML =
+        '<div class="gen-label">' +
+        g.id +
+        "</div>" +
+        '<div class="bar-track">' +
+        '<div class="bar-uncracked" style="left:' +
+        uncrackedLeft +
+        ";width:" +
+        uncrackedWidth +
+        '"></div>' +
+        '<div class="bar-cracked"   style="left:' +
+        crackedLeft +
+        ";width:" +
+        crackedWidth +
+        '"></div>' +
+        '<div class="bar-crack"     style="left:' +
+        crackPos +
+        '"></div>' +
+        "</div>" +
+        '<div class="ttd">' +
+        g.ttd +
+        "</div>";
+      container.appendChild(row);
+
+      var detail = document.createElement("div");
+      detail.className = "detail-panel";
+      detail.id = "bdpg-detail-" + i;
+      detail.innerHTML =
+        '<div class="detail-inner">' +
+        g.events
+          .map(function (e) {
+            return (
+              '<div class="ev"><span class="dt">' +
+              e.d +
+              "</span><span>" +
+              e.t +
+              "</span></div>"
+            );
+          })
+          .join("") +
+        "</div>";
+      container.appendChild(detail);
+    });
+
+    function toggle(i) {
+      var rows = container.querySelectorAll(".gantt-row");
+      if (activeIdx === i) {
+        rows[i].classList.remove("active");
+        document.getElementById("bdpg-detail-" + i).classList.remove("open");
+        activeIdx = -1;
+        return;
+      }
+      if (activeIdx >= 0) {
+        rows[activeIdx].classList.remove("active");
+        document
+          .getElementById("bdpg-detail-" + activeIdx)
+          .classList.remove("open");
+      }
+      rows[i].classList.add("active");
+      document.getElementById("bdpg-detail-" + i).classList.add("open");
+      activeIdx = i;
+    }
+
+    var tickDates = [
+      new Date(2007, 6, 1),
+      new Date(2008, 0, 1),
+      new Date(2008, 6, 1),
+      new Date(2009, 0, 1),
+      new Date(2009, 6, 1),
+      new Date(2010, 0, 1),
+      new Date(2010, 5, 1),
+    ];
+    var tickLabels = [
+      "Jul '07",
+      "Jan '08",
+      "Jul '08",
+      "Jan '09",
+      "Jul '09",
+      "Jan '10",
+      "Jun '10",
+    ];
+    var tickEl = document.getElementById("bdpg-ticks");
+    tickDates.forEach(function (d, i) {
+      var t = document.createElement("span");
+      t.className = "tick";
+      t.style.left = pct(d);
+      t.textContent = tickLabels[i];
+      tickEl.appendChild(t);
+    });
+  })();
+</script>
