@@ -6,7 +6,6 @@
   :root,
   html[data-theme="light"] {
     --color-fill: 251, 254, 251;
-    --color-bg: rgb(var(--color-fill));
     --color-text-base: 40, 39, 40;
     --color-accent: 0, 108, 172;
     --color-card: 230, 230, 230;
@@ -19,7 +18,6 @@
   html[data-theme="dark"] {
     /* Min dark scheme (ported from min-theme) */
     --color-fill: 33, 33, 33; /* #212121 */
-    --color-bg: rgb(var(--color-fill));
     --color-text-base: 193, 193, 193; /* #c1c1c1 */
     --color-accent: 121, 184, 255; /* #79b8ff */
     --color-card: 41, 41, 41; /* #292929 */
@@ -65,7 +63,7 @@
   }
   .prose {
     @apply prose-headings:!mb-3 prose-headings:!text-skin-base prose-h3:italic
-    prose-h1:border-b prose-h1:border-skin-line prose-h1:pt-4 prose-h1:pb-2 prose-p:!text-skin-base prose-a:!text-skin-base prose-a:!decoration-dashed prose-a:underline-offset-4 hover:prose-a:text-skin-accent prose-blockquote:!border-l-skin-accent/50 prose-blockquote:opacity-80 prose-figcaption:!text-skin-base prose-figcaption:opacity-70 prose-strong:!text-skin-base prose-code:rounded prose-code:bg-skin-card/75 prose-code:p-1 prose-code:before:!content-none prose-code:after:!content-none prose-ol:!text-skin-base prose-ul:overflow-x-clip prose-ul:!text-skin-base prose-li:marker:!text-skin-accent prose-table:text-skin-base prose-th:border prose-th:border-skin-line prose-td:border prose-td:border-skin-line prose-img:!my-2 prose-img:mx-auto prose-img:border-2 prose-img:border-skin-line prose-hr:!border-skin-line prose-pre:!max-w-full prose-pre:!overflow-x-auto;
+    prose-h1:border-b prose-h1:border-skin-line prose-h1:pt-4 prose-h1:pb-2 prose-p:!text-skin-base prose-a:!text-skin-base prose-a:!decoration-dashed prose-a:underline-offset-4 prose-blockquote:!border-l-skin-accent/50 prose-blockquote:opacity-80 prose-figcaption:!text-skin-base prose-figcaption:opacity-70 prose-strong:!text-skin-base prose-code:rounded prose-code:bg-skin-card/75 prose-code:p-1 prose-code:before:!content-none prose-code:after:!content-none prose-ol:!text-skin-base prose-ul:overflow-x-clip prose-ul:!text-skin-base prose-li:marker:!text-skin-accent prose-table:text-skin-base prose-th:border prose-th:border-skin-line prose-td:border prose-td:border-skin-line prose-img:!my-2 prose-img:mx-auto prose-img:border-2 prose-img:border-skin-line prose-hr:!border-skin-line prose-pre:!max-w-full prose-pre:!overflow-x-auto;
     line-height: 1.6;
   }
   .prose a {
@@ -75,9 +73,6 @@
   tbody td:first-child,
   tfoot td:first-child {
     padding-left: 0.5714286em;
-  }
-  .prose h2#table-of-contents {
-    @apply mb-2;
   }
   .prose details {
     @apply inline-block cursor-pointer select-none text-skin-base;
