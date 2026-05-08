@@ -110,17 +110,16 @@
     text-underline-offset: 1px;
   }
 
-  /* Hide default footnotes section on large screens (shown in sidebar instead) */
-  @media (min-width: 1024px) {
-    .prose section[data-footnotes] {
-      @apply hidden;
-    }
+  /* Hide inline footnotes — popover handles mobile, sidebar handles desktop */
+  .prose section[data-footnotes] {
+    @apply hidden;
   }
 
   /* ===== scrollbar ===== */
   html {
     overflow-y: scroll;
   }
+
 
   /*
   ::-webkit-scrollbar {
