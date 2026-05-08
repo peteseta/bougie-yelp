@@ -15,31 +15,34 @@ const items = headings.filter(
 
 {
   items.length >= 2 && (
-    <aside
-      id="progress-toc"
-      class="progress-toc"
-      aria-label="Table of contents"
-    >
-      <div class="ptoc-meta">
-        <div class="ptoc-title">{title}</div>
-        <div class="ptoc-readtime" data-readtime />
-        <div class="ptoc-divider" />
-      </div>
-      <div class="ptoc-rail">
-        <div class="ptoc-track" />
-        <div class="ptoc-pill" />
-        <ul class="ptoc-dots">
-          {items.map((h) => (
-            <li class="ptoc-item" data-depth={h.depth} data-slug={h.slug}>
-              <span class="ptoc-dot" aria-hidden="true" />
-              <a href={`#${h.slug}`} class="ptoc-label" title={h.text}>
-                {h.text}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </aside>
+    <Fragment>
+      <aside
+        id="progress-toc"
+        class="progress-toc"
+        aria-label="Table of contents"
+      >
+        <div class="ptoc-meta">
+          <div class="ptoc-title">{title}</div>
+          <div class="ptoc-readtime" data-readtime />
+          <div class="ptoc-divider" />
+        </div>
+        <div class="ptoc-rail">
+          <div class="ptoc-track" />
+          <div class="ptoc-pill" />
+          <ul class="ptoc-dots">
+            {items.map((h) => (
+              <li class="ptoc-item" data-depth={h.depth} data-slug={h.slug}>
+                <span class="ptoc-dot" aria-hidden="true" />
+                <a href={`#${h.slug}`} class="ptoc-label" title={h.text}>
+                  {h.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </aside>
+      <div id="toc-scrub-overlay" aria-hidden="true" />
+    </Fragment>
   )
 }
 
@@ -70,10 +73,19 @@ const items = headings.filter(
     pointer-events: none;
     z-index: 10;
   }
-  .progress-toc:hover .ptoc-meta,
-  .progress-toc:focus-within .ptoc-meta {
-    opacity: 1;
-    transform: translateY(0);
+  /* Hover + focus interactions — desktop only, suppresses sticky-hover on narrow/touch viewports */
+  @media (hover: hover) and (min-width: 1280px) {
+    .progress-toc:hover .ptoc-meta {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .progress-toc:focus-within .ptoc-meta {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .ptoc-title {
@@ -213,26 +225,41 @@ const items = headings.filter(
     word-break: break-word;
   }
 
-  /* Reveal labels on hover/focus-within */
-  .progress-toc:hover .ptoc-label,
-  .progress-toc:focus-within .ptoc-label {
-    opacity: 0.5;
-    pointer-events: auto;
-    background-color: rgb(var(--color-fill) / 0.85);
-    box-shadow: 0 0 12px 4px rgb(var(--color-fill) / 0.7);
-    backdrop-filter: blur(6px);
+  /* Reveal labels — desktop only, so narrow viewports never get sticky-hover */
+  @media (hover: hover) and (min-width: 1280px) {
+    .progress-toc:hover .ptoc-label {
+      opacity: 0.5;
+      pointer-events: auto;
+      background-color: rgb(var(--color-fill) / 0.85);
+      box-shadow: 0 0 12px 4px rgb(var(--color-fill) / 0.7);
+      backdrop-filter: blur(6px);
+    }
+
+    .progress-toc:hover .ptoc-item.active .ptoc-label {
+      opacity: 1;
+      font-weight: 600;
+    }
+
+    .ptoc-label:hover {
+      opacity: 1 !important;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
   }
 
-  .progress-toc:hover .ptoc-item.active .ptoc-label,
-  .progress-toc:focus-within .ptoc-item.active .ptoc-label {
-    opacity: 1;
-    font-weight: 600;
-  }
+  @media (min-width: 1280px) {
+    .progress-toc:focus-within .ptoc-label {
+      opacity: 0.5;
+      pointer-events: auto;
+      background-color: rgb(var(--color-fill) / 0.85);
+      box-shadow: 0 0 12px 4px rgb(var(--color-fill) / 0.7);
+      backdrop-filter: blur(6px);
+    }
 
-  .ptoc-label:hover {
-    opacity: 1 !important;
-    text-decoration: underline;
-    text-underline-offset: 2px;
+    .progress-toc:focus-within .ptoc-item.active .ptoc-label {
+      opacity: 1;
+      font-weight: 600;
+    }
   }
 
   .ptoc-label:focus-visible {
@@ -240,6 +267,113 @@ const items = headings.filter(
     outline: 2px solid rgb(var(--color-accent));
     outline-offset: 2px;
     border-radius: 2px;
+  }
+
+  /* ===== Scrub overlay (global — targets elements outside this component) ===== */
+  :global(#toc-scrub-overlay) {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(var(--color-fill), 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.2s ease,
+      visibility 0.2s ease;
+  }
+
+  :global(#toc-scrub-overlay.active) {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Hide scrollbar on mobile — scoped to pages where TOC is active via JS-added class */
+  @media (max-width: 1279px) {
+    :global(html.has-progress-toc) {
+      scrollbar-width: none; /* Firefox */
+    }
+    :global(html.has-progress-toc::-webkit-scrollbar) {
+      display: none; /* Chrome/Safari/Edge */
+    }
+  }
+
+  /* ===== Mobile scrubber ===== */
+  @media (max-width: 1279px) {
+    /* Shift the entire TOC to the left edge so dots don't overlap text */
+    .progress-toc {
+      left: 0px;
+      z-index: 210; /* above the scrub overlay */
+      pointer-events: none; /* don't block touches on content behind */
+    }
+
+    /* Show meta only while scrubbing */
+    .progress-toc.scrubbing .ptoc-meta {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* All dots visible on mobile at low opacity */
+    .ptoc-dot {
+      opacity: 0.2;
+    }
+
+    /* Keep track and pill but very subtle */
+    .ptoc-track {
+      opacity: 0.08;
+    }
+
+    .ptoc-pill {
+      opacity: 0.2;
+    }
+
+    /* Narrow touch target — just the visible strip at the left edge */
+    .ptoc-rail::before {
+      content: "";
+      position: absolute;
+      left: -4px;
+      width: 20px;
+      top: 0;
+      bottom: 0;
+      pointer-events: auto; /* re-enable touches in this strip only */
+    }
+
+    /* Dot transitions for snap animation */
+    .ptoc-dot {
+      transition:
+        width 0.2s ease,
+        height 0.2s ease,
+        left 0.2s ease,
+        background-color 0.2s ease,
+        opacity 0.3s ease;
+    }
+
+    /* Scrubbing: show all labels (no per-label bg — overlay handles the backdrop) */
+    .progress-toc.scrubbing .ptoc-label {
+      opacity: 0.65;
+      pointer-events: none;
+    }
+
+    /* Active heading while scrubbing */
+    .progress-toc.scrubbing .ptoc-item.scrub-active .ptoc-label {
+      opacity: 1;
+      color: rgb(var(--color-accent));
+    }
+
+    /* Show all dots while scrubbing */
+    .progress-toc.scrubbing .ptoc-dot {
+      opacity: 0.5;
+    }
+
+    .progress-toc.scrubbing .ptoc-item.scrub-active .ptoc-dot {
+      width: 6px;
+      height: 6px;
+      left: -2.5px;
+      background-color: rgb(var(--color-accent));
+      opacity: 1;
+    }
   }
 </style>
 
@@ -261,6 +395,8 @@ const items = headings.filter(
       const toc = document.getElementById("progress-toc");
       const article = document.getElementById("article");
       if (!toc || !article) return;
+
+      document.documentElement.classList.add("has-progress-toc");
 
       const items = Array.from(toc.querySelectorAll(".ptoc-item"));
       if (items.length === 0) return;
@@ -315,7 +451,9 @@ const items = headings.filter(
           li.classList.toggle("collapsed", isInClosedDetails(el));
         });
 
-        const visible = headingEls.filter(({ li }) => !li.classList.contains("collapsed"));
+        const visible = headingEls.filter(
+          ({ li }) => !li.classList.contains("collapsed"),
+        );
 
         // Dots use the full [0, railHeight] range — same coordinate space as the pill
         const dotYs = visible.map(({ el }) => {
@@ -355,10 +493,7 @@ const items = headings.filter(
         }
 
         visible.forEach(({ li }, i) => {
-          li.style.setProperty(
-            "--ptoc-label-dy",
-            `${labelYs[i] - dotYs[i]}px`,
-          );
+          li.style.setProperty("--ptoc-label-dy", `${labelYs[i] - dotYs[i]}px`);
         });
       }
 
@@ -448,10 +583,14 @@ const items = headings.filter(
 
       // Recompute when collapsibles open or close
       article.querySelectorAll("details").forEach((details) => {
-        details.addEventListener("toggle", () => {
-          recomputeLayout();
-          updateProgress();
-        }, { signal });
+        details.addEventListener(
+          "toggle",
+          () => {
+            recomputeLayout();
+            updateProgress();
+          },
+          { signal },
+        );
       });
 
       // Recompute after images and fonts finish loading
@@ -481,9 +620,116 @@ const items = headings.filter(
       recomputeLayout();
       updateProgress();
 
+      // ===== Mobile scrubber (long-press + drag on the rail) =====
+      function initMobileScrubber() {
+        const rail = toc.querySelector(".ptoc-rail");
+        if (!rail || window.innerWidth >= 1280) return;
+
+        const overlay = document.getElementById("toc-scrub-overlay");
+
+        let timer = null;
+        let scrubbing = false;
+        let scrubIdx = -1;
+
+        function nearestHeadingIdx(clientY) {
+          let best = -1;
+          let bestDist = Infinity;
+          const railRect = rail.getBoundingClientRect();
+          headingEls.forEach(({ li }, idx) => {
+            if (li.classList.contains("collapsed")) return;
+            const dotY = parseFloat(
+              li.style.getPropertyValue("--ptoc-y") || "0",
+            );
+            const screenDotY = railRect.top + dotY;
+            const d = Math.abs(clientY - screenDotY);
+            if (d < bestDist) {
+              bestDist = d;
+              best = idx;
+            }
+          });
+          return best;
+        }
+
+        function setScrubActive(idx) {
+          headingEls.forEach(({ li }, i) =>
+            li.classList.toggle("scrub-active", i === idx),
+          );
+        }
+
+        function onTouchMove(e) {
+          if (!scrubbing) return;
+          e.preventDefault();
+          const idx = nearestHeadingIdx(e.touches[0].clientY);
+          if (idx !== scrubIdx) {
+            scrubIdx = idx;
+            try {
+              navigator.vibrate(5);
+            } catch (_) {}
+            setScrubActive(idx);
+          }
+        }
+
+        function onTouchEnd() {
+          clearTimeout(timer);
+          timer = null;
+          document.removeEventListener("touchmove", onTouchMove);
+          if (scrubbing) {
+            toc.classList.remove("scrubbing");
+            overlay?.classList.remove("active");
+            document.body.classList.remove("toc-scrubbing");
+            scrubbing = false;
+            if (scrubIdx >= 0) {
+              headingEls[scrubIdx].el.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+            setScrubActive(-1);
+            scrubIdx = -1;
+          }
+        }
+
+        rail.addEventListener(
+          "touchstart",
+          (e) => {
+            const startX = e.touches[0].clientX;
+
+            // Only activate within 20px of the left edge — don't steal text-selection elsewhere
+            if (startX > 20) return;
+
+            // Register non-passive touchmove so we can preventDefault while scrubbing
+            document.addEventListener("touchmove", onTouchMove, {
+              passive: false,
+              signal,
+            });
+            document.addEventListener("touchend", onTouchEnd, {
+              once: true,
+              signal,
+            });
+
+            timer = setTimeout(() => {
+              scrubbing = true;
+              toc.classList.add("scrubbing");
+              overlay?.classList.add("active");
+              document.body.classList.add("toc-scrubbing");
+              try {
+                navigator.vibrate(20);
+              } catch (_) {}
+              const idx = nearestHeadingIdx(e.touches[0].clientY);
+              scrubIdx = idx;
+              setScrubActive(idx);
+            }, 300);
+          },
+          { passive: true, signal },
+        );
+      }
+
+      initMobileScrubber();
+
       window[cleanupKey] = () => {
         controller.abort();
         ro.disconnect();
+        document.documentElement.classList.remove("has-progress-toc");
       };
     }
 
