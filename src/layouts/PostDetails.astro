@@ -6,6 +6,7 @@ import Tag from "@components/Tag.astro";
 import Datetime from "@components/Datetime";
 import ProgressTOC from "@components/ProgressTOC.astro";
 import SidebarFootnotes from "@components/SidebarFootnotes.astro";
+import FootnotePopover from "@components/FootnotePopover.astro";
 import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
@@ -209,6 +210,7 @@ const nextPost =
         {showToC && <SidebarFootnotes />}
       </aside>
     </div>
+    <FootnotePopover />
   </main>
   <Footer />
 </Layout>
@@ -261,6 +263,16 @@ const nextPost =
     margin: 0;
   }
 
+  @media (max-width: 767px) {
+    .post-title {
+      max-width: 100%;
+    }
+
+    .post-header {
+      width: 100%;
+    }
+  }
+
   @media (max-width: 639px) {
     .post-topbar {
       margin-bottom: 1.5rem;
@@ -304,6 +316,13 @@ const nextPost =
   .post-grid__left,
   .post-grid__right {
     display: none;
+  }
+
+  /* Zero-width visible container so position:fixed ProgressTOC renders on mobile */
+  .post-grid--writing .post-grid__left {
+    display: block;
+    width: 0;
+    overflow: visible;
   }
 
   .post-grid__content {
