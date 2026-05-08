@@ -120,24 +120,15 @@
     overflow-y: scroll;
   }
 
-
-  /*
-  ::-webkit-scrollbar {
-    @apply w-3;
+  /* Hide on mobile only when the ProgressTOC is mounted (class toggled by its JS) */
+  @media (max-width: 1279px) {
+    html.has-progress-toc {
+      scrollbar-width: none;
+    }
+    html.has-progress-toc::-webkit-scrollbar {
+      display: none;
+    }
   }
-
-  ::-webkit-scrollbar-track {
-    @apply bg-skin-fill;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-skin-card;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-skin-card-muted;
-  }
-  */
 
   /* ===== Code Blocks & Syntax Highlighting ===== */
   pre:has(code) {

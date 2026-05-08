@@ -290,16 +290,6 @@ const items = headings.filter(
     visibility: visible;
   }
 
-  /* Hide scrollbar on mobile — scoped to pages where TOC is active via JS-added class */
-  @media (max-width: 1279px) {
-    :global(html.has-progress-toc) {
-      scrollbar-width: none; /* Firefox */
-    }
-    :global(html.has-progress-toc::-webkit-scrollbar) {
-      display: none; /* Chrome/Safari/Edge */
-    }
-  }
-
   /* ===== Mobile scrubber ===== */
   @media (max-width: 1279px) {
     /* Shift the entire TOC to the left edge so dots don't overlap text */
@@ -676,7 +666,6 @@ const items = headings.filter(
           if (scrubbing) {
             toc.classList.remove("scrubbing");
             overlay?.classList.remove("active");
-            document.body.classList.remove("toc-scrubbing");
             scrubbing = false;
             if (scrubIdx >= 0) {
               headingEls[scrubIdx].el.scrollIntoView({
@@ -711,7 +700,6 @@ const items = headings.filter(
               scrubbing = true;
               toc.classList.add("scrubbing");
               overlay?.classList.add("active");
-              document.body.classList.add("toc-scrubbing");
               try {
                 navigator.vibrate(20);
               } catch (_) {}
