@@ -1,0 +1,248 @@
+---
+// Bottom-sheet popover for footnote refs on mobile (<1280px).
+// On desktop, SidebarFootnotes handles this; this component is a no-op there.
+---
+
+<div
+  id="fn-popover"
+  role="dialog"
+  aria-modal="true"
+  aria-hidden="true"
+  aria-label="Footnote"
+>
+  <div id="fn-backdrop"></div>
+  <div id="fn-sheet">
+    <div id="fn-sheet-inner">
+      <span id="fn-num"></span>
+      <div id="fn-body"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #fn-popover {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    pointer-events: none;
+  }
+
+  #fn-popover.open {
+    pointer-events: auto;
+  }
+
+  #fn-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  #fn-popover.open #fn-backdrop {
+    opacity: 1;
+  }
+
+  #fn-sheet {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(var(--color-fill));
+    border-top: 1px solid rgb(var(--color-border));
+    border-radius: 12px 12px 0 0;
+    padding: 1.25rem 1.25rem calc(1.25rem + env(safe-area-inset-bottom, 0px));
+    max-height: 60vh;
+    overflow-y: auto;
+    transform: translateY(100%);
+    transition: transform 0.25s ease;
+    /* drag handle */
+    padding-top: 2rem;
+  }
+
+  #fn-sheet::before {
+    content: '';
+    position: absolute;
+    top: 0.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2.5rem;
+    height: 3px;
+    border-radius: 9999px;
+    background: rgb(var(--color-text-base));
+    opacity: 0.2;
+  }
+
+  #fn-popover.open #fn-sheet {
+    transform: translateY(0);
+  }
+
+  #fn-sheet-inner {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: rgb(var(--color-text-base));
+  }
+
+  #fn-num {
+    font-weight: 700;
+    color: rgb(var(--color-accent));
+    flex-shrink: 0;
+    font-size: 0.8rem;
+  }
+
+  #fn-body {
+    min-width: 0;
+    flex: 1;
+  }
+
+  #fn-body p {
+    margin: 0;
+    display: inline;
+  }
+
+  #fn-body a {
+    color: rgb(var(--color-accent));
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    word-break: break-word;
+  }
+
+  /* Only show popover on mobile — SidebarFootnotes handles desktop */
+  @media (min-width: 1280px) {
+    #fn-popover {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const setupKey = "__fnPopoverSetup";
+    const cleanupKey = "__fnPopoverCleanup";
+
+    function cleanup() {
+      if (typeof window[cleanupKey] === "function") {
+        window[cleanupKey]();
+      }
+      window[cleanupKey] = undefined;
+    }
+
+    function initPopover() {
+      cleanup();
+
+      if (window.innerWidth >= 1280) return;
+
+      const popover = document.getElementById("fn-popover");
+      const backdrop = document.getElementById("fn-backdrop");
+      const fnNum = document.getElementById("fn-num");
+      const fnBody = document.getElementById("fn-body");
+      if (!popover || !backdrop || !fnNum || !fnBody) return;
+
+      let open = false;
+      let dragStartY = 0;
+
+      function openPopover(num, content) {
+        fnNum.textContent = num;
+        fnBody.innerHTML = "";
+        fnBody.appendChild(content);
+        popover.setAttribute("aria-hidden", "false");
+        popover.classList.add("open");
+        open = true;
+      }
+
+      function closePopover() {
+        popover.setAttribute("aria-hidden", "true");
+        popover.classList.remove("open");
+        open = false;
+      }
+
+      function handleFootnoteClick(e) {
+        const link = e.target.closest("a[data-footnote-ref]");
+        if (!link) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        const href = link.getAttribute("href");
+        if (!href) return;
+        const id = href.replace(/^#/, "");
+        const li = document.getElementById(id);
+        if (!li) return;
+
+        // Clone footnote content, strip the back-ref link
+        const clone = li.cloneNode(true);
+        clone.querySelectorAll("a[data-footnote-backref]").forEach((a) => {
+          const sep = a.previousSibling;
+          if (sep?.nodeType === Node.TEXT_NODE && sep.textContent?.trim() === "") {
+            sep.remove();
+          }
+          a.remove();
+        });
+
+        // Get the numeric label from the list item
+        const num = li.closest("ol")
+          ? Array.from(li.closest("ol").children).indexOf(li) + 1
+          : link.textContent?.trim() ?? "";
+
+        // Build a document fragment from the clone's content
+        const frag = document.createDocumentFragment();
+        clone.childNodes.forEach((n) => frag.appendChild(n.cloneNode(true)));
+
+        openPopover(String(num), frag);
+      }
+
+      // Swipe-down-to-close
+      function onSheetTouchStart(e) {
+        dragStartY = e.touches[0].clientY;
+      }
+
+      function onSheetTouchEnd(e) {
+        const dy = e.changedTouches[0].clientY - dragStartY;
+        if (dy > 60) closePopover();
+      }
+
+      const sheet = document.getElementById("fn-sheet");
+
+      const controller = new AbortController();
+      const { signal } = controller;
+
+      document.addEventListener("click", handleFootnoteClick, { signal });
+      backdrop.addEventListener("click", closePopover, { signal });
+      fnBody.addEventListener("click", (e) => {
+        const link = e.target.closest("a");
+        if (link && !link.hasAttribute("data-footnote-ref")) {
+          closePopover();
+        }
+      }, { signal });
+      sheet?.addEventListener("touchstart", onSheetTouchStart, { passive: true, signal });
+      sheet?.addEventListener("touchend", onSheetTouchEnd, { passive: true, signal });
+      document.addEventListener(
+        "keydown",
+        (e) => {
+          if (open && e.key === "Escape") closePopover();
+        },
+        { signal },
+      );
+
+      window[cleanupKey] = () => controller.abort();
+    }
+
+    if (!window[setupKey]) {
+      window[setupKey] = true;
+      document.addEventListener("astro:before-swap", cleanup);
+      document.addEventListener("astro:page-load", initPopover);
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initPopover, { once: true });
+      } else {
+        initPopover();
+      }
+    } else {
+      initPopover();
+    }
+  })();
+</script>
