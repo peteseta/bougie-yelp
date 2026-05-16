@@ -1357,5 +1357,68 @@
     "favicon": "",
     "faviconOrigin": "https://herbertlui.net/favicon.ico",
     "fetchedAt": "2026-05-07T10:37:34.523Z"
+  },
+  "https://nooneshappy.com/article/appearing-productive-in-the-workplace/": {
+    "title": "Appearing Productive in The Workplace — No One's Happy",
+    "description": "AI can produce work that looks expert without being expert. The failure arrives in two shapes, and both are reshaping the workplace.",
+    "image": "",
+    "imageOrigin": "",
+    "favicon": "/linkcard-cache/favicons/42735aca5b4ba4be.svg",
+    "faviconOrigin": "https://nooneshappy.com/favicon.svg",
+    "fetchedAt": "2026-05-16T09:33:10.514Z"
+  },
+  "https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/": {
+    "title": "Vibe coding and agentic engineering are getting closer than I’d like",
+    "description": "I recently talked with Joseph Ruscio about AI coding tools for Heavybit’s High Leverage podcast: Ep. #9, The AI Coding Paradigm Shift with Simon Willison. Here are some of my …",
+    "image": "",
+    "imageOrigin": "",
+    "favicon": "/linkcard-cache/favicons/7c98bdc4b8781381.ico",
+    "faviconOrigin": "https://simonwillison.net/favicon.ico",
+    "fetchedAt": "2026-05-16T09:33:10.670Z"
+  },
+  "https://deepmind.google/blog/alphaevolve-impact/": {
+    "title": "AlphaEvolve: Gemini-powered coding agent scaling impact across fields — Google DeepMind",
+    "description": "",
+    "image": "",
+    "imageOrigin": "",
+    "favicon": "/linkcard-cache/favicons/9ef014cb1835d92f.ico",
+    "faviconOrigin": "https://deepmind.google/favicon.ico",
+    "fetchedAt": "2026-05-16T09:33:11.134Z"
+  },
+  "https://cadence.moe/blog/2026-05-05-what-makes-a-good-smartphone-camera": {
+    "title": "What makes a good smartphone camera? - cadence's weblog (personal blog)",
+    "description": "",
+    "image": "",
+    "imageOrigin": "",
+    "favicon": "/linkcard-cache/favicons/c3cb9bbdfdc511ce.gif",
+    "faviconOrigin": "https://cadence.moe/static/img/eye_64.gif?statichash=8c248603413251be5e92bc66b2eda936d68a034c81cdf43193dbf45387a84a51",
+    "fetchedAt": "2026-05-16T09:33:11.144Z"
+  },
+  "https://www.writingruxandrabio.com/p/extending-womens-fertility-the-last": {
+    "title": "Extending women's fertility: the last frontier",
+    "description": "Or how to fight the gender wage gap effectively",
+    "image": "/linkcard-cache/images/1125a53e96bae5a1.jpg",
+    "imageOrigin": "https://substackcdn.com/image/fetch/$s_!E_3T!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F19a31ff4-1504-459f-8eeb-3324736af486_1478x1176.png",
+    "favicon": "/linkcard-cache/favicons/c2258cee74e586f0.jpg",
+    "faviconOrigin": "https://substackcdn.com/image/fetch/$s_!mPP0!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa488f4da-16ab-45ee-a1f8-791314c80ee8%2Ffavicon-16x16.png",
+    "fetchedAt": "2026-05-16T09:33:12.417Z"
+  },
+  "https://www.not-ship.com/burning-man-moop/": {
+    "title": "The map that keeps Burning Man honest",
+    "description": "The event's Leave No Trace principle isn't just a promise — it's measured, mapped, and made public.",
+    "image": "/linkcard-cache/images/875bdfe9a63ce478.jpg",
+    "imageOrigin": "https://storage.ghost.io/c/f0/60/f060ef3f-d4e0-4af4-9255-1373fbf0a44f/content/images/size/w1200/2026/05/featured-new.jpg",
+    "favicon": "/linkcard-cache/favicons/d20220fb08287b1c.png",
+    "faviconOrigin": "https://storage.ghost.io/c/f0/60/f060ef3f-d4e0-4af4-9255-1373fbf0a44f/content/images/size/w256h256/2025/07/Artboard-9v@2x-1.png",
+    "fetchedAt": "2026-05-16T09:33:12.928Z"
+  },
+  "https://blog.google/innovation-and-ai/technology/developers-tools/multi-token-prediction-gemma-4/": {
+    "title": "Multi-token-prediction in Gemma 4",
+    "description": "An overview of how Multi-Token Prediction (MTP) drafters are making Gemma 4 models up to 3x faster at inference.",
+    "image": "",
+    "imageOrigin": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Social_Share_Image_7bOA183.width-1300.png",
+    "favicon": "/linkcard-cache/favicons/bef6930700d62e83.ico",
+    "faviconOrigin": "https://blog.google/favicon.ico",
+    "fetchedAt": "2026-05-16T09:33:13.767Z"
   }
 }
