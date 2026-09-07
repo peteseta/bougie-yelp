@@ -1,39 +1,31 @@
 ---
-import type { GetStaticPaths } from "astro";
+import type { GetStaticPaths, Page } from "astro";
+import type { CollectionEntry } from "astro:content";
+interface Props {
+  page: Page<CollectionEntry<"blog">>;
+}
 import { getCollection } from "astro:content";
 import FeedSection from "@components/FeedSection.astro";
-import getPostType from "@utils/getPostType";
-import getSortedPosts from "@utils/getSortedPosts";
-
+import {
+  getFeedPosts,
+  feedRoute,
+  FEED_PAGE_SIZE,
+  type FeedFilter,
+} from "@utils/getFeedPosts";
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
-  const filters = ["all", "weblog", "devlog", "writing"] as const;
   const posts = await getCollection("blog");
-  const sorted = getSortedPosts(posts);
-
-  return filters.flatMap(filter => {
-    const data = filter === "all"
-      ? sorted.filter(({ data }) => !data.featured)
-      : sorted.filter(post => getPostType(post) === filter && !post.data.featured);
-
-    return paginate(data, {
+  return (["all", "weblog", "devlog", "writing"] as const).flatMap((filter) =>
+    paginate(getFeedPosts(posts, filter).posts, {
       params: { filter },
-      pageSize: 25,
-    });
-  });
+      pageSize: FEED_PAGE_SIZE,
+    }),
+  );
 };
-
-const { filter } = Astro.params;
 const { page } = Astro.props;
-const allPosts = await getCollection("blog");
-const featuredPosts = page.currentPage === 1
-  ? getSortedPosts(allPosts).filter(post => (
-      post.data.featured && (filter === "all" || getPostType(post) === filter)
-    ))
-  : [];
+const filter = Astro.params.filter as FeedFilter;
+const nextRoute = page.url.next
+  ? feedRoute(filter, page.currentPage + 1)
+  : null;
 ---
 
-<FeedSection
-  featuredPosts={featuredPosts}
-  posts={page.data}
-  nextPage={page.url.next ?? null}
-/>
+<FeedSection posts={page.data} nextPage={page.url.next ?? null} {nextRoute} />

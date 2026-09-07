@@ -1,24 +1,26 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import FeedCard from "@components/FeedCard.astro";
-import InfiniteFeed from "@components/InfiniteFeed.astro";
+import FeedCard from "./FeedCard.astro";
+import InfiniteFeed from "./InfiniteFeed.astro";
 import getPostType from "@utils/getPostType";
-
 interface Props {
   posts: CollectionEntry<"blog">[];
   nextPage: string | null;
+  nextRoute: string | null;
 }
-
-const { posts, nextPage } = Astro.props;
+const { posts, nextPage, nextRoute } = Astro.props;
 ---
 
-<InfiniteFeed nextPage={nextPage}>
-  {posts.map(post => (
-    <div
-      data-post-type={getPostType(post)}
-      class="feed-item border-b border-skin-line"
-    >
-      <FeedCard post={post} />
-    </div>
-  ))}
-</InfiniteFeed>
+<InfiniteFeed {nextPage} {nextRoute}
+  >{
+    posts.map((post) => (
+      <div
+        data-post-type={getPostType(post)}
+        data-post-id={post.id}
+        class="feed-item"
+      >
+        <FeedCard {post} />
+      </div>
+    ))
+  }</InfiniteFeed
+>

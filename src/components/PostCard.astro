@@ -1,50 +1,23 @@
 ---
-import TypeBadge from "./TypeBadge.astro";
-import FeaturedBadge from "./FeaturedBadge.astro";
-import Tag from "./Tag.astro";
 import type { CollectionEntry } from "astro:content";
-import { slugifyStr } from "@utils/slugify";
-
 interface Props {
   post: CollectionEntry<"blog">;
   type: "weblog" | "devlog" | "writing";
-  featured?: boolean;
 }
-
-const { post, type, featured = false } = Astro.props;
-const { title, pubDatetime, description, tags } = post.data;
-
-const displayDate = new Date(pubDatetime).toLocaleDateString("en-US", {
+const { post, type } = Astro.props;
+const { title, pubDatetime, description } = post.data;
+const date = pubDatetime.toLocaleDateString("en-US", {
   year: "numeric",
   month: "short",
   day: "numeric",
+  timeZone: "America/Los_Angeles",
 });
 ---
 
-<article class="py-4">
-  <div class="mb-2 flex items-center gap-2 text-sm">
-    {featured && <FeaturedBadge />}
-    <TypeBadge type={type} />
-    <time datetime={pubDatetime.toISOString()} class="font-mono text-skin-base opacity-60">
-      {displayDate}
-    </time>
+<article class="feed-entry">
+  <div class="feed-meta">
+    <time datetime={pubDatetime.toISOString()}>{date}</time> · {type}
   </div>
-  <h3 class="mb-1" style={{ viewTransitionName: slugifyStr(title) }}>
-    <a
-      href={`/posts/${post.id}/`}
-      class="text-lg font-bold text-skin-base decoration-dashed underline-offset-4 hover:text-skin-accent hover:underline"
-    >
-      {title}
-    </a>
-  </h3>
-  <p class="mb-2 text-sm text-skin-base opacity-80 line-clamp-3">
-    {description}
-  </p>
-  {tags.length > 0 && (
-    <ul class="flex flex-wrap gap-1">
-      {tags.map(tag => (
-        <Tag tag={tag} size="sm" transition={false} />
-      ))}
-    </ul>
-  )}
+  <h3><a href={`/posts/${post.id}/`}>{title}</a></h3>
+  <p class="post-description">{description}</p>
 </article>

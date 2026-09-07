@@ -1,0 +1,142 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { slugifyStr } from "@utils/slugify";
+interface Props {
+  posts: CollectionEntry<"blog">[];
+}
+const { posts } = Astro.props;
+const commonTags =
+  posts.length > 1
+    ? posts[0].data.tags.filter((tag) =>
+        posts.every((post) => post.data.tags.includes(tag)),
+      )
+    : [];
+function excerpt(body: string) {
+  return body
+    .replace(/^import[\s\S]*?;\s*$/gm, " ")
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+    .replace(/\[\^[^\]]*\]/g, "")
+    .replace(/^[\s>#*+-]+/gm, "")
+    .replace(/[`*_{}]/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 240);
+}
+---
+
+<section class="selected" aria-labelledby="selected-heading">
+  <h2 id="selected-heading">Selected writings</h2>
+  <div class="writing-list">
+    {
+      posts.map((post) => {
+        const tags = post.data.tags
+          .filter((tag) => tag !== "others" && !commonTags.includes(tag))
+          .slice(0, 2);
+        return (
+          <article class="selected-entry">
+            <div class="entry-copy">
+              <>
+                <div class="feed-meta">
+                  <time datetime={post.data.pubDatetime.toISOString()}>
+                    {post.data.pubDatetime.toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                      timeZone: "America/Los_Angeles",
+                    })}
+                  </time>
+                </div>
+                <h3>
+                  <a href={`/posts/${post.id}/`}>{post.data.title}</a>
+                </h3>
+                <p>{post.data.description}</p>
+              </>
+              {tags.length > 0 && (
+                <ul aria-label="Topics">
+                  {tags.map((tag) => (
+                    <li>
+                      <a href={`/tags/${slugifyStr(tag)}/`}>{tag}</a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+            <p class="excerpt">{excerpt(post.body ?? "")}…</p>
+          </article>
+        );
+      })
+    }
+  </div>
+</section>
+<style>
+  .selected {
+    padding: 0;
+    margin: 0 0 3.5rem;
+  }
+  h2 {
+    font-family: inherit;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: rgb(var(--color-text-base));
+    margin: 0;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid rgba(var(--color-text-base), 0.45);
+  }
+  .selected-entry {
+    padding: 1.55rem 0 1.65rem;
+    border-bottom: 1px solid rgb(var(--color-border));
+  }
+  h3 {
+    font-size: 1.85rem;
+    line-height: 1.16;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    margin: 0 0 0.65rem;
+    overflow-wrap: anywhere;
+  }
+  h3 a:hover {
+    color: rgb(var(--color-accent));
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .entry-copy p {
+    font-size: 0.9rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: rgba(var(--color-text-base), 0.7);
+    margin: 0;
+  }
+  .excerpt {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(var(--color-text-base), 0.8);
+    margin: 0.8rem 0 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  ul {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+    font:
+      0.7rem/1.6 Arial,
+      sans-serif;
+    color: rgba(var(--color-text-base), 0.7);
+  }
+  ul a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  @media (max-width: 767px) {
+    h3 {
+      font-size: 1.65rem;
+    }
+  }
+</style>

@@ -1,67 +1,26 @@
 ---
-import type { GetStaticPaths } from "astro";
+import type { GetStaticPaths, Page } from "astro";
+import type { CollectionEntry } from "astro:content";
+interface Props {
+  page: Page<CollectionEntry<"blog">>;
+}
 import { getCollection } from "astro:content";
-import Layout from "@layouts/Layout.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import FeedFilter from "@components/FeedFilter.astro";
-import FeedSection from "@components/FeedSection.astro";
-import HomeHero from "@components/HomeHero.astro";
-import Sidebar from "@components/Sidebar.astro";
-import getSortedPosts from "@utils/getSortedPosts";
-
+import Feed from "@layouts/Feed.astro";
+import { getFeedPosts, feedRoute, FEED_PAGE_SIZE } from "@utils/getFeedPosts";
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
-  const posts = await getCollection("blog");
-  const sorted = getSortedPosts(posts);
-  const nonFeatured = sorted.filter(({ data }) => !data.featured);
-  return paginate(nonFeatured, { pageSize: 25 });
+  const { posts } = getFeedPosts(await getCollection("blog"), "all");
+  return paginate(posts, { pageSize: FEED_PAGE_SIZE });
 };
-
 const { page } = Astro.props;
-const allPosts = await getCollection("blog");
-const featuredPosts = page.currentPage === 1
-  ? getSortedPosts(allPosts).filter(({ data }) => data.featured)
-  : [];
-const nextFeedPage = page.url.next ? `/feed/all/${page.currentPage + 1}` : null;
+const { selected } = getFeedPosts(await getCollection("blog"), "all");
+const nextPage = page.url.next ? `/feed/all/${page.currentPage + 1}/` : null;
+const nextRoute = page.url.next ? feedRoute("all", page.currentPage + 1) : null;
 ---
 
-<Layout>
-  <Header />
-  <main id="main-content">
-    <HomeHero />
-
-    <div class="two-col">
-      <div class="feed-col">
-        <FeedFilter />
-        <FeedSection
-          featuredPosts={featuredPosts}
-          posts={page.data}
-          nextPage={nextFeedPage}
-        />
-      </div>
-      <div class="sidebar-col">
-        <Sidebar />
-      </div>
-    </div>
-  </main>
-
-  <Footer />
-</Layout>
-
-<style>
-  .two-col {
-    @apply mx-auto flex max-w-6xl flex-col gap-8 px-4 pb-12 pt-4 lg:flex-row;
-  }
-  .feed-col {
-    @apply min-w-0 lg:w-2/3;
-  }
-  .sidebar-col {
-    @apply lg:w-1/3;
-  }
-
-  @media (max-width: 1023px) {
-    .feed-col {
-      padding-bottom: 8rem;
-    }
-  }
-</style>
+<Feed
+  filter="all"
+  selected={page.currentPage === 1 ? selected : []}
+  posts={page.data}
+  {nextPage}
+  {nextRoute}
+/>

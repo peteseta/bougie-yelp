@@ -1,76 +1,52 @@
-const primaryColorScheme = ""; // "light" | "dark"
-
-// Get theme data from local storage
-const currentTheme = localStorage.getItem("theme");
-
-function getPreferTheme() {
-  // return theme value in local storage if it is set
-  if (currentTheme) return currentTheme;
-
-  // return primary color scheme if it is set
-  if (primaryColorScheme) return primaryColorScheme;
-
-  // return user device's prefer color scheme
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-}
-
-let themeValue = getPreferTheme();
-
-function setPreference() {
-  localStorage.setItem("theme", themeValue);
-  reflectPreference();
-}
-
-function reflectPreference() {
-  document.firstElementChild.setAttribute("data-theme", themeValue);
-
-  document.querySelector("#theme-btn")?.setAttribute("aria-label", themeValue);
-
-  // Get a reference to the body element
-  const body = document.body;
-
-  // Check if the body element exists before using getComputedStyle
-  if (body) {
-    // Get the computed styles for the body element
-    const computedStyles = window.getComputedStyle(body);
-
-    // Get the background color property
-    const bgColor = computedStyles.backgroundColor;
-
-    // Set the background color in <meta theme-color ... />
+(() => {
+  if (window.__literaryTheme) return;
+  window.__literaryTheme = true;
+  const media = window.matchMedia("(prefers-color-scheme: dark)");
+  const saved = () => {
+    try {
+      return localStorage.getItem("theme");
+    } catch {
+      return null;
+    }
+  };
+  let theme = saved() || (media.matches ? "dark" : "light");
+  function reflect() {
+    document.documentElement.dataset.theme = theme;
+    document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+      button.textContent = theme === "dark" ? "Light mode" : "Dark mode";
+      button.setAttribute(
+        "aria-label",
+        `Switch to ${theme === "dark" ? "light" : "dark"} mode`,
+      );
+    });
     document
-      .querySelector("meta[name='theme-color']")
-      ?.setAttribute("content", bgColor);
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", theme === "dark" ? "#212220" : "#fcfbf8");
   }
-}
-
-// set early so no page flashes / CSS is made aware
-reflectPreference();
-
-function setThemeFeature() {
-  // set on load so screen readers can get the latest value on the button
-  reflectPreference();
-
-  // now this script can find and listen for clicks on the control
-  document.querySelector("#theme-btn")?.addEventListener("click", () => {
-    themeValue = themeValue === "light" ? "dark" : "light";
-    setPreference();
+  reflect();
+  document.addEventListener("DOMContentLoaded", reflect);
+  document.addEventListener("astro:after-swap", reflect);
+  document.addEventListener("astro:before-swap", (event) => {
+    event.newDocument.documentElement.dataset.theme = theme;
   });
-}
-
-// Register immediately so navigations before window.onload don't lose the listener
-document.addEventListener("astro:after-swap", setThemeFeature);
-
-window.onload = () => {
-  setThemeFeature();
-};
-
-// sync with system changes
-window
-  .matchMedia("(prefers-color-scheme: dark)")
-  .addEventListener("change", ({ matches: isDark }) => {
-    themeValue = isDark ? "dark" : "light";
-    setPreference();
+  document.addEventListener("click", (event) => {
+    if (
+      !(event.target instanceof Element) ||
+      !event.target.closest("[data-theme-toggle]")
+    )
+      return;
+    theme = theme === "dark" ? "light" : "dark";
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {
+      /* Theme still works without storage. */
+    }
+    reflect();
   });
+  media.addEventListener("change", () => {
+    if (!saved()) {
+      theme = media.matches ? "dark" : "light";
+      reflect();
+    }
+  });
+})();

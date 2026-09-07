@@ -19,7 +19,6 @@
   "dependencies": {
     "@astrojs/check": "^0.9.8",
     "@astrojs/mdx": "^4.3.14",
-    "@astrojs/rss": "^4.0.18",
     "@resvg/resvg-js": "^2.6.2",
     "@tinacms/cli": "2.2.0",
     "astro": "^5.18.1",

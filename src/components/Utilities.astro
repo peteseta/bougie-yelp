@@ -1,0 +1,22 @@
+---
+import { SITE } from "@config";
+---
+
+<nav class="utilities" aria-label="Site utilities">
+  <a class="quiet-action" href="/search/">Search</a>
+  {
+    SITE.lightAndDarkMode && (
+      <button class="quiet-action" type="button" data-theme-toggle>
+        Dark mode
+      </button>
+    )
+  }
+</nav>
+<style>
+  .utilities {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.1rem;
+  }
+</style>

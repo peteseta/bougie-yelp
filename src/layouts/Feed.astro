@@ -1,0 +1,111 @@
+---
+import type { CollectionEntry } from "astro:content";
+import type { FeedFilter as Filter } from "@utils/getFeedPosts";
+import { SITE } from "@config";
+import Layout from "./Layout.astro";
+import Header from "@components/Header.astro";
+import Utilities from "@components/Utilities.astro";
+import Sidebar from "@components/Sidebar.astro";
+import SelectedWritings from "@components/SelectedWritings.astro";
+import FeedFilter from "@components/FeedFilter.astro";
+import FeedSection from "@components/FeedSection.astro";
+interface Props {
+  filter: Filter;
+  selected: CollectionEntry<"blog">[];
+  posts: CollectionEntry<"blog">[];
+  nextPage: string | null;
+  nextRoute: string | null;
+}
+const { filter, selected, posts, nextPage, nextRoute } = Astro.props;
+const label = {
+  all: "Recent posts",
+  writing: "Writings",
+  weblog: "Weblogs",
+  devlog: "Devlogs",
+}[filter];
+---
+
+<Layout title={filter === "all" ? SITE.title : `${label} | ${SITE.title}`}>
+  <Header sidebarIdentity />
+  <main id="main-content" class="feed-shell">
+    <h1 class="sr-only">{filter === "all" ? SITE.title : label}</h1>
+    <div class="mobile-utilities"><Utilities /></div>
+    <div class="feed-grid">
+      <div class="feed-column">
+        {selected.length > 0 && <SelectedWritings posts={selected} />}
+        <section
+          class:list={[
+            "recent-feed",
+            { "after-selected": selected.length > 0 },
+          ]}
+          aria-labelledby="recent-heading"
+        >
+          <div class="feed-heading">
+            <h2 id="recent-heading">{label}</h2><FeedFilter {filter} />
+          </div>
+          <FeedSection {posts} {nextPage} {nextRoute} />
+        </section>
+      </div><Sidebar />
+    </div>
+  </main>
+</Layout>
+<style>
+  .feed-shell {
+    width: 100%;
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 3.6rem 3.875rem 4.75rem;
+  }
+  .feed-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 170px;
+    gap: 4.5rem;
+  }
+  .feed-column {
+    min-width: 0;
+  }
+  .mobile-utilities {
+    display: none;
+  }
+  .recent-feed {
+    padding: 0;
+    margin: 0;
+  }
+  .after-selected {
+    padding-top: 0;
+  }
+  .feed-heading {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgb(var(--color-fill));
+    padding-top: 0.75rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.6rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid rgba(var(--color-text-base), 0.45);
+  }
+  h2 {
+    font-family: inherit;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: rgb(var(--color-text-base));
+  }
+  @media (max-width: 767px) {
+    .feed-shell {
+      padding: 0 1.5rem 3rem;
+    }
+    .feed-grid {
+      display: block;
+    }
+    .mobile-utilities {
+      display: block;
+      margin-bottom: 2.5rem;
+    }
+  }
+</style>

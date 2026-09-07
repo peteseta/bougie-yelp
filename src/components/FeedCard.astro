@@ -4,24 +4,18 @@ import PostCard from "./PostCard.astro";
 import getPostType from "@utils/getPostType";
 import extractLinkCardUrl from "@utils/extractLinkCardUrl";
 import type { CollectionEntry } from "astro:content";
-
 interface Props {
   post: CollectionEntry<"blog">;
-  featured?: boolean;
 }
-
-const { post, featured = false } = Astro.props;
+const { post } = Astro.props;
 const type = getPostType(post);
-
-// For weblogs, extract the LinkCard URL from the post body
-let linkUrl: string | null = null;
-if (type === "weblog") {
-  linkUrl = extractLinkCardUrl(post.body ?? "");
-}
+const linkUrl = type === "weblog" ? extractLinkCardUrl(post.body ?? "") : null;
 ---
 
-{type === "weblog" ? (
-  <WeblogCard post={post} linkUrl={linkUrl} featured={featured} />
-) : (
-  <PostCard post={post} type={type} featured={featured} />
-)}
+{
+  type === "weblog" ? (
+    <WeblogCard {post} {linkUrl} />
+  ) : (
+    <PostCard {post} {type} />
+  )
+}

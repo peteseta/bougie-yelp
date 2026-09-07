@@ -1,41 +1,82 @@
 ---
-import TypeBadge from "./TypeBadge.astro";
-import FeaturedBadge from "./FeaturedBadge.astro";
-import FeedLinkCard from "./FeedLinkCard.astro";
-import type { CollectionEntry } from "astro:content";
-import { slugifyStr } from "@utils/slugify";
-
+import { render, type CollectionEntry } from "astro:content";
+import { extractLinkCardUrls } from "@utils/extractLinkCardUrl";
+import FeedLinkPlaceholder from "./FeedLinkPlaceholder.astro";
 interface Props {
   post: CollectionEntry<"blog">;
   linkUrl: string | null;
-  featured?: boolean;
 }
-
-const { post, linkUrl, featured = false } = Astro.props;
+const { post, linkUrl } = Astro.props;
 const { title, pubDatetime } = post.data;
-
-const displayDate = new Date(pubDatetime).toLocaleDateString("en-US", {
+const { Content } = await render(post);
+const additionalLinks = extractLinkCardUrls(post.body ?? "").slice(1);
+const date = pubDatetime.toLocaleDateString("en-US", {
   year: "numeric",
   month: "short",
   day: "numeric",
+  timeZone: "America/Los_Angeles",
 });
+let domain = "";
+try {
+  domain = linkUrl ? new URL(linkUrl).hostname.replace(/^www\./, "") : "";
+} catch {
+  /* Local permalink is still available. */
+}
 ---
 
-<article class="py-4">
-  <div class="mb-2 flex items-center gap-2 text-sm">
-    {featured && <FeaturedBadge />}
-    <TypeBadge type="weblog" />
-    <time datetime={pubDatetime.toISOString()} class="font-mono text-skin-base opacity-60">
-      {displayDate}
-    </time>
-  </div>
-  <h3 class="mb-2" style={{ viewTransitionName: slugifyStr(title) }}>
-    <a
-      href={`/posts/${post.id}/`}
-      class="text-base font-semibold text-skin-base decoration-dashed underline-offset-4 hover:text-skin-accent hover:underline"
+<article class="feed-entry weblog">
+  <div class="feed-meta">
+    <a href={`/posts/${post.id}/`} aria-label={`Permalink: ${title}`}
+      ><time datetime={pubDatetime.toISOString()}>{date}</time></a
     >
-      {title}
-    </a>
+  </div>
+  <h3>
+    <a href={linkUrl || `/posts/${post.id}/`}
+      >{title}{
+        linkUrl && (
+          <span class="external-arrow" aria-hidden="true">
+            {" "}
+            ↗
+          </span>
+        )
+      }</a
+    >
   </h3>
-  {linkUrl && <FeedLinkCard url={linkUrl} />}
+  {domain && <p class="weblog-source">{domain}</p>}
+  {
+    additionalLinks.length > 0 && (
+      <ul class="additional-sources">
+        {additionalLinks.map((url) => (
+          <li>
+            <a href={url}>
+              {new URL(url).hostname.replace(/^www\./, "")}{" "}
+              <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+  <div class="feed-commentary">
+    <Content components={{ LinkCard: FeedLinkPlaceholder }} />
+  </div>
 </article>
+
+<style>
+  .weblog-source {
+    margin: 0.25rem 0 0;
+    font:
+      0.7rem/1.5 Arial,
+      sans-serif;
+    color: rgba(var(--color-text-base), 0.65);
+    overflow-wrap: anywhere;
+  }
+  .additional-sources {
+    margin-top: 0.65rem;
+    font-size: 0.85rem;
+  }
+  .additional-sources a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>

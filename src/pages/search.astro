@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import { SITE } from "@config";
 import Layout from "@layouts/Layout.astro";
-import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Search from "@components/Search.astro";
@@ -14,8 +13,28 @@ const sortedPosts = getSortedPosts(posts);
 
 <Layout title={`Search | ${SITE.title}`}>
   <Header activeNav="search" />
-  <Main pageTitle="Search">
+  <main id="main-content" class="search-page">
+    <h1>Search</h1>
     <Search posts={sortedPosts} />
-  </Main>
+  </main>
   <Footer />
 </Layout>
+
+<style>
+  .search-page {
+    width: 100%;
+    max-width: 1020px;
+    margin-inline: auto;
+    padding: 0 3.875rem 3rem;
+  }
+  h1 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  @media (max-width: 767px) {
+    .search-page {
+      padding-inline: 1.5rem;
+    }
+  }
+</style>

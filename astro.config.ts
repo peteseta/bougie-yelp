@@ -18,7 +18,8 @@ export default defineConfig({
     react(),
     mdx(),
     sitemap({
-      filter: (page) => SITE.showArchives || !page.endsWith("/archives"),
+      filter: (page) =>
+        SITE.showArchives || !page.replace(/\/$/, "").endsWith("/archives"),
     }),
   ],
   markdown: {

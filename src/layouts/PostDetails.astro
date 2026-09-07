@@ -70,7 +70,7 @@ const nextPost =
 ---
 
 <Layout {...layoutProps}>
-  <Header />
+  <Header hideIdentity />
 
   <main id="main-content" class="post-shell">
     <div class:list={["post-grid", { "post-grid--writing": showToC }]}>
@@ -212,12 +212,13 @@ const nextPost =
     </div>
     <FootnotePopover />
   </main>
-  <Footer />
+  <Footer showIdentity />
 </Layout>
 
 <style>
   .post-shell {
     @apply w-full pb-12;
+    padding-top: clamp(2.5rem, 5vw, 4rem);
     overflow-x: clip;
   }
 
@@ -225,7 +226,7 @@ const nextPost =
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    margin-top: 2rem;
+    margin-top: 0;
     margin-bottom: 2rem;
   }
 
@@ -254,8 +255,8 @@ const nextPost =
     display: block;
     max-width: 13ch;
     color: rgb(var(--color-accent));
-    font-size: clamp(2.2rem, 6vw, 5rem);
-    line-height: 0.97;
+    font-size: clamp(2rem, 5.4vw, 4.25rem);
+    line-height: 1.03;
     font-weight: 600;
     font-style: italic;
     letter-spacing: -0.04em;

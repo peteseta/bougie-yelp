@@ -5,26 +5,26 @@
 @layer base {
   :root,
   html[data-theme="light"] {
-    --color-fill: 251, 254, 251;
-    --color-text-base: 40, 39, 40;
-    --color-accent: 0, 108, 172;
+    --color-fill: 252, 251, 248;
+    --color-text-base: 48, 46, 42;
+    --color-accent: 108, 80, 64;
     --color-card: 230, 230, 230;
     --color-card-muted: 205, 205, 205;
-    --color-border: 236, 233, 233;
+    --color-border: 223, 219, 212;
     --color-badge-weblog: 140, 140, 140;
-    --color-badge-devlog: 0, 108, 172;
+    --color-badge-devlog: 108, 80, 64;
     --color-badge-writing: 139, 92, 246;
   }
   html[data-theme="dark"] {
     /* Min dark scheme (ported from min-theme) */
-    --color-fill: 33, 33, 33; /* #212121 */
-    --color-text-base: 193, 193, 193; /* #c1c1c1 */
-    --color-accent: 121, 184, 255; /* #79b8ff */
+    --color-fill: 33, 34, 32; /* #212121 */
+    --color-text-base: 222, 221, 215; /* #c1c1c1 */
+    --color-accent: 205, 182, 155; /* #79b8ff */
     --color-card: 41, 41, 41; /* #292929 */
     --color-card-muted: 56, 56, 56; /* #383838 */
-    --color-border: 54, 54, 54; /* #363636 */
+    --color-border: 65, 66, 61; /* #363636 */
     --color-badge-weblog: 120, 120, 120;
-    --color-badge-devlog: 121, 184, 255;
+    --color-badge-devlog: 205, 182, 155;
     --color-badge-writing: 167, 139, 250;
   }
   #sun-svg,
@@ -166,4 +166,103 @@
   .focus-outline {
     @apply outline-2 outline-offset-1 outline-skin-fill focus-visible:no-underline focus-visible:outline-dashed;
   }
+}
+
+/* Shared literary feed typography; article prose retains its own layout. */
+.feed-entry {
+  margin: 0 0 2rem;
+}
+.feed-meta {
+  font:
+    0.7rem/1.6 Arial,
+    sans-serif;
+  color: rgba(var(--color-text-base), 0.65);
+  margin-bottom: 0.4rem;
+}
+.feed-entry h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+.feed-entry h3 a {
+  color: rgb(var(--color-accent));
+}
+.feed-entry a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.external-arrow {
+  font:
+    0.8rem Arial,
+    sans-serif;
+  white-space: nowrap;
+}
+.post-description {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(var(--color-text-base), 0.75);
+}
+.feed-commentary {
+  font-size: 1rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.feed-commentary p,
+.feed-commentary blockquote,
+.feed-commentary ul,
+.feed-commentary ol {
+  margin-top: 0.75rem;
+}
+.feed-commentary a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.feed-commentary ul {
+  list-style: disc;
+  padding-left: 1.3rem;
+}
+.feed-commentary ol {
+  list-style: decimal;
+  padding-left: 1.3rem;
+}
+.feed-commentary blockquote {
+  border-left: 2px solid rgb(var(--color-border));
+  padding-left: 1rem;
+}
+.feed-commentary iframe,
+.feed-commentary embed,
+.feed-commentary object {
+  max-width: 100%;
+}
+.feed-commentary img,
+.feed-commentary video {
+  max-width: 100%;
+  height: auto;
+}
+.feed-commentary pre {
+  overflow: auto;
+}
+
+/* One understated action treatment across navigation and sidebar controls. */
+.quiet-action {
+  font:
+    500 0.8rem/1.6 Arial,
+    sans-serif;
+  color: rgb(var(--color-text-base));
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(var(--color-text-base), 0.5);
+  text-underline-offset: 4px;
+  cursor: pointer;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: none;
+}
+.quiet-action:hover {
+  color: rgb(var(--color-accent));
+  text-decoration-color: currentColor;
 }
