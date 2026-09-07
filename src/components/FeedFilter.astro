@@ -18,12 +18,14 @@ const filters = [
     filters.map((item) => (
       <a
         href={feedRoute(item.id, 1)}
+        data-feed-filter={item.id}
         aria-current={item.id === filter ? "page" : undefined}
       >
         {item.label}
       </a>
     ))
   }
+  <span class="sr-only" role="status" data-filter-status></span>
 </nav>
 <style>
   .feed-filter {
@@ -44,3 +46,119 @@ const filters = [
     color: rgb(var(--color-accent));
   }
 </style>
+
+<script>
+  let disposeFilters: (() => void) | undefined;
+  function initFilters() {
+    disposeFilters?.();
+    const nav = document.querySelector<HTMLElement>(".feed-filter");
+    const heading = document.querySelector<HTMLElement>(".feed-heading");
+    const section = document.querySelector<HTMLElement>(".recent-feed");
+    if (!nav || !heading || !section) return;
+    const links = Array.from(
+      nav.querySelectorAll<HTMLAnchorElement>("[data-feed-filter]"),
+    );
+    const status = nav.querySelector<HTMLElement>("[data-filter-status]");
+    const initialFilter =
+      links.find((link) => link.hasAttribute("aria-current"))?.dataset
+        .feedFilter ?? "all";
+    let currentFilter = initialFilter;
+    let request: AbortController | undefined;
+    const listeners = new AbortController();
+    const allowed = new Set(links.map((link) => link.dataset.feedFilter));
+    function urlFilter() {
+      const value = new URL(location.href).searchParams.get("type");
+      return value && allowed.has(value) ? value : initialFilter;
+    }
+    async function select(filter: string, push: boolean) {
+      request?.abort();
+      if (filter === currentFilter) {
+        section!.removeAttribute("aria-busy");
+        if (status) status.textContent = "";
+        return;
+      }
+      const controller = new AbortController();
+      request = controller;
+      section!.setAttribute("aria-busy", "true");
+      if (status) status.textContent = "Filtering posts…";
+      try {
+        const response = await fetch(`/feed/${filter}/`, {
+          signal: controller.signal,
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const doc = new DOMParser().parseFromString(
+          await response.text(),
+          "text/html",
+        );
+        const incoming = doc.querySelector("#feed-section");
+        const existing = document.querySelector("#feed-section");
+        if (!incoming || !existing) throw new Error("Missing feed");
+        if (controller.signal.aborted) return;
+        const stickyTop = parseFloat(getComputedStyle(heading!).top) || 0;
+        const isStuck = heading!.getBoundingClientRect().top <= stickyTop + 1;
+        document.dispatchEvent(new Event("feed:before-update"));
+        existing.replaceWith(incoming);
+        currentFilter = filter;
+        links.forEach((link) => {
+          if (link.dataset.feedFilter === filter)
+            link.setAttribute("aria-current", "page");
+          else link.removeAttribute("aria-current");
+        });
+        if (push) {
+          const url = new URL(location.href);
+          if (filter === initialFilter) url.searchParams.delete("type");
+          else url.searchParams.set("type", filter);
+          history.pushState(history.state, "", url);
+        }
+        if (isStuck)
+          window.scrollTo({
+            top:
+              section!.getBoundingClientRect().top + window.scrollY - stickyTop,
+            behavior: "instant",
+          });
+        document.dispatchEvent(new Event("feed:updated"));
+        if (status)
+          status.textContent = `${links.find((link) => link.dataset.feedFilter === filter)?.textContent?.trim()} selected`;
+      } catch (error) {
+        if (controller.signal.aborted) return;
+        if (status)
+          status.textContent = "Couldn’t filter posts. Please try again.";
+        console.error("Feed filtering failed:", error);
+      } finally {
+        if (!controller.signal.aborted) section!.removeAttribute("aria-busy");
+      }
+    }
+    nav.addEventListener(
+      "click",
+      (event) => {
+        if (
+          !(event.target instanceof Element) ||
+          event.button !== 0 ||
+          event.metaKey ||
+          event.ctrlKey ||
+          event.shiftKey ||
+          event.altKey
+        )
+          return;
+        const link =
+          event.target.closest<HTMLAnchorElement>("[data-feed-filter]");
+        if (!link?.dataset.feedFilter) return;
+        event.preventDefault();
+        event.stopPropagation();
+        void select(link.dataset.feedFilter, true);
+      },
+      { signal: listeners.signal },
+    );
+    window.addEventListener("popstate", () => void select(urlFilter(), false), {
+      signal: listeners.signal,
+    });
+    void select(urlFilter(), false);
+    disposeFilters = () => {
+      request?.abort();
+      listeners.abort();
+    };
+  }
+  document.addEventListener("astro:before-swap", () => disposeFilters?.());
+  document.addEventListener("astro:page-load", initFilters);
+  initFilters();
+</script>

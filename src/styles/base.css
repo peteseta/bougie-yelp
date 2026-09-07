@@ -125,16 +125,6 @@
     overflow-y: scroll;
   }
 
-  /* Hide on mobile only when the ProgressTOC is mounted (class toggled by its JS) */
-  @media (max-width: 1279px) {
-    html.has-progress-toc {
-      scrollbar-width: none;
-    }
-    html.has-progress-toc::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
   /* ===== Code Blocks & Syntax Highlighting ===== */
   pre:has(code) {
     @apply border border-skin-line;

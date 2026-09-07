@@ -1,8 +1,5 @@
 ---
 import { slugifyStr } from "@utils/slugify";
-import Datetime from "./Datetime";
-import TypeBadge from "./TypeBadge.astro";
-import FeaturedBadge from "./FeaturedBadge.astro";
 import type { CollectionEntry } from "astro:content";
 import getPostType from "@utils/getPostType";
 
@@ -13,28 +10,59 @@ export interface Props {
 }
 
 const { href, post, secHeading = true } = Astro.props;
-const { title, pubDatetime, modDatetime, description, featured } = post.data;
+const { title, pubDatetime, description } = post.data;
 const postType = getPostType(post);
+const date = pubDatetime.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+  timeZone: "America/Los_Angeles",
+});
 
 const headerStyle = { viewTransitionName: slugifyStr(title) };
-const headerClass = "text-lg font-medium decoration-dashed hover:underline";
+const headerClass = "text-lg font-medium decoration-solid hover:underline";
 ---
 
 <li class="my-6">
+  <div class="feed-meta">
+    <time datetime={pubDatetime.toISOString()}>{date}</time> · {postType}
+  </div>
   <a
     href={href}
-    class="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
+    class="inline-block text-lg font-medium text-skin-accent decoration-solid underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
   >
-    {secHeading ? (
-      <h2 style={headerStyle} class={headerClass}>{title}</h2>
-    ) : (
-      <h3 style={headerStyle} class={headerClass}>{title}</h3>
-    )}
+    {
+      secHeading ? (
+        <h2 style={headerStyle} class={headerClass}>
+          {title}
+        </h2>
+      ) : (
+        <h3 style={headerStyle} class={headerClass}>
+          {title}
+        </h3>
+      )
+    }
   </a>
-  <div class="my-2 flex flex-wrap items-center gap-2">
-    <TypeBadge type={postType} />
-    {featured && <FeaturedBadge />}
-  </div>
-  <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} />
   <p>{description}</p>
 </li>
+
+<style>
+  li {
+    margin: 0;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(var(--color-text-base), 0.16);
+  }
+  h2,
+  h3 {
+    font:
+      600 1.4rem/1.25 "Source Serif 4",
+      Georgia,
+      serif;
+    color: rgb(var(--color-text-base));
+  }
+  li > p:last-child {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-top: 0.5rem;
+  }
+</style>

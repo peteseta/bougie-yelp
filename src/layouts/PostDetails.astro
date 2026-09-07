@@ -126,8 +126,6 @@ const nextPost =
             </svg>
             <span>Back to top</span>
           </button>
-
-          <!-- <ShareLinks /> -->
         </div>
 
         <hr class="post-divider" />
@@ -377,16 +375,8 @@ const nextPost =
     position: relative;
   }
 
-  .post-grid__left,
   .post-grid__right {
     display: none;
-  }
-
-  /* Zero-width visible container so position:fixed ProgressTOC renders on mobile */
-  .post-grid--writing .post-grid__left {
-    display: block;
-    width: 0;
-    overflow: visible;
   }
 
   .post-grid__content {
@@ -399,17 +389,11 @@ const nextPost =
 
   /* TOC + footnotes as fixed-position overlays; content always page-centered */
   @media (min-width: 1280px) {
-    .post-grid--writing .post-grid__left,
     .post-grid--writing .post-grid__right {
       display: block;
       position: absolute;
       top: 0;
       bottom: 0;
-    }
-
-    .post-grid--writing .post-grid__left {
-      left: 0;
-      width: 13rem;
     }
 
     .post-grid--writing .post-grid__right {
