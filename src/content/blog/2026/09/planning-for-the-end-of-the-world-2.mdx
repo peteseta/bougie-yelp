@@ -1,0 +1,168 @@
+---
+author: Author
+pubDatetime: 2026-04-20T11:20:58-07:00
+title: "Planning for the end of the world, a year on"
+slug: uncertainty-mapping-april-2026
+type: writing
+featured: true
+draft: false
+tags:
+  - ai safety
+description: Mapping my uncertainties (April 2026)
+---
+
+> The scout mindset emphasizes curiosity, unbiased truth-seeking, and facing reality, even if that reality is unexpected. Galef contrasts this with a "soldier mindset", which she says is a natural tendency to use motivated reasoning to defend one's existing beliefs instead of being open to changing them.
+>
+> - The [Wikipedia](https://en.wikipedia.org/wiki/The_Scout_Mindset) page for _The Scout Mindset_ by Julia Galef
+
+In the spirit of always updating, I'd like to share a reflection I did after [completing](https://bluedot.org/certification?id=recTmYTLpR1G4RFie) BlueDot's [Frontier AI Governance course](https://bluedot.org/courses/ai-governance). The guiding questions are from BlueDot.
+
+# What do you now believe? (~20 min)
+
+> Your worldview - revisit the positions you covered during the course, but try to zoom out. What's your overall picture of where AI (governance) is heading? Be honest about your confidence levels and unknowns (also known as learning opportunities). Try to be specific about your remaining uncertainties. For this find and name the 2-3 uncertainties that, if resolved, would change what you think should be done significantly.
+
+> Some prompts if you get stuck stuck:
+> How urgent is all of this? Are we in a "years to get it right" or "months to get it right" situation? How many shots on goal do we get?
+> What's the failure mode you're most worried about?
+> Which of the Strategic Visions from Unit 3 do you now find most plausible - and has that changed since you first read them?
+> What's the most important thing you learned in this course that you didn't know before?
+> What do you now believe that you didn't believe a few weeks ago? What do you believe less strongly?
+
+- On the overall feasibility of AI governance: before the course, I was pessimistic but highly uncertain. I am now equally pessimistic but more certain about it.
+  - I have learned about many avenues of governance (different proposals for governance structures, public-private collaboration and the benefits/issues that come with that, ways to think about open source models, etc.) but they all seem to bank on effective international co-operation → the failure mode I’m most worried about, combined with:
+  - This need for co-operation seems to be at odds with how governments of leading countries (primarily US, China) are positioning AGI as a tool of national security and hegemony.
+  - There seems to be two race dynamics at play concurrently:
+    1. Race dynamics between countries - and I feel I am convinced of the argument that this is sufficiently deterred by MAIM (Mutual Assured AI Malfunction)
+    2. Race dynamics between frontier labs within countries - this seems dangerous and unchecked because of 1) the soft-touch approach to regulation we see in those leading countries, 2) the integration of AI into the military-industrial complex, and 3) the economic profit motive that labs prioritize, encouraged by the economic system
+- One thing I’ve changed my view on is slow vs. fast takeoff: I now lean towards a slower take-off / non-singularity scenario
+  - I do believe that there will be an intelligence explosion and takeoff will be facilitated by recursive self-improvement, but there are many avenues of risk (some of them non x-risk and therefore ignored by the EA community) that will arise in the meantime
+  - I think human resources / decision making etc. will bottleneck a lot of that improvement
+  - But that just means our priorities right now should be different, not that we have more time necessarily
+  - There are many things that we will not be able to defer to even a helpful AI, and there are many policy windows that will close once we know who has the power
+  - “80/20ing is the Only Realistic Goal”
+- My most plausible strategic vision: International competition and deterrence: Rival powers each run national projects engaged in a managed competition, with mutual deterrence constraining reckless actions.
+  - I think in the short term we will have multiple private projects, but as scaling laws continue to hold and the divide between the compute-poor and compute-rich increases it might collapse to ~one project per “power”
+    - Related: I think open-source is only so good because of distillation, so it seems the gap will continue to exist.
+
+# What needs to be done? (~15 min)
+
+> Try to identify 3-5 specific things that you think need to/should happen/should be looked into. Ideally these are concrete and actionable.
+
+> For each, ask:
+>
+> - Is anyone doing this well right now? If yes, do they need help? If no, why not - is it a gap or is it intractable? Where is it on the spectrum?
+> - What's the main bottleneck? Is it talent, funding, lack of solution, political will, lack of a forcing event, technical knowledge, institutional capacity, or something else?
+> - How does this connect to your positions on these things?
+
+- What can we do to encourage and ensure effective international co-operation?
+  - Who’s doing this? IAPS, CAIS, GovAI, RAND, Nuclear analogy orgs
+  - Main bottleneck:
+    - Seems to be political will/lack of a forcing event
+    - But also, every serious international governance proposal eventually becomes: how do you verify compliance? With nuclear weapons you can count warheads and do site inspections. With AI you can't easily verify compute usage, training runs, or capability levels. Until there's a credible technical answer to verification, political will doesn't actually unblock anything
+    - Technical prerequisites for diplomacy: compute monitoring, model evaluations that could serve as a common standard, information-sharing frameworks between labs in different countries.
+  - Personal connection:
+    - I need a clearer view on whether the verification bottleneck is actually the binding constraint, or whether it's political will, because those have completely different implications for what early-career people should work on
+- Do open-source models continue to pose a risk if distillation stopped? For the first time, through Claude Mythos / Project Glasswing we have a closed-source model that was deemed by a commercial lab to be too dangerous to release. Will the current gap between closed/open source models stay constant?
+  - If it does stay constant, then we will have a Mythos-level model in 6-12 months. Basically a ticking time bomb. What safeguards can be built between now and then?
+  - If my hypothesis is correct and improvements stop because open-source labs no longer have anything to distill from, then we have more time.
+  - Who’s doing this? METR, GovAI, RAND
+  - Main bottleneck:
+    - Technical bottleneck: we don't have agreed-upon evaluations for when an open-weight model crosses a danger threshold
+    - Policy bottleneck: open-source AI has a very well-organized constituency (Meta, academic researchers, the developer community) and safety-motivated restriction has almost none
+    - So there needs to be some focusing event or a compelling technical case that survives the established constituency
+  - Personal connection:
+    - I’m going to be leading an org that runs educational programs, and if a Mythos-level model goes open-source in 6-12 months, the question of what I tell students to work on changes completely
+- Profit incentives seem to be strong right now, as Anthropic and OpenAI prepare for an IPO. Will this change afterwards? And what recourse does the government have to regulate them before/after? If a government can control the race dynamic within its own borders then the international MAIM situation seems stable for the medium term.
+  - Who’s doing this? Future of life institute, CSET @ georgetown, Cullen O’Keefe, Yoshua Bengio
+  - Main bottleneck:
+    - Institutional capacity and the fact that this is novel - we don’t really know how to regulate a company that is simultaneously a national security asset, a consumer product provider, and a potential x-risk vector.
+    - The current legal tools we have were designed for different problems. Nobody has a concrete, legally defensible proposal
+  - Personal connection:
+    - The labs I want to eventually work adjacent to are the ones whose governance structures are up for grabs right now
+
+# What should you do? (~25 min)
+
+> Be honest with yourself. List your assets/gaps. What do you bring?
+
+> **Consider:**
+>
+> - Domain expertise (law, policy, finance, biology, security, engineering, etc.)
+> - Technical skills (coding, data analysis, research methods, model evaluation)
+> - Communication and writing ability. Can you explain technical things to non-specialists? Can you write clearly under time pressure? Do you enjoy it?
+> - Existing platform or audience. Do people already listen to you? A newsletter, a professional community, a social media following, a reputation in a niche. If you have zero, building one is probably a good step one.
+> - Professional network and access. Who can you reach that others can't?
+> - Institutional position. Where are you, and what does that let you do? Inside a lab, inside government, inside a university, inside an industry being transformed by AI?
+> - Geographic location. DC? London? SF? Brussels? Beijing? Nairobi? Somewhere else?
+> - Unusual combinations of all the above and below.
+> - Operational and organizational ability. Can you manage projects, hire people, run events, raise money, build organizations?
+> - Stage of career and positioning.
+> - Can you go full-time on this? Or do you have 5 hours a week?
+> - Can you take a financial risk? Do you need stability? Can you self-fund a project for 6 months, or do you need a salary from day one?
+> - Your comparative advantage - what's the most impactful work where you already have an edge?
+
+- I will be leading my university’s AI Safety organization (UBC AI Safety). We are the most established in Canada and have started building a strong network of late-stage career professionals in the PNW area.
+  - Hopefully: I have an institutional foothold in Canada, which has almost no serious AI governance infrastructure outside Mila/CIFAR, and where the policy community is small enough that a well-connected student org leader can actually get face time with decision-makers
+- I can move in both technical and policy circles at an early career stage
+  - [Talent Needs of Technical AI Safety Teams — EA Forum](https://forum.effectivealtruism.org/posts/AgjDbFhpErpRN5ZbD/talent-needs-of-technical-ai-safety-teams)
+- At this point I don’t see myself going full-time until after I’m done with undergrad. But I can take financial risks.
+
+> Forcing questions to make you stop hedging.
+> Gun to your head: you can only work on one thing for the next 6 months. What is it? One thing. Write it down.
+> You receive a $1M grant tomorrow. How do you spend it? You can fund yourself, fund others, start something, or support something that exists. Be specific!
+
+One thing for the next 6 months: Produce one concrete policy-facing brief on the open-weight danger threshold problem, aimed at a specific Canadian decision-maker, and get it in front of them.
+
+$1M: I would fund a translator/communicator position(s) at an org that's technically strong but lacking in terms of policy, or seeding a Canadian AI governance institution (which barely exists and where I’d have comparative advantage)
+
+> A few more:
+> It's 2030 and things have gone badly. An AI-related catastrophe has occurred (maybe we’re all dead). Looking back (just before you die), what do you wish you had started working on today?
+
+Do anything to contribute - do meaningful work on a project. I’m sure there are so many roles at the intersection of technical research and governance (communicating, educating, etc.) and I think I need to take more risks to open doors for myself.
+
+> It's 2030 and things have gone well. Things are working better than expected. What happened, and what role did you play? Who are three people you should be talking to that you're not currently talking to?
+
+I was able to contribute to something that reversed my pessimism of AI Governance.
+
+1. Someone working on US-China relations, esp. in the area of AI Governance.
+2. Someone advising policymakers at the highest level of what’s new in the field of technical governance
+3. Someone with decision-making power over market strategy and delegating resources to capabilities vs. safety research at a large lab
+
+> **Given your answers above, set out what your next move is going to be be:**
+
+> A specific action you're going to take in the next 30 days. (Apply for X, reach out to Y, start learning Z, write a piece on W, start a Substack about V.)
+
+Read and do a write-up targeted for someone in the Canadian policy space that maps different proposals for dealing with open-weight models. Where do people stand on the technical bottleneck vs policy bottleneck debate?
+
+Try to get it in front of them.
+
+> A 6-month plan for building toward a position where you can contribute. (If you're not yet positioned to do the work you identified, what's the path?)
+
+Work with mentors to revise and map out our club’s theory of impact. We seem to adopt “Convince people AIS is important, then upskill them to get them into an AIS position.” chiefly, then “Find people who are already interested in AI Safety and build their context and skill to get them into an AIS role” second. Is this the right choice? The pipeline of people who are persuadable into AI safety is getting crowded. The more neglected intervention is probably “take people who are already going to work at labs or in policy and make sure they have good epistemics”
+
+- [Nixon Hanna has thoughts.](https://www.nixonhanna.com/posts/guide-to-intro-ais-reading-group/) [^1]
+- I think the highest-leverage intervention is targeting people already going into labs or policy and improving their epistemics on safety, rather than persuading new people.
+- I need to be able to defend that with evidence
+
+[^1]: I actually met Nixon in Berkeley a few months after writing this reflection, but that entire weekend had shaped my ideas about theory of change a lot, so we didn't go into this.
+
+The people in the 2030 scenario are like 5-7 year connections. Some 6-month connection ideas (need real people):
+
+- Someone working on Canadian policy at CIFAR or Mila
+- Mid-level person at IAPS
+- ISED/Canadian government staffer working on AI policy
+- Someone running a university AI safety org at a peer institution
+- journalist or writer covering AI policy seriously
+
+# Redteaming
+
+> Then bring in the red team (aka your discussion group, your friends, Claude). Ask them: What's the strongest argument that your plan is wrong? That the work you've identified isn't actually important, or that you're not actually well-positioned for it, or that there's something more impactful you're not seeing?
+
+Feedback from discussion group:
+
+- Focusing on people who are already going into AI-related work and convincing them to care about AI safety seems to be a good direction to take the club into impact-wise - “targeting people who are guaranteed to actually do the work”
+- Community building can have a high impact, and the impact doesn’t disappear when you step away. What I would be doing with UBC AIS isn’t low-value even if I step away and do policymaking, etc later.
+- You create connections for yourself
+- You build the talent that might become high-impact collaborators later
+- If I were to prioritize exploiting the current talent pool in more ways, this could increase credibility of the club and support people to become impactful: getting fellowships, getting funding, etc
+- Exploiting can act as a multiplier on community-building itself
+- And we can start by setting our own bars: our own competitions and/or fellowships
