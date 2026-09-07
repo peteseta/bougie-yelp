@@ -4,11 +4,21 @@ import Utilities from "./Utilities.astro";
 export interface Props {
   noMarginTop?: boolean;
   showIdentity?: boolean;
+  readingColumn?: boolean;
 }
-const { noMarginTop = false, showIdentity = false } = Astro.props;
+const {
+  noMarginTop = false,
+  showIdentity = false,
+  readingColumn = false,
+} = Astro.props;
 ---
 
-<footer class:list={["site-footer", { "mt-auto": !noMarginTop }]}>
+<footer
+  class:list={[
+    "site-footer",
+    { "mt-auto": !noMarginTop, "site-footer--reading": readingColumn },
+  ]}
+>
   {
     showIdentity && (
       <a class="footer-name" href="/">
@@ -36,5 +46,8 @@ const { noMarginTop = false, showIdentity = false } = Astro.props;
     .site-footer {
       padding: 2rem 1.5rem;
     }
+  }
+  .site-footer.site-footer--reading {
+    padding: 3rem 0 0;
   }
 </style>

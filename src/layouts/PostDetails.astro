@@ -80,11 +80,7 @@ const nextPost =
 
       <div class="post-grid__content">
         <div class="post-topbar">
-          <button
-            class="focus-outline flex hover:opacity-75"
-            data-go-back
-            type="button"
-          >
+          <button class="quiet-action post-back" data-go-back type="button">
             <svg xmlns="http://www.w3.org/2000/svg"
               ><path
                 d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
@@ -121,24 +117,24 @@ const nextPost =
         <div
           class="flex flex-col-reverse items-center justify-between gap-6 sm:flex-row-reverse sm:items-end sm:gap-4"
         >
-          <button
-            id="back-to-top"
-            class="focus-outline whitespace-nowrap py-1 hover:opacity-75"
-          >
+          <button id="back-to-top" class="quiet-action post-back">
             <svg xmlns="http://www.w3.org/2000/svg" class="rotate-90">
               <path
                 d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
               ></path>
             </svg>
-            <span>Back to Top</span>
+            <span>Back to top</span>
           </button>
 
           <!-- <ShareLinks /> -->
         </div>
 
-        <hr class="my-6 border-dashed" />
+        <hr class="post-divider" />
 
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <nav
+          class="post-pagination grid grid-cols-1 gap-6 sm:grid-cols-2"
+          aria-label="Adjacent posts"
+        >
           {
             prevPost && (
               <a
@@ -163,10 +159,8 @@ const nextPost =
                   </Fragment>
                 </svg>
                 <div>
-                  <span>Previous Post</span>
-                  <div class="text-sm text-skin-accent/85">
-                    {prevPost.title}
-                  </div>
+                  <span class="post-direction">Previous post</span>
+                  <div class="adjacent-title">{prevPost.title}</div>
                 </div>
               </a>
             )
@@ -178,10 +172,8 @@ const nextPost =
                 class="flex w-full justify-end gap-1 text-right hover:opacity-75 sm:col-start-2"
               >
                 <div>
-                  <span>Next Post</span>
-                  <div class="text-sm text-skin-accent/85">
-                    {nextPost.title}
-                  </div>
+                  <span class="post-direction">Next post</span>
+                  <div class="adjacent-title">{nextPost.title}</div>
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -203,7 +195,8 @@ const nextPost =
               </a>
             )
           }
-        </div>
+        </nav>
+        <Footer showIdentity readingColumn />
       </div>
 
       <aside class="post-grid__right">
@@ -212,7 +205,6 @@ const nextPost =
     </div>
     <FootnotePopover />
   </main>
-  <Footer showIdentity />
 </Layout>
 
 <style>
@@ -238,17 +230,61 @@ const nextPost =
 
   .post-meta-row {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     width: 100%;
-    margin-top: 1.75rem;
+    margin-top: 1.25rem;
     margin-bottom: 2.75rem;
   }
 
-  .post-datetime {
+  .post-meta-row :global(.post-datetime) {
     margin: 0;
-    justify-content: flex-end;
-    text-align: right;
+    justify-content: flex-start;
+    text-align: left;
     flex-wrap: wrap;
+  }
+
+  .post-meta-row :global(.post-datetime > span) {
+    margin-left: 0;
+  }
+  .post-meta-row :global(.post-datetime) {
+    gap: 0.4rem;
+  }
+
+  .post-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .post-back svg {
+    width: 1rem;
+    height: 1rem;
+  }
+  .post-divider {
+    margin: 1.75rem 0;
+    border: 0;
+    border-top: 1px solid rgba(var(--color-text-base), 0.16);
+  }
+  .post-direction {
+    display: block;
+    margin-bottom: 0.4rem;
+    font:
+      0.7rem/1.5 Arial,
+      sans-serif;
+    color: rgba(var(--color-text-base), 0.65);
+  }
+  .adjacent-title {
+    font-size: 1.1rem;
+    line-height: 1.35;
+    text-wrap: balance;
+  }
+  .post-pagination a:hover .adjacent-title {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .post-pagination svg {
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.1rem;
   }
 
   .post-title {
