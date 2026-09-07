@@ -66,6 +66,16 @@
     prose-h1:border-b prose-h1:border-skin-line prose-h1:pt-4 prose-h1:pb-2 prose-p:!text-skin-base prose-a:!text-skin-base prose-a:!decoration-dashed prose-a:underline-offset-4 prose-blockquote:!border-l-skin-accent/50 prose-blockquote:opacity-80 prose-figcaption:!text-skin-base prose-figcaption:opacity-70 prose-strong:!text-skin-base prose-code:rounded prose-code:bg-skin-card/75 prose-code:p-1 prose-code:before:!content-none prose-code:after:!content-none prose-ol:!text-skin-base prose-ul:overflow-x-clip prose-ul:!text-skin-base prose-li:marker:!text-skin-accent prose-table:text-skin-base prose-th:border prose-th:border-skin-line prose-td:border prose-td:border-skin-line prose-img:!my-2 prose-img:mx-auto prose-img:border-2 prose-img:border-skin-line prose-hr:!border-skin-line prose-pre:!max-w-full prose-pre:!overflow-x-auto;
     line-height: 1.6;
   }
+  .prose blockquote {
+    font-style: normal;
+    font-weight: inherit;
+    quotes: none;
+  }
+  .prose blockquote p:first-of-type::before,
+  .prose blockquote p:last-of-type::after {
+    content: none;
+  }
+
   .prose a {
     @apply break-words hover:!text-skin-accent;
   }

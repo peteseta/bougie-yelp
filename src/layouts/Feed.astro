@@ -96,6 +96,24 @@ const label = {
     line-height: 1.2;
     color: rgb(var(--color-text-base));
   }
+  @media (min-width: 768px) {
+    .feed-heading {
+      top: 2rem;
+      padding-top: 0;
+    }
+    .feed-heading::before {
+      content: "";
+      position: absolute;
+      inset: -2rem 0 100%;
+      background: rgb(var(--color-fill));
+      pointer-events: none;
+    }
+    .feed-heading h2 {
+      font-size: 1.2rem;
+      line-height: 1.45;
+    }
+  }
+
   @media (max-width: 767px) {
     .feed-shell {
       padding: 0 1.5rem 3rem;

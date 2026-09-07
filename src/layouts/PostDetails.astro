@@ -77,7 +77,10 @@ const nextPost =
       <div class="post-grid__content">
         <div class="post-topbar">
           <button class="quiet-action post-back" data-go-back type="button">
-            <svg xmlns="http://www.w3.org/2000/svg"
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
               ><path
                 d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
               ></path>
@@ -230,7 +233,7 @@ const nextPost =
     display: flex;
     justify-content: flex-start;
     width: 100%;
-    margin-top: 1.25rem;
+    margin-top: 0.875rem;
     margin-bottom: 2.75rem;
   }
 
@@ -256,6 +259,8 @@ const nextPost =
   .post-back svg {
     width: 1rem;
     height: 1rem;
+    flex: none;
+    display: block;
   }
   .post-divider {
     margin: 1.75rem 0;
@@ -333,32 +338,37 @@ const nextPost =
     }
 
     .post-meta-row {
-      margin-top: 1.5rem;
+      margin-top: 0.75rem;
       margin-bottom: 1.5rem;
     }
   }
 
   @media (min-width: 768px) {
     .post-header {
-      width: min(1120px, calc(100vw - 3rem));
+      width: min(960px, calc(50vw + 312px));
       margin-left: 0;
       margin-right: -14rem;
     }
 
     .post-title {
-      max-width: 15ch;
+      max-width: min(20ch, 100%);
       margin-left: -0.04em;
     }
   }
 
   @media (min-width: 1280px) {
+    .post-header,
+    .post-meta-row {
+      transform: translateX(-3rem);
+    }
+
     .post-header {
-      width: min(1240px, calc(100vw - 6rem));
+      width: min(1080px, calc(50vw + 328px));
       margin-right: -22rem;
     }
 
     .post-title {
-      max-width: 16ch;
+      max-width: min(20ch, 100%);
     }
   }
 

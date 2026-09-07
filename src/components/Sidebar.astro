@@ -90,6 +90,17 @@ const tracks =
     margin-top: 0;
   }
 
+  @media (min-width: 768px) {
+    .sidebar {
+      position: sticky;
+      top: 2rem;
+      align-self: start;
+      max-height: calc(100dvh - 4rem);
+      overflow-y: auto;
+      scrollbar-width: thin;
+    }
+  }
+
   @media (max-width: 767px) {
     .sidebar {
       border-top: 1px solid rgb(var(--color-border));
