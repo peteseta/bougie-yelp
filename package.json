@@ -20,7 +20,7 @@
     "@astrojs/check": "^0.9.8",
     "@astrojs/mdx": "^4.3.14",
     "@resvg/resvg-js": "^2.6.2",
-    "@tinacms/cli": "2.2.0",
+    "@tinacms/cli": "2.5.2",
     "astro": "^5.18.1",
     "better-sqlite3": "^12.6.2",
     "fuse.js": "^7.0.0",
