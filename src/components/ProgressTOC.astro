@@ -1,13 +1,10 @@
 ---
 import type { MarkdownHeading } from "astro";
-
 interface Props {
   headings: MarkdownHeading[];
   title: string;
 }
-
-const { headings, title } = Astro.props;
-
+const { headings } = Astro.props;
 const items = headings.filter(
   (h) => h.text !== "Footnotes" && h.depth >= 1 && h.depth <= 3,
 );
@@ -15,726 +12,270 @@ const items = headings.filter(
 
 {
   items.length >= 2 && (
-    <Fragment>
-      <aside
-        id="progress-toc"
-        class="progress-toc"
-        aria-label="Table of contents"
+    <aside
+      id="progress-toc"
+      class="progress-toc"
+      aria-label="Table of contents"
+    >
+      <button class="toc-top quiet-action" type="button">
+        Go back to top
+      </button>
+      <button
+        class="toc-toggle quiet-action"
+        type="button"
+        aria-expanded="false"
+        aria-controls="toc-sections"
       >
-        <div class="ptoc-meta">
-          <div class="ptoc-title">{title}</div>
-          <div class="ptoc-readtime" data-readtime />
-          <div class="ptoc-divider" />
-        </div>
-        <div class="ptoc-rail">
-          <div class="ptoc-track" />
-          <div class="ptoc-pill" />
-          <ul class="ptoc-dots">
-            {items.map((h) => (
-              <li class="ptoc-item" data-depth={h.depth} data-slug={h.slug}>
-                <span class="ptoc-dot" aria-hidden="true" />
-                <a href={`#${h.slug}`} class="ptoc-label" title={h.text}>
-                  {h.text}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </aside>
-      <div id="toc-scrub-overlay" aria-hidden="true" />
-    </Fragment>
+        Contents <span aria-hidden="true">⌄</span>
+      </button>
+      <nav id="toc-sections" aria-label="Article sections">
+        <ul>
+          {items.map((h) => (
+            <li data-depth={h.depth}>
+              <a href={`#${h.slug}`}>{h.text}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
   )
 }
 
 <style>
   .progress-toc {
     position: fixed;
-    top: 1rem;
-    bottom: 1rem;
-    left: 1.25rem;
-    width: 13rem;
-    font-size: 0.78rem;
-    line-height: 1.3;
-    user-select: none;
+    left: 2rem;
+    top: var(--toc-top, 4rem);
+    width: 180px;
+    max-height: calc(100dvh - var(--toc-top, 4rem) - 2rem);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    font:
+      0.72rem/1.5 Arial,
+      sans-serif;
   }
-
-  /* Meta block — overlays the top of the rail, visible on hover/focus-within */
-  .ptoc-meta {
-    position: absolute;
-    top: 0;
-    left: 14px;
-    right: 0;
-    padding: 0.35rem 0.25rem 0.5rem 0;
-    opacity: 0;
-    transform: translateY(-3px);
-    transition:
-      opacity 0.25s ease,
-      transform 0.25s ease;
-    pointer-events: none;
-    z-index: 10;
+  .toc-top {
+    display: none;
+    color: rgba(var(--color-text-base), 0.5);
+    text-decoration: none;
   }
-  /* Hover + focus interactions — desktop only, suppresses sticky-hover on narrow/touch viewports */
-  @media (hover: hover) and (min-width: 1280px) {
-    .progress-toc:hover .ptoc-meta {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .toc-top:hover {
+    color: rgba(var(--color-text-base), 0.8);
+    text-decoration: none;
   }
-
   @media (min-width: 1280px) {
-    .progress-toc:focus-within .ptoc-meta {
-      opacity: 1;
-      transform: translateY(0);
+    .progress-toc.is-stuck .toc-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
     }
   }
-
-  .ptoc-title {
-    @apply font-medium;
-    color: rgb(var(--color-text-base));
-    font-size: 0.72rem;
-    letter-spacing: 0.02em;
-    line-height: 1.35;
-    margin: 0;
-    padding: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  .toc-toggle {
+    display: none;
   }
-
-  .ptoc-readtime {
-    color: rgb(var(--color-text-base));
-    opacity: 0.45;
-    font-size: 0.68rem;
-    margin: 0.15rem 0 0 0;
-    padding: 0;
-  }
-
-  .ptoc-divider {
-    height: 1px;
-    background-color: rgb(var(--color-text-base));
-    opacity: 0.18;
-    margin-top: 0.35rem;
-  }
-
-  /* Vertical rail — fills the sticky container */
-  .ptoc-rail {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-  }
-
-  .ptoc-track {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 1.5px;
-    background-color: rgb(var(--color-text-base));
-    opacity: 0.15;
-  }
-
-  /* Pill — represents the visible slice of the article */
-  .ptoc-pill {
-    position: absolute;
-    left: 0;
-    width: 2px;
-    top: var(--pill-top, 0);
-    height: var(--pill-height, 40px);
-    background-color: rgb(var(--color-text-base));
-    opacity: 0.35;
-    z-index: 1;
-    transition:
-      top 0.08s linear,
-      height 0.08s linear;
-  }
-
-  .ptoc-dots {
-    position: absolute;
-    inset: 0;
+  ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    z-index: 2;
+    border-left: 1px solid rgba(var(--color-text-base), 0.16);
   }
-
-  .ptoc-item {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: var(--ptoc-y, 0);
-    transform: translateY(-50%);
-    height: 0;
-    pointer-events: none;
+  li {
+    position: relative;
+    margin: 0;
   }
-
-  .ptoc-item.collapsed {
+  li[hidden] {
     display: none;
   }
-
-  .ptoc-dot {
-    position: absolute;
-    left: -1.5px;
-    top: 0;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background-color: rgb(var(--color-text-base));
-    /* Fill-color ring creates visible gap between dot and track/pill */
-    box-shadow: 0 0 0 2.5px rgb(var(--color-fill));
-    opacity: 0.75;
-    transform: translateY(-50%);
-    pointer-events: none;
-    z-index: 3;
-  }
-
-  .ptoc-item.active .ptoc-dot {
-    opacity: 1;
-  }
-
-  .ptoc-item[data-depth="3"] .ptoc-dot {
-    width: 3px;
-    height: 3px;
-    left: -1px;
-    opacity: 0.5;
-  }
-
-  /* Labels — hidden and non-interactive by default */
-  .ptoc-label {
-    position: absolute;
-    left: 14px;
-    right: 0;
-    top: var(--ptoc-label-dy, 0px);
-    transform: translateY(-50%);
-    color: rgb(var(--color-text-base));
+  a {
+    display: block;
+    padding: 0.45rem 0 0.45rem 0.9rem;
+    color: rgba(var(--color-text-base), 0.55);
     text-decoration: none;
-    opacity: 0;
-    pointer-events: none;
-    padding: 1px 6px;
-    margin: -1px -6px;
-    border-radius: 4px;
-    transition:
-      opacity 0.2s ease,
-      color 0.2s ease,
-      background-color 0.2s ease,
-      box-shadow 0.2s ease;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    word-break: break-word;
+    overflow-wrap: anywhere;
   }
-
-  /* Reveal labels — desktop only, so narrow viewports never get sticky-hover */
-  @media (hover: hover) and (min-width: 1280px) {
-    .progress-toc:hover .ptoc-label {
-      opacity: 0.5;
-      pointer-events: auto;
-      background-color: rgb(var(--color-fill) / 0.85);
-      box-shadow: 0 0 12px 4px rgb(var(--color-fill) / 0.7);
-      backdrop-filter: blur(6px);
-    }
-
-    .progress-toc:hover .ptoc-item.active .ptoc-label {
-      opacity: 1;
-      font-weight: 600;
-    }
-
-    .ptoc-label:hover {
-      opacity: 1 !important;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
+  li[data-depth="3"] a {
+    padding-left: 1.5rem;
+    font-size: 0.68rem;
   }
-
-  @media (min-width: 1280px) {
-    .progress-toc:focus-within .ptoc-label {
-      opacity: 0.5;
-      pointer-events: auto;
-      background-color: rgb(var(--color-fill) / 0.85);
-      box-shadow: 0 0 12px 4px rgb(var(--color-fill) / 0.7);
-      backdrop-filter: blur(6px);
-    }
-
-    .progress-toc:focus-within .ptoc-item.active .ptoc-label {
-      opacity: 1;
-      font-weight: 600;
-    }
+  a[aria-current="location"] {
+    color: rgb(var(--color-text-base));
   }
-
-  .ptoc-label:focus-visible {
-    opacity: 1 !important;
+  a[aria-current="location"]::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: calc(0.45rem + var(--section-progress, 0) * (100% - 1.8rem));
+    width: 2px;
+    height: 0.9rem;
+    background: rgb(var(--color-accent));
+  }
+  a:hover {
+    color: rgb(var(--color-accent));
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  a:focus-visible,
+  .toc-toggle:focus-visible {
     outline: 2px solid rgb(var(--color-accent));
-    outline-offset: 2px;
-    border-radius: 2px;
+    outline-offset: 3px;
   }
-
-  /* ===== Scrub overlay (global — targets elements outside this component) ===== */
-  :global(#toc-scrub-overlay) {
-    position: fixed;
-    inset: 0;
-    z-index: 200;
-    background: rgba(var(--color-fill), 0.82);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    pointer-events: none;
-    opacity: 0;
-    visibility: hidden;
-    transition:
-      opacity 0.2s ease,
-      visibility 0.2s ease;
-  }
-
-  :global(#toc-scrub-overlay.active) {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  /* ===== Mobile scrubber ===== */
   @media (max-width: 1279px) {
-    /* Shift the entire TOC to the left edge so dots don't overlap text */
     .progress-toc {
-      left: 0px;
-      z-index: 210; /* above the scrub overlay */
-      pointer-events: none; /* don't block touches on content behind */
+      position: static;
+      width: 100%;
+      max-width: none;
+      max-height: none;
+      overflow: visible;
+      margin: 0 0 1.5rem;
+      padding: 0.75rem 0;
+      border-block: 1px solid rgba(var(--color-text-base), 0.16);
     }
-
-    /* Show meta only while scrubbing */
-    .progress-toc.scrubbing .ptoc-meta {
-      opacity: 1;
-      transform: translateY(0);
+    .toc-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      width: 100%;
+      justify-content: space-between;
+      text-decoration: none;
     }
-
-    /* All dots visible on mobile at low opacity */
-    .ptoc-dot {
-      opacity: 0.2;
+    nav {
+      display: none;
+      margin-top: 1rem;
+      padding-bottom: 0.5rem;
     }
-
-    /* Keep track and pill but very subtle */
-    .ptoc-track {
-      opacity: 0.08;
+    .progress-toc.is-open nav {
+      display: block;
     }
-
-    .ptoc-pill {
-      opacity: 0.2;
+    .progress-toc.is-open .toc-toggle span {
+      transform: rotate(180deg);
     }
-
-    /* Narrow touch target — just the visible strip at the left edge */
-    .ptoc-rail::before {
-      content: "";
-      position: absolute;
-      left: -4px;
-      width: 20px;
-      top: 0;
-      bottom: 0;
-      pointer-events: auto; /* re-enable touches in this strip only */
-    }
-
-    /* Dot transitions for snap animation */
-    .ptoc-dot {
-      transition:
-        width 0.2s ease,
-        height 0.2s ease,
-        left 0.2s ease,
-        background-color 0.2s ease,
-        opacity 0.3s ease;
-    }
-
-    /* Scrubbing: show all labels (no per-label bg — overlay handles the backdrop) */
-    .progress-toc.scrubbing .ptoc-label {
-      opacity: 0.65;
-      pointer-events: none;
-    }
-
-    /* Active heading while scrubbing */
-    .progress-toc.scrubbing .ptoc-item.scrub-active .ptoc-label {
-      opacity: 1;
-      color: rgb(var(--color-accent));
-    }
-
-    /* Show all dots while scrubbing */
-    .progress-toc.scrubbing .ptoc-dot {
-      opacity: 0.5;
-    }
-
-    .progress-toc.scrubbing .ptoc-item.scrub-active .ptoc-dot {
-      width: 6px;
-      height: 6px;
-      left: -2.5px;
-      background-color: rgb(var(--color-accent));
-      opacity: 1;
+    a {
+      padding-top: 0.7rem;
+      padding-bottom: 0.7rem;
     }
   }
 </style>
 
 <script>
-  (() => {
-    const cleanupKey = "__progressTocCleanup";
-    const setupKey = "__progressTocSetup";
-
-    function cleanup() {
-      if (typeof window[cleanupKey] === "function") {
-        window[cleanupKey]();
-      }
-      window[cleanupKey] = undefined;
+  let dispose: (() => void) | undefined;
+  function setupContents() {
+    dispose?.();
+    const toc = document.querySelector<HTMLElement>("#progress-toc");
+    const article = document.querySelector<HTMLElement>("#article");
+    const toggle = toc?.querySelector<HTMLButtonElement>(".toc-toggle");
+    if (!toc || !article || !toggle) return;
+    const entries = Array.from(
+      toc.querySelectorAll<HTMLAnchorElement>("nav a"),
+    ).flatMap((link) => {
+      const heading = document.getElementById(
+        decodeURIComponent(link.hash.slice(1)),
+      );
+      return heading ? [{ link, heading, item: link.parentElement! }] : [];
+    });
+    const controller = new AbortController();
+    const { signal } = controller;
+    let frame = 0;
+    function close() {
+      toc!.classList.remove("is-open");
+      toggle!.setAttribute("aria-expanded", "false");
     }
-
-    function initProgressTOC() {
-      cleanup();
-
-      const toc = document.getElementById("progress-toc");
-      const article = document.getElementById("article");
+    function update() {
+      frame = 0;
       if (!toc || !article) return;
-
-      document.documentElement.classList.add("has-progress-toc");
-
-      const items = Array.from(toc.querySelectorAll(".ptoc-item"));
-      if (items.length === 0) return;
-
-      const railEl = toc.querySelector(".ptoc-rail");
-      const pillEl = toc.querySelector(".ptoc-pill");
-      const readtimeEl = toc.querySelector("[data-readtime]");
-      if (!railEl || !pillEl) return;
-
-      const headingEls = items
-        .map((li) => {
-          const slug = li.dataset.slug;
-          if (!slug) return null;
-          const el = document.getElementById(slug);
-          return el ? { li, el, slug } : null;
-        })
-        .filter((x) => !!x);
-
-      if (headingEls.length === 0) return;
-
-      if (readtimeEl) {
-        const text = article.innerText || "";
-        const words = text.trim().split(/\s+/).length;
-        const minutes = Math.max(1, Math.round(words / 220));
-        readtimeEl.textContent = `${minutes} min read`;
-      }
-
-      let railHeight = 0;
-      let metaOffset = 0;
-      let articleTop = 0;
-      let articleHeight = 0;
-
-      const metaEl = toc.querySelector(".ptoc-meta");
-
-      function isInClosedDetails(el) {
-        let node = el.parentElement;
-        while (node && node !== article) {
-          if (node.tagName === "DETAILS" && !node.open) return true;
-          node = node.parentElement;
+      const rect = article.getBoundingClientRect();
+      toc.classList.toggle("is-stuck", rect.top <= 32);
+      toc.style.setProperty("--toc-top", `${Math.max(32, rect.top)}px`);
+      toc.style.visibility = rect.bottom < 0 ? "hidden" : "visible";
+      const visible = entries.filter(({ heading, item }) => {
+        let parent = heading.parentElement;
+        let hidden = false;
+        while (parent && parent !== article) {
+          if (parent instanceof HTMLDetailsElement && !parent.open)
+            hidden = true;
+          parent = parent.parentElement;
         }
-        return false;
-      }
-
-      function recomputeLayout() {
-        railHeight = railEl.clientHeight;
-        metaOffset = metaEl ? metaEl.offsetHeight + 16 : 0;
-        articleTop = article.getBoundingClientRect().top + window.scrollY;
-        articleHeight = article.scrollHeight;
-
-        // Hide items whose heading is inside a closed <details>
-        headingEls.forEach(({ el, li }) => {
-          li.classList.toggle("collapsed", isInClosedDetails(el));
-        });
-
-        const visible = headingEls.filter(
-          ({ li }) => !li.classList.contains("collapsed"),
-        );
-
-        // Dots use the full [0, railHeight] range — same coordinate space as the pill
-        const dotYs = visible.map(({ el }) => {
-          const offset =
-            el.getBoundingClientRect().top + window.scrollY - articleTop;
-          const ratio =
-            articleHeight > 0
-              ? Math.max(0, Math.min(1, offset / articleHeight))
-              : 0;
-          return ratio * railHeight;
-        });
-
-        visible.forEach(({ li }, i) => {
-          li.style.setProperty("--ptoc-y", `${dotYs[i]}px`);
-        });
-
-        // Spread labels to avoid overlap — labels are floored at metaOffset so
-        // they never overlap the meta block (title/readtime) on hover
-        const sampleLabel = visible[0]?.li.querySelector(".ptoc-label");
-        const minGap = sampleLabel
-          ? Math.max(18, sampleLabel.offsetHeight + 2)
-          : 22;
-
-        const labelYs = dotYs.map((y) => Math.max(y, metaOffset));
-        for (let iter = 0; iter < 30; iter++) {
-          let changed = false;
-          for (let i = 1; i < labelYs.length; i++) {
-            const gap = labelYs[i] - labelYs[i - 1];
-            if (gap < minGap) {
-              const push = (minGap - gap) / 2;
-              labelYs[i - 1] -= push;
-              labelYs[i] += push;
-              changed = true;
-            }
-          }
-          if (!changed) break;
-        }
-
-        visible.forEach(({ li }, i) => {
-          li.style.setProperty("--ptoc-label-dy", `${labelYs[i] - dotYs[i]}px`);
-        });
-      }
-
-      function updateProgress() {
-        if (railHeight <= 0 || articleHeight <= 0) return;
-
-        const scrollY = window.scrollY;
-        const viewportH = window.innerHeight;
-        const artEnd = articleTop + articleHeight;
-
-        // Pill represents the visible slice of the article
-        const visibleTopAbs = Math.max(scrollY, articleTop);
-        const visibleBottomAbs = Math.min(scrollY + viewportH, artEnd);
-
-        let pillTop, pillHeight;
-        if (visibleBottomAbs > visibleTopAbs) {
-          const topFrac = (visibleTopAbs - articleTop) / articleHeight;
-          const bottomFrac = (visibleBottomAbs - articleTop) / articleHeight;
-          pillTop = Math.max(0, topFrac * railHeight);
-          pillHeight = Math.max(4, (bottomFrac - topFrac) * railHeight);
-        } else {
-          pillTop = scrollY + viewportH < articleTop ? 0 : railHeight;
-          pillHeight = 4;
-        }
-
-        pillEl.style.setProperty("--pill-top", `${pillTop}px`);
-        pillEl.style.setProperty("--pill-height", `${pillHeight}px`);
-
-        // Active heading: last visible one to cross 30% of viewport
-        const anchorY = viewportH * 0.3;
-        let activeIdx = -1;
-        for (let i = 0; i < headingEls.length; i++) {
-          if (headingEls[i].li.classList.contains("collapsed")) continue;
-          if (headingEls[i].el.getBoundingClientRect().top - anchorY <= 0) {
-            activeIdx = i;
-          } else {
-            break;
-          }
-        }
-
-        headingEls.forEach(({ li }, idx) => {
-          const isActive = idx === activeIdx;
-          li.classList.toggle("active", isActive);
-          li.classList.toggle("passed", activeIdx >= 0 && idx < activeIdx);
-          const link = li.querySelector(".ptoc-label");
-          if (link) {
-            if (isActive) {
-              link.setAttribute("aria-current", "location");
-            } else {
-              link.removeAttribute("aria-current");
-            }
-          }
-        });
-      }
-
-      const header = document.querySelector("header");
-
-      function updateTocPosition() {
-        const headerBottom = header
-          ? Math.max(0, header.getBoundingClientRect().bottom)
-          : 0;
-        // +16 keeps a 1rem gap between the navbar and the start of the bar
-        toc.style.top = Math.max(16, headerBottom + 16) + "px";
-      }
-
-      let rafPending = false;
-      function onScroll() {
-        if (rafPending) return;
-        rafPending = true;
-        requestAnimationFrame(() => {
-          updateTocPosition();
-          recomputeLayout();
-          updateProgress();
-          rafPending = false;
-        });
-      }
-
-      const controller = new AbortController();
-      const { signal } = controller;
-
-      const ro = new ResizeObserver(() => {
-        recomputeLayout();
-        updateProgress();
+        item.hidden = hidden;
+        return !hidden;
       });
-      ro.observe(article);
-      ro.observe(railEl);
-
-      // Recompute when collapsibles open or close
-      article.querySelectorAll("details").forEach((details) => {
-        details.addEventListener(
-          "toggle",
-          () => {
-            recomputeLayout();
-            updateProgress();
-          },
-          { signal },
-        );
+      const anchor = Math.min(180, window.innerHeight * 0.25);
+      let active = -1;
+      visible.forEach(({ heading }, index) => {
+        if (heading.getBoundingClientRect().top <= anchor) active = index;
       });
-
-      // Recompute after images and fonts finish loading
-      article.querySelectorAll("img").forEach((img) => {
-        if (!img.complete) {
-          img.addEventListener(
-            "load",
-            () => {
-              recomputeLayout();
-              updateProgress();
-            },
-            { once: true, signal },
-          );
-        }
-      });
-
-      if (document.fonts?.ready) {
-        document.fonts.ready.then(() => {
-          recomputeLayout();
-          updateProgress();
-        });
-      }
-
-      window.addEventListener("scroll", onScroll, { passive: true, signal });
-
-      updateTocPosition();
-      recomputeLayout();
-      updateProgress();
-
-      // ===== Mobile scrubber (long-press + drag on the rail) =====
-      function initMobileScrubber() {
-        const rail = toc.querySelector(".ptoc-rail");
-        if (!rail || window.innerWidth >= 1280) return;
-
-        const overlay = document.getElementById("toc-scrub-overlay");
-
-        let timer = null;
-        let scrubbing = false;
-        let scrubIdx = -1;
-
-        function nearestHeadingIdx(clientY) {
-          let best = -1;
-          let bestDist = Infinity;
-          const railRect = rail.getBoundingClientRect();
-          headingEls.forEach(({ li }, idx) => {
-            if (li.classList.contains("collapsed")) return;
-            const dotY = parseFloat(
-              li.style.getPropertyValue("--ptoc-y") || "0",
-            );
-            const screenDotY = railRect.top + dotY;
-            const d = Math.abs(clientY - screenDotY);
-            if (d < bestDist) {
-              bestDist = d;
-              best = idx;
-            }
-          });
-          return best;
-        }
-
-        function setScrubActive(idx) {
-          headingEls.forEach(({ li }, i) =>
-            li.classList.toggle("scrub-active", i === idx),
-          );
-        }
-
-        function onTouchMove(e) {
-          if (!scrubbing) return;
-          e.preventDefault();
-          const idx = nearestHeadingIdx(e.touches[0].clientY);
-          if (idx !== scrubIdx) {
-            scrubIdx = idx;
-            try {
-              navigator.vibrate(5);
-            } catch (_) {}
-            setScrubActive(idx);
-          }
-        }
-
-        function onTouchEnd() {
-          clearTimeout(timer);
-          timer = null;
-          document.removeEventListener("touchmove", onTouchMove);
-          if (scrubbing) {
-            toc.classList.remove("scrubbing");
-            overlay?.classList.remove("active");
-            scrubbing = false;
-            if (scrubIdx >= 0) {
-              headingEls[scrubIdx].el.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              });
-            }
-            setScrubActive(-1);
-            scrubIdx = -1;
-          }
-        }
-
-        rail.addEventListener(
-          "touchstart",
-          (e) => {
-            const startX = e.touches[0].clientX;
-
-            // Only activate within 20px of the left edge — don't steal text-selection elsewhere
-            if (startX > 20) return;
-
-            // Register non-passive touchmove so we can preventDefault while scrubbing
-            document.addEventListener("touchmove", onTouchMove, {
-              passive: false,
-              signal,
-            });
-            document.addEventListener("touchend", onTouchEnd, {
-              once: true,
-              signal,
-            });
-
-            timer = setTimeout(() => {
-              scrubbing = true;
-              toc.classList.add("scrubbing");
-              overlay?.classList.add("active");
-              try {
-                navigator.vibrate(20);
-              } catch (_) {}
-              const idx = nearestHeadingIdx(e.touches[0].clientY);
-              scrubIdx = idx;
-              setScrubActive(idx);
-            }, 300);
-          },
-          { passive: true, signal },
+      entries.forEach(({ link }) => link.removeAttribute("aria-current"));
+      if (active >= 0) {
+        const current = visible[active];
+        const start = current.heading.getBoundingClientRect().top;
+        const end =
+          visible[active + 1]?.heading.getBoundingClientRect().top ??
+          rect.bottom;
+        const progress = Math.max(
+          0,
+          Math.min(1, (anchor - start) / Math.max(1, end - start)),
         );
+        current.link.setAttribute("aria-current", "location");
+        current.item.style.setProperty("--section-progress", String(progress));
       }
-
-      initMobileScrubber();
-
-      window[cleanupKey] = () => {
-        controller.abort();
-        ro.disconnect();
-        document.documentElement.classList.remove("has-progress-toc");
-      };
     }
-
-    if (!window[setupKey]) {
-      window[setupKey] = true;
-      document.addEventListener("astro:before-swap", cleanup);
-      document.addEventListener("astro:page-load", initProgressTOC);
-
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initProgressTOC, {
-          once: true,
-        });
-      } else {
-        initProgressTOC();
-      }
-    } else {
-      initProgressTOC();
+    function schedule() {
+      if (!frame) frame = requestAnimationFrame(update);
     }
-  })();
+    toc.querySelector<HTMLButtonElement>(".toc-top")?.addEventListener(
+      "click",
+      () => {
+        window.scrollTo({
+          top: 0,
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+            .matches
+            ? "instant"
+            : "smooth",
+        });
+      },
+      { signal },
+    );
+    toggle.addEventListener(
+      "click",
+      () => {
+        const open = toc.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", String(open));
+      },
+      { signal },
+    );
+    toc.addEventListener(
+      "keydown",
+      (event) => {
+        if (event.key === "Escape") {
+          close();
+          toggle.focus();
+        }
+      },
+      { signal },
+    );
+    entries.forEach(({ link }) =>
+      link.addEventListener("click", close, { signal }),
+    );
+    document.addEventListener(
+      "click",
+      (event) => {
+        if (event.target instanceof Node && !toc.contains(event.target))
+          close();
+      },
+      { signal },
+    );
+    article.addEventListener("toggle", schedule, { capture: true, signal });
+    window.addEventListener("scroll", schedule, { passive: true, signal });
+    window.addEventListener("resize", schedule, { signal });
+    const observer = new ResizeObserver(schedule);
+    observer.observe(article);
+    update();
+    dispose = () => {
+      controller.abort();
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+    };
+  }
+  document.addEventListener("astro:before-swap", () => dispose?.());
+  document.addEventListener("astro:page-load", setupContents);
+  setupContents();
 </script>

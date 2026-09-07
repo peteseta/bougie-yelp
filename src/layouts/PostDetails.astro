@@ -74,10 +74,6 @@ const nextPost =
 
   <main id="main-content" class="post-shell">
     <div class:list={["post-grid", { "post-grid--writing": showToC }]}>
-      <aside class="post-grid__left">
-        {showToC && <ProgressTOC headings={headings} title={title} />}
-      </aside>
-
       <div class="post-grid__content">
         <div class="post-topbar">
           <button class="quiet-action post-back" data-go-back type="button">
@@ -105,6 +101,8 @@ const nextPost =
             postId={post.id}
           />
         </div>
+
+        {showToC && <ProgressTOC headings={headings} title={title} />}
 
         <article id="article" class="prose max-w-none">
           <Content components={{ LinkCard }} />
@@ -300,6 +298,25 @@ const nextPost =
     margin: 0;
   }
 
+  @media (max-width: 1279px) {
+    .post-topbar .post-back {
+      position: relative;
+    }
+    .post-topbar .post-back svg {
+      position: absolute;
+      right: calc(100% + 0.2rem);
+    }
+    .post-title {
+      margin-left: 0;
+    }
+    .post-meta-row {
+      margin-bottom: 1.5rem;
+    }
+    .post-grid .post-grid__content {
+      padding-inline: 1.5rem;
+    }
+  }
+
   @media (max-width: 767px) {
     .post-title {
       max-width: 100%;
@@ -317,7 +334,7 @@ const nextPost =
 
     .post-meta-row {
       margin-top: 1.5rem;
-      margin-bottom: 2.25rem;
+      margin-bottom: 1.5rem;
     }
   }
 

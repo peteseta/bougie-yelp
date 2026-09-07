@@ -27,7 +27,7 @@ export default function Datetime({
 }: Props) {
   return (
     <div
-      className={`flex items-center space-x-2 opacity-80 ${className}`.trim()}
+      className={`flex items-center ${size === "sm" ? "space-x-2" : ""} opacity-80 ${className}`.trim()}
     >
       {modDatetime && modDatetime > pubDatetime ? (
         <span className={`italic ${size === "sm" ? "text-sm" : "text-base"}`}>
@@ -40,6 +40,7 @@ export default function Datetime({
         <FormattedDatetime
           pubDatetime={pubDatetime}
           modDatetime={modDatetime}
+          editorial={size === "lg"}
         />
         {size === "lg" && <EditPost editPost={editPost} postId={postId} />}
       </span>
@@ -47,7 +48,11 @@ export default function Datetime({
   );
 }
 
-const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
+const FormattedDatetime = ({
+  pubDatetime,
+  modDatetime,
+  editorial = false,
+}: DatetimesProps & { editorial?: boolean }) => {
   const myDatetime = getEffectiveDate(pubDatetime, modDatetime);
 
   const date = myDatetime.toLocaleDateString(LOCALE.langTag, {
@@ -64,9 +69,15 @@ const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
   return (
     <>
       <time dateTime={myDatetime.toISOString()}>{date}</time>
-      <span aria-hidden="true"> // </span>
-      <span className="sr-only">&nbsp;at&nbsp;</span>
-      <span className="text-nowrap">{time}</span>
+      {editorial ? (
+        <span className="text-nowrap opacity-60"> at {time}</span>
+      ) : (
+        <>
+          <span aria-hidden="true"> // </span>
+          <span className="sr-only">&nbsp;at&nbsp;</span>
+          <span className="text-nowrap">{time}</span>
+        </>
+      )}
     </>
   );
 };
