@@ -21,7 +21,7 @@
     "@astrojs/mdx": "^4.3.14",
     "@resvg/resvg-js": "^2.6.2",
     "@tinacms/cli": "2.2.0",
-    "astro": "^5.18.1",
+    "astro": "^7.2.8",
     "better-sqlite3": "^12.6.2",
     "fuse.js": "^7.0.0",
     "katex": "^0.16.21",
