@@ -20,26 +20,18 @@ const date = pubDatetime.toLocaleDateString("en-US", {
 });
 
 const headerStyle = { viewTransitionName: slugifyStr(title) };
-const headerClass = "text-lg font-medium decoration-solid hover:underline";
 ---
 
-<li class="my-6">
+<li>
   <div class="feed-meta">
     <time datetime={pubDatetime.toISOString()}>{date}</time> · {postType}
   </div>
-  <a
-    href={href}
-    class="inline-block text-lg font-medium text-skin-accent decoration-solid underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
-  >
+  <a href={href ?? `/posts/${post.id}/`}>
     {
       secHeading ? (
-        <h2 style={headerStyle} class={headerClass}>
-          {title}
-        </h2>
+        <h2 style={headerStyle}>{title}</h2>
       ) : (
-        <h3 style={headerStyle} class={headerClass}>
-          {title}
-        </h3>
+        <h3 style={headerStyle}>{title}</h3>
       )
     }
   </a>
@@ -59,6 +51,14 @@ const headerClass = "text-lg font-medium decoration-solid hover:underline";
       Georgia,
       serif;
     color: rgb(var(--color-text-base));
+  }
+  a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  h2,
+  h3 {
+    margin-top: 0.4rem;
   }
   li > p:last-child {
     font-size: 0.9rem;
