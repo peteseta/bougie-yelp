@@ -2428,5 +2428,68 @@
     "favicon": "/linkcard-cache/favicons/fbcb8229aa930cd6.jpg",
     "faviconOrigin": "https://substackcdn.com/image/fetch/$s_!U2Kf!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b2b6f0f-07d1-4a68-adb9-9bb6441b0a55%2Ffavicon.ico",
     "fetchedAt": "2026-09-04T04:11:20.055Z"
+  },
+  "https://www.lesswrong.com/posts/eRmzz8J8Qkzqvzrgg/astra-can-do-a-concerning-amount-with-no-chain-of-thought": {
+    "title": "Astra can do a concerning amount with no chain of thought — LessWrong",
+    "description": "TLDR: Astra has 8.6x better odds of doing a reasoning task without CoT than the next best model (Fable 5.1), and can do 7.2 serial arithmetic steps in a forward pass vs 4.1 for the next best model (Gemini 3.8 Flash/Fable 5.1)",
+    "image": "",
+    "imageOrigin": "",
+    "favicon": "/linkcard-cache/favicons/5a0047dc3b9557a5.ico",
+    "faviconOrigin": "https://res.cloudinary.com/lesswrong-2-0/image/upload/v1497915096/favicon_lncumn.ico",
+    "fetchedAt": "2026-09-15T06:22:10.766Z"
+  },
+  "https://www.lesswrong.com/posts/munJKF7iWMsWJLAH2/astra-and-fable-still-hack-on-simple-variants-of-alignment": {
+    "title": "Astra and Fable still hack on simple variants of alignment evals from 2025 — LessWrong",
+    "description": "In February 2025, back when o3-mini was the strongest available LLM, Palisade Research publicized a now well-known alignment eval where they asked models to play a game of chess against a chess engine. They found that the new, RLVR'd models cheated on the task by altering the board state about 36% of the time.",
+    "image": "",
+    "imageOrigin": "",
+    "favicon": "/linkcard-cache/favicons/5a0047dc3b9557a5.ico",
+    "faviconOrigin": "https://res.cloudinary.com/lesswrong-2-0/image/upload/v1497915096/favicon_lncumn.ico",
+    "fetchedAt": "2026-09-15T06:22:10.766Z"
+  },
+  "https://www.lesswrong.com/posts/hLPGv8QjPcNLtDp3A/proposal-for-tracking-the-effects-of-architecture-on": {
+    "title": "Proposal for tracking the effects of architecture on monitorability — LessWrong",
+    "description": "Architectures that incorporate opaque recurrence or allow for agents to communicate with each other using latents could rapidly make it much harder to monitor chains of thought or communication. As companies begin to explore such architectures, we believe it is important to transparently share evidence about how monitorability varies with architecture and training method.",
+    "image": "",
+    "imageOrigin": "",
+    "favicon": "/linkcard-cache/favicons/5a0047dc3b9557a5.ico",
+    "faviconOrigin": "https://res.cloudinary.com/lesswrong-2-0/image/upload/v1497915096/favicon_lncumn.ico",
+    "fetchedAt": "2026-09-15T06:22:10.766Z"
+  },
+  "https://www.astralcodexten.com/p/god-help-us-lets-try-to-learn-about": {
+    "title": "God Help Us, Let’s Try To Learn About Mechanistic Interpretability Techniques",
+    "description": "...",
+    "image": "/linkcard-cache/images/14e8410db717015d.jpg",
+    "imageOrigin": "https://substackcdn.com/image/fetch/$s_!S-UV!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe6dfd520-f8be-4174-8bd3-428c052b53a7_400x418.png",
+    "favicon": "/linkcard-cache/favicons/9cdbdd27e7c33930.jpg",
+    "faviconOrigin": "https://substackcdn.com/image/fetch/$s_!CTe-!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F8c00a032-defa-44b7-9ab7-b7cc6d88db75%2Ffavicon-16x16.png",
+    "fetchedAt": "2026-09-15T06:22:17.191Z"
+  },
+  "https://eiln.github.io/posts/ane.html": {
+    "title": "Retrospectively Reverse-Engineering Apple's Neural Engine | Eileen Yoon",
+    "description": "",
+    "image": "",
+    "imageOrigin": "",
+    "favicon": "",
+    "faviconOrigin": "https://eiln.github.io/favicon.ico",
+    "fetchedAt": "2026-09-15T06:22:17.231Z"
+  },
+  "https://cognition.com/blog/factoring-rsa-260": {
+    "title": "Factoring RSA-260 | Cognition",
+    "description": "How Devin and a Cognition researcher built the world’s highest-performance GPU lattice siever, to make factoring numbers 10x cheaper than the previous…",
+    "image": "/linkcard-cache/images/ce1cec1d1fd93d35.jpg",
+    "imageOrigin": "https://cognition.com/opengraph-image.jpg",
+    "favicon": "/linkcard-cache/favicons/6c301636d398ea49.ico",
+    "faviconOrigin": "https://cognition.com/favicon.ico?favicon.06rahyoqwft.2.ico?dpl=dpl_BhVYJe7ZU7ZgLufCSCpnte9242sw",
+    "fetchedAt": "2026-09-15T06:22:17.259Z"
+  },
+  "https://lucumr.pocoo.org/2026/9/12/pdoom/": {
+    "title": "P(doom) | Armin Ronacher's Thoughts and Writings",
+    "description": "Are we all going to die?",
+    "image": "/linkcard-cache/images/9635bd76c942b856.png",
+    "imageOrigin": "https://lucumr.pocoo.org/social/2026-09-12-pdoom-social.png",
+    "favicon": "/linkcard-cache/favicons/3aa26d4e9bd4ad3f.jpg",
+    "faviconOrigin": "https://lucumr.pocoo.org/static/avatar-small.jpg",
+    "fetchedAt": "2026-09-15T06:22:17.303Z"
   }
 }
