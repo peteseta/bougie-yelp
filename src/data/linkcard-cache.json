@@ -2491,5 +2491,59 @@
     "favicon": "/linkcard-cache/favicons/3aa26d4e9bd4ad3f.jpg",
     "faviconOrigin": "https://lucumr.pocoo.org/static/avatar-small.jpg",
     "fetchedAt": "2026-09-15T06:22:17.303Z"
+  },
+  "https://spectrum.ieee.org/bloomberg-terminal": {
+    "title": "The History of the Bloomberg Terminal - IEEE Spectrum",
+    "description": "Trace the history of the Bloomberg Terminal and its powerful role in turning disparate streams of financial data into actionable insights for investors.",
+    "image": "/linkcard-cache/images/3653226e9dcf88cf.jpg",
+    "imageOrigin": "https://spectrum.ieee.org/media-library/image.jpg?id=67857174&width=1200&height=600&coordinates=0%2C50%2C0%2C50",
+    "favicon": "/linkcard-cache/favicons/8d9a15f59f9def6b.png",
+    "faviconOrigin": "https://assets.rebelmouse.io/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8yNjU5NjY0OS9vcmlnaW4ucG5nIiwiZXhwaXJlc19hdCI6MTg0ODgxODUwNn0.1LlzHtxZSVXyzapxWjeSrRIRu5qo3CeB8FaWpd2tl_o/img.png?width=48&height=48",
+    "fetchedAt": "2026-10-09T07:16:29.668Z"
+  },
+  "https://usa.yamaha.com/products/contents/proaudio/about/interview/kslab.html": {
+    "title": "How the discovery of a 1977 thesis led to a breakthrough at the Yamaha K’s Lab research division 30 years ago",
+    "description": "The K’s Lab research group has been researching physical modeling systems for more than 30 years. In this installment, we look back at how an unearthed thesis and a unique musical instrument led to the launch of K’s Lab.",
+    "image": "/linkcard-cache/images/60e1d5e21a12f29f.jpg",
+    "imageOrigin": "https://usa.yamaha.com/files/about_interview_kslab_main_900x450_a7d2c72ad78c564b6e08d0225671ac02.png",
+    "favicon": "/linkcard-cache/favicons/8878ce8951e3e6d8.png",
+    "faviconOrigin": "https://usa.yamaha.com/favicon.ico",
+    "fetchedAt": "2026-10-09T07:16:29.676Z"
+  },
+  "https://www.propublica.org/article/draftkings-sports-gambling-problem-vip-fanduel": {
+    "title": "I Posed as a Problem Gambler. DraftKings Made Me a VIP. — ProPublica",
+    "description": "Amid growing public health concerns, operators like DraftKings have touted “responsible gaming” tools and prompts. But as I went off the deep end, I found they were no match for the incentives and product design pushing me to keep going.",
+    "image": "/linkcard-cache/images/700d1527d552c8e5.jpg",
+    "imageOrigin": "https://www.propublica.org/wp-content/uploads/2026/09/Propublica_Sportsbetting_story1_SN_260917_Layered-social_preview_maxWidth_3000_maxHeight_3000_ppi_72_embedColorProfile_true_quality_95.jpg?resize=1200,630",
+    "favicon": "/linkcard-cache/favicons/cf5f42a5b18faffc.png",
+    "faviconOrigin": "https://www.propublica.org/wp-content/uploads/2026/07/Frame-2.png?w=32",
+    "fetchedAt": "2026-10-09T07:16:29.729Z"
+  },
+  "https://unsung.aresluna.org/before-pixels-modular-industrial-dashboards/": {
+    "title": "Before pixels: Modular industrial dashboards – Unsung",
+    "description": "A blog about software craft and quality",
+    "image": "/linkcard-cache/images/13ec0bf486ea6584.jpg",
+    "imageOrigin": "https://unsung.aresluna.org/_media/before-pixels-modular-industrial-dashboards/ogimage.jpg",
+    "favicon": "/linkcard-cache/favicons/5b685d3d62e3797f.png",
+    "faviconOrigin": "https://unsung.aresluna.org/before-pixels-modular-industrial-dashboards/_unsung/favicon-dark.png",
+    "fetchedAt": "2026-10-09T07:16:29.731Z"
+  },
+  "https://usa.yamaha.com/products/contents/proaudio/about/interview/kslab_02.html": {
+    "title": "Rupert Neve Designs from the 60s and 70s Realistically Recreated by the Yamaha K’s Lab Research Team",
+    "description": "What it takes to recreate equalizers and compressors originally developed by Rupert Neve in the 60s and 70s using physical modeling technology.",
+    "image": "/linkcard-cache/images/493a0dbd0ba84019.jpg",
+    "imageOrigin": "https://usa.yamaha.com/files/about_interview_kslab02_main_900x450_dcb6698932862aeb4d974cd8426daa95.png",
+    "favicon": "/linkcard-cache/favicons/8878ce8951e3e6d8.png",
+    "faviconOrigin": "https://usa.yamaha.com/favicon.ico",
+    "fetchedAt": "2026-10-09T07:16:30.247Z"
+  },
+  "https://www.eff.org/deeplinks/2026/09/draftkings-using-ai-supercharge-harms-online-behavioral-advertising": {
+    "title": "DraftKings Is Using AI to Supercharge the Harms of Online Behavioral Advertising | Electronic Frontier Foundation",
+    "description": "Online sports betting company DraftKings is using AI to target customers who are most likely to place losing bets and respond to gambling promotions. This kind of targeting is a form of online behavioral advertising, which is when companies personalize the ads they show you based on the data they’...",
+    "image": "/linkcard-cache/images/ece70b9622112f61.png",
+    "imageOrigin": "https://www.eff.org/files/banner_library/mobile-privacy.png",
+    "favicon": "/linkcard-cache/favicons/6c131b33e4587be1.ico",
+    "faviconOrigin": "https://www.eff.org/favicon.ico",
+    "fetchedAt": "2026-10-09T07:17:33.674Z"
   }
 }

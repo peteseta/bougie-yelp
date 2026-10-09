@@ -41,11 +41,17 @@ export async function downloadAsset(
   const dir = kind === "image" ? IMAGE_DIR : FAVICON_DIR;
   fs.mkdirSync(dir, { recursive: true });
 
-  const stem = createHash("sha256").update(sourceUrl).digest("hex").slice(0, 16);
+  const stem = createHash("sha256")
+    .update(sourceUrl)
+    .digest("hex")
+    .slice(0, 16);
 
   try {
     const res = await fetch(sourceUrl, {
-      headers: { "User-Agent": "Mozilla/5.0 (compatible; LinkPreviewBot/1.0)" },
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      },
       signal: AbortSignal.timeout(10_000),
     });
     if (!res.ok) return "";
@@ -61,7 +67,9 @@ export async function downloadAsset(
 
     const buf = await res.arrayBuffer();
     if (buf.byteLength > MAX_ASSET_BYTES) {
-      console.warn(`    Asset too large (${buf.byteLength} bytes), skipping: ${sourceUrl}`);
+      console.warn(
+        `    Asset too large (${buf.byteLength} bytes), skipping: ${sourceUrl}`,
+      );
       return "";
     }
 
@@ -92,7 +100,8 @@ export async function fetchLinkCardMetadata(
   try {
     const response = await fetch(targetUrl, {
       headers: {
-        "User-Agent": "Mozilla/5.0 (compatible; LinkPreviewBot/1.0)",
+        "User-Agent":
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
       },
       signal: AbortSignal.timeout(15_000),
     });
@@ -102,9 +111,13 @@ export async function fetchLinkCardMetadata(
     const descriptionMatch =
       html.match(/<meta[^>]*name="description"[^>]*content="([^"]*)"[^>]*>/i) ||
       html.match(/<meta[^>]*content="([^"]*)"[^>]*name="description"[^>]*>/i) ||
-      html.match(/<meta[^>]*property="og:description"[^>]*content="([^"]*)"[^>]*>/i);
+      html.match(
+        /<meta[^>]*property="og:description"[^>]*content="([^"]*)"[^>]*>/i,
+      );
     const imageMatch =
-      html.match(/<meta[^>]*property="og:image"[^>]*content="([^"]*)"[^>]*>/i) ||
+      html.match(
+        /<meta[^>]*property="og:image"[^>]*content="([^"]*)"[^>]*>/i,
+      ) ||
       html.match(/<meta[^>]*content="([^"]*)"[^>]*property="og:image"[^>]*>/i);
     const faviconMatch =
       html.match(/<link[^>]*rel="icon"[^>]*href="([^"]*)"[^>]*>/i) ||

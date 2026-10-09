@@ -16,9 +16,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import extractLinkCardUrl from "../src/utils/extractLinkCardUrl";
+import { extractLinkCardUrls } from "../src/utils/extractLinkCardUrl";
 import { readCache, writeCache } from "../src/utils/linkcardCache";
-import { fetchLinkCardMetadata, downloadAsset } from "../src/utils/fetchLinkCardMetadata";
+import {
+  fetchLinkCardMetadata,
+  downloadAsset,
+} from "../src/utils/fetchLinkCardMetadata";
 import type { LinkCardMetadata } from "../src/utils/linkcardCache";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -49,13 +52,19 @@ async function pool<T>(
   fn: (item: T) => Promise<void>,
 ): Promise<void> {
   const queue = [...items];
-  const workers = Array.from({ length: Math.min(n, items.length) }, async () => {
-    while (queue.length) await fn(queue.shift()!);
-  });
+  const workers = Array.from(
+    { length: Math.min(n, items.length) },
+    async () => {
+      while (queue.length) await fn(queue.shift()!);
+    },
+  );
   await Promise.all(workers);
 }
 
-async function processUrl(url: string, cache: Record<string, LinkCardMetadata>): Promise<void> {
+async function processUrl(
+  url: string,
+  cache: Record<string, LinkCardMetadata>,
+): Promise<void> {
   console.log(`  Fetching: ${url}`);
   const metadata = await fetchLinkCardMetadata(url);
   cache[url] = metadata;
@@ -72,7 +81,10 @@ async function refreshEntry(
 
   if (entry.imageOrigin && !entry.image) {
     const local = await downloadAsset(entry.imageOrigin, "image");
-    if (local) { entry.image = local; changed = true; }
+    if (local) {
+      entry.image = local;
+      changed = true;
+    }
   } else if (entry.imageOrigin && entry.image.startsWith("http")) {
     // Legacy entry with origin URL stored as image — re-download
     const local = await downloadAsset(entry.imageOrigin, "image");
@@ -126,9 +138,11 @@ async function main() {
 
   for (const file of mdxFiles) {
     const content = fs.readFileSync(file, "utf-8");
-    const url = extractLinkCardUrl(content);
-    if (url && !cache[url]) {
-      urlsToFetch.push(url);
+    const urls = extractLinkCardUrls(content);
+    for (const url of urls) {
+      if (url && !cache[url] && !urlsToFetch.includes(url)) {
+        urlsToFetch.push(url);
+      }
     }
   }
 
